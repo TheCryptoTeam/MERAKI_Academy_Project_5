@@ -43,7 +43,7 @@ is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
 
-CREATE TABLE wshList(
+CREATE TABLE wishList(
 id INT AUTO_INCREMENT NOT NULL,
 user_id INT
 FOREIGN KEY (user_id) REFERENCES user (id),
