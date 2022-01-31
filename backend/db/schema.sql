@@ -32,6 +32,15 @@ price: INT(7),
 PRIMARY KEY (id)
 );
 
-
+CREATE TABLE carts(
+id INT AUTO_INCREMENT NOT NULL,
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES user (id),
+product_id INT,
+FOREIGN KEY (product_id) REFERENCES product(id),
+quantity INT(4),
+is_deleted TINYINT DEFAULT 0,
+PRIMARY KEY (id)
+);
 
 
