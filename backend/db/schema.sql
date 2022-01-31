@@ -10,3 +10,16 @@ CREATE TABLE roles (
 );
 
 
+CREATE TABLE users(
+    id INT AUTO_INCREMENT NOT NULL,
+    userName VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    role_id INT,
+    FOREIGN KEY (role_id) REFERENCES roles(role_id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
+
+
