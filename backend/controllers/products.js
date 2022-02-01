@@ -104,7 +104,34 @@ const getProductByType = (req, res) => {
     })}
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //getProductByBrand
+
+
+    const getProductByBrand = (req, res) => {
+
+        const query=`SELECT * FROM products WHERE brand=? AND is_deleted=0`;
+        const productBrand=[req.query.brand];
+      
+      
+        connection.query(query,productBrand,(err,result,field)=>{
+          if (err){ 
+        
+              res.json({success:false,massege:"the product not found",err:err})
+              res.status(404)
+        
+          }
+          else{
+          res.json({success:true,massege:`the product ${productBrand}`,products:result})
+          res.status(200)
+        
+          }
+        })}
+
+
+        
+
 
     module.exports={
-        createNewProduct,getAllProducts,getProductByName,getProductByType
+        createNewProduct,getAllProducts,getProductByName,getProductByType,getProductByBrand
     }
