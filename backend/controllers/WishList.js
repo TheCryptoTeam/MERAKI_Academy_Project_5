@@ -23,6 +23,33 @@ const addToWishList = (req, res) => {
     });
   });
 };
+
+
+//====================================
+
+//GetMyWishList
+
+const GetMyWishList = (req, res) => {
+    const query = `SELECT * FROM wishList WHERE is_deleted=0;`;
+  
+    connection.query(query, (err, result) => {
+      if (!result.length) {
+        res.status(500).json({
+          success: false,
+          massage: "The wishList is empty",
+          err: err,
+        });
+      }
+  
+      res.status(200).json({
+        success: true,
+        massage: "All the wishList Products",
+        results: result,
+      });
+    });
+  };
+
 module.exports = {
   addToWishList,
+  GetMyWishList,
 };
