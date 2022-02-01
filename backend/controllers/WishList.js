@@ -24,32 +24,65 @@ const addToWishList = (req, res) => {
   });
 };
 
-
 //====================================
 
 //GetMyWishList
 
 const GetMyWishList = (req, res) => {
-    const query = `SELECT * FROM wishList WHERE is_deleted=0;`;
-  
-    connection.query(query, (err, result) => {
-      if (!result.length) {
-        res.status(500).json({
-          success: false,
-          massage: "The wishList is empty",
-          err: err,
-        });
-      }
-  
-      res.status(200).json({
-        success: true,
-        massage: "All the wishList Products",
-        results: result,
+  const query = `SELECT * FROM wishList WHERE is_deleted=0;`;
+
+  connection.query(query, (err, result) => {
+    if (!result.length) {
+      res.status(500).json({
+        success: false,
+        massage: "The wishList is empty",
+        err: err,
       });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: "All the wishList Products",
+      results: result,
     });
-  };
+  });
+};
+
+//==========================================
+
+const deleteFromMyWishList = (req, res) => {
+  const id = req.params.id;
+
+  const query = `UPDATE wishList SET is_deleted=1 WHERE id=?;`;
+
+  const data = [id];
+
+  connection.query(query, data, (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    }
+    if (!results.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `The wishList: ${id} is not found`,
+        err: err,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: `Succeeded to delete wishList with id: ${id}`,
+      results: results,
+    });
+  });
+};
 
 module.exports = {
   addToWishList,
   GetMyWishList,
+  deleteFromMyWishList,
 };
