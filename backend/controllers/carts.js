@@ -24,6 +24,28 @@ const addTOCart = (req, res) => {
     });
   });
 };
+
+const getMyCart = (req, res) => {
+  const query = `SELECT * FROM carts WHERE is_deleted=0;`;
+
+  connection.query(query, (err, result) => {
+    if (!result.length) {
+      res.status(500).json({
+        success: false,
+        massage: "The cart is empty",
+        err: err,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: "All the cart Products",
+      results: result,
+    });
+  });
+};
+
 module.exports = {
   addTOCart,
+  getMyCart
 };
