@@ -10,20 +10,20 @@ app.use(express.json());
 app.use(cors());
 
 // Import Routers
-const usersRouter = require("./routes/users");
-const rolesRouter = require("./routes/roles");
-const producsRouter = require("./routes/products");
-const loginRouter = require("./routes/login");
-const cartsRouter = require("./routes/carts");
-const wishListRouter = require("./routes/wishList");
+// const usersRouter = require("./routes/users");
+ const rolesRouter = require("./routes/roles");
+// const producsRouter = require("./routes/products");
+// const loginRouter = require("./routes/login");
+// const cartsRouter = require("./routes/carts");
+// const wishListRouter = require("./routes/wishList");
 
 // Routes Middleware
-app.use("/users", usersRouter);
-app.use("/roles", rolesRouter);
-app.use("/producs", producsRouter);
-app.use("/login", loginRouter);
-app.use("/carts", cartsRouter);
-app.use("/wishList", wishListRouter);
+// app.use("/users", usersRouter);
+ app.use("/roles", rolesRouter);
+// app.use("/producs", producsRouter);
+// app.use("/login", loginRouter);
+// app.use("/carts", cartsRouter);
+// app.use("/wishList", wishListRouter);
 
 const PORT = process.env.PORT || 5000;
 
