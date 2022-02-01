@@ -1,7 +1,8 @@
-DROP crypto
-CREATE crypto
 
-Use crypto
+DROP DATABASE crypto;
+CREATE DATABASE crypto;
+
+USE crypto;
 
 CREATE TABLE roles (
     role_id INT AUTO_INCREMENT NOT NULL,
@@ -23,32 +24,32 @@ CREATE TABLE users(
 
 CREATE TABLE products(
 id INT AUTO_INCREMENT NOT NULL,
-name: VARCHAR(255),
-type: VARCHAR(255),
-image: VARCHAR(255),
-brand: VARCHAR(255),
-description: VARCHAR(255),
-price: INT(7),
+name VARCHAR(255),
+type VARCHAR(255),
+image VARCHAR(255),
+brand VARCHAR(255),
+description VARCHAR(255),
+price INT(7),
 PRIMARY KEY (id)
 );
 
 CREATE TABLE carts(
 id INT AUTO_INCREMENT NOT NULL,
 user_id INT,
-FOREIGN KEY (user_id) REFERENCES user (id),
+FOREIGN KEY (user_id) REFERENCES users(id),
 product_id INT,
-FOREIGN KEY (product_id) REFERENCES product(id),
+FOREIGN KEY (product_id) REFERENCES products(id),
 quantity INT(4),
 is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
 
-CREATE TABLE wshList(
+CREATE TABLE wishList(
 id INT AUTO_INCREMENT NOT NULL,
-user_id INT
-FOREIGN KEY (user_id) REFERENCES user (id),
-product_id INT
-FOREIGN KEY (product_id) REFERENCES product(id),
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES users(id),
+product_id INT,
+FOREIGN KEY (product_id) REFERENCES products(id),
 is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
