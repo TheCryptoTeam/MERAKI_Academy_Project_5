@@ -30,6 +30,7 @@ image VARCHAR(255),
 brand VARCHAR(255),
 description VARCHAR(255),
 price INT(7),
+is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
 
