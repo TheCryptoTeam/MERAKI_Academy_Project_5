@@ -61,7 +61,7 @@ const getAllProducts = (req, res) => {
 
 const getProductByName = (req, res) => {
 
-    const query=`SELECT * FROM products WHERE name=?`;
+    const query=`SELECT * FROM products WHERE name=? `;
     const productName=[req.query.name];
   
   
@@ -84,6 +84,35 @@ const getProductByName = (req, res) => {
 
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//getProductBytype
+
+
+
+const getProductByType = (req, res) => {
+
+    const query=`SELECT * FROM products WHERE type=? `;
+    const producType=[req.query.type];
+  
+  
+    connection.query(query,producType,(err,result,field)=>{
+      if (err){ 
+          // throw err
+      // console.log("errrrr",err);
+          res.json({success:false,massege:"the product not found",err:err})
+          res.status(404)
+    
+      }
+      else{
+        //   console.log("result :",result);
+      res.json({success:true,massege:`the product `,products:result})
+      res.status(200)
+    
+      }
+    })}
+
+
+
     module.exports={
-        createNewProduct,getAllProducts,getProductByName
+        createNewProduct,getAllProducts,getProductByName,getProductByType
     }
