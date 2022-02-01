@@ -1,5 +1,8 @@
 const connection =require('../db/db')
 
+/////////////////////////////////////////////////////////////////////
+//createNewProduct
+
 
 const createNewProduct = (req, res) => {
 
@@ -22,6 +25,35 @@ const createNewProduct = (req, res) => {
       }
     })}
 
+
+
+//////////////////////////////////////////////////////////////////////////////
+//getAllProducts
+
+
+
+const getAllProducts = (req, res) => {
+    const query=`SELECT * FROM products`
+   
+    connection.query(query,(err,result,field)=>{
+     if (err){ 
+         // throw err
+     // console.log("errrrr",err);
+         res.json({success:false,massege:"server erorr",err:err})
+         res.status(500)
+   
+     }
+     else{
+         // console.log("result :",result);
+     res.json({success:true,massege:"All the products",result:result})
+     res.status(200)
+   
+     }
+   })
+       
+   };
+
+
     module.exports={
-        createNewProduct
+        createNewProduct,getAllProducts
     }
