@@ -129,8 +129,6 @@ const getProductByType = (req, res) => {
         })}
 
 
-        
-
 
     module.exports={
         createNewProduct,getAllProducts,getProductByName,getProductByType,getProductByBrand
