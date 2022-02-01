@@ -11,13 +11,11 @@ const createNewProduct = (req, res) => {
   
     connection.query(query,data,(err,result,field)=>{
       if (err){ 
-          // throw err
           res.json({success:false,massege:"server erorr",err:err})
           res.status(500)
     
       }
       else{
-          // console.log("result :",result);
       res.status(201)
       res.json({success:true,massege:"product craeted",result:result})
   
@@ -33,18 +31,16 @@ const createNewProduct = (req, res) => {
 
 
 const getAllProducts = (req, res) => {
-    const query=`SELECT * FROM products`
+    const query=`SELECT * FROM products WHERE is_deleted=0 `
    
     connection.query(query,(err,result,field)=>{
      if (err){ 
-         // throw err
-     // console.log("errrrr",err);
+  
          res.json({success:false,massege:"server erorr",err:err})
          res.status(500)
    
      }
      else{
-         // console.log("result :",result);
      res.json({success:true,massege:"All the products",result:result})
      res.status(200)
    
@@ -61,20 +57,18 @@ const getAllProducts = (req, res) => {
 
 const getProductByName = (req, res) => {
 
-    const query=`SELECT * FROM products WHERE name=? `;
+    const query=`SELECT * FROM products WHERE name=? AND is_deleted=0`;
     const productName=[req.query.name];
   
   
     connection.query(query,productName,(err,result,field)=>{
       if (err){ 
-          // throw err
-      // console.log("errrrr",err);
+     
           res.json({success:false,massege:"the product not found",err:err})
           res.status(404)
     
       }
       else{
-        //   console.log("result :",result);
       res.json({success:true,massege:`the product `,products:result})
       res.status(200)
     
@@ -91,21 +85,19 @@ const getProductByName = (req, res) => {
 
 const getProductByType = (req, res) => {
 
-    const query=`SELECT * FROM products WHERE type=? `;
+    const query=`SELECT * FROM products WHERE type=? AND is_deleted=0`;
     const producType=[req.query.type];
   
   
     connection.query(query,producType,(err,result,field)=>{
       if (err){ 
-          // throw err
-      // console.log("errrrr",err);
+    
           res.json({success:false,massege:"the product not found",err:err})
           res.status(404)
     
       }
       else{
-        //   console.log("result :",result);
-      res.json({success:true,massege:`the product `,products:result})
+      res.json({success:true,massege:`the product ${productName}`,products:result})
       res.status(200)
     
       }
