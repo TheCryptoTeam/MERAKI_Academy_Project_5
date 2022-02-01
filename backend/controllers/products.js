@@ -54,6 +54,11 @@ const getAllProducts = (req, res) => {
    };
 
 
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+
     module.exports={
         createNewProduct,getAllProducts
     }
