@@ -13,7 +13,7 @@ app.use(cors());
 const usersRouter = require("./routes/users");
 const rolesRouter = require("./routes/roles");
 const productsRouter = require("./routes/products");
-// const loginRouter = require("./routes/login");
+const loginRouter = require("./routes/login");
 // const cartsRouter = require("./routes/carts");
 // const wishListRouter = require("./routes/wishList");
 
@@ -21,7 +21,7 @@ const productsRouter = require("./routes/products");
 app.use("/users", usersRouter);
 app.use("/roles", rolesRouter);
 app.use("/products", productsRouter);
-// app.use("/login", loginRouter);
+app.use("/login", loginRouter);
 // app.use("/carts", cartsRouter);
 // app.use("/wishList", wishListRouter);
 
