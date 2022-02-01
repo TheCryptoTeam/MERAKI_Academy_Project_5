@@ -130,6 +130,33 @@ const getProductByType = (req, res) => {
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//updateProductById
+
+
+
+
+const updateProductById = (req, res) => {
+
+
+    const query=`UPDATE products SET ? WHERE id=? AND is_deleted=0`
+    const  body =req.body
+    const id = req.params.id
+    const data =[body,id]
+  
+    connection.query(query,data,(err,result,field)=>{
+      if (err){ 
+          res.json(err)
+    
+      }
+      else{
+      res.json(result)
+    
+      }
+    })}
+
     module.exports={
-        createNewProduct,getAllProducts,getProductByName,getProductByType,getProductByBrand
+        createNewProduct,getAllProducts,getProductByName,getProductByType,getProductByBrand,updateProductById
     }
