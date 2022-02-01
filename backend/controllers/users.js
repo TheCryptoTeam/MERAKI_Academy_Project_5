@@ -8,7 +8,7 @@ const createNewAuthor = async (req, res) => {
 
   const encryptedPassword = await bcrypt.hash(password, saltRounds);
 
-  const query = `INSERT INTO users ( useName,email, password, role_id) VALUES (?,?,?,?)`;
+  const query = `INSERT INTO users ( userName,email, password, role_id) VALUES (?,?,?,?)`;
   const data = [userName, email, encryptedPassword, role_id];
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -21,7 +21,7 @@ const createNewAuthor = async (req, res) => {
     // result are the data returned by mysql server
     res.status(200).json({
       success: true,
-      massage: "Success Author Added",
+      massage: "Success user Added",
       results: results,
     });
   });
