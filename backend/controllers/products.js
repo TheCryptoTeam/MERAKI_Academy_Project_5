@@ -88,10 +88,10 @@ const getProductByName = (req, res) => {
 const getProductByType = (req, res) => {
 
     const query = `SELECT * FROM products WHERE type=? AND is_deleted=0`;
-    const producType = [req.query.type];
+    const productType = [req.query.type];
 
 
-    connection.query(query, producType, (err, result, field) => {
+    connection.query(query, productType, (err, result, field) => {
         if (err) {
 
             res.json({ success: false, massege: "the product not found", err: err })
@@ -99,7 +99,7 @@ const getProductByType = (req, res) => {
 
         }
         else {
-            res.json({ success: true, massege: `the product ${productName}`, products: result })
+            res.json({ success: true, massege: `the product ${productType}`, products: result })
             res.status(200)
 
         }
@@ -190,6 +190,33 @@ const deleteProductById = (req, res) => {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//getProductById
+
+
+
+
+const getProductById = (req, res) => {
+
+    const query = `SELECT * FROM products WHERE id=?`
+    const id = req.query.id
+    connection.query(query, id, (err, result, field) => {
+        if (err) {
+
+            res.json({ success: false, massege: "the product not found", err: err })
+            res.status(404)
+
+        }
+        else {
+            res.json({ success: true, massege: `All the product id`, products: result })
+            res.status(200)
+
+        }
+    })
+}
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
 //module.exports
 
@@ -197,5 +224,5 @@ const deleteProductById = (req, res) => {
 module.exports = {
     createNewProduct, getAllProducts, getProductByName,
     getProductByType, getProductByBrand, updateProductById,
-    deleteProductById
+    deleteProductById, getProductById
 }
