@@ -1,10 +1,22 @@
 import React from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {setproducts,addproduct,updateproductById,deleteProductById} from "../reducer/products";
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
 
 const Home = () => {
+
+
+const dispatch = useDispatch();
+const state=useSelector((state)=>{
+    return { token: state.loginReducer.token, products:state.productsReducer.products,isLoggedIn: state.loginReducer.isLoggedIn};
+
+})
+
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   //  getAllProducts
 
@@ -19,7 +31,11 @@ const Home = () => {
       });
   };
 
-  return <div></div>;
+  return <div>
+      <button onClick={()=>{
+          getAllProducts
+      }}>test</button>
+  </div>;
 };
 
 export default Home;

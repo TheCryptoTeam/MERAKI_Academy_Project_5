@@ -9,16 +9,16 @@ import Login from "./components/Login/Login";
 
 const App = () => {
   const token = localStorage.getItem("userToken");
-  const [isLoggedIn, setisLoggedIn] = useState(false);
   return (
     <div className="App">
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route
           path="/login"
-          element={<Login loggedin={setisLoggedIn} />}
-          setisLoggedIn={setisLoggedIn}
+          element={<Login />}
         />
+        <Route path="/home" element={<Register />} />
+
       </Routes>
     </div>
   );
