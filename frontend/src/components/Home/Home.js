@@ -1,14 +1,15 @@
-import React from "react";
+import React,{  useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setproducts, addproduct, updateproductById, deleteProductById } from "../reducer/products";
+// import { setproducts, addproduct, updateproductById, deleteProductById } from "../reducer/products";
 
-
+import { setproducts , addproduct, updateproductById, deleteProductById} from "../../reducer/products";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
 
 const Home = () => {
 
+    const [show, setShow] = useState(false);
 
     const dispatch = useDispatch();
     const state = useSelector((state) => {
@@ -25,17 +26,37 @@ const Home = () => {
             .get("http://localhost:5000/products")
             .then((res) => {
                 console.log(res);
+                dispatch(setproducts(res.data.result))
+
+                setShow(true)
             })
             .catch((err) => {
                 console.log(err);
             });
     };
 
-    return <div>
-        <button onClick={() => 
+
+
+
+
+
+    return (<div>
+<div>
+    {
+        show&&state.products.map((product,index)=>{
+           return <div key={index} className="product">
+                {console.log(product.name)}
+                <p>name:{product.name}</p>
+            </div>
+
+        })
+    }
+</div>
+
+        <button onClick={
             getAllProducts
         }>test</button>
-    </div>
+    </div>)
 };
 
 export default Home;
