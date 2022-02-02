@@ -2,9 +2,19 @@ import React, { useState } from "react";
 import "./Register.css";
 import axios from "axios";
 
+//redax
+import { setLogin } from "../../reducer/login/index";
+import { useSelector } from "react-redux";
+
 // =================================================================
 
 const Register = () => {
+  const state = useSelector((state) => {
+    return {
+      isLoggedIn: state.loginReducer.isLoggedIn,
+    };
+  });
+
   const [userName, setUserName] = useState("");
 
   const [email, setEmail] = useState("");
@@ -42,7 +52,7 @@ const Register = () => {
   return (
     <>
       <div className="Form">
-        {!false ? (
+        {!state.isLoggedIn ? (
           <>
             <p className="Title">Register:</p>
             <form onSubmit={addNewUser}>
