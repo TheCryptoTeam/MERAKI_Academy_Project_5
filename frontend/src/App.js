@@ -5,13 +5,14 @@ import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import NewProduct from "./components/NewProduct/NewProduct";
-
+import Navigation from "./components/Navigation/Navigation";
 //===============================================================
 
 const App = () => {
   const token = localStorage.getItem("userToken");
   return (
     <div className="App">
+      <Navigation/>
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
