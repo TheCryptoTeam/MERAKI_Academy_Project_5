@@ -26,7 +26,9 @@ const addTOCart = (req, res) => {
 };
 
 const getMyCart = (req, res) => {
-  const query = `SELECT * FROM carts WHERE is_deleted=0;`;
+  const query = `SELECT  *
+
+  FROM carts inner Join products on product_id = products.id;`;
 
   connection.query(query, (err, result) => {
     if (!result.length) {
@@ -79,5 +81,5 @@ const deleteFromMyCart = (req, res) => {
 module.exports = {
   addTOCart,
   getMyCart,
-  deleteFromMyCart
+  deleteFromMyCart,
 };
