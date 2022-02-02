@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import NewProduct from "./components/NewProduct/NewProduct";
 
 //===============================================================
 
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/newProduct" element={<NewProduct />} />
+
         {/* <Route path="/prdouct" element={<Prdouct />} /> */}
         <Route
           path="*"
