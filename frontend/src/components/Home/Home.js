@@ -1,9 +1,8 @@
-import React,{  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-// import { setproducts, addproduct, updateproductById, deleteProductById } from "../reducer/products";
-
-import { setproducts , addproduct, updateproductById, deleteProductById} from "../../reducer/products";
+ import "./Home.css"
+import { setproducts, addproduct, updateproductById, deleteProductById } from "../../reducer/products";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
 
@@ -22,10 +21,9 @@ const Home = () => {
     //  getAllProducts
 
     const getAllProducts = async () => {
-        const res = await axios
+        await axios
             .get("http://localhost:5000/products")
             .then((res) => {
-                console.log(res);
                 dispatch(setproducts(res.data.result))
 
                 setShow(true)
@@ -37,21 +35,30 @@ const Home = () => {
 
 
 
+    ////////////////////////////////////////////////////////////////////////
+    //   
+
+
+
 
 
 
     return (<div>
-<div>
-    {
-        show&&state.products.map((product,index)=>{
-           return <div key={index} className="product">
-                {console.log(product.name)}
-                <p>name:{product.name}</p>
-            </div>
+        <div>
+            {
+                show && state.products.map((product, index) => {
+                    return <div key={index} className="products">
+                        <div className="product">
+                            <p>name:{product.name}</p>
+                            <p>price:{product.price}</p>
+                            <button className="add">add to cart</button>
+                            <button className="add">add to wishList</button>
+                        </div><br/>
+                    </div>
 
-        })
-    }
-</div>
+                })
+            }
+        </div>
 
         <button onClick={
             getAllProducts
