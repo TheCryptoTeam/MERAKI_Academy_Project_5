@@ -65,6 +65,51 @@ const NewProduct = () => {
 
   return (
     <>
+     <form onSubmit={createNewProduct}>
+        <br />
+        <input
+          type="text"
+          placeholder="Name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Image"
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Brand"
+          onChange={(e) => setBrand(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Type"
+          onChange={(e) => setType(e.target.value)}
+        />
+        <br />
+
+        <input
+          type="text"
+          placeholder="Price"
+          onChange={(e) => setPrice(e.target.value)}
+        />
+        <br />
+
+        <textarea
+          placeholder=" description "
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
+        <br />
+        <button>Create New Product</button>
+      </form>
+      <br />
+      {status
+        ? message && <div >{message}</div>
+        : message && <div >{message}</div>}
 
     </>
   );
