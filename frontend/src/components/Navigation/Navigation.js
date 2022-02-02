@@ -1,11 +1,12 @@
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logout } from "../../reducer/login/index";
-import { useSelector } from "react-redux";
-const Navigation = ({ token, setLoggedin }) => {
+import { useDispatch, useSelector } from "react-redux";
+const Navigation = () => {
+  const dispatch = useDispatch();
+
   const state = useSelector((state) => {
     return {
       isLoggedIn: state.loginReducer.isLoggedIn,
-      token: state.loginReducer.token,
     };
   });
   return (
