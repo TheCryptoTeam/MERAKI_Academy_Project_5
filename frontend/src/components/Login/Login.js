@@ -7,7 +7,7 @@ import axios from "axios";
 import { login } from "../../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 //********************** */
-const Login = ({ loggedin }) => {
+const Login = () => {
   const state = useSelector((state) => {
     return {
       isLoggedIn: state.loginReducer.isLoggedIn,
