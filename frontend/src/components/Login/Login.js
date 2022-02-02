@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Login.css";
 
 //redax
 import { login } from "../../reducer/login/index";
@@ -37,7 +38,7 @@ const Login = () => {
       .then((result) => {
         dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
-       
+
         navigate("/home");
       })
       .catch((err) => {
@@ -49,10 +50,9 @@ const Login = () => {
   return (
     <div className="authentication">
       
-      <div className="authentication-form">
-        
-        <h1>Login</h1>
-      
+            <p className="Title">Login:</p>
+    
+
         <div className="authentication-inputs">
           <label>Email</label>
           <input
@@ -73,7 +73,7 @@ const Login = () => {
             required=""
           />
           <button onClick={loginUser}>Login</button>
-          {message ? <p className="error">{message}</p> : <></>}
+          {message ? <p className="ErrorMessage">{message}</p> : <></>}
         </div>
 
         <p>
@@ -83,7 +83,7 @@ const Login = () => {
           </a>
         </p>
       </div>
-    </div>
+  
   );
 };
 export default Login;
