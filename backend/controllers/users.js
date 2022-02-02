@@ -5,9 +5,12 @@ const saltRounds = 10;
 
 const createNewAuthor = async (req, res) => {
   const { userName, email, password, role_id } = req.body;
-
-  const encryptedPassword = await bcrypt.hash(password, saltRounds);
-
+  let encryptedPassword;
+  if (password) {
+    encryptedPassword = await bcrypt.hash(password, saltRounds);
+    
+  }
+console.log(encryptedPassword);
   const query = `INSERT INTO users ( userName,email, password, role_id) VALUES (?,?,?,?)`;
   const data = [userName, email, encryptedPassword, role_id];
   connection.query(query, data, (err, results) => {

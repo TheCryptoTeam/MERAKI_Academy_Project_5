@@ -13,9 +13,9 @@ CREATE TABLE roles (
 
 CREATE TABLE users(
     id INT AUTO_INCREMENT NOT NULL,
-    userName VARCHAR(255),
-    email VARCHAR(255) UNIQUE,
-    password VARCHAR(255),
+    userName VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
     role_id INT,
     FOREIGN KEY (role_id) REFERENCES roles(role_id),
     is_deleted TINYINT DEFAULT 0,
@@ -24,12 +24,12 @@ CREATE TABLE users(
 
 CREATE TABLE products(
 id INT AUTO_INCREMENT NOT NULL,
-name VARCHAR(255),
-type VARCHAR(255),
-image VARCHAR(255),
-brand VARCHAR(255),
-description VARCHAR(255),
-price INT(7),
+name VARCHAR(255) NOT NULL,
+type VARCHAR(255) DEFAULT 'other',
+image VARCHAR(255) NOT NULL,
+brand VARCHAR(255) DEFAULT 'other',
+description VARCHAR(255) NOT NULL,
+price INT(7) NOT NULL,
 is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
