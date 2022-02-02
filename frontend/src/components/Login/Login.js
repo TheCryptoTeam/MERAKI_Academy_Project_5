@@ -3,10 +3,22 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+//redax
+import { login } from "../../reducer/login/index";
+import { useDispatch, useSelector } from "react-redux";
+//********************** */
 const Login = ({ loggedin }) => {
+  const state = useSelector((state) => {
+    return {
+      isLoggedIn: state.loginReducer.isLoggedIn,
+      token: state.loginReducer.token,
+    };
+  });
+
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+
   const [message, setmessage] = useState("");
 
   const navigate = useNavigate();
@@ -23,9 +35,9 @@ const Login = ({ loggedin }) => {
       //send data from body object
       .post("http://localhost:5000/login", body)
       .then((result) => {
-        setToken(result.data.token);
+        dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
-        loggedin(true);
+       
         navigate("/home");
       })
       .catch((err) => {

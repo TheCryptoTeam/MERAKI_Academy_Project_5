@@ -3,7 +3,7 @@ import "./Register.css";
 import axios from "axios";
 
 //redax
-import { setLogin } from "../../reducer/login/index";
+
 import { useSelector } from "react-redux";
 
 // =================================================================
