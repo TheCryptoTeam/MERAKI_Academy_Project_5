@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {addproduct } from "../reducer/article";
+import {addproduct } from  "../../reducer/products";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +27,8 @@ const NewProduct = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
 
-  const createNewProduct = async()=>{
+  const createNewProduct = async(e)=>{
+    e.preventDefault();
     
    const product ={
     name, 
@@ -56,16 +57,16 @@ const NewProduct = () => {
   //=========================
   useEffect(() => {
     if (!isLoggedIn) {
-      history("/dashboard");
+      history("/home");
     }
   });
 
   //===============================
 
   return (
-    <div>
-      <h1>Hi</h1>
-    </div>
+    <>
+
+    </>
   );
 };
 
