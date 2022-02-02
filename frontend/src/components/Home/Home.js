@@ -35,7 +35,7 @@ const Home = () => {
         <button onClick={() => 
             getAllProducts
         }>test</button>
-    </div>;
+    </div>
 };
 
 export default Home;
