@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
+import "./Register.css";
 import axios from "axios";
-
-import { AuthContext } from "./../context/auth";
 
 // =================================================================
 
@@ -33,7 +31,7 @@ const Register = () => {
     } catch (error) {
       setStatus(false);
       if (error.response && error.response.data) {
-        return setMessage(error.response.data.message);
+        return setMessage(error.response.data.massage);
       }
       setMessage("Error happened while register, please try again");
     }
@@ -44,7 +42,7 @@ const Register = () => {
   return (
     <>
       <div className="Form">
-        {!isLoggedIn ? (
+        {!false ? (
           <>
             <p className="Title">Register:</p>
             <form onSubmit={addNewUser}>
@@ -52,7 +50,7 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="User Name"
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={(e) => setUserName(e.target.value)}
               />
               <br />
 
