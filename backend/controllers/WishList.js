@@ -29,11 +29,20 @@ const addToWishList = (req, res) => {
 //GetMyWishList
 
 const GetMyWishList = (req, res) => {
-  const query = `SELECT * FROM wishList WHERE is_deleted=0;`;
+  const query = `SELECT  *
+
+  FROM wishList inner Join products on product_id = products.id WHERE wishList.is_deleted=0;`;
 
   connection.query(query, (err, result) => {
+    if (err) {
+        return res.status(500).json({
+          success: false,
+          massage: "Server Error",
+          err: err,
+        });
+      }
     if (!result.length) {
-      res.status(500).json({
+        return res.status(500).json({
         success: false,
         massage: "The wishList is empty",
         err: err,

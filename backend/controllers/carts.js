@@ -28,9 +28,16 @@ const addTOCart = (req, res) => {
 const getMyCart = (req, res) => {
   const query = `SELECT  *
 
-  FROM carts inner Join products on product_id = products.id;`;
+  FROM carts inner Join products on product_id = products.id WHERE carts.is_deleted=0 ;`;
 
   connection.query(query, (err, result) => {
+    if (err) {
+        return res.status(500).json({
+          success: false,
+          massage: "Server Error",
+          err: err,
+        });
+      }
     if (!result.length) {
       res.status(500).json({
         success: false,
