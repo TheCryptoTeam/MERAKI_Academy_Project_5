@@ -28,7 +28,7 @@ const addTOCart = (req, res) => {
 const getMyCart = (req, res) => {
   const query = `SELECT  *
 
-  FROM carts inner Join products on product_id = products.id WHERE carts.is_deleted=0 ;`;
+  FROM carts inner Join products on product_id = products.id WHERE carts.is_deleted=0 AND carts.user_id=${req.token.userId} ;`;
 
   connection.query(query, (err, result) => {
     if (err) {
@@ -39,7 +39,7 @@ const getMyCart = (req, res) => {
         });
       }
     if (!result.length) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "The cart is empty",
         err: err,
