@@ -10,6 +10,7 @@ import Brand from "./components/Brand/Brand";
 import Type from "./components/Type/Type";
 import Carts from "./components/Carts/carts";
 import Search from "./components/Search/Search";
+import Products from "./components/Products/Products";
 
 //===============================================================
 
@@ -27,6 +28,8 @@ const App = () => {
         {<Route path="/type" element={<Type />} /> }
         <Route path="/carts" element={<Carts />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/products" element={<Products />} />
+
 
         <Route
           path="*"
