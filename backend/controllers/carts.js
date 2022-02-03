@@ -40,9 +40,9 @@ const getMyCart = (req, res) => {
       }
     if (!result.length) {
       return res.status(500).json({
-        success: false,
+        success: true,
         massage: "The cart is empty",
-        err: err,
+        
       });
     }
 
