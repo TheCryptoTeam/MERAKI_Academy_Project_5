@@ -9,6 +9,8 @@ import Navigation from "./components/Navigation/Navigation";
 import Brand from "./components/Brand/Brand";
 import Type from "./components/Type/Type";
 import Carts from "./components/Carts/carts";
+import Search from "./components/Search/Search";
+
 //===============================================================
 
 const App = () => {
