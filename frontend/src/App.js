@@ -6,6 +6,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import NewProduct from "./components/NewProduct/NewProduct";
 import Navigation from "./components/Navigation/Navigation";
+import Search from "./components/Search/Search";
 //===============================================================
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/newProduct" element={<NewProduct />} />
+        <Route path="/search" element={<Search />} />
 
         {/* <Route path="/prdouct" element={<Prdouct />} /> */}
         <Route
