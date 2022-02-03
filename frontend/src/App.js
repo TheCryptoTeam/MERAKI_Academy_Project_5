@@ -10,7 +10,7 @@ import Brand from "./components/Brand/Brand";
 import Type from "./components/Type/Type";
 import Carts from "./components/Carts/carts";
 import Search from "./components/Search/Search";
-import Products from "./components/products/products";
+import Products from "./components/Products/Products";
 
 //===============================================================
 
