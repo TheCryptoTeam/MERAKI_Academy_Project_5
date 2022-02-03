@@ -7,20 +7,21 @@ import Login from "./components/Login/Login";
 import NewProduct from "./components/NewProduct/NewProduct";
 import Navigation from "./components/Navigation/Navigation";
 import Type from "./components/Type/Type";
+import Brand from "./components/Brand/Brand";
 //===============================================================
 
 const App = () => {
   const token = localStorage.getItem("userToken");
   return (
     <div className="App">
-      <Navigation/>
+      <Navigation />
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/newProduct" element={<NewProduct />} />
-
-         <Route path="/type" element={<Type />} /> 
+        <Route path="/brand" element={<Brand />} />
+        <Route path="/type" element={<Type />} />
         <Route
           path="*"
           element={
