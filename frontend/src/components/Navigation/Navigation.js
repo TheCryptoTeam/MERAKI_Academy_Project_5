@@ -15,6 +15,7 @@ const Navigation = () => {
         <>
           <Link to="/home">Home</Link>
           <Link to="/newProduct">New Product</Link>
+          <Link to="/carts">Cart</Link>
           <Link
             className="auth-button"
             onClick={() => {
