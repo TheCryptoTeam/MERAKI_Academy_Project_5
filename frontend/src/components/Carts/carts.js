@@ -6,21 +6,32 @@ import { setcarts } from "../../reducer/cart/carts";
 const Carts = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
-    return { carts: state.cartsReducer.carts };
+    return { carts: state.cartsReducer.carts ,token: state.loginReducer.token
+    };
   });
+  const [show, setShow] = useState(false);
   const [message,setMessage]=useState("")
   
 
   const getMyCart = async()=>{
-  await axios.get("http://localhost:5000/carts")
-  .catch((err) => {
-    setMessage("The cart is empty");
-    dispatch(setcarts([]))
-   
+    const headers = {
+      Authorization: `Bearer ${state.token}`,
+    };
+  await axios.get("http://localhost:5000/carts",{ headers })
+  
+  .then(res=>{
+  
+if (res.data.results.length) {
+  dispatch(setcarts(res.data.results))
+    setShow(true)
+}
+    
     
   })
-  .then(res=>{
-    dispatch(setcarts(res.data.results))
+  .catch((err) => {
+    setMessage("The cart is empty");
+   
+   
     
   })
   
@@ -29,7 +40,7 @@ const Carts = () => {
 
   return (
   <>
-  { state.carts.map((product,index)=>{
+  { show && state.carts.map((product,index)=>{
       return <div key={index} className="products">
          <p>{product.image}</p>
          <p>{product.quantity}</p>
