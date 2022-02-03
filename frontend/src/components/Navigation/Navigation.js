@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { logout } from "../../reducer/login/index";
+import { logout,useNavigate } from "../../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 const Navigation = () => {
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   const state = useSelector((state) => {
     return {
@@ -20,6 +21,8 @@ const Navigation = () => {
             className="auth-button"
             onClick={() => {
               dispatch(logout());
+              localStorage.clear();
+                history("/login");
             }}
             to="/login"
           >
