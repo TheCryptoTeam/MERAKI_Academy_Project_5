@@ -8,6 +8,7 @@ import NewProduct from "./components/NewProduct/NewProduct";
 import Navigation from "./components/Navigation/Navigation";
 import Brand from "./components/Brand/Brand";
 import Type from "./components/Type/Type";
+import Carts from "./components/Carts/carts";
 //===============================================================
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/newProduct" element={<NewProduct />} />
         <Route path="/brand" element={<Brand />} />
         {<Route path="/type" element={<Type />} /> }
+        <Route path="/carts" element={<Carts />} />
         <Route
           path="*"
           element={
