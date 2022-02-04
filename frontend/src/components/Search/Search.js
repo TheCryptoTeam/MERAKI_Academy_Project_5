@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setproducts, addproduct, updateproductById, deleteProductById } from "../../reducer/products";
-
+import  { useNavigate} from "react-router-dom";
 
 
 
 const Search = () => {
-
+    const navigate = useNavigate();
     const [search, setSearch] = useState("")
     const dispatch = useDispatch();
     const [show, setShow] = useState(0);
@@ -95,6 +95,11 @@ const Search = () => {
                         show==1 ? (state.products.map((product, index) => {
                             return <div key={index} className="products">
                                 <div className="product">
+                                <img
+                    onClick={() => navigate(`/products/${product.id}`)}
+                    src={product.image}
+                    alt=""
+                  />
                                     <p>name:{product.name}</p>
                                     <p>price:{product.price}</p>
                                     <button className="add">add to cart</button>

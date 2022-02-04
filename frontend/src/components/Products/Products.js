@@ -99,7 +99,7 @@ const Products = () => {
             <div key={index} className="products">
               <div className="product">
                 
-                <p>image:{product.image}</p>
+               <img src={product.image} alt=""/>
                 <p>name:{product.name}</p>
                 <p>type:{product.type}</p>
                 <p>brand:{product.brand}</p>

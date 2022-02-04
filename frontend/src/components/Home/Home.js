@@ -92,8 +92,9 @@ const Home = () => {
         <div>
             {
                 show && state.products.map((product, index) => {
-                    return <div key={index} className="products" onClick={() => navigate(`/products/${product.id}`)}>
+                    return <div key={index} className="products" >
                         <div className="product">
+                        <img onClick={() => navigate(`/products/${product.id}`)} src={product.image} alt=""/>
                             <p>name:{product.name}</p>
                             <p>price:{product.price}</p>
                             <button className="add" onClick={() => { addToCart(product.id) }}>add to cart</button>
