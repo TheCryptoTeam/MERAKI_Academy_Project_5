@@ -75,8 +75,8 @@ const Home = () => {
     return (<div>
 
         <div>
-            <select className="selectBrand" onChange={(e) => {
-                navigate(`/brand/${e.target.value}`)
+            <select className="selecttype" onChange={(e) => {
+                navigate(`/type/${e.target.value}`)
 
             }
 

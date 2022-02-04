@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Type = () => {
@@ -10,10 +10,13 @@ const Type = () => {
   useEffect(() => {
     getByType();
   }, []);
+
+  const { type } = useParams()
+
   const getByType = () => {
     axios
 
-      .get(`http://localhost:5000/products/search_type?type=${query}`)
+      .get(`http://localhost:5000/products/type/${type}`)
       .then((result) => {
         setProducts(result.data.products);
       })

@@ -11,7 +11,7 @@ productsRouter.get("/",getAllProducts)
 
 productsRouter.get("/id/:id",getProductById)
 productsRouter.get("/search_name",getProductByName)
-productsRouter.get("/search_type",getProductByType)
+productsRouter.get("/type/:type",getProductByType)
 productsRouter.get("/brand/:brand",getProductByBrand)
 
 productsRouter.put("/:id", updateProductById);

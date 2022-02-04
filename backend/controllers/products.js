@@ -88,7 +88,7 @@ const getProductByName = (req, res) => {
 const getProductByType = (req, res) => {
 
     const query = `SELECT * FROM products WHERE type=? AND is_deleted=0`;
-    const productType = [req.query.type];
+    const productType = [req.params.type];
 
 
     connection.query(query, productType, (err, result, field) => {
