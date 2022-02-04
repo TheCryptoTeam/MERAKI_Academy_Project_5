@@ -29,7 +29,7 @@ const addToWishList = (req, res) => {
 //GetMyWishList
 
 const GetMyWishList = (req, res) => {
-  const query = `SELECT  * 
+  const query = `SELECT   wishList.*,products.name,products.type,products.image,products.brand,products.description,products.price
 
   FROM wishList inner Join products on product_id = products.id WHERE wishList.is_deleted=0 AND wishList.user_id=${req.token.userId} ;`;
 
@@ -62,7 +62,7 @@ const GetMyWishList = (req, res) => {
 const deleteFromMyWishList = (req, res) => {
   const id = req.params.id;
 
-  const query = `UPDATE wishList SET is_deleted=1 WHERE product_id=?;`;
+  const query = `UPDATE wishList SET is_deleted=1 WHERE id=?;`;
 
   const data = [id];
 
