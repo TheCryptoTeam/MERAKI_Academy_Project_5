@@ -3,11 +3,13 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
  import "./Home.css"
 import { setproducts, addproduct, updateproductById, deleteProductById } from "../../reducer/products";
+import { Navigate, useNavigate } from "react-router-dom";
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
-
 const Home = () => {
 
+    const navigate=useNavigate()
     const [show, setShow] = useState(false);
 
     const dispatch = useDispatch();
@@ -47,7 +49,7 @@ const Home = () => {
         <div>
             {
                 show && state.products.map((product, index) => {
-                    return <div key={index} className="products">
+                    return <div key={index} className="products" onClick={() => navigate(`/products/${product.id}`)}>
                         <div className="product">
                             <p>name:{product.name}</p>
                             <p>price:{product.price}</p>

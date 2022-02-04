@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setproducts, addproduct, updateproductById, deleteProductById } from "../../reducer/products";
-
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 
 
 
 const Products = () => {
 
+
+    const navigate=useNavigate();
     const [massage, setMessage] = useState("")
+    // const [id,setId]=useState("")
     const dispatch = useDispatch();
     const state = useSelector((state) => {
         return { token: state.loginReducer.token, products: state.productsReducer.products, isLoggedIn: state.loginReducer.isLoggedIn };
@@ -21,30 +24,56 @@ const Products = () => {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //get all product
+    //getproductById
 
-
-    const getAllProduts = async () => {
-        try {
-            const res = await axios.get("http://localhost:5000/products", {
+    const {id}=useParams()
+    console.log(id);
+    const getproductById = async () => {
+             await axios.get(`http://localhost:5000/products/id/${id}`, {
                 headers: {
                     Authorization: `Bearer ${state.token}`,
                 },
-            });
-            if (res.data.success) {
+            }).then((res)=>{
+                console.log(res.data.products);
                 dispatch(setproducts(res.data.products))
-                setMessage("");
-                // setShow(true);
-                // setUserId(res.data.userId);
-            } else throw Error;
-        } catch (error) {
-            if (!error.response.data.success) {
-                return setMessage(error.response.data.message);
-            }
-            setMessage("Error happened while Get Data, please try again");
-        }
+            }).catch((err)=>{
+                throw err
+            });
+           
     };
 
+
+    
+    useEffect(() => {
+        getproductById()
+
+    
+      }, []);
+
+
+
+
+    return(
+        <div>
+<div>
+            {
+                 state.products.map((product, index) => {
+                    return <div  key={index} className="products">
+                        <div className="product">
+                            <p>name:{product.name}</p>
+                            <p>price:{product.price}</p>
+                            <button className="add">add to cart</button>
+                            <button className="add">add to wishList</button>
+                        </div><br/>
+                    </div>
+
+                })
+            }
+        </div>
+
+
+        </div>
+    )
 
 
 
