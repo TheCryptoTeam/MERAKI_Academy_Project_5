@@ -1,56 +1,54 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setcarts } from "../../reducer/cart/carts";
+import { setWishLists } from "../../reducer/wishLists";
 
-const Carts = () => {
+const WishLists = () => {
+
   const dispatch = useDispatch();
   const state = useSelector((state) => {
-    return { carts: state.cartsReducer.carts ,token: state.loginReducer.token
+    return {  wishLists: state.wishListsReducer.wishLists ,token: state.loginReducer.token
     };
   });
   const [show, setShow] = useState(false);
   const [message,setMessage]=useState("")
   
 
-  const getMyCart = async()=>{
+  const getMyWishLists = async()=>{
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
-  await axios.get("http://localhost:5000/carts",{ headers })
+  await axios.get("http://localhost:5000/wishList",{ headers })
   
   .then(res=>{
   
 if (res.data.results.length) {
-  dispatch(setcarts(res.data.results))
+  dispatch(setWishLists(res.data.results))
     setShow(true)
 }
     
     
   })
   .catch((err) => {
-    setMessage("The cart is empty");
+    setMessage("The wishLists is empty");
    
    
     
   })
-  
+}
 
-  }
-
-  return (
-  <>
-  { show && state.carts.map((product,index)=>{
+    return (
+      <>
+      { show && state.wishLists.map((product,index)=>{
       return <div key={index} className="products">
-         <p>image: {product.image}</p>
-         <p>quantity:{product.quantity}</p>
+         <p>image:{product.image}</p>
          <p>price:{product.price}</p>
       </div>
   })}
- <button onClick={getMyCart}>getMyCart</button>
+ <button onClick={getMyWishLists}>getMyWishLists</button>
  {message && <p>{message }</p>}
-  </>
-  );
-};
-
-export default Carts;
+      </>
+    )
+  };
+  
+  export default WishLists;
