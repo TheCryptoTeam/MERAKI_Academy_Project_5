@@ -2,10 +2,40 @@
 
 
 .product{
-border: 2px solid black;
+border: 1px solid black;
+border-radius: 4%;
+/* padding: 10%; */
+
+}
+.products{
+display: grid;
+grid-template-columns: auto auto auto;
+gap: 7%;
+}
+
+.add{
+    font-size: 80%;
+    color: black;
+    background-color: rgb(131, 183, 199);
+    width: 70px;
+    border-radius: 4%;
+
+}
+.add:hover{
+    background-color: rgb(91, 112, 117);
 }
 img{
     width: 200px;
     height: 200px;
     cursor: pointer;
 }
+.twoButton{
+    text-align: center;
+    width: 100px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+/* .products{
+    width: 300px;
+} */
