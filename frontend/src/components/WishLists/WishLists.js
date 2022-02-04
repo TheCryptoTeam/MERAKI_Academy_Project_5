@@ -33,7 +33,7 @@ const WishLists = () => {
       });
   };
 
-
+  //delete depend on product_id
   const deleteWishlist = async (id) => {
     await axios
       .delete(`http://localhost:5000/wishList/${id}`)
@@ -52,7 +52,7 @@ console.log( state.wishLists);
             <div key={index} className="products">
               <p>image:{product.image}</p>
               <p>price:{product.price}</p>
-              <button onClick={()=>{deleteWishlist(product.id)}}>X</button>
+              <button onClick={()=>{deleteWishlist(product.product_id)}}>X</button>
             </div>
           );
         })}
