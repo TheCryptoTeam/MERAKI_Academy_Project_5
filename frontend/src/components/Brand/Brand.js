@@ -5,32 +5,36 @@ import axios from "axios";
 
 const Brand = () => {
   const [products, setProducts] = useState([]);
-  // const query = "gg";
+  const [show, setShow] = useState(false)
+  const { brand } = useParams()
 
-  const {brand}=useParams()
 
+
+
+
+  const getByBrand = () => {
+    axios
+
+      .get(`http://localhost:5000/products/brand/${brand}`)
+      .then((result) => {
+        setProducts(result.data.products);
+        console.log(result.data);
+        setShow(true)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     getByBrand();
   }, []);
 
 
-  const getByBrand = () => {
-    axios
-
-      .get(`http://localhost:5000/products/brand=${brand}`)
-      .then((result) => {
-        setProducts(result.data.products);
-        console.log(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   return (
     <>
       <div>
-        {products.map((product, index) => {
+        {show && products.map((product, index) => {
           return (
             <div key={index} className="products">
               <div className="product">
