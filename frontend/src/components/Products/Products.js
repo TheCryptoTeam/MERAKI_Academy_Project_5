@@ -12,6 +12,10 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 const Products = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [image, setImage] = useState("");
+  const [brand, setBrand] = useState("");
+  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [updateBox, setUpdateBox] = useState(false);
   const [productId, setProductId] = useState(false);
@@ -40,6 +44,7 @@ const Products = () => {
       })
       .then((res) => {
         dispatch(setproducts(res.data.products));
+        
       })
       .catch((err) => {
         throw err;
@@ -71,11 +76,16 @@ const Products = () => {
   const updateProduct = async (id) => {
     const body = {
       name,
+      type,
+      image,
+      brand,
+      price,
       description,
     };
 
     try {
-      await axios.put(`http://localhost:5000/product/${id}`, body);
+      await axios.put(`http://localhost:5000/products/${id}`, body);
+      getproductById();
       dispatch(updateproductById(body));
     } catch (error) {
       console.log(error);
@@ -88,21 +98,56 @@ const Products = () => {
           return (
             <div key={index} className="products">
               <div className="product">
+                
+                <p>image:{product.image}</p>
                 <p>name:{product.name}</p>
+                <p>type:{product.type}</p>
+                <p>brand:{product.brand}</p>
                 <p>price:{product.price}</p>
+                <p>description:{product.description}</p>
                 {updateBox && productId === product.id && (
                   <form>
+                    <br />
+                    
+                    
+                    <input
+                      type="text"
+                      defaultValue={product.image}
+                      placeholder=" image here"
+                      onChange={(e) => setImage(e.target.value)}
+                    />
                     <br />
                     <input
                       type="text"
                       defaultValue={product.name}
-                      placeholder="article Name here"
+                      placeholder=" Name here"
                       onChange={(e) => setName(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="text"
+                      defaultValue={product.type}
+                      placeholder="Type here"
+                      onChange={(e) => setType(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="text"
+                      defaultValue={product.brand}
+                      placeholder=" Brand here"
+                      onChange={(e) => setBrand(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="text"
+                      defaultValue={product.price}
+                      placeholder=" Price here"
+                      onChange={(e) => setPrice(e.target.value)}
                     />
                     <br />
 
                     <textarea
-                      placeholder="article description here"
+                      placeholder="product description here"
                       defaultValue={product.description}
                       onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
