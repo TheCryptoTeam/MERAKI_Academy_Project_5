@@ -1,0 +1,17 @@
+.navigation{
+    display: inline;
+    background-color: rgb(176, 174, 184);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a{
+    text-decoration: none;
+    padding: 20px;
+
+}
+
+a:hover{
+    background-color: honeydew;
+}

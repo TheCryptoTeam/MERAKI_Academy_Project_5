@@ -1,6 +1,8 @@
 import { Link,useNavigate } from "react-router-dom";
 import { logout } from "../../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
+import "./Navigation.css"
+
 const Navigation = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
