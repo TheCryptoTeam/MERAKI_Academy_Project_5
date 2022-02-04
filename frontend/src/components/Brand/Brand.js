@@ -5,12 +5,9 @@ import axios from "axios";
 
 const Brand = () => {
   const [products, setProducts] = useState([]);
-  const [show, setShow] = useState(false)
-  const { brand } = useParams()
-
-
-
-
+  const [show, setShow] = useState(false);
+  const { brand } = useParams();
+  const navigate = useNavigate();
 
   const getByBrand = () => {
     axios
@@ -19,7 +16,7 @@ const Brand = () => {
       .then((result) => {
         setProducts(result.data.products);
         console.log(result.data);
-        setShow(true)
+        setShow(true);
       })
       .catch((err) => {
         console.log(err);
@@ -30,23 +27,28 @@ const Brand = () => {
     getByBrand();
   }, []);
 
-
   return (
     <>
       <div>
-        {show && products.map((product, index) => {
-          return (
-            <div key={index} className="products">
-              <div className="product">
-                <p>name:{product.name}</p>
-                <p>price:{product.price}</p>
-                <button className="add">add to cart</button>
-                <button className="add">add to wishList</button>
+        {show &&
+          products.map((product, index) => {
+            return (
+              <div key={index} className="products">
+                <div className="product">
+                  <img
+                    onClick={() => navigate(`/products/${product.id}`)}
+                    src={product.image}
+                    alt=""
+                  />
+                  <p>name:{product.name}</p>
+                  <p>price:{product.price}</p>
+                  <button className="add">add to cart</button>
+                  <button className="add">add to wishList</button>
+                </div>
+                <br />
               </div>
-              <br />
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </>
   );
