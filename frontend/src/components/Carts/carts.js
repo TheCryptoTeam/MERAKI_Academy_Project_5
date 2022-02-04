@@ -30,7 +30,7 @@ const Carts = () => {
      
 
   };
-  //delete depend on product_id
+  
   const deleteCart = async (id) => {
     await axios
       .delete(`http://localhost:5000/carts/${id}`)
@@ -50,7 +50,7 @@ const Carts = () => {
               <p>image: {product.image}</p>
               <p>quantity:{product.quantity}</p>
               <p>price:{product.price}</p>
-              <button onClick={()=>{deleteCart(product.product_id)}}>X</button>
+              <button onClick={()=>{deleteCart(product.id)}}>X</button>
             </div>
           );
         })}
