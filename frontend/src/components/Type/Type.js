@@ -2,8 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import {  useSelector } from "react-redux";
 
 const Type = () => {
+
+  const state = useSelector((state) => {
+    return { token: state.loginReducer.token };
+
+})
+const [message, setMessage] = useState("")
   const [products, setProducts] = useState([]);
   const query = "phone";
 
@@ -24,6 +31,21 @@ const Type = () => {
        throw err
       });
   };
+
+//============================
+const addToCart = async (id) => {
+  const headers = {
+      Authorization: `Bearer ${state.token}`,
+  };
+  let quantity = 1;
+  await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
+      .then((res) => {
+          setMessage(res.data.massage)
+      })
+}
+//============================
+  
+
   return (<>
   <div>
             {
@@ -32,7 +54,7 @@ const Type = () => {
                         <div className="product">
                             <p>name:{product.name}</p>
                             <p>price:{product.price}</p>
-                            <button className="add">add to cart</button>
+                            <button className="add"onClick={() => { addToCart(product.id) }}>add to cart</button>
                             <button className="add">add to wishList</button>
                         </div><br/>
                     </div>
