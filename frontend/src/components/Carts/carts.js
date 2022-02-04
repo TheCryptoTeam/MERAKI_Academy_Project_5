@@ -41,6 +41,9 @@ const Carts = () => {
       })
       
   };
+  useEffect(() => {
+    getMyCart()
+  }, [])
  
   return (
     <>
@@ -59,7 +62,7 @@ const Carts = () => {
             </div>
           );
         })}
-      <button onClick={getMyCart}>getMyCart</button>
+      
       {message && <p>{message}</p>}
     </>
   );
