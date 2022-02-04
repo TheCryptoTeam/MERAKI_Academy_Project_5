@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setWishLists,deleteWishListById } from "../../reducer/wishLists";
-
+import { useNavigate } from "react-router-dom";
 const WishLists = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
@@ -50,7 +51,11 @@ console.log( state.wishLists);
         state.wishLists.map((product, index) => {
           return (
             <div key={index} className="products">
-              <p>image:{product.image}</p>
+              <img
+                    onClick={() => navigate(`/products/${product.id}`)}
+                    src={product.image}
+                    alt=""
+                  />
               <p>price:{product.price}</p>
               <button onClick={()=>{deleteWishlist(product.id)}}>X</button>
             </div>
