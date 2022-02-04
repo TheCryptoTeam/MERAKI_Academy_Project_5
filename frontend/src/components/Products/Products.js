@@ -11,7 +11,11 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const Products = () => {
   const navigate = useNavigate();
-  const [massage, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [updateBox, setUpdateBox] = useState(false);
+  const [productId, setProductId] = useState(false);
+
   // const [id,setId]=useState("")
   const dispatch = useDispatch();
   const state = useSelector((state) => {
@@ -35,7 +39,6 @@ const Products = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.products);
         dispatch(setproducts(res.data.products));
       })
       .catch((err) => {
@@ -57,6 +60,27 @@ const Products = () => {
     }
   };
 
+  const handleUpdateClick = (product) => {
+    setUpdateBox(!updateBox);
+    setProductId(product.id);
+    setName(product.name);
+    setDescription(product.description);
+    if (updateBox) updateProduct(product.id);
+  };
+
+  const updateProduct = async (id) => {
+    const body = {
+      name,
+      description,
+    };
+
+    try {
+      await axios.put(`http://localhost:5000/product/${id}`, body);
+      dispatch(updateproductById(body));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <div>
@@ -66,11 +90,35 @@ const Products = () => {
               <div className="product">
                 <p>name:{product.name}</p>
                 <p>price:{product.price}</p>
+                {updateBox && productId === product.id && (
+                  <form>
+                    <br />
+                    <input
+                      type="text"
+                      defaultValue={product.name}
+                      placeholder="article Name here"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <br />
+
+                    <textarea
+                      placeholder="article description here"
+                      defaultValue={product.description}
+                      onChange={(e) => setDescription(e.target.value)}
+                    ></textarea>
+                  </form>
+                )}
                 <button
                   className="delete"
                   onClick={() => deleteProduct(product.id)}
                 >
                   delete
+                </button>
+                <button
+                  className="update"
+                  onClick={() => handleUpdateClick(product)}
+                >
+                  Update
                 </button>
                 <button className="add">add to cart</button>
                 <button className="add">add to wishList</button>
