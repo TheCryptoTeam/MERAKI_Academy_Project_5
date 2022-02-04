@@ -26,12 +26,12 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/newProduct" element={<NewProduct />} />
         <Route path="/brand" element={<Brand />} />
-        {<Route path="/type" element={<Type />} /> }
+        {<Route path="type/:type" element={<Type />} /> }
         <Route path="/carts" element={<Carts />} />
         <Route path="/search" element={<Search />} />
         <Route path="/products/:id" element={<Products />} />
         <Route path="/wishLists" element={<WishLists />} />
-        <Route path="brand/:brand" element={<Brand />} />
+        {/* <Route path="brand/:brand" element={<Brand />} /> */}
 
 
         <Route
