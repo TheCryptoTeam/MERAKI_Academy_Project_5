@@ -114,10 +114,10 @@ const getProductByType = (req, res) => {
 const getProductByBrand = (req, res) => {
 
     const query = `SELECT * FROM products WHERE brand=? AND is_deleted=0`;
-    const productBrand = [req.query.brand];
+    const brand = req.params.brand
 
 
-    connection.query(query, productBrand, (err, result, field) => {
+    connection.query(query, brand, (err, result, field) => {
         if (err) {
 
             res.json({ success: false, massege: "the product not found", err: err })
@@ -125,7 +125,7 @@ const getProductByBrand = (req, res) => {
 
         }
         else {
-            res.json({ success: true, massege: `the product ${productBrand}`, products: result })
+            res.json({ success: true, massege: `the product ${brand}`, products: result })
             res.status(200)
 
         }

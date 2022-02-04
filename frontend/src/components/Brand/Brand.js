@@ -1,19 +1,24 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Brand = () => {
   const [products, setProducts] = useState([]);
-  const query = "gg";
+  // const query = "gg";
+
+  const {brand}=useParams()
+
 
   useEffect(() => {
     getByBrand();
   }, []);
+
+
   const getByBrand = () => {
     axios
 
-      .get(`http://localhost:5000/products/search_brand?brand=${query}`)
+      .get(`http://localhost:5000/products/brand=${brand}`)
       .then((result) => {
         setProducts(result.data.products);
         console.log(result.data);
