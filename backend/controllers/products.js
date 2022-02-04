@@ -199,7 +199,7 @@ const deleteProductById = (req, res) => {
 const getProductById = (req, res) => {
 
     const query = `SELECT * FROM products WHERE id=?`
-    const id = req.query.id
+    const id = req.params.id
     connection.query(query, id, (err, result, field) => {
         if (err) {
 

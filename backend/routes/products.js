@@ -9,7 +9,7 @@ const productsRouter=express.Router();
 productsRouter.post("/",createNewProduct)
 productsRouter.get("/",getAllProducts)
 
-productsRouter.get("/search_id",getProductById)
+productsRouter.get("/id/:id",getProductById)
 productsRouter.get("/search_name",getProductByName)
 productsRouter.get("/search_type",getProductByType)
 productsRouter.get("/search_brand",getProductByBrand)
