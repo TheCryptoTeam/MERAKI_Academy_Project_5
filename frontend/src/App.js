@@ -17,9 +17,10 @@ import WishLists from "./components/WishLists/WishLists";
 
 const App = () => {
   const token = localStorage.getItem("userToken");
+  const [productName, setProductName] = useState("");
   return (
     <div className="App">
-      <Navigation/>
+      <Navigation setProductName={setProductName}/>
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -28,7 +29,7 @@ const App = () => {
         <Route path="/brand" element={<Brand />} />
         {<Route path="type/:type" element={<Type />} /> }
         <Route path="/carts" element={<Carts />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search"  element={<Search productName={productName} />} />
         <Route path="/products/:id" element={<Products />} />
         <Route path="/wishLists" element={<WishLists />} />
         <Route path="brand/:brand" element={<Brand />} />
