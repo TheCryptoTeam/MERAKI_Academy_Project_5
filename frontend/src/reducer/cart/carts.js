@@ -14,6 +14,13 @@ const cartsReducer = (state = initialState, { type, payload }) => {
         ...state,
         carts: [...state.carts, payload],
       };
+      case  "DELETE_CART":
+          return{
+            ...state,
+            carts: state.carts.filter((element) => {
+              return element.id !== payload;
+            }),
+          }
 
     default:
       return state;
@@ -29,4 +36,7 @@ export const setcarts = (carts) => {
 
 export const addcart = (cart) => {
   return { type: "ADD_CART", payload: cart };
+};
+export const deleteCartstById = (id) => {
+  return { type: "DELETE_CART", payload: id };
 };
