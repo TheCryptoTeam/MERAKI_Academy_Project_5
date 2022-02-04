@@ -71,6 +71,14 @@ const Home = () => {
 
 
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    useEffect(() => {
+        getAllProducts();
+      }, []);
+
+
+
 
     return (<div>
 
@@ -105,9 +113,9 @@ const Home = () => {
             }
         </div>
 
-        <button onClick={
+        {/* <button onClick={
             getAllProducts
-        }>test</button>
+        }>test</button> */}
     </div>)
 };
 
