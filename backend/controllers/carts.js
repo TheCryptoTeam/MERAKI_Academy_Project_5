@@ -26,7 +26,7 @@ const addTOCart = (req, res) => {
 };
 
 const getMyCart = (req, res) => {
-  const query = `SELECT  *
+  const query = `SELECT *
 
   FROM carts inner Join products on product_id = products.id WHERE carts.is_deleted=0 AND carts.user_id=${req.token.userId} ;`;
 
@@ -57,7 +57,7 @@ const getMyCart = (req, res) => {
 const deleteFromMyCart = (req, res) => {
   const id = req.params.id;
 
-  const query = `UPDATE carts SET is_deleted=1 WHERE id=?;`;
+  const query = `UPDATE carts SET is_deleted=1 WHERE product_id=?;`;
 
   const data = [id];
 
