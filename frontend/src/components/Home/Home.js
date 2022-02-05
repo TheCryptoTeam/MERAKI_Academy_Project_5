@@ -81,7 +81,15 @@ const Home = () => {
 
 
     return (<div>
-
+        <div className="header">
+<img className="headerImg" src="https://images.pexels.com/photos/257894/pexels-photo-257894.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+<div className="address">
+<h1 className="what">What is new <span className="year">2022</span> ?</h1>
+<p>Welcome to our website
+</p>
+</div>
+        </div>
+<div className="section2">
         <div>
             <select className="selecttype" onChange={(e) => {
                 navigate(`/type/${e.target.value}`)
@@ -115,10 +123,8 @@ const Home = () => {
                 })
             }
         </div>
-
-        {/* <button onClick={
-            getAllProducts
-        }>test</button> */}
+        </div>
+      
     </div>)
 };
 
