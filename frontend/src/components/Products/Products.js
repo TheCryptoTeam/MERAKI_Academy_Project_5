@@ -68,6 +68,10 @@ const Products = () => {
   const handleUpdateClick = (product) => {
     setUpdateBox(!updateBox);
     setProductId(product.id);
+    setType(product.type)
+    setImage(product.image)
+    setBrand(product.brand)
+    setPrice(product.price)
     setName(product.name);
     setDescription(product.description);
     if (updateBox) updateProduct(product.id);
