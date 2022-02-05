@@ -8,14 +8,10 @@ import {
   deleteProductById,
 } from "../../reducer/products";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-
+import "./Products.css";
 const Products = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [image, setImage] = useState("");
-  const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [updateBox, setUpdateBox] = useState(false);
   const [productId, setProductId] = useState(false);
@@ -34,7 +30,7 @@ const Products = () => {
   //getproductById
 
   const { id } = useParams();
-  console.log(id);
+
   const getproductById = async () => {
     await axios
       .get(`http://localhost:5000/products/id/${id}`, {
@@ -44,41 +40,11 @@ const Products = () => {
       })
       .then((res) => {
         dispatch(setproducts(res.data.products));
-        
       })
       .catch((err) => {
         throw err;
       });
   };
-  //=======================================
-  const addToCart = async (id) => {
-    const headers = {
-        Authorization: `Bearer ${state.token}`,
-    };
-    let quantity = 1;
-    await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
-        .then((res) => {
-            
-        })
-}
-
-  //=======================================
-  const addToWishList = async (id) => {
-    console.log(state.token);
-    const headers = {
-        Authorization: `Bearer ${state.token}`,
-    };
-
-    await axios.post(`http://localhost:5000/wishList/${id}`, {},{ headers })
-        .then((res) => {
-           
-        })
-        .catch(err => {
-            console.log(err);
-        })
-}
-
-  //======================================
 
   useEffect(() => {
     getproductById();
@@ -97,10 +63,6 @@ const Products = () => {
   const handleUpdateClick = (product) => {
     setUpdateBox(!updateBox);
     setProductId(product.id);
-    setType(product.type)
-    setImage(product.image)
-    setBrand(product.brand)
-    setPrice(product.price)
     setName(product.name);
     setDescription(product.description);
     if (updateBox) updateProduct(product.id);
@@ -109,16 +71,11 @@ const Products = () => {
   const updateProduct = async (id) => {
     const body = {
       name,
-      type,
-      image,
-      brand,
-      price,
       description,
     };
 
     try {
-      await axios.put(`http://localhost:5000/products/${id}`, body);
-      getproductById();
+      await axios.put(`http://localhost:5000/product/${id}`, body);
       dispatch(updateproductById(body));
     } catch (error) {
       console.log(error);
@@ -129,58 +86,30 @@ const Products = () => {
       <div>
         {state.products.map((product, index) => {
           return (
-            <div key={index} className="products">
-              <div className="product">
-                
-               <img src={product.image} alt=""/>
-                <p>name:{product.name}</p>
-                <p>type:{product.type}</p>
-                <p>brand:{product.brand}</p>
-                <p>price:{product.price}</p>
-                <p>description:{product.description}</p>
+            <div key={index} className="productContainer">
+              <div className="">
+                <img className="image" src={product.image} alt="image" />
+              </div>
+              <div className="productPage">
+                <p>{product.name}</p>
+                <p>{product.brand}</p>
+
+                <p>{product.description}</p>
+                <p>{product.type}</p>
+                <p>{product.price}</p>
                 {updateBox && productId === product.id && (
                   <form>
-                    <br />
-                    
-                    
-                    <input
-                      type="text"
-                      defaultValue={product.image}
-                      placeholder=" image here"
-                      onChange={(e) => setImage(e.target.value)}
-                    />
                     <br />
                     <input
                       type="text"
                       defaultValue={product.name}
-                      placeholder=" Name here"
+                      placeholder="article Name here"
                       onChange={(e) => setName(e.target.value)}
-                    />
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={product.type}
-                      placeholder="Type here"
-                      onChange={(e) => setType(e.target.value)}
-                    />
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={product.brand}
-                      placeholder=" Brand here"
-                      onChange={(e) => setBrand(e.target.value)}
-                    />
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={product.price}
-                      placeholder=" Price here"
-                      onChange={(e) => setPrice(e.target.value)}
                     />
                     <br />
 
                     <textarea
-                      placeholder="product description here"
+                      placeholder="article description here"
                       defaultValue={product.description}
                       onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
@@ -198,8 +127,8 @@ const Products = () => {
                 >
                   Update
                 </button>
-                <button className="add"  onClick={() => { addToCart(product.id) }}>add to cart</button>
-                <button className="add" onClick={() => { addToWishList(product.id) }}>add to wishList</button>
+                <button className="add">add to cart</button>
+                <button className="add">add to wishList</button>
               </div>
               <br />
             </div>
