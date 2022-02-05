@@ -13,6 +13,8 @@ import { BsHeart } from 'react-icons/bs';
 //component Home
 const Home = () => {
     const [message, setMessage] = useState("")
+    const[skip,setSkip]=useState(0)
+    const[page,setPage]=useState(1)
 
     const navigate = useNavigate()
     const [show, setShow] = useState(false);
@@ -28,8 +30,10 @@ const Home = () => {
     //  getAllProducts
 
     const getAllProducts = async () => {
+       
+        
         await axios
-            .get("http://localhost:5000/products")
+            .get(`http://localhost:5000/products/page?skip=${skip}&limit=3`)
             .then((res) => {
                 dispatch(setproducts(res.data.result))
 
@@ -77,10 +81,19 @@ const Home = () => {
 
     useEffect(() => {
         getAllProducts();
-      }, []);
+      }, [skip]);
 
 
-
+      const inc = () => {
+        setSkip(skip + 3);
+        setPage(page + 1);
+      };
+      const dec = () => {
+        if (page > 1) {
+          setSkip(skip - 3);
+          setPage(page - 1);
+        }
+      };
 
     return (<div>
         <div className="header">
@@ -122,10 +135,17 @@ const Home = () => {
                             <button className="add" onClick={() => { addToWishList(product.id) }} ><BsHeart/></button>
                             </div>
                         </div><br />
+
                     </div>
+                    
 
                 })
             }
+           <div>
+               <button  onClick={()=>{dec()}}>back</button>
+               <span>{page}</span>
+               <button  onClick={()=>{inc()}}>next</button>
+               </div> 
         </div>
         </div>
       
