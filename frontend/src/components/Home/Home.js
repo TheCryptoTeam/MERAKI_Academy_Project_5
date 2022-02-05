@@ -60,7 +60,7 @@ const Home = () => {
             Authorization: `Bearer ${state.token}`,
         };
 
-        await axios.post(`http://localhost:5000/wishList/${id}`, { headers })
+        await axios.post(`http://localhost:5000/wishList/${id}`, {},{ headers })
             .then((res) => {
                 setMessage(res.data.massage)
             })
