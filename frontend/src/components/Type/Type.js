@@ -44,6 +44,21 @@ const Type = () => {
       })
   }
   //============================
+  const addToWishList = async (id) => {
+    console.log(state.token);
+    const headers = {
+        Authorization: `Bearer ${state.token}`,
+    };
+
+    await axios.post(`http://localhost:5000/wishList/${id}`, {},{ headers })
+        .then((res) => {
+            setMessage(res.data.massage)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+  //============================
 
 
   return (<>
@@ -80,7 +95,7 @@ const Type = () => {
               <p>name:{product.name}</p>
               <p>price:{product.price}</p>
               <button className="add" onClick={() => { addToCart(product.id) }}>add to cart</button>
-              <button className="add">add to wishList</button>
+              <button className="add" onClick={() => { addToWishList(product.id) }}>add to wishList</button>
             </div><br />
           </div>
 

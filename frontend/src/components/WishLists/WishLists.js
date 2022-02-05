@@ -44,7 +44,9 @@ const WishLists = () => {
       })
       
   };
-console.log( state.wishLists);
+  useEffect(() => {
+    getMyWishLists()
+  }, [])
   return (
     <>
       {show &&
@@ -61,7 +63,7 @@ console.log( state.wishLists);
             </div>
           );
         })}
-      <button onClick={getMyWishLists}>getMyWishLists</button>
+     
       {message && <p>{message}</p>}
     </>
   );
