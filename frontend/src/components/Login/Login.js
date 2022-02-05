@@ -81,8 +81,9 @@ const Login = () => {
 
           </div>
         </div>
-
+       <div className="message"> {message ? <p className="ErrorMessage">{message}</p> : <></>} </div> 
       </div>
+
 
     </div>
     // <div className="authentication">
