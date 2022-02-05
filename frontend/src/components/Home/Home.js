@@ -5,6 +5,8 @@ import "./Home.css"
 import { setproducts, addproduct, updateproductById, deleteProductById } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../reducer/login";
+import { BsBasket } from 'react-icons/bs';
+import { BsHeart } from 'react-icons/bs';
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,11 +113,13 @@ const Home = () => {
                     return <div key={index}  >
                         <div className="product">
                         <img onClick={() => navigate(`/products/${product.id}`)} src={product.image} alt=""/>
-                            <p>name:{product.name}</p>
-                            <p>price:{product.price}</p>
+                        <div className="price">
+                            <p>name : {product.name}</p>
+                            <p>price : {product.price}</p>
+                            </div>
                             <div className="twoButton">
-                            <button className="add" onClick={() => { addToCart(product.id) }}>add to cart</button>
-                            <button className="add" onClick={() => { addToWishList(product.id) }} >add to wishList</button>
+                            <button className="add" onClick={() => { addToCart(product.id) }}><BsBasket/></button>
+                            <button className="add" onClick={() => { addToWishList(product.id) }} ><BsHeart/></button>
                             </div>
                         </div><br />
                     </div>
