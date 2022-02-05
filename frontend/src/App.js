@@ -20,20 +20,20 @@ const App = () => {
   const [productName, setProductName] = useState("");
   return (
     <div className="App">
-      <Navigation setProductName={setProductName}/>
+      <Navigation setProductName={setProductName} />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/newProduct" element={<NewProduct />} />
         <Route path="/brand" element={<Brand />} />
-        {<Route path="type/:type" element={<Type />} /> }
+        {<Route path="type/:type" element={<Type />} />}
         <Route path="/carts" element={<Carts />} />
-        <Route path="/search"  element={<Search productName={productName} />} />
+        <Route path="/search" element={<Search productName={productName} />} />
         <Route path="/products/:id" element={<Products />} />
         <Route path="/wishLists" element={<WishLists />} />
         <Route path="brand/:brand" element={<Brand />} />
-
 
         <Route
           path="*"
