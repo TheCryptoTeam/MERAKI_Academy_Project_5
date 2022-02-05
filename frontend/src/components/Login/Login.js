@@ -23,13 +23,15 @@ const Login = () => {
   const [message, setmessage] = useState("");
 
   const navigate = useNavigate();
+  
+  
   const body = {
     email: email,
     password: password,
   };
-  const register = () => {
-    navigate("/register");
-  };
+  // const register = () => {
+  //   navigate("/register");
+  // };
   const loginUser = () => {
     //show backend server
     axios
@@ -48,41 +50,76 @@ const Login = () => {
       });
   };
   return (
-    <div className="authentication">
-      
-            <p className="Title">Login:</p>
-    
-
-        <div className="authentication-inputs">
-          <label>Email</label>
+    <div className="main-continar">
+      <div className="login-continar">
+        <div className="login-register">
+          <div className="inner">
+          <span id="login">Login</span>
+          <span id="register" onClick={()=>{navigate("/register")}}>Register</span>
+          </div>
+        </div>
+        <div className="login-box-out">
+          <div className="login-box-inner">
           <input
             type="email"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            placeholder="Enter Email Address"
+            placeholder=" Email "
             required=""
           />
-          <label>Password</label>
           <input
             type="password"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="Enter Password"
+            placeholder=" Password"
             required=""
           />
-          <button onClick={loginUser}>Login</button>
-          {message ? <p className="ErrorMessage">{message}</p> : <></>}
+          
+          <div className="button-signIn"> <button onClick={loginUser} id="signIn">sign in</button></div>
+
+          </div>
         </div>
 
-        <p>
-          You don't have an account?{" "}
-          <a className="no-account" onClick={register}>
-            Register
-          </a>
-        </p>
       </div>
+
+    </div>
+    // <div className="authentication">
+      
+    //         <p className="Title">Login:</p>
+    
+
+    //     <div className="authentication-inputs">
+    //       <label>Email</label>
+    //       <input
+    //         type="email"
+    //         onChange={(e) => {
+    //           setEmail(e.target.value);
+    //         }}
+    //         placeholder="Enter Email Address"
+    //         required=""
+    //       />
+    //       <label>Password</label>
+    //       <input
+    //         type="password"
+    //         onChange={(e) => {
+    //           setPassword(e.target.value);
+    //         }}
+    //         placeholder="Enter Password"
+    //         required=""
+    //       />
+    //       <button onClick={loginUser}>Login</button>
+    //       {message ? <p className="ErrorMessage">{message}</p> : <></>}
+    //     </div>
+
+    //     <p>
+    //       You don't have an account?{" "}
+    //       <a className="no-account" onClick={register}>
+    //         Register
+    //       </a>
+    //     </p>
+    //   </div>
   
   );
 };
