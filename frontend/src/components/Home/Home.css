@@ -11,47 +11,49 @@
 }
 
 .product{
-border: 1px solid black;
-border-radius: 4%;
-/* padding: 10%; */
+/* border: 1px solid black; */
+margin: 6%;
+width: auto;
 
 }
 .products{
 display: grid;
 grid-template-columns: auto auto auto;
-gap: 7%;
+padding: 7%;
 
 }
 
 .add{
-    font-size: 80%;
+    font-size: 20px;
+    /* width: 20px; */
+    padding-top: 20px;
     color: black;
-    background-color: rgb(131, 183, 199);
-    width: 70px;
+    background-color: white;
+    width: 90px;
     border-radius: 4%;
 
 }
 .add:hover{
-    background-color: rgb(91, 112, 117);
-}
+color: red;}
 img{
-    width: 200px;
+    width: 250px;
     height: 200px;
     cursor: pointer;
 }
 .twoButton{
+    /* margin-top: 10%; */
     text-align: center;
     width: 100px;
-    display: grid;
-    grid-template-columns: auto auto;
+    display: inline;
+    /*grid-template-columns: auto auto; */
 }
 
-/* .products{
-    width: 300px;
-} */
+.price{
+    padding-top: 20px;
+}
 
 .section2{
-    margin-top: 400px;
+    margin-top: 350px;
 }
 .header{
     font-family: 'Lobster Two', cursive;
