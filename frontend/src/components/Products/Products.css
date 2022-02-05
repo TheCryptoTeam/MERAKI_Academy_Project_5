@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.productContainer{
+    display: flex;
+    padding: 2%;
+    
+}
+
+.image {
+    width: 500px;
+    height: 500px;
+}
+
+.productPage{
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
