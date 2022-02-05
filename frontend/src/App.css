@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,4 +9,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+/* .App{
+  background-image:"https://images.pexels.com/photos/238118/pexels-photo-238118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" ;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Kalam&family=Kaushan+Script&family=Lobster+Two:ital@1&family=Road+Rage&display=swap');
+*{
+  margin:0;
+  padding:0;
 }
+
+.App {
+  text-align: center;
+  /* border:2px solid black; */
+  /* width: 250px;
+  height: 300px; */
+  /* display:  grid;
+  justify-content: center;
+  align-items: center; */
+}
+
+
+
+
+
+
+
