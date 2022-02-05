@@ -38,6 +38,7 @@ const Register = () => {
       if (result.data.success) {
         setStatus(true);
         setMessage("The user has been created successfully");
+        navigate("/login")
       } else throw Error;
     } catch (error) {
       setStatus(false);
