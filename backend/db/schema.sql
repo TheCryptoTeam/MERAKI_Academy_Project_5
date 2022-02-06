@@ -56,3 +56,15 @@ PRIMARY KEY (id)
 );
 
 
+-- comment table
+
+CREATE TABLE comments(
+    id INT AUTO_INCREMENT NOT NULL,
+    comment VARCHAR(255),
+    product_id INT,
+FOREIGN KEY (product_id) REFERENCES products(id),
+    commenter_id INT,
+    FOREIGN KEY (commenter_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
