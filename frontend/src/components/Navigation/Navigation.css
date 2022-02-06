@@ -2,17 +2,18 @@
     display: flex;
     /* background-color: rgb(176, 174, 184); */
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    /* padding-bottom: 20px; */
+    margin-bottom: 30px;
     justify-content: space-around;
     /* position: fixed; */
     text-align: center;
-padding: 3%;}
+}
 
 a{
     text-decoration: none;
     padding: 20px;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 
