@@ -26,34 +26,43 @@ const createNewComment = (req, res) => {
   });
 };
 
+//get all comment
 
-
-//get all comment 
-
-
-
-const getAllComment = (req, res) => {
+const getAllComments = (req, res) => {
   const query = `SELECT * FROM comments WHERE product_id=? AND is_deleted=0`;
   const productID = [req.params.product_id];
-console.log(productID);
 
-  connection.query(query,productID, (err, result, field) => {
-      if (err) {
-
-          res.json({ success: false, massege: "the product not found", err: err })
-          res.status(404)
-
-      }
-      else {
-          res.json({ success: true, massege: `the product `, products: result })
-          res.status(200)
-
-      }
-  })
+  connection.query(query, productID, (err, result, field) => {
+    if (err) {
+      res.json({ success: false, massege: "the product not found", err: err });
+      res.status(404);
+    } else {
+      res.json({ success: true, massege: `the product `, products: result });
+      res.status(200);
+    }
+  });
 };
 
+const deleteComment = (req, res) => {
+  const id = req.params.id;
+  const query = `UPDATE comments SET is_deleted=1 WHERE id=? AND is_deleted=0`;
+
+  connection.query(query, id, (err, result, field) => {
+    if (err) {
+      res.status(404);
+      res.json({ success: false, massege: `The comment: ${id} is not found` });
+    } else {
+      res.status(200);
+      res.json({
+        success: true,
+        massege: `Succeeded to delete comment with id: ${id}`,
+      });
+    }
+  });
+};
 
 module.exports = {
   createNewComment,
-  getAllComment
+  getAllComments,
+  deleteComment,
 };
