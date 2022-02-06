@@ -10,7 +10,7 @@ import {
 } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../reducer/login";
-import { BsBasket } from "react-icons/bs";
+import { BsCartPlus } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,8 +204,8 @@ watchs and other so get started and login now to know  more detailes about our w
                       alt=""
                     />
                     <div className="price">
-                      <p>name : {product.name}</p>
-                      <p>price : {product.price}</p>
+                      <p> {product.name}</p>
+                      <p className="priceColor"> {product.price}</p>
                     </div>
                     <div className="twoButton">
                       <button
@@ -214,7 +214,7 @@ watchs and other so get started and login now to know  more detailes about our w
                           addToCart(product.id);
                         }}
                       >
-                        <BsBasket />
+                        <BsCartPlus />
                       </button>
                       <button
                         className="add"

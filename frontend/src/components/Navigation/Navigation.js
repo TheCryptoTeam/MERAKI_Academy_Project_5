@@ -3,7 +3,7 @@ import { logout } from "../../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navigation.css"
 import { BsSearch } from 'react-icons/bs';
-import { BsBasket } from 'react-icons/bs';
+import { BsCartPlus } from 'react-icons/bs';
 import { BsHeart } from 'react-icons/bs';
 
 
@@ -23,7 +23,7 @@ const Navigation = ({setProductName}) => {
       {state.isLoggedIn ? (
         <>
            <div className="test2">
-          <Link to="/carts"><BsBasket/></Link>
+          <Link to="/carts"><BsCartPlus/></Link>
           <Link to="/wishLists"><BsHeart/></Link>
           </div>
         <div className="test">
