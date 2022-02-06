@@ -54,7 +54,7 @@ img{
 }
 
 .section2{
-    margin-top: 350px;
+    /* margin-top: 350px; */
 }
 .header{
     font-family: 'Lobster Two', cursive;
@@ -75,4 +75,32 @@ margin-left: 15%;
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 5%;
+    margin-top: 100px;
+}
+.aboutUs{
+    margin-top: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.imgAbout{
+    width: 350px;
+    height: auto;
+    float: left;
+    padding-right: 20px;
+
+
+}
+
+.pImg{
+    padding-top: 200px;
+    text-align: start;
+    /* font-size: 15px; */
+   
+}
+.pad{
+ margin-left: 35%;
+ width: 40%;
+
 }
