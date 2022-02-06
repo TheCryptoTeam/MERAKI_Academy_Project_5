@@ -1,7 +1,7 @@
 const express = require("express");
 
 //controllers
-const { createNewComment, getAllComment } = require("../controllers/comments");
+const { createNewComment, getAllComments,deleteComment } = require("../controllers/comments");
 
 //middlewares
 const authentication = require("../middlewares/authentication");
@@ -15,8 +15,12 @@ commentsRouter.post(
 );
 commentsRouter.get(
   "/productes/:product_id/comments",
-  getAllComment
+  getAllComments
 );
 
+commentsRouter.delete(
+  "/productes/:id/comments",
+  deleteComment
+);
 
 module.exports = commentsRouter;
