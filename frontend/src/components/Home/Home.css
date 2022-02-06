@@ -24,7 +24,7 @@ padding: 7%;
 }
 
 .add{
-    font-size: 20px;
+    font-size: 30px;
     /* width: 20px; */
     padding-top: 20px;
     color: black;
@@ -43,6 +43,7 @@ img{
 }
 .twoButton{
     /* margin-top: 10%; */
+    font-size: 25px;
     text-align: center;
     width: 100px;
     display: inline;
@@ -51,6 +52,10 @@ img{
 
 .price{
     padding-top: 20px;
+    font-size: 20px;
+}
+.priceColor{
+    color: red;
 }
 
 .section2{
@@ -58,6 +63,7 @@ img{
 }
 .header{
     font-family: 'Lobster Two', cursive;
+    padding-top: 100px;
 /* display: flex; */
 
 }
@@ -90,6 +96,7 @@ font-family: 'Poppins', sans-serif;
     height: auto;
     float: left;
     padding-right: 20px;
+    margin-top: 30px;
 
 
 }
