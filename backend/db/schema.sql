@@ -56,7 +56,7 @@ PRIMARY KEY (id)
 );
 
 
--- comment table
+
 
 CREATE TABLE comments(
     id INT AUTO_INCREMENT NOT NULL,
