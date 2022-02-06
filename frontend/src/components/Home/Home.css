@@ -30,7 +30,8 @@ padding: 7%;
     color: black;
     background-color: white;
     width: 90px;
-    border-radius: 4%;
+    border: none;
+    /* border-radius: 4%; */
 
 }
 .add:hover{
