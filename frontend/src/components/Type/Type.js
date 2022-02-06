@@ -74,7 +74,7 @@ const Type = () => {
         <div className="laptop-brand">
           {type === "Laptop" ? (
             <>
-              <span
+              <span 
                 onClick={() => {
                   navigate(`/brand/Dell`);
                 }}

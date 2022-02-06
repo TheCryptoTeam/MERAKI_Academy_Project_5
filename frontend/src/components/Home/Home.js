@@ -137,6 +137,9 @@ watchs and other so get started and login now to know  more detailes about our w
           <img
             onClick={() => {
               navigate(`/type/Laptop`);
+              window.scrollTo(0, 25);
+
+              
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDe24g-hF3HSJNKpLBufd852zSsZOGi296Z4HrUEGREfL0S5UuadfU19i5mml_br8txUA&usqp=CAU"
             alt=""
@@ -144,6 +147,7 @@ watchs and other so get started and login now to know  more detailes about our w
           <img
             onClick={() => {
               navigate(`/type/Mobile`);
+              window.scrollTo(0, 0);
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTog9_y0FmuFP6r-agy3zpFoSm0isRwn97XtAZSUf_ZxchAT2uhqRqiDsG0qiq28Ft7co&usqp=CAU"
             alt=""
@@ -151,6 +155,7 @@ watchs and other so get started and login now to know  more detailes about our w
           <img
             onClick={() => {
               navigate(`/type/TV`);
+              window.scrollTo(0, 0);
             }}
             src="https://digitalbachat.in/wp-content/uploads/2021/10/Upcoming-Smart-TV-1024x585.png"
             alt=""
@@ -158,6 +163,7 @@ watchs and other so get started and login now to know  more detailes about our w
           <img
             onClick={() => {
               navigate(`/type/Watch`);
+              window.scrollTo(0, 0);
             }}
             src="https://ae01.alicdn.com/kf/H855ead2118204396b7bf775177b5f7578/Luxury-Minimalist-Men-s-Fashion-Ultra-Thin-Watches-Simple-Men-Business-Stainless-Steel-Mesh-Belt-Quartz.jpg"
             alt=""
@@ -166,6 +172,7 @@ watchs and other so get started and login now to know  more detailes about our w
           <img
             onClick={() => {
               navigate(`/type/Camera`);
+              window.scrollTo(0, 0);
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaI7Bd-KbGkyDmhR6HKFMOQOTDI0Wzkz8rqA&usqp=CAU"
             alt=""
@@ -173,6 +180,7 @@ watchs and other so get started and login now to know  more detailes about our w
           <img
             onClick={() => {
               navigate(`/type/Accessories`);
+              window.scrollTo(0, 0);
             }}
             src="https://www.espacocell.com.br/wp-content/uploads/2021/05/acessorios-para-celular-que-facilitam-a-vida-no-home-office-768x512.jpg"
             alt=""
