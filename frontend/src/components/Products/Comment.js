@@ -39,7 +39,6 @@ const Comment = ({ id }) => {
 
           setMessage(res.data.massege);
           getComments();
-         
         }
       })
       .catch((err) => {
@@ -56,13 +55,31 @@ const Comment = ({ id }) => {
         if (res.data.success) {
           setStatus(true);
           setComments(res.data.comments);
-          console.log(comments);
+
           setMessage(res.data.massege);
         }
       })
       .catch((err) => {
         setStatus(false);
-        console.log(err.response.data);
+
+        setMessage(err.response.data.massege);
+      });
+  };
+
+  const deleteComment = async (id) => {
+    await axios
+      .delete(`http://localhost:5000/productes/${id}/comments`)
+      .then((res) => {
+        if (res.data.success) {
+          setStatus(true);
+
+          getComments();
+          setMessage(res.data.massege);
+        }
+      })
+      .catch((err) => {
+        setStatus(false);
+
         setMessage(err.response.data.massege);
       });
   };
@@ -73,6 +90,9 @@ const Comment = ({ id }) => {
           <div key={index}>
             <h3>{comment.commenter}</h3>
             <p>{comment.comment}</p>
+            <button onClick={() => deleteComment(comment.id)}>
+              Delete comment
+            </button>
           </div>
         );
       })}
@@ -80,7 +100,6 @@ const Comment = ({ id }) => {
         <div>
           <textarea
             placeholder="comment here"
-            
             onChange={(e) => setComment(e.target.value)}
           ></textarea>
           <button onClick={createNewComment}>New commnet</button>
