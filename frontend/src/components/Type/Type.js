@@ -62,129 +62,196 @@ const Type = () => {
       });
   };
   //============================
-console.log(brand);
+  console.log(brand);
   return (
     <>
-      <div>
+     <div className="header">
+        <img
+          className="Imgtype"
+          src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
+        />
         
-      <div className="laptop-brand">
-        {type ==="Laptop" ?(<>
+        <div className="laptop-brand">
+          {type === "Laptop" ? (
+            <>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Dell`);
+                }}
+              >
+                Dell
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/HP`);
+                }}
+              >
+                HP
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Lenovo`);
+                }}
+              >
+                Lenovo
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
+          {type === "Mobile" ? (
+            <>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Apple`);
+                }}
+              >
+                Apple
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Samsung`);
+                }}
+              >
+                Samsung
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Huawei`);
+                }}
+              >
+                Huawei
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
+          {type === "TV" ? (
+            <>
+              <span
+                onClick={() => {
+                  navigate(`/brand/LG`);
+                }}
+              >
+                LG
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Sony`);
+                }}
+              >
+                Sony
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/TCL`);
+                }}
+              >
+                TCL
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
 
-        <span onClick={() => {
-              navigate(`/brand/Dell`);
-            }}>Dell</span>
-        <span onClick={() => {
-              navigate(`/brand/HP`);
-            }}>HP</span>
-        <span onClick={() => {
-              navigate(`/brand/Lenovo`);
-            }}>Lenovo</span>
-        
-          </>):(<></>)}
-        {type ==="Mobile" ?(<>
-
-        <span onClick={() => {
-              navigate(`/brand/Apple`);
-            }}>Apple</span>
-        <span onClick={() => {
-              navigate(`/brand/Samsung`);
-            }}>Samsung</span>
-        <span onClick={() => {
-              navigate(`/brand/Huawei`);
-            }}>Huawei</span>
-        
-          </>):(<></>)}
-          {type ==="TV" ?(<>
-
-<span onClick={() => {
-      navigate(`/brand/LG`);
-    }}>LG</span>
-<span onClick={() => {
-      navigate(`/brand/Sony`);
-    }}>Sony</span>
-<span onClick={() => {
-      navigate(`/brand/TCL`);
-    }}>TCL</span>
-
-  </>):(<></>)}
-          
-        {type ==="Watch" ?(<>
-
-        <span onClick={() => {
-              navigate(`/brand/Rolex`);
-            }}>Rolex</span>
-        <span onClick={() => {
-              navigate(`/brand/Omega`);
-            }}>Omega</span>
-        <span onClick={() => {
-              navigate(`/brand/Blancpain`);
-            }}>Blancpain</span>
-        
-          </>):(<></>)}
-        {type ==="Camera" ?(<>
-
-        <span onClick={() => {
-              navigate(`/brand/Canon`);
-            }}>Canon</span>
-        <span onClick={() => {
-              navigate(`/brand/Nikon`);
-            }}>Nikon</span>
-        <span onClick={() => {
-              navigate(`/brand/DJI`);
-            }}>DJI</span>
-        
-          </>):(<></>)}
-        
-          
-
-          
-          
-
-          
+          {type === "Watch" ? (
+            <>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Rolex`);
+                }}
+              >
+                Rolex
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Omega`);
+                }}
+              >
+                Omega
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Blancpain`);
+                }}
+              >
+                Blancpain
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
+          {type === "Camera" ? (
+            <>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Canon`);
+                }}
+              >
+                Canon
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/Nikon`);
+                }}
+              >
+                Nikon
+              </span>
+              <span
+                onClick={() => {
+                  navigate(`/brand/DJI`);
+                }}
+              >
+                DJI
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
-       
 
-        {products.map((product, index) => {
-          return (
-            <div key={index} className="products">
-              <div className="product">
-                <img
-                  onClick={() => navigate(`/products/${product.id}`)}
-                  src={product.image}
-                  alt=""
-                />
-                <p>name:{product.name}</p>
-                <p>price:{product.price}</p>
-                <button
-                  className="add"
-                  onClick={() => {
-                    addToCart(product.id);
-                  }}
-                >
-                  add to cart
-                </button>
-                <button
-                  className="add"
-                  onClick={() => {
-                    addToWishList(product.id);
-                  }}
-                >
-                  add to wishList
-                </button>
+        <div className="type">
+          {products.map((product, index) => {
+            return (
+              <div key={index} className="products">
+                <div className="product">
+                  <img
+                    onClick={() => navigate(`/products/${product.id}`)}
+                    src={product.image}
+                    alt=""
+                  />
+                  <p>name:{product.name}</p>
+                  <p>price:{product.price}</p>
+                  <button
+                    className="add"
+                    onClick={() => {
+                      addToCart(product.id);
+                    }}
+                  >
+                    add to cart
+                  </button>
+                  <button
+                    className="add"
+                    onClick={() => {
+                      addToWishList(product.id);
+                    }}
+                  >
+                    add to wishList
+                  </button>
+                </div>
+                <br />
               </div>
-              <br />
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );
 };
 export default Type;
 
-
 // {/* <div>
-          
+
 // {/* <select className="selectType" onChange={(e) => {
 // navigate(`/brand/${e.target.value}`)
 
@@ -195,7 +262,6 @@ export default Type;
 // <option value="dell">dell</option>
 // <option value="samsung" >samsung</option>
 // <option value="hp" >hp</option>
-
 
 // </select> */}
 // </div> */}
