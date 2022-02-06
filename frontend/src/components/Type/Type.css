@@ -1,6 +1,36 @@
+/* .margin{
+    margin-top: 325px;
+} */
+
+.Imgtype{
+    width: 100%;
+    height:20rem;
+    
+    
+}
 .laptop-brand{
     display: flex;
     justify-content: space-evenly;
-    margin-left: 35%;
+    margin-left: 39%;
     margin-right: 35%;
+    color: #666;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    transition: all .4s ease 0s;
+   
+}
+.laptop-brand span:hover{
+   color:  #ff4136;
+   cursor: pointer;
+}
+
+.type{
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5%;
+    
 }
