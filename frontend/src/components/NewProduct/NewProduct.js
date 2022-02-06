@@ -71,29 +71,33 @@ const NewProduct = () => {
           type="text"
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
+          style={{textTransform:"capitalize"}}
         />
         <br />
         <input
           type="text"
           placeholder="Image"
           onChange={(e) => setImage(e.target.value)}
+         
         />
         <br />
         <input
           type="text"
           placeholder="Brand"
           onChange={(e) => setBrand(e.target.value)}
+          style={{textTransform:"capitalize"}}
         />
         <br />
         <input
           type="text"
           placeholder="Type"
           onChange={(e) => setType(e.target.value)}
+          style={{textTransform:"capitalize"}}
         />
         <br />
 
         <input
-          type="text"
+          type="number"
           placeholder="Price"
           onChange={(e) => setPrice(e.target.value)}
         />

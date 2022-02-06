@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import "./Type.css";
 
 const Type = () => {
+  const { brand } = useParams();
   const navigate = useNavigate();
 
   const state = useSelector((state) => {
@@ -60,33 +62,79 @@ const Type = () => {
       });
   };
   //============================
-
+console.log(brand);
   return (
     <>
       <div>
         
-      <div className="type-home">
-          <img
-            onClick={() => {
-              navigate(`/brand/laptop`);
-            }}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDe24g-hF3HSJNKpLBufd852zSsZOGi296Z4HrUEGREfL0S5UuadfU19i5mml_br8txUA&usqp=CAU"
-            alt=""
-          />
-          <img
-            onClick={() => {
-              navigate(`/type/mobile`);
-            }}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTog9_y0FmuFP6r-agy3zpFoSm0isRwn97XtAZSUf_ZxchAT2uhqRqiDsG0qiq28Ft7co&usqp=CAU"
-            alt=""
-          />
-          <img
-            onClick={() => {
-              navigate(`/type/TV`);
-            }}
-            src="https://digitalbachat.in/wp-content/uploads/2021/10/Upcoming-Smart-TV-1024x585.png"
-            alt=""
-          />
+      <div className="laptop-brand">
+        {type ==="Laptop" ?(<>
+
+        <span onClick={() => {
+              navigate(`/brand/Dell`);
+            }}>Dell</span>
+        <span onClick={() => {
+              navigate(`/brand/HP`);
+            }}>HP</span>
+        <span onClick={() => {
+              navigate(`/brand/Lenovo`);
+            }}>Lenovo</span>
+        
+          </>):(<></>)}
+        {type ==="Mobile" ?(<>
+
+        <span onClick={() => {
+              navigate(`/brand/Apple`);
+            }}>Apple</span>
+        <span onClick={() => {
+              navigate(`/brand/Samsung`);
+            }}>Samsung</span>
+        <span onClick={() => {
+              navigate(`/brand/Huawei`);
+            }}>Huawei</span>
+        
+          </>):(<></>)}
+          {type ==="TV" ?(<>
+
+<span onClick={() => {
+      navigate(`/brand/LG`);
+    }}>LG</span>
+<span onClick={() => {
+      navigate(`/brand/Sony`);
+    }}>Sony</span>
+<span onClick={() => {
+      navigate(`/brand/TCL`);
+    }}>TCL</span>
+
+  </>):(<></>)}
+          
+        {type ==="Watch" ?(<>
+
+        <span onClick={() => {
+              navigate(`/brand/Rolex`);
+            }}>Rolex</span>
+        <span onClick={() => {
+              navigate(`/brand/Omega`);
+            }}>Omega</span>
+        <span onClick={() => {
+              navigate(`/brand/Blancpain`);
+            }}>Blancpain</span>
+        
+          </>):(<></>)}
+        {type ==="Camera" ?(<>
+
+        <span onClick={() => {
+              navigate(`/brand/Canon`);
+            }}>Canon</span>
+        <span onClick={() => {
+              navigate(`/brand/Nikon`);
+            }}>Nikon</span>
+        <span onClick={() => {
+              navigate(`/brand/DJI`);
+            }}>DJI</span>
+        
+          </>):(<></>)}
+        
           
 
           
