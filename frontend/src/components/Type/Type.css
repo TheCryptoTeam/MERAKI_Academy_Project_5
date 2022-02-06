@@ -1,0 +1,6 @@
+.laptop-brand{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 35%;
+    margin-right: 35%;
+}
