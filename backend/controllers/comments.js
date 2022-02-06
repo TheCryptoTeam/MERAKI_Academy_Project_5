@@ -26,6 +26,34 @@ const createNewComment = (req, res) => {
   });
 };
 
+
+
+//get all comment 
+
+
+
+const getAllComment = (req, res) => {
+  const query = `SELECT * FROM comments WHERE product_id=? AND is_deleted=0`;
+  const productID = [req.params.product_id];
+console.log(productID);
+
+  connection.query(query,productID, (err, result, field) => {
+      if (err) {
+
+          res.json({ success: false, massege: "the product not found", err: err })
+          res.status(404)
+
+      }
+      else {
+          res.json({ success: true, massege: `the product `, products: result })
+          res.status(200)
+
+      }
+  })
+};
+
+
 module.exports = {
   createNewComment,
+  getAllComment
 };
