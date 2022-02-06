@@ -23,6 +23,7 @@ const login = (req, res) => {
         if (respons) {
           const paylod = {
             userId: results[0].id,
+            userName: results[0].userName,
             role: results[0].role_id,
           };
           const secret = process.env.SECRET;
