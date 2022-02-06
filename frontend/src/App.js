@@ -12,6 +12,7 @@ import Carts from "./components/Carts/carts";
 import Search from "./components/Search/Search";
 import Products from "./components/Products/Products";
 import WishLists from "./components/WishLists/WishLists";
+import Footer from "./components/Footer/Footer";
 
 //===============================================================
 
@@ -48,6 +49,7 @@ const App = () => {
           }
         />
       </Routes>
+      <Footer/>
     </div>
   );
 };

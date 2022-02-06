@@ -1,0 +1,39 @@
+
+
+.footer{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 5%;
+}
+.footerImg{
+    background-color: rgba(168, 182, 190, 0.473);
+    font-family: 'Poppins', sans-serif;
+    color: #303030;
+    font-weight: 400;
+}
+
+.emailAddress{
+   padding: 14px; 
+   /* border: 1px solid gray; */
+}
+
+.go{
+    padding: 15px;
+    font-size: 15px;
+    background-color: rgb(107, 114, 114);
+    border: none;
+}
+hr{
+    /* width: 2px; */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.icon{
+  
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* margin: 4%; */
+}
+.icon1{
+padding-top: 10px;}
