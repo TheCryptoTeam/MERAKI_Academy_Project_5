@@ -37,7 +37,7 @@ const getAllComments = (req, res) => {
       res.json({ success: false, massege: "the product not found", err: err });
       res.status(404);
     } else {
-      res.json({ success: true, massege: `the product `, products: result });
+      res.json({ success: true, massege: `the comments `,comments: result });
       res.status(200);
     }
   });
