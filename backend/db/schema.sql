@@ -61,6 +61,7 @@ PRIMARY KEY (id)
 CREATE TABLE comments(
     id INT AUTO_INCREMENT NOT NULL,
     comment VARCHAR(255),
+    commenter VARCHAR(255),
     product_id INT,
 FOREIGN KEY (product_id) REFERENCES products(id),
     commenter_id INT,

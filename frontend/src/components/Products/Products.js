@@ -9,6 +9,7 @@ import {
 } from "../../reducer/products";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./Products.css";
+import Comment from "./Comment";
 const Products = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -93,7 +94,7 @@ const Products = () => {
     }
   };
   return (
-    <div>
+    
       <div>
         {state.products.map((product, index) => {
           return (
@@ -162,11 +163,13 @@ const Products = () => {
                 </div>
               </div>
               <br />
+
             </div>
           );
         })}
+        <Comment id={id}/>
       </div>
-    </div>
+   
   );
 };
 
