@@ -110,6 +110,28 @@ const Home = () => {
           <p>Welcome to our website</p>
         </div>
       </div>
+
+
+      <div>
+          <div  className="aboutUs">
+          <div  className="float">
+          <img className="imgAbout" src="https://images.pexels.com/photos/3277920/pexels-photo-3277920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+            <div className="pImg ">
+                <div className="pad">
+              <h1>About us</h1><br/>
+
+             <p > this is a market to buy devices there is a lot of type of devices that we have like laptop and 
+watchs and other so get started and login now to know  more detailes about our website</p>
+</div>
+          </div>
+          </div>
+    
+
+
+          </div>
+      </div>
+
+
       <div className="section2">
         <div className="type-home">
           <img
