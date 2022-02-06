@@ -12,6 +12,7 @@ padding: 3%;}
 a{
     text-decoration: none;
     padding: 20px;
+    font-size: 25px;
 
 }
 
@@ -21,8 +22,8 @@ a:hover{
 
 .search{
     margin-top: 15px;
-
-    width: 160px;
+padding: 10px;
+    width: 180px;
     border:1px solid black;
     border-radius: 3%;
 }

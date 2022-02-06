@@ -101,13 +101,13 @@ const Home = () => {
       <div className="header">
         <img
           className="headerImg"
-          src="https://images.pexels.com/photos/257894/pexels-photo-257894.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
         />
         <div className="address">
           <h1 className="what">
-            What is new <span className="year">2022</span> ?
+         PRODUCT
           </h1>
-          <p>Welcome to our website</p>
+          <p className="pNewCollection">NEW COLLECTION 2022</p>
         </div>
       </div>
 
@@ -136,14 +136,14 @@ watchs and other so get started and login now to know  more detailes about our w
         <div className="type-home">
           <img
             onClick={() => {
-              navigate(`/type/laptop`);
+              navigate(`/type/Laptop`);
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDe24g-hF3HSJNKpLBufd852zSsZOGi296Z4HrUEGREfL0S5UuadfU19i5mml_br8txUA&usqp=CAU"
             alt=""
           />
           <img
             onClick={() => {
-              navigate(`/type/mobile`);
+              navigate(`/type/Mobile`);
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTog9_y0FmuFP6r-agy3zpFoSm0isRwn97XtAZSUf_ZxchAT2uhqRqiDsG0qiq28Ft7co&usqp=CAU"
             alt=""
@@ -157,7 +157,7 @@ watchs and other so get started and login now to know  more detailes about our w
           />
           <img
             onClick={() => {
-              navigate(`/type/watches`);
+              navigate(`/type/Watch`);
             }}
             src="https://ae01.alicdn.com/kf/H855ead2118204396b7bf775177b5f7578/Luxury-Minimalist-Men-s-Fashion-Ultra-Thin-Watches-Simple-Men-Business-Stainless-Steel-Mesh-Belt-Quartz.jpg"
             alt=""
@@ -165,14 +165,14 @@ watchs and other so get started and login now to know  more detailes about our w
 
           <img
             onClick={() => {
-              navigate(`/type/camera`);
+              navigate(`/type/Camera`);
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaI7Bd-KbGkyDmhR6HKFMOQOTDI0Wzkz8rqA&usqp=CAU"
             alt=""
           />
           <img
             onClick={() => {
-              navigate(`/type/accessories`);
+              navigate(`/type/Accessories`);
             }}
             src="https://www.espacocell.com.br/wp-content/uploads/2021/05/acessorios-para-celular-que-facilitam-a-vida-no-home-office-768x512.jpg"
             alt=""
