@@ -2,12 +2,12 @@ const connection = require("../db/db");
 
 const createNewComment = (req, res) => {
   const productId = req.params.product_id;
-  console.log(req.params);
   const commenter_id = req.token.userId;
+  const commenter = req.token.userName;
   const { comment } = req.body;
 
-  const query = `INSERT INTO comments (comment, commenter_id, product_id) VALUES (?,?,?)`;
-  const data = [comment, commenter_id, productId];
+  const query = `INSERT INTO comments (comment, commenter_id, product_id,commenter) VALUES (?,?,?,?)`;
+  const data = [comment, commenter_id, productId,commenter];
 
   connection.query(query, data, (err, results) => {
     if (err) {
