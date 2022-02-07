@@ -61,6 +61,7 @@ const Carts = () => {
                     alt=""
                     className="floatImg"
                   />
+                  <h3>{product.name}</h3>
                   <div className="quantity">
               <p>quantity:{product.quantity}</p>
               <p className="priceColor">price:{product.price}</p>
