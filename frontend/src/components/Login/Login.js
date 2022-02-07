@@ -3,18 +3,35 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import GoogleLogin from 'react-google-login';
 
 //redax
 import { login } from "../../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 //********************** */
-const Login = () => {
-  const state = useSelector((state) => {
-    return {
-      isLoggedIn: state.loginReducer.isLoggedIn,
-      token: state.loginReducer.token,
-    };
-  });
+
+  
+
+  const Login = () => {
+    const state = useSelector((state) => {
+      return {
+        isLoggedIn: state.loginReducer.isLoggedIn,
+        token: state.loginReducer.token,
+      };
+    });
+    
+
+    const onSuccess = (response) => {
+      console.log(response);
+      dispatch(login(response.tokenId));
+        localStorage.setItem("userToken", response.tokenId);
+        localStorage.setItem("userName", response.Du.VX);
+        navigate("/home");
+        console.log(state.token);
+     }
+   const onFailure =(response)=>{
+    console.log(response);
+    }
 
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -77,7 +94,15 @@ const Login = () => {
             required=""
           />
           
-          <div className="button-signIn"> <button onClick={loginUser} id="signIn">sign in</button></div>
+          <div className="button-signIn">
+          <GoogleLogin
+    clientId="284516947033-o1so93qbr9524dea3slu3ik2j01aqtpp.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={onSuccess}
+    onFailure={onFailure}
+    cookiePolicy={'single_host_origin'}
+  />,
+             <button onClick={loginUser} id="signIn">sign in</button></div>
 
           </div>
         </div>

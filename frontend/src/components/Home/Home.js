@@ -31,6 +31,7 @@ const Home = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
+  
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   //  getAllProducts
@@ -52,9 +53,11 @@ const Home = () => {
   //
 
   const addToCart = async (id) => {
+    
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
+    console.log(headers);
     let quantity = 1;
     await axios
       .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
