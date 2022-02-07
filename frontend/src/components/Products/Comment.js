@@ -18,7 +18,8 @@ const Comment = ({ id }) => {
 
   //===============================================================
   const { token, isLoggedIn } = state;
-
+  const userName=localStorage.getItem("userName")
+  
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
@@ -36,6 +37,7 @@ const Comment = ({ id }) => {
       .then((res) => {
         if (res.data.success) {
           setStatus(true);
+
 
           setMessage(res.data.massege);
           getComments();
@@ -55,7 +57,6 @@ const Comment = ({ id }) => {
         if (res.data.success) {
           setStatus(true);
           setComments(res.data.comments);
-
           setMessage(res.data.massege);
         }
       })
@@ -90,9 +91,10 @@ const Comment = ({ id }) => {
           <div key={index}>
             <h3>{comment.commenter}</h3>
             <p>{comment.comment}</p>
-            <button onClick={() => deleteComment(comment.id)}>
+            {userName ==comment.commenter ?<button onClick={() => deleteComment(comment.id)}>
               Delete comment
-            </button>
+            </button>:<></>}
+            
           </div>
         );
       })}
