@@ -10,6 +10,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 const Carts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  let total=0;
   const state = useSelector((state) => {
     return { carts: state.cartsReducer.carts, token: state.loginReducer.token };
   });
@@ -53,6 +54,7 @@ const Carts = () => {
     <>
       {show &&
         state.carts.map((product, index) => {
+          total=total+product.price
           return (
             <div key={index} className="addToCarts">
               <img
@@ -61,17 +63,23 @@ const Carts = () => {
                     alt=""
                     className="floatImg"
                   />
-                  <h3>{product.name}</h3>
+                  <h2>{product.name}</h2>
                   <div className="quantity">
               <p>quantity:{product.quantity}</p>
-              <p className="priceColor">price:{product.price}</p>
-              <button onClick={()=>{deleteCart(product.id)}} className="remove"><RiDeleteBinLine/></button>
               </div>
+              <p className="priceColor quantity">price:{product.price}</p>
+
+              <button onClick={()=>{deleteCart(product.id)}} className="remove"><RiDeleteBinLine/></button>
+
             </div>
+
           );
         })}
-      
+        <div className="totalDiv">
+              <h2>Total :</h2> <h2 className="total">{total}$</h2>
+              </div>
       {message && <p>{message}</p>}
+
     </>
   );
 };
