@@ -23,15 +23,18 @@ const UploadFile = ({ setImage }) => {
         console.log(err.response);
       });
   };
-
+ 
   return (
     <div className="upload">
       <input
         onChange={(event) => {
           setFile(event.target.files[0]);
+          imageUpload(file);
+        
         }}
         type="file"
       ></input>
+
 
       <button
         onClick={() => {
