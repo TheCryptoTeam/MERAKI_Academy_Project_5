@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const createNewAuthor = async (req, res) => {
+  console.log(req.body);
   const { userName, email, password, role_id } = req.body;
   let encryptedPassword;
   if (password) {
