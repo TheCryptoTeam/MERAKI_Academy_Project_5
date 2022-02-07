@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import {addproduct } from  "../../reducer/products";
 import axios from "axios";
 import "./NewProduct.css";
-
+import UploadFile from "./UploadFile"
 import { useDispatch, useSelector } from "react-redux";
-import UploadFile from "./UploadFile";
 
 const NewProduct = () => {
   const dispatch = useDispatch();
@@ -67,7 +66,7 @@ const NewProduct = () => {
 
   return (
     <>
- <div className="main-continar">
+ <div className=".main-continar1">
       <div className="login-continar">
         <div className="login-register">
           {/* <div className="inner">
@@ -75,9 +74,7 @@ const NewProduct = () => {
           <span id="registerR" >Register</span>
           </div> */}
         </div>
-        <div><span>New product</span></div>
         <div className="login-box-Product">
-         
           <div className="login-box-inner">
           <input
             type="text"
@@ -89,14 +86,7 @@ const NewProduct = () => {
             required=""
             style={{textTransform:"capitalize"}}
           />
-          <input
-            type="text"
-            onChange={(e) => {
-              setImage(e.target.value);
-            }}
-            placeholder=" Image "
-            required=""
-          />
+        
           <input
             type="text"
             onChange={(e) => {
@@ -133,6 +123,7 @@ const NewProduct = () => {
             required=""
             style={{textTransform:"capitalize"}}
           />
+          <UploadFile setImage={setImage}/>
           
           <div className="button-signIn"> <button onClick={createNewProduct} id="signIn">Create</button></div>
 
@@ -144,54 +135,8 @@ const NewProduct = () => {
 
     </div>
 
-{/* 
-     <form onSubmit={createNewProduct}>
-        <br />
-        <input
-          type="text"
-          placeholder="Name"
-          onChange={(e) => setName(e.target.value)}
-          style={{textTransform:"capitalize"}}
-        />
-        <br />
-        {/* <input
-          type="text"
-          placeholder="Image"
-          onChange={(e) => setImage(e.target.value)}
-         
-        /> */}
-         <UploadFile setImage={setImage}/>
-        <br />
-        <input
-          type="text"
-          placeholder="Brand"
-          onChange={(e) => setBrand(e.target.value)}
-          style={{textTransform:"capitalize"}}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Type"
-          onChange={(e) => setType(e.target.value)}
-          style={{textTransform:"capitalize"}}
-        />
-        <br />
 
-        <input
-          type="number"
-          placeholder="Price"
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <br />
 
-        <textarea
-          placeholder=" description "
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-      
-        <br />
-        <button>Create New Product</button>
-      </form> */}
       <br />
       {status
         ? message && <div >{message}</div>
