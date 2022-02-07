@@ -79,6 +79,7 @@ const Type = () => {
           <p className="pNewCollection">NEW COLLECTION 2022</p>
         </div>
         <div className="margin"></div>
+       
         <div className="laptop-brand">
           {type === "Laptop" ? (
             <>
