@@ -1,0 +1,26 @@
+.quantity{
+    float:right;
+    padding-left: 50px;
+    text-align: start;
+font-size: 25px;
+padding-bottom: 10px;
+}
+
+.addToCarts{
+    /* width: 400px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.remove{
+    background-color: red;
+    padding: 7px;
+    border: 1px solid black;
+    margin-top: 10px;
+    font-size: 20px;
+    width: 50px;
+}

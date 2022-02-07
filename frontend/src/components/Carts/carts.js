@@ -3,6 +3,10 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setcarts,deleteCartstById } from "../../reducer/cart/carts";
 import { useNavigate } from "react-router-dom";
+import "./carts.css";
+import { RiDeleteBinLine } from "react-icons/ri";
+
+
 const Carts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -50,15 +54,18 @@ const Carts = () => {
       {show &&
         state.carts.map((product, index) => {
           return (
-            <div key={index} className="products">
+            <div key={index} className="addToCarts">
               <img
                     onClick={() => navigate(`/products/${product.id}`)}
                     src={product.image}
                     alt=""
+                    className="floatImg"
                   />
+                  <div className="quantity">
               <p>quantity:{product.quantity}</p>
-              <p>price:{product.price}</p>
-              <button onClick={()=>{deleteCart(product.id)}}>X</button>
+              <p className="priceColor">price:{product.price}</p>
+              <button onClick={()=>{deleteCart(product.id)}} className="remove"><RiDeleteBinLine/></button>
+              </div>
             </div>
           );
         })}
