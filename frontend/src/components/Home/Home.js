@@ -31,7 +31,6 @@ const Home = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-  
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   //  getAllProducts
@@ -53,7 +52,6 @@ const Home = () => {
   //
 
   const addToCart = async (id) => {
-    
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
@@ -107,75 +105,77 @@ const Home = () => {
           src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
         />
         <div className="address">
-          <h1 className="what">
-         PRODUCT
-          </h1>
+          <h1 className="what">PRODUCT</h1>
           <p className="pNewCollection">NEW COLLECTION 2022</p>
         </div>
       </div>
 
-
       <div>
-          <div  className="aboutUs">
-          <div  className="float">
-          <img className="imgAbout" src="https://images.pexels.com/photos/3277920/pexels-photo-3277920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+        <div className="aboutUs">
+          <div className="float">
+            <img
+              className="imgAbout"
+              src="https://images.pexels.com/photos/3277920/pexels-photo-3277920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            />
             <div className="pImg ">
-                <div className="pad">
-              <h1>About us</h1><br/>
+              <div className="pad">
+                <h1>About us</h1>
+                <br />
 
-             <p > this is a market to buy devices there is a lot of type of devices that we have like laptop and 
-watchs and other so get started and login now to know  more detailes about our website</p>
-</div>
+                <p>
+                  {" "}
+                  this is a market to buy devices there is a lot of type of
+                  devices that we have like laptop and watchs and other so get
+                  started and login now to know more detailes about our website
+                </p>
+              </div>
+            </div>
           </div>
-          </div>
-    
-
-
-          </div>
+        </div>
       </div>
-
 
       <div className="section2">
         <div className="type-home">
-            <span  onClick={() => {
+          <span
+            onClick={() => {
               navigate(`/type/Laptop`);
-              window.scrollTo(0, 25);
-
-              
-            }}>LAPTOP</span>
-            <span  onClick={() => {
+              window.scrollTo(0, 300);
+            }}
+          >
+            LAPTOP
+          </span>
+          <span
+            onClick={() => {
               navigate(`/type/TV`);
-              window.scrollTo(0, 0);
-            }}>TV</span>
-            <span onClick={() => {
+              window.scrollTo(0, 300);
+            }}
+          >
+            TV
+          </span>
+          <span
+            onClick={() => {
               navigate(`/type/Mobile`);
-              window.scrollTo(0, 0);
-            }}>MOBILE</span>
-            <span onClick={() => {
+              window.scrollTo(0, 300);
+            }}
+          >
+            MOBILE
+          </span>
+          <span
+            onClick={() => {
               navigate(`/type/Watch`);
-              window.scrollTo(0, 0);
-            }}>WATCH</span>
-            <span onClick={() => {
+              window.scrollTo(0, 300);
+            }}
+          >
+            WATCH
+          </span>
+          <span
+            onClick={() => {
               navigate(`/type/Camera`);
-              window.scrollTo(0, 0);
-            }}>CAMERA</span>
-          
-          
-          
-
-          {/* <select className="selecttype" onChange={(e) => {
-                navigate(`/type/${e.target.value}`)
-
-            }
-
-            }>
-                <option value="All" >All</option>
-                <option value="apple">apple</option>
-                <option value="samsung" >samsung</option>
-                <option value="laptop" >laptop</option>
-
-
-            </select> */}
+              window.scrollTo(0, 300);
+            }}
+          >
+            CAMERA
+          </span>
         </div>
         <div className="products">
           {show &&
