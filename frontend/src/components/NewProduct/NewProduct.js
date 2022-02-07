@@ -74,7 +74,9 @@ const NewProduct = () => {
           <span id="registerR" >Register</span>
           </div> */}
         </div>
+        <div><span>New product</span></div>
         <div className="login-box-Product">
+         
           <div className="login-box-inner">
           <input
             type="text"
