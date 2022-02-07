@@ -18,7 +18,7 @@ const Footer=()=>{
         <div className="footerImg">
 <div className="footer">
     <div>
-<h1>Crepto</h1><br/>
+<h1>Crypto</h1><br/>
 <p>Get 10% discount with notified about<br/> the latest news and updates. </p>
 </div>
 <div>

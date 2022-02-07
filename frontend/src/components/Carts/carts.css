@@ -9,19 +9,38 @@ padding-bottom: 10px;
 .addToCarts{
     /* width: 400px; */
     display: grid;
-    /* justify-content: center;
-    align-items: center; */
-    grid-template-columns: auto auto auto  auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    text-align: center;
+    grid-template-columns: auto auto auto  auto auto;
     background-color: whitesmoke;
     margin-top: 20px;
     padding: 20px;
 }
 
 .remove{
-    background-color: red;
+    /* background-color: red; */
     padding: 7px;
-    border: 1px solid black;
-    margin-top: 10px;
-    font-size: 20px;
-    width: 50px;
+    border: none;
+    color: red;
+    font-size: 26px;
+    /* width: 50px;
+    height: 50px; */
+}
+.remove:hover{
+    font-size: 30px;
+    cursor: pointer;
+}
+.total{
+    color: red;
+}
+h2{
+    display: inline;
+}
+
+.totalDiv{
+background-color: paleturquoise;   
+    padding: 25px 0px;
+    margin-top: 20px;
 }
