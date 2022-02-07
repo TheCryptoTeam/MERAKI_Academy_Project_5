@@ -5,6 +5,7 @@ import axios from "axios";
 import "./NewProduct.css";
 
 import { useDispatch, useSelector } from "react-redux";
+import UploadFile from "./UploadFile";
 
 const NewProduct = () => {
   const dispatch = useDispatch();
@@ -153,12 +154,13 @@ const NewProduct = () => {
           style={{textTransform:"capitalize"}}
         />
         <br />
-        <input
+        {/* <input
           type="text"
           placeholder="Image"
           onChange={(e) => setImage(e.target.value)}
          
-        />
+        /> */}
+         <UploadFile setImage={setImage}/>
         <br />
         <input
           type="text"
@@ -186,6 +188,7 @@ const NewProduct = () => {
           placeholder=" description "
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
+      
         <br />
         <button>Create New Product</button>
       </form> */}
