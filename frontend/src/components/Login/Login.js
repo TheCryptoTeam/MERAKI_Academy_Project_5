@@ -40,7 +40,7 @@ const Login = () => {
       .then((result) => {
         dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
-
+        localStorage.setItem("userName", result.data.userName);
         navigate("/home");
       })
       .catch((err) => {

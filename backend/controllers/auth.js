@@ -26,6 +26,7 @@ const login = (req, res) => {
             userName: results[0].userName,
             role: results[0].role_id,
           };
+
           const secret = process.env.SECRET;
 
           const token = jwt.sign(paylod, secret);
@@ -34,6 +35,7 @@ const login = (req, res) => {
             success: true,
             message: "Valid login credentials",
             token,
+            userName: results[0].userName
           });
         } else {
           res.status(403).json({
