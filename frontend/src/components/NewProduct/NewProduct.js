@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {addproduct } from  "../../reducer/products";
 import axios from "axios";
+import "./NewProduct.css";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -65,6 +66,82 @@ const NewProduct = () => {
 
   return (
     <>
+ <div className="main-continar">
+      <div className="login-continar">
+        <div className="login-register">
+          {/* <div className="inner">
+          <span id="loginR" onClick={()=>{navigate("/login")}}>Login</span>
+          <span id="registerR" >Register</span>
+          </div> */}
+        </div>
+        <div className="login-box-Product">
+          <div className="login-box-inner">
+          <input
+            type="text"
+            onChange={(e) => {
+              setName(e.target.value)
+              
+            }}
+            placeholder=" Name "
+            required=""
+            style={{textTransform:"capitalize"}}
+          />
+          <input
+            type="text"
+            onChange={(e) => {
+              setImage(e.target.value);
+            }}
+            placeholder=" Image "
+            required=""
+          />
+          <input
+            type="text"
+            onChange={(e) => {
+              setBrand(e.target.value);
+            }}
+            placeholder=" Brand"
+            required=""
+            style={{textTransform:"capitalize"}}
+          />
+          <input
+            type="text"
+            onChange={(e) => {
+              setType(e.target.value);
+            }}
+            placeholder=" Type"
+            required=""
+            style={{textTransform:"capitalize"}}
+          />
+          <input
+            type="number"
+            onChange={(e) => {
+              setPrice(e.target.value);
+            }}
+            placeholder=" Price"
+            required=""
+            style={{textTransform:"capitalize"}}
+          />
+          <input
+            type="text"
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+            placeholder=" description"
+            required=""
+            style={{textTransform:"capitalize"}}
+          />
+          
+          <div className="button-signIn"> <button onClick={createNewProduct} id="signIn">Create</button></div>
+
+          </div>
+        </div>
+       <div className="message"> {message ? <p className="ErrorMessage">{message}</p> : <></>} </div> 
+      </div>
+
+
+    </div>
+
+{/* 
      <form onSubmit={createNewProduct}>
         <br />
         <input
@@ -109,7 +186,7 @@ const NewProduct = () => {
         ></textarea>
         <br />
         <button>Create New Product</button>
-      </form>
+      </form> */}
       <br />
       {status
         ? message && <div >{message}</div>
