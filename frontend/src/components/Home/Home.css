@@ -19,7 +19,7 @@ width: auto;
 .products{
 display: grid;
 grid-template-columns: auto auto auto;
-padding: 7%;
+padding: 2%;
 
 }
 
@@ -78,12 +78,23 @@ font-family: 'Poppins', sans-serif;
 }
 
 .type-home{
+    display: flex;
     justify-content: space-evenly;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 5%;
+    margin-left: 36%;
+    margin-right: 35%;
+    color: #666;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    transition: all .4s ease 0s;
     margin-top: 100px;
 }
+.type-home span:hover{
+    color:  #ff4136;
+    cursor: pointer;
+ }
 .aboutUs{
     margin-top: 400px;
     display: flex;

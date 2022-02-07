@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./Type.css";
+import { BsCartPlus } from "react-icons/bs";
+import { BsHeart } from "react-icons/bs";
 
 const Type = () => {
   const { brand } = useParams();
@@ -70,7 +72,13 @@ const Type = () => {
           className="Imgtype"
           src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
         />
-        
+        <div className="address">
+          <h1 className="what">
+         PRODUCT
+          </h1>
+          <p className="pNewCollection">NEW COLLECTION 2022</p>
+        </div>
+        <div className="margin"></div>
         <div className="laptop-brand">
           {type === "Laptop" ? (
             <>
@@ -213,34 +221,38 @@ const Type = () => {
         <div className="type">
           {products.map((product, index) => {
             return (
-              <div key={index} className="products">
-                <div className="product">
-                  <img
-                    onClick={() => navigate(`/products/${product.id}`)}
-                    src={product.image}
-                    alt=""
-                  />
-                  <p>name:{product.name}</p>
-                  <p>price:{product.price}</p>
-                  <button
-                    className="add"
-                    onClick={() => {
-                      addToCart(product.id);
-                    }}
-                  >
-                    add to cart
-                  </button>
-                  <button
-                    className="add"
-                    onClick={() => {
-                      addToWishList(product.id);
-                    }}
-                  >
-                    add to wishList
-                  </button>
+              <div key={index}>
+                  <div className="product">
+                    <img
+                      onClick={() => navigate(`/products/${product.id}`)}
+                      src={product.image}
+                      alt=""
+                    />
+                    <div className="price">
+                      <p> {product.name}</p>
+                      <p className="priceColor"> {product.price}</p>
+                    </div>
+                    <div className="twoButton">
+                      <button
+                        className="add"
+                        onClick={() => {
+                          addToCart(product.id);
+                        }}
+                      >
+                        <BsCartPlus />
+                      </button>
+                      <button
+                        className="add"
+                        onClick={() => {
+                          addToWishList(product.id);
+                        }}
+                      >
+                        <BsHeart />
+                      </button>
+                    </div>
+                  </div>
+                  <br />
                 </div>
-                <br />
-              </div>
             );
           })}
         </div>
