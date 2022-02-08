@@ -11,7 +11,7 @@ import CartItem from "./cartItem";
 const Carts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const[innerTotal,setInnerTotal]=useState(1)
+  const[total,setTotal]=useState(0)
  
   const state = useSelector((state) => {
     return { carts: state.cartsReducer.carts, token: state.loginReducer.token };
@@ -51,7 +51,7 @@ const Carts = () => {
         
           return (
 
-           <CartItem key={index} innerTotal={innerTotal} product={product} setInnerTotal={setInnerTotal} />
+           <CartItem key={index} getMyCart={getMyCart } total={total} product={product} setTotal={setTotal} />
 
           );
         })}
