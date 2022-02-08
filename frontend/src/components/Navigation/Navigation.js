@@ -28,9 +28,10 @@ const Navigation = ({setProductName}) => {
           </div>
         <div className="test">
           <Link to="/home">Home</Link>
-          <Link to="/productsTable">products Table</Link>
 
           <Link to="/newProduct">New Product</Link>
+          <Link to="/ProductsTable">Tables</Link>
+
           <Link
             className="auth-button"
             onClick={() => {
@@ -40,7 +41,7 @@ const Navigation = ({setProductName}) => {
             }}
             to="/login"
           >
-            logout
+            Logout
           </Link>
           </div>
         <div>
