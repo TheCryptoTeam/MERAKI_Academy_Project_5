@@ -174,12 +174,12 @@ const updateProductById = (req, res) => {
 const deleteProductById = (req, res) => {
 
     const id = req.params.id;
-    const query = `DELETE FROM products WHERE id=?`
+    const query = `UPDATE products SET is_deleted=1 WHERE id=?;`
 
     connection.query(query, id, (err, result, field) => {
         if (err) {
             res.status(404)
-            res.json({ success: false, massege: `The product: ${id} is not found` })
+            res.json({ success: false, massege: `The product: ${id} is not found` ,err:err})
 
         }
         else {

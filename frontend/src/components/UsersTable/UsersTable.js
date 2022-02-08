@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
   import {
     setusers,
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
    
   } from "../../reducer/users/users";
 
+  import "./usersTable.css";
 
 const UsersTable = () => {
 
@@ -94,7 +95,15 @@ const deleteUser = async (id) => {
 
 return(
 
-    <div>
+    <div className="tableDiv">
+
+        {state.isLoggedIn?
+         <div className="tablesLink">
+         <a href="/productsTable" className="a" >Products </a>
+             <a href="/usersTable" className="a">Users </a>
+         </div>:<div></div>
+    }
+       
     <table className="table">
         <tr className="tr">
             <th>Id</th>
@@ -111,7 +120,8 @@ return(
                             <td>{user.userName}</td>
                             <td>{user.email}</td>
                             <td><button  className="del"
-        onClick={() => deleteUser(user.id)}>delete</button></td>
+        onClick={() => deleteUser(user.id)}>delete</button> 
+        </td>
                         </tr>
 
                 )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
     setproducts,
     addproduct,
@@ -92,16 +92,20 @@ useEffect(() => {
 
 
     return (
-        <div>
-            <div>
-                <span>Products</span>
-                <span>users</span>
-            </div>
-            <div>
+        <div className="tableDiv">
+              {state.isLoggedIn?
+         <div className="tablesLink">
+         <Link to="/productsTable" className="a">Products</Link>
+             <Link to="/usersTable" className="a">Users</Link>
+         </div>:<div></div>
+    }
+            <div >
                 <table className="table">
                     <tr className="tr">
                         <th>id</th>
                         <th>name</th>
+                        <th>brand</th>
+                        <th>type</th>
                         <th>price</th>
                         <th>Actions</th>
 
@@ -113,6 +117,8 @@ useEffect(() => {
                                     <tr className="tr">
                                         <td >{ele.id}</td>
                                         <td>{ele.name}</td>
+                                        <td>{ele.brand}</td>
+                                        <td>{ele.type}</td>
                                         <td>{ele.price}</td>
                                         <td><button  className="del"
                     onClick={() => deleteProduct(ele.id)}>delete</button></td>
@@ -127,10 +133,12 @@ useEffect(() => {
 
 
                 </table>
+
             </div>
 
 
-        
+                        <Link to="/newProduct" className="newProduct">New Product</Link>
+
 
 
         </div>
