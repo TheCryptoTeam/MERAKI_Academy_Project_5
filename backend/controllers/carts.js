@@ -83,8 +83,30 @@ const deleteFromMyCart = (req, res) => {
   });
 };
 
+const updateCartById = (req, res) => {
+
+
+  const query = `UPDATE carts SET ? WHERE id=?`
+  const body = req.body
+  const id = req.params.id
+  const data = [body, id]
+
+  connection.query(query, data, (err, result, field) => {
+      if (err) {
+          res.json(err)
+
+      }
+      else {
+          res.json(result)
+
+      }
+  })
+}
+
+
 module.exports = {
   addTOCart,
   getMyCart,
   deleteFromMyCart,
+  updateCartById
 };
