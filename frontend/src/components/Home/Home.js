@@ -102,7 +102,11 @@ const Home = () => {
       <div className="header">
         <img
           className="headerImg"
-          src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
+          src="https://images.pexels.com/photos/238118/pexels-photo-238118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+
+
+
+          "
         />
         <div className="address">
           <h1 className="what">PRODUCT</h1>
@@ -115,7 +119,8 @@ const Home = () => {
           <div className="float">
             <img
               className="imgAbout"
-              src="https://images.pexels.com/photos/3277920/pexels-photo-3277920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://images.pexels.com/photos/3194519/pexels-photo-3194519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+              "
             />
             <div className="pImg ">
               <div className="pad">

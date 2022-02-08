@@ -54,7 +54,7 @@ contact info goes here</p>
 
 <hr/>
 <br/>
-<p>© 2022 Uniqlo All Right Reserved</p>
+<p>© 2022 Crypto All Right Reserved</p>
 <br/>
 
         </div>
