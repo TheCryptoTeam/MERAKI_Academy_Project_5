@@ -28,6 +28,8 @@ const Navigation = ({setProductName}) => {
           </div>
         <div className="test">
           <Link to="/home">Home</Link>
+          <Link to="/productsTable">products Table</Link>
+
           <Link to="/newProduct">New Product</Link>
           <Link
             className="auth-button"
