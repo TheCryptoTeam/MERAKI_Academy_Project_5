@@ -17,6 +17,8 @@ const loginRouter = require("./routes/login");
 const cartsRouter = require("./routes/carts");
 const wishListRouter = require("./routes/wishList");
 const commentsRouter = require("./routes/comments");
+
+const stripe = require("./routes/stripe");
 // Routes Middleware
 app.use("/users", usersRouter);
 app.use("/roles", rolesRouter);
@@ -26,6 +28,7 @@ app.use("/carts", cartsRouter);
 app.use("/wishList", wishListRouter);
 app.use(commentsRouter);
 const PORT = process.env.PORT || 5000;
+app.use("/payment", stripe);
 
 app.listen(PORT, () => {
   console.log(`server on ${PORT}`);

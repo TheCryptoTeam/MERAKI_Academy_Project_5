@@ -15,6 +15,7 @@ import WishLists from "./components/WishLists/WishLists";
 import Footer from "./components/Footer/Footer";
 import ProductsTable from "./components/ProductsTable/ProductsTable";
 import UsersTable from "./components/UsersTable/UsersTable";
+import StripePayment from "./components/Stripe/StripContainer";
 
 
 //===============================================================
@@ -40,8 +41,7 @@ const App = () => {
         <Route path="brand/:brand" element={<Brand />} />
         <Route path="/productsTable" element={<ProductsTable />} />
         <Route path="/usersTable" element={<UsersTable />} />
-
-
+<Route path="/payment" element={<StripePayment/>} />
 
         <Route
           path="*"
