@@ -25,7 +25,8 @@ const UploadFile = ({ setImage }) => {
   };
  
   return (
-    <div className="upload">
+    <div >
+      <div className="upload">
       <input
         onChange={(event) => {
           setFile(event.target.files[0]);
@@ -36,13 +37,15 @@ const UploadFile = ({ setImage }) => {
       ></input>
 
 
-      <button
+      <button className="btnUpload"
         onClick={() => {
           imageUpload(file);
         }}
       >
         Upload
       </button>
+      </div>
+      
 
       <br />
 
