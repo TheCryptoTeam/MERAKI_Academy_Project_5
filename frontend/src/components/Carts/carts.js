@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setcarts,deleteCartstById } from "../../reducer/cart/carts";
 import { useNavigate } from "react-router-dom";
 import "./carts.css";
-import { RiDeleteBinLine } from "react-icons/ri";
+
+import CartItem from "./cartItem";
 
 
 const Carts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  let total=0;
+  const[innerTotal,setInnerTotal]=useState(1)
+ 
   const state = useSelector((state) => {
     return { carts: state.cartsReducer.carts, token: state.loginReducer.token };
   });
@@ -37,15 +39,7 @@ const Carts = () => {
 
   };
   
-  const deleteCart = async (id) => {
-    await axios
-      .delete(`http://localhost:5000/carts/${id}`)
-      .then((response) => {
-        getMyCart ();
-        dispatch(deleteCartstById(id))
-      })
-      
-  };
+  
   useEffect(() => {
     getMyCart()
   }, [])
@@ -54,29 +48,15 @@ const Carts = () => {
     <>
       {show &&
         state.carts.map((product, index) => {
-          total=total+product.price
+        
           return (
-            <div key={index} className="addToCarts">
-              <img
-                    onClick={() => navigate(`/products/${product.id}`)}
-                    src={product.image}
-                    alt=""
-                    className="floatImg"
-                  />
-                  <h2>{product.name}</h2>
-                  <div className="quantity">
-              <p>quantity:{product.quantity}</p>
-              </div>
-              <p className="priceColor quantity">price:{product.price}</p>
 
-              <button onClick={()=>{deleteCart(product.id)}} className="remove"><RiDeleteBinLine/></button>
-
-            </div>
+           <CartItem key={index} innerTotal={innerTotal} product={product} setInnerTotal={setInnerTotal} />
 
           );
         })}
         <div className="totalDiv">
-              <h2>Total :</h2> <h2 className="total">{total}$</h2>
+              <h2>Total :</h2> <h2 className="total">$</h2>
               </div>
       {message && <p>{message}</p>}
 
