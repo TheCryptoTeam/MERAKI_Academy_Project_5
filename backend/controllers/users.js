@@ -37,8 +37,10 @@ console.log(encryptedPassword);
 
 const getAllUsers = (req, res) => {
  
-  
-  const query = `SELECT * FROM users WHERE is_deleted=0   `
+  let skip = req.query.skip
+  let limit =req.query.limit
+  const query = `SELECT * FROM users WHERE is_deleted=0 LIMIT ${skip},${limit}  `
+ 
 
   connection.query(query, (err, result, field) => {
       if (err) {
