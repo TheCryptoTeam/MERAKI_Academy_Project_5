@@ -13,6 +13,9 @@ import Search from "./components/Search/Search";
 import Products from "./components/Products/Products";
 import WishLists from "./components/WishLists/WishLists";
 import Footer from "./components/Footer/Footer";
+import ProductsTable from "./components/ProductsTable/ProductsTable";
+import UsersTable from "./components/UsersTable/UsersTable";
+
 
 //===============================================================
 
@@ -35,6 +38,10 @@ const App = () => {
         <Route path="/products/:id" element={<Products />} />
         <Route path="/wishLists" element={<WishLists />} />
         <Route path="brand/:brand" element={<Brand />} />
+        <Route path="/productsTable" element={<ProductsTable />} />
+        <Route path="/usersTable" element={<UsersTable />} />
+
+
 
         <Route
           path="*"

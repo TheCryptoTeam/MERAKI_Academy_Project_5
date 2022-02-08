@@ -57,6 +57,30 @@ const getAllUsers = (req, res) => {
   })
 
 };
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// delete user
+
+const deleteUserById = (req, res) => {
+
+  const id = req.params.id;
+  const query = `DELETE FROM users WHERE id=?`
+
+  connection.query(query, id, (err, result, field) => {
+      if (err) {
+          res.status(404)
+          res.json({ success: false, massege: `The user: ${id} is not found` })
+
+      }
+      else {
+          res.status(200)
+          res.json({ success: true, massege: `Succeeded to delete user with id: ${id}` })
+
+      }
+  })
+}
+
 module.exports = {
-  createNewAuthor,getAllUsers
+  createNewAuthor,getAllUsers,deleteUserById
 };
