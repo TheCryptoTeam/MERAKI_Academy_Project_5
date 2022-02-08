@@ -31,6 +31,30 @@ console.log(encryptedPassword);
   });
 };
 
+
+/////////////////////////////////////////////////////////////////////////////////////
+//get all users
+
+const getAllUsers = (req, res) => {
+ 
+  
+  const query = `SELECT * FROM users WHERE is_deleted=0   `
+
+  connection.query(query, (err, result, field) => {
+      if (err) {
+
+          res.json({ success: false, massege: "server erorr", err: err })
+          res.status(500)
+
+      }
+      else {
+          res.json({ success: true, massege: "All the users", result: result })
+          res.status(200)
+
+      }
+  })
+
+};
 module.exports = {
-  createNewAuthor,
+  createNewAuthor,getAllUsers
 };
