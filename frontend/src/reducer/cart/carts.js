@@ -15,6 +15,14 @@ const cartsReducer = (state = initialState, { type, payload }) => {
         ...state,
         carts: [...state.carts, payload],
       };
+      case "UPDATE_Cart":
+      return {
+        ...state,
+        carts: state.carts.map((element) => {
+          if (payload.id === element.id) return payload;
+          return element;
+        }),
+      };
       case  "DELETE_CART":
           return{
             ...state,
@@ -40,4 +48,7 @@ export const addcart = (cart) => {
 };
 export const deleteCartstById = (id) => {
   return { type: "DELETE_CART", payload: id };
+};
+export const updateCarttById = (updatedCart) => {
+  return { type: "UPDATE_Cart", payload: updatedCart };
 };
