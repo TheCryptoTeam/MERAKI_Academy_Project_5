@@ -17,7 +17,9 @@ const ProductsTable = () => {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    const [message, setMessage] = useState("");
+    const [allProducts, setAllProducts] = useState("");
+    const [users, setUsers] = useState("");
+    const [carts, setCarts] = useState("");
     const [skip, setSkip] = useState(0);
     const [page, setPage] = useState(1);
 
@@ -52,6 +54,55 @@ const ProductsTable = () => {
     };
 
 
+    //==========================================================================
+    const getProductsNoLimit = async () => {
+      await axios
+          .get(`http://localhost:5000/products`)
+          .then((res) => {
+              (setAllProducts(res.data.result))
+
+              
+          })
+          .catch((err) => {
+              throw err;
+          });
+  };
+
+    //==========================================================================
+    const getAllUsers = async () => {
+      await axios
+          .get(`http://localhost:5000/users/AllUsers`)
+          .then((res) => {
+             
+             (setUsers(res.data.result));
+  
+             
+          })
+          .catch((err) => {
+              throw err;
+          });
+  };
+
+
+
+
+    //==========================================================================
+    const getAllCarts = async () => {
+      await axios
+          .get(`http://localhost:5000/carts/All`)
+          .then((res) => {
+             
+             (setCarts(res.data.results));
+  
+             
+          })
+          .catch((err) => {
+              throw err;
+          });
+  };
+
+    //================================================================================
+
      //////////////////////////////////////////////////////////////////////////////////////////////////////
    // delete product
 
@@ -60,6 +111,7 @@ const ProductsTable = () => {
     try {
       await axios.delete(`http://localhost:5000/products/${id}`);
       dispatch(deleteProductById(id));
+      getAllProducts()
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +122,10 @@ const ProductsTable = () => {
 //use effect
 
 useEffect(() => {
-    getAllProducts()
+    getAllProducts();
+    getProductsNoLimit();
+    getAllUsers();
+    getAllCarts();
   }, [skip]);
 
   const inc = () => {
@@ -83,6 +138,8 @@ useEffect(() => {
       setPage(page - 1);
     }
   };
+
+
 
 
 
@@ -109,7 +166,7 @@ useEffect(() => {
               <p>Users</p>
             </div>
             <div>
-              <p>55</p>
+              <p>{users.length}</p>
             </div>
             </div>
           <div className="two">
@@ -117,7 +174,7 @@ useEffect(() => {
               <p>Products</p>
             </div>
             <div>
-              <p>{state.products.length}</p>
+              <p>{allProducts.length}</p>
             </div>
           </div>
           <div className="three">
@@ -125,7 +182,7 @@ useEffect(() => {
               <p>Carts</p>
             </div>
             <div>
-              <p>55</p>
+              <p>{carts.length}</p>
             </div>
           </div>
           <div className="four">
