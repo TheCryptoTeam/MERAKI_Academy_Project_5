@@ -103,10 +103,40 @@ const updateCartById = (req, res) => {
   })
 }
 
+//=========================================================
+const getAllCart = (req, res) => {
+  const query = `SELECT * FROM  carts WHERE is_deleted=0 ;`;
+
+  connection.query(query, (err, result) => {
+    if (err) {
+        return res.status(500).json({
+          success: false,
+          massage: "Server Error",
+          err: err,
+        });
+      }
+    if (!result.length) {
+      return res.status(500).json({
+        success: true,
+        massage: "The cart is empty",
+        
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: "All the cart Products",
+      results: result,
+    });
+  });
+};
+//==================================================================
+
 
 module.exports = {
   addTOCart,
   getMyCart,
   deleteFromMyCart,
-  updateCartById
+  updateCartById,
+  getAllCart
 };
