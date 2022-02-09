@@ -1,13 +1,14 @@
 const express = require("express");
  const{createNewProduct, getAllProducts, getProductByName,
      getProductByType, getProductByBrand, updateProductById,
-      deleteProductById, getProductById}=require("../controllers/products")
+      deleteProductById, getProductById,getProductsNoLimit}=require("../controllers/products")
  
 
 const productsRouter=express.Router();
 
 productsRouter.post("/",createNewProduct)
 productsRouter.get("/page",getAllProducts)
+productsRouter.get("/",getProductsNoLimit)
 
 productsRouter.get("/id/:id",getProductById)
 productsRouter.get("/search_name",getProductByName)
