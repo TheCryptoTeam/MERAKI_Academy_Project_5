@@ -11,7 +11,7 @@ import {
 
   import "./ProductsTable.css";
 
-
+  import { RiDeleteBinLine } from "react-icons/ri";
 const ProductsTable = () => {
 
 
@@ -40,7 +40,7 @@ const ProductsTable = () => {
 
     const getAllProducts = async () => {
         await axios
-            .get(`http://localhost:5000/products/page?skip=${skip}&limit=3`)
+            .get(`http://localhost:5000/products/page?skip=${skip}&limit=4`)
             .then((res) => {
                 dispatch(setproducts(res.data.result));
 
@@ -92,15 +92,65 @@ useEffect(() => {
 
 
     return (
+      <div className="main">
+        <div className="side" >
+        <Link to="/productsTable" className="pro1">Products</Link>
+            
+             <Link to="/usersTable" className="use1">Users</Link>
+             <Link to="/newProduct" className="newProduct">New Product</Link>
+        </div>
+        <div className="name" >
+         <div> <h1>Products </h1></div>
+          <div><p>Dashboard</p></div>
+        </div>
+        <div className="box" >
+          <div className="one">
+            <div>
+              <p>Users</p>
+            </div>
+            <div>
+              <p>55</p>
+            </div>
+            </div>
+          <div className="two">
+          <div>
+              <p>Products</p>
+            </div>
+            <div>
+              <p>{state.products.length}</p>
+            </div>
+          </div>
+          <div className="three">
+          <div>
+              <p>Carts</p>
+            </div>
+            <div>
+              <p>55</p>
+            </div>
+          </div>
+          <div className="four">
+          <div>
+              <p>Suppliers</p>
+            </div>
+            <div>
+              <p>55</p>
+            </div>
+          </div>
+        </div>
+        <div className="charts" >
+          <div></div>
+          <div></div>
+        </div>
+        <div className="table" >
         <div className="tableDiv">
-              {state.isLoggedIn?
+              {/* {state.isLoggedIn?
          <div className="tablesLink">
          <Link to="/productsTable" className="pro1">Products</Link>
              <Link to="/usersTable" className="use1">Users</Link>
          </div>:<div></div>
-    }
+    } */}
             <div >
-                <table className="table">
+                <table className="insidTable">
                     <tr className="tr">
                         <th>id</th>
                         <th>name</th>
@@ -120,8 +170,8 @@ useEffect(() => {
                                         <td>{ele.brand}</td>
                                         <td>{ele.type}</td>
                                         <td>{ele.price}</td>
-                                        <td><button  className="del"
-                    onClick={() => deleteProduct(ele.id)}>delete</button></td>
+                                        <td>
+                    <RiDeleteBinLine id="delete"   onClick={() => deleteProduct(ele.id)}/></td>
                                     </tr>
 
                             )
@@ -137,11 +187,16 @@ useEffect(() => {
             </div>
 
 
-                        <Link to="/newProduct" className="newProduct">New Product</Link>
+                        {/* <Link to="/newProduct" className="newProduct">New Product</Link> */}
 
 
 
         </div>
+          
+        </div>
+      </div>
+
+        
     )
 }
 export default ProductsTable;
