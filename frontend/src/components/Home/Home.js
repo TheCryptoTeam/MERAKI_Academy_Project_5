@@ -37,7 +37,7 @@ const Home = () => {
 
   const getAllProducts = async () => {
     await axios
-      .get(`http://localhost:5000/products/page?skip=${skip}&limit=4`)
+      .get(`http://localhost:5000/products/page?skip=${skip}&limit=8`)
       .then((res) => {
         dispatch(setproducts(res.data.result));
 
@@ -192,6 +192,7 @@ const Home = () => {
 return(
   <div >
 
+{/* <div className="section3"> */}
 <div class="container page-wrapper">
   <div class="page-inner">
     <div class="row">
@@ -229,7 +230,7 @@ return(
                        
                       
                       
-                        Add in cart
+                        Add to cart
                       </span>
 
                      
@@ -240,7 +241,6 @@ return(
     </div>
   </div>
 </div>
-
 
 
 
