@@ -10,6 +10,7 @@ import { BsHeart } from "react-icons/bs";
 const Type = () => {
   const { brand } = useParams();
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
   const state = useSelector((state) => {
     return { token: state.loginReducer.token };
@@ -29,6 +30,7 @@ const Type = () => {
       .get(`http://localhost:5000/products/type/${type}`)
       .then((result) => {
         setProducts(result.data.products);
+        setShow(true)
       })
       .catch((err) => {
         throw err;
@@ -219,7 +221,7 @@ const Type = () => {
           )}
         </div>
 
-        <div className="type">
+        {/* <div className="type">
           {products.map((product, index) => {
             return (
               <div key={index}>
@@ -256,25 +258,85 @@ const Type = () => {
                 </div>
             );
           })}
+        </div> */}
+<div>
+
+<div className="products">
+          {show&&products.map(element=>{
+
+
+return(
+  <div >
+
+{/* <div className="section3"> */}
+<div class="container page-wrapper">
+  <div class="page-inner">
+    <div class="row">
+      <div class="el-wrapper">
+        <div class="box-up">
+          <img class="img" src={element.image}  onClick={() => navigate(`/products/${element.id}`)}
+ alt=""/>
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"></span>
+              {/* <span class="p-company">Yeezy</span> */}
+            </div>
+            <span className="add" onClick={() => {
+                          addToWishList(element.id);
+                        }}> 
+                        <BsHeart />
+                      </span>
+            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+           
+          </div>
         </div>
+
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart">
+            <span class="price">{element.price}$</span>
+
+            <span class="add-to-cart">
+              <span class="txt"    onClick={() => {
+                          addToCart(element.id);
+                        }}>  
+                       
+                      
+                      
+                        Add to cart
+                      </span>
+
+                     
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  </div>
+)
+
+
+
+          })}
+
+
+
+        </div>
+</div>
+
       </div>
     </>
   );
 };
 export default Type;
 
-// {/* <div>
 
-// {/* <select className="selectType" onChange={(e) => {
-// navigate(`/brand/${e.target.value}`)
-
-// }
-
-// }>
-// <option value="All" >All</option>
-// <option value="dell">dell</option>
-// <option value="samsung" >samsung</option>
-// <option value="hp" >hp</option>
-
-// </select> */}
-// </div> */}
