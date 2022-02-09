@@ -8,7 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import "./Payment.css";
-import { BsCurrencyBitcoin } from "react-icons/bs";
+
 const StripePayment = () => {
   const stripe = loadStripe(
     "pk_test_51KQqbdCywILMWPHuZO10mguPNtgJzVrCD0pxcT9JEx4QbUf99Fz3hSur084HvAlojVVCHhVRyd4PFdCVgD2a07zE00iyGO8pHw"
@@ -29,31 +29,51 @@ function CheckoutForm() {
       return;
     }
     setPaymentLoading(true);
+  const {error,paymentMethod} = await stripe.createPaymentMethod({
+    type: "card",
+    
+    card: elements.getElement(CardElement)})
+    if(!error){
+      try{
+        await axios
+        .post("http://localhost:5000/payment",{
+          payment_method: paymentMethod.id,
+        })
+        
+        setPaymentLoading(false);
+        alert("Payment Successful")
+        console.log("paymentMethod",paymentMethod);
 
-    const {clientSecret} = await axios
-      .post("http://localhost:5000/payment",{headers: { "Content-Type": "application/json" },
-    } ,{
-        body: JSON.stringify({ paymentMethodType: "card", currency: "eur" }),
-      })
-      .then((res) => {
-        res.json();
-      });
-    const paymentResult = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-        billing_details: {
-          name: "crypto",
-        },
-      },
-    });
-    setPaymentLoading(false);
-    if (paymentResult.error) {
-      alert(paymentResult.error.message);
-    } else {
-      if (paymentResult.paymentIntent.status === "succeeded") {
-        alert("Success!");
       }
+      catch(error){
+        console.log("paymentMerrorcatch",error);
+      }
+    }else{
+      console.log("paymentMerror",error.message)
     }
+
+   
+    // const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+    //   payment_method: {
+    //     card: elements.getElement(CardElement),
+    //     billing_details: {
+    //       name: "crypto",
+    //     },
+    //   },
+    // });
+
+
+// const paymentResult = await stripe.createPaymentMethod({card: elements.getElement(CardElement)}).then((res) => { console.log(res)});
+
+    
+    
+  //   if (paymentResult.error) {
+  //     alert(paymentResult.error.message);
+  //   } else {
+  //     if (paymentResult.paymentIntent.status === "succeeded") {
+  //       alert("Success!");
+  //     }
+  //   }
   };
   return (
     <div
