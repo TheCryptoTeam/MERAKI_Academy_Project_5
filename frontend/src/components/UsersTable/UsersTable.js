@@ -99,8 +99,8 @@ return(
 
         {state.isLoggedIn?
          <div className="tablesLink">
-         <a href="/productsTable" className="a" >Products </a>
-             <a href="/usersTable" className="a">Users </a>
+         <a href="/productsTable" className="pro" >Products </a>
+             <a href="/usersTable" className="use">Users </a>
          </div>:<div></div>
     }
        
