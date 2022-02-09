@@ -220,6 +220,28 @@ const getProductById = (req, res) => {
 
 
 
+//========================================================
+const getProductsNoLimit = (req, res) => {
+    
+
+    const query = `SELECT * FROM products WHERE is_deleted=0`
+
+    connection.query(query, (err, result, field) => {
+        if (err) {
+
+            res.json({ success: false, massege: "server erorr", err: err })
+            res.status(500)
+
+        }
+        else {
+            res.json({ success: true, massege: "All the products", result: result })
+            res.status(200)
+
+        }
+    })
+
+};
+
 ///////////////////////////////////////////////////////////////////////////////////////
 //module.exports
 
@@ -227,5 +249,5 @@ const getProductById = (req, res) => {
 module.exports = {
     createNewProduct, getAllProducts, getProductByName,
     getProductByType, getProductByBrand, updateProductById,
-    deleteProductById, getProductById
+    deleteProductById, getProductById,getProductsNoLimit
 }
