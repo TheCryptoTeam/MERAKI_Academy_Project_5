@@ -3,14 +3,20 @@
     font-family: sans-serif;
     padding: 40px;
 }
-.a{
-    font-size: 30px;
-    font-family: sans-serif; 
-}
+
 table{
     padding-top: 40px;
     padding-bottom: 20px;
 }
 .tableDiv{
     background-color: whitesmoke;
+}
+.pro{
+    font-size: 30px;
+    font-family: sans-serif; 
+}
+.use{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: red;
 }

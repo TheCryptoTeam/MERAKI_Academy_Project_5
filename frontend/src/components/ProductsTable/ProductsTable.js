@@ -95,8 +95,8 @@ useEffect(() => {
         <div className="tableDiv">
               {state.isLoggedIn?
          <div className="tablesLink">
-         <Link to="/productsTable" className="a">Products</Link>
-             <Link to="/usersTable" className="a">Users</Link>
+         <Link to="/productsTable" className="pro1">Products</Link>
+             <Link to="/usersTable" className="use1">Users</Link>
          </div>:<div></div>
     }
             <div >

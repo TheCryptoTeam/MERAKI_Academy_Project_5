@@ -31,3 +31,12 @@
       color: black;
       background-color: rgb(217, 228, 230);
   }
+  .pro1{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: red;
+  }
+  .use1{
+    font-size: 30px;
+    font-family: sans-serif;
+  }
