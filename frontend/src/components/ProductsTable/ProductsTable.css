@@ -1,12 +1,181 @@
+
+.main{
+  text-align: start;
+ 
+  
+  display: grid;
+  
+  grid-template-columns: repeat(8,1fr);
+  grid-template-rows: 100px 175px 300px 550px;
+  grid-template-areas: "side name name name name name name name" "side   box box box box box box box" " side chart chart chart chart chart chart chart" " side table table table table table table table";
+  
+}
+.side {
+  grid-area: side;
+  background-color: #393939;
+  display: flex;
+  flex-direction: column;
+
+}
+/***********************************************************/
+.name{
+  grid-area: name;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.name div{
+  height: 50%;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.name div:nth-child(2){
+  background-color: #eee;
+    margin: 10px;
+    padding: 10px;
+}
+/**************************************************************************/
+
+.box{
+  grid-area: box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+.box div{
+  width: 20%;
+  height: 80%;
+ 
+  border-radius:10px ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  
+}
+.one{
+  background-color: blue;
+  color: white;
+ 
+
+  
+}
+.one div:nth-child(1){
+  height: 60%;
+  width: 100%;
+  padding-left: 10px;
+  
+}
+.one div:nth-child(2){
+  height: 40%;
+  width: 100%;
+  padding-left: 10px;
+ 
+  border-top: 2px solid #eee;
+  border-radius: 0px;
+  
+}
+
+.two{
+  background-color: rgb(226, 205, 17);
+  color: white;
+}
+
+
+.two div:nth-child(1){
+  height: 60%;
+  width: 100%;
+  padding-left: 10px;
+  
+}
+.two div:nth-child(2){
+  height: 40%;
+  width: 100%;
+  padding-left: 10px;
+ 
+  border-top: 2px solid #eee;
+  border-radius: 0px;
+  
+}
+
+
+.three{
+  background-color: rgb(91, 146, 39);
+  color: white;
+}
+
+.three div:nth-child(1){
+  height: 60%;
+  width: 100%;
+  padding-left: 10px;
+  
+}
+.three div:nth-child(2){
+  height: 40%;
+  width: 100%;
+  padding-left: 10px;
+ 
+  border-top: 2px solid #eee;
+  border-radius: 0px;
+  
+}
+.four{
+  background-color: rgb(139, 40, 1);
+  color: white;
+}
+.four div:nth-child(1){
+  height: 60%;
+  width: 100%;
+  padding-left: 10px;
+  
+}
+.four div:nth-child(2){
+  height: 40%;
+  width: 100%;
+  padding-left: 10px;
+ 
+  border-top: 2px solid #eee;
+  border-radius: 0px;
+  
+}
+/********************************************************/
+
+.charts{
+  grid-area: chart;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+.charts div{
+  width: 47%;
+    height: 80%;
+    background: #eee;
+}
+
 .table{
-    /* border: 1px solid black; */
+  grid-area: table;
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+ .insidTable{
+    
     text-align: center;
     display: inline-block;
-    padding-bottom: 20px;
-
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  
+    
 }
 .tr{
     border: 1px solid ;
@@ -15,6 +184,9 @@
  th, td {
     border:1px solid black;
     padding: 30px;
+    width: 217px;
+    background-color: white;
+    
   }
 
   .del{
@@ -39,4 +211,11 @@
   .use1{
     font-size: 30px;
     font-family: sans-serif;
+  } 
+  #delete{
+    font-size: x-large;
+    cursor: pointer;
+  }
+  #delete:hover{
+    color: red;
   }
