@@ -10,7 +10,7 @@ import {
 } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../reducer/login";
-import { BsCartPlus } from "react-icons/bs";
+import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +37,7 @@ const Home = () => {
 
   const getAllProducts = async () => {
     await axios
-      .get(`http://localhost:5000/products/page?skip=${skip}&limit=3`)
+      .get(`http://localhost:5000/products/page?skip=${skip}&limit=4`)
       .then((res) => {
         dispatch(setproducts(res.data.result));
 
@@ -102,11 +102,7 @@ const Home = () => {
       <div className="header">
         <img
           className="headerImg"
-          src="https://images.pexels.com/photos/238118/pexels-photo-238118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-
-
-
-          "
+          src="https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         />
         <div className="address">
           <h1 className="what">PRODUCT</h1>
@@ -182,63 +178,105 @@ const Home = () => {
             CAMERA
           </span>
         </div>
+       
+
+
+
+        {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+
         <div className="products">
-          {show &&
-            state.products.map((product, index) => {
-              return (
-                <div key={index}>
-                  <div className="product">
-                    <img
-                      onClick={() => navigate(`/products/${product.id}`)}
-                      src={product.image}
-                      alt=""
-                    />
-                    <div className="price">
-                      <p> {product.name}</p>
-                      <p className="priceColor"> {product.price}</p>
-                    </div>
-                    <div className="twoButton">
-                      <button
-                        className="add"
-                        onClick={() => {
-                          addToCart(product.id);
-                        }}
-                      >
-                        <BsCartPlus />
-                      </button>
-                      <button
-                        className="add"
-                        onClick={() => {
-                          addToWishList(product.id);
-                        }}
-                      >
+          {show&&state.products.map(element=>{
+
+
+return(
+  <div >
+
+<div class="container page-wrapper">
+  <div class="page-inner">
+    <div class="row">
+      <div class="el-wrapper">
+        <div class="box-up">
+          <img class="img" src={element.image}  onClick={() => navigate(`/products/${element.id}`)}
+ alt=""/>
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"></span>
+              {/* <span class="p-company">Yeezy</span> */}
+            </div>
+            <span className="add" onClick={() => {
+                          addToWishList(element.id);
+                        }}> 
                         <BsHeart />
-                      </button>
-                    </div>
-                  </div>
-                  <br />
-                </div>
-              );
-            })}
-          <div>
-            <button
+                      </span>
+            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+           
+          </div>
+        </div>
+
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart">
+            <span class="price">{element.price}$</span>
+
+            <span class="add-to-cart">
+              <span class="txt"    onClick={() => {
+                          addToCart(element.id);
+                        }}>  
+                       
+                      
+                      
+                        Add in cart
+                      </span>
+
+                     
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+)
+
+
+
+          })}
+
+
+
+        </div>
+      </div>
+
+      <div className="pagination">
+            <h1 className="h1Pagination"
               onClick={() => {
                 dec();
               }}
             >
-              back
-            </button>
-            <span>{page}</span>
-            <button
+              <BsFillArrowLeftCircleFill/>
+            </h1>
+            <span className="pageNumber">{page}</span>
+            <h1 className="h1Pagination"
               onClick={() => {
                 inc();
               }}
             >
-              next
-            </button>
-          </div>
-        </div>
-      </div>
+              <BsFillArrowRightCircleFill/>
+            </h1>
+         
+
+  </div>
+
     </div>
   );
 };
