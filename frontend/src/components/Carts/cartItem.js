@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { deleteCartstById,updateCarttById } from "../../reducer/cart/carts";
-
+import Swal from 'sweetalert2'
 const CartItem = ({product,setTotal,total,getMyCart }) => {
     const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -77,7 +77,27 @@ const CartItem = ({product,setTotal,total,getMyCart }) => {
               <h2>{product.quantity*product.price}</h2>
              
               
-              <button onClick={()=>{deleteCart(product.id)}} className="remove"><RiDeleteBinLine/></button>
+              <button onClick={()=>{
+                Swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    Swal.fire(
+                      'Deleted!',
+                      'Your file has been deleted.',
+                      'success'
+                    )
+                    deleteCart(product.id)
+                  }
+                })
+                
+               }} className="remove"><RiDeleteBinLine/></button>
              
             </div>
       </>
