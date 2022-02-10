@@ -12,6 +12,10 @@
     
     
 }
+.linkSize{
+    font-size: 20px;
+    padding: 20px;
+}
 .laptop-brand{
     display: flex;
     justify-content: space-evenly;

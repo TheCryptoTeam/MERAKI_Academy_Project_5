@@ -44,3 +44,7 @@ background-color: paleturquoise;
     padding: 25px 0px;
     margin-top: 20px;
 }
+.paymentBtn{
+    padding: 10px;
+    background-color: blue;
+}
