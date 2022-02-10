@@ -138,7 +138,6 @@ const Login = () => {
                 onFailure={onFailure}
                 cookiePolicy={"single_host_origin"}
               />
-              ,
               <button onClick={loginUser} id="signIn">
                 sign in
               </button>
