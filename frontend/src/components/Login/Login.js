@@ -19,16 +19,16 @@ const Login = () => {
   });
   const [userName1, setUserName1] = useState("");
   const onSuccess = (response) => {
-    console.log(response);
+    
     dispatch(login(response.tokenId));
     localStorage.setItem("userToken", response.tokenId);
-     setUserName1(response.Du.VX);
-    console.log(response.Du.tv);
-     setEmailGoogle(response.Du.tv);
-    localStorage.setItem("userName", response.Du.VX);
+     setUserName1(response.profileObj.name);
+    
+     setEmailGoogle(response.profileObj.email);
+    localStorage.setItem("userName", response.profileObj.name);
     navigate("/home");
-    console.log(state.token);
-    addNewUserWithGoogle(response.Du.VX,response.Du.tv);
+  
+    addNewUserWithGoogle(response.profileObj.name,response.profileObj.email);
   };
   const onFailure = (response) => {
     console.log(response);
@@ -70,8 +70,7 @@ const Login = () => {
 
     //================================================================
   };
-  console.log(userName1);
-  console.log(emailGoogle);
+ 
   const addNewUserWithGoogle = async (username,email) => {
     
     try {
