@@ -12,6 +12,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../reducer/login";
 import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
@@ -190,6 +191,13 @@ return(
               {/* <span class="p-company">Yeezy</span> */}
             </div>
             <span className="add" onClick={() => {
+              Swal.fire({
+               
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
                           addToWishList(element.id);
                         }}> 
                         <BsHeart />
@@ -209,6 +217,13 @@ return(
 
             <span class="add-to-cart">
               <span class="txt"    onClick={() => {
+                Swal.fire({
+                  
+                  icon: 'success',
+                  title: 'Your work has been saved',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
                           addToCart(element.id);
                         }}>  
                        
