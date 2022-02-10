@@ -2,7 +2,7 @@
 .main{
   text-align: start;
  
-  
+  font-family: sans-serif;
   display: grid;
   
   grid-template-columns: repeat(8,1fr);
@@ -15,8 +15,25 @@
   background-color: #393939;
   display: flex;
   flex-direction: column;
+  
 
 }
+
+.side div{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: #8e8e8e;
+}
+
+.side div a{
+  
+  padding:0px;
+  padding-top: 10px;
+  border-top: 1px solid #666;
+  
+}
+
 /***********************************************************/
 .name{
   grid-area: name;
@@ -188,6 +205,13 @@
     background-color: white;
     
   }
+  th{
+   
+    padding: 20px;
+    background-color: #393939;
+    color: white;
+
+  }
 
   .del{
       background-color: red;
@@ -204,12 +228,12 @@
       background-color: rgb(217, 228, 230);
   }
   .pro1{
-    font-size: 30px;
+    font-size: 20px;
     font-family: sans-serif;
     color: red;
   }
   .use1{
-    font-size: 30px;
+    font-size: 20px;
     font-family: sans-serif;
   } 
   #delete{

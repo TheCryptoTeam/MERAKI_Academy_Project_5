@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
 import {
   setproducts,
   addproduct,
@@ -232,16 +233,25 @@ const data2 = [
   return (
     <div className="main">
       <div className="side">
+      <div>
+        <h3  >Product</h3>
         <Link to="/productsTable" className="pro1">
           Products
         </Link>
 
+      </div>
+       <div>
+       <h3>Users</h3>
         <Link to="/usersTable" className="use1">
           Users
         </Link>
-        <Link to="/newProduct" className="newProduct">
+        </div>
+        <div>
+          <h3>New Product</h3>
+        <Link to="/newProduct" >
           New Product
         </Link>
+        </div>
       </div>
       <div className="name">
         <div>
@@ -379,6 +389,25 @@ const data2 = [
           </div>
 
           {/* <Link to="/newProduct" className="newProduct">New Product</Link> */}
+          <div className="pagination">
+            <h1 className="h1Pagination"
+              onClick={() => {
+                dec();
+              }}
+            >
+              <BsFillArrowLeftCircleFill/>
+            </h1>
+            <span className="pageNumber">{page}</span>
+            <h1 className="h1Pagination"
+              onClick={() => {
+                inc();
+              }}
+            >
+              <BsFillArrowRightCircleFill/>
+            </h1>
+         
+
+  </div>
         </div>
       </div>
     </div>

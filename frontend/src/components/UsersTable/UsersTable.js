@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
 
   import {
     setusers,
@@ -46,7 +48,7 @@ const UsersTable = () => {
   
   const getAllUsers = async () => {
     await axios
-        .get(`http://localhost:5000/users?skip=${skip}&limit=3`)
+        .get(`http://localhost:5000/users?skip=${skip}&limit=4`)
         .then((res) => {
             console.log(res);
             dispatch(setusers(res.data.result));
@@ -58,7 +60,7 @@ const UsersTable = () => {
         });
 };
 
-
+console.log( state.users);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //delete user
 
@@ -95,45 +97,141 @@ const deleteUser = async (id) => {
 
 return(
 
-    <div className="tableDiv">
+  <div className="mainUsers">
+     <div className="side">
 
-        {state.isLoggedIn?
+       <div>
+         <h3>Product</h3>
+        <Link to="/productsTable" className="pro">
+          Products
+        </Link>
+        </div>
+
+<div>
+  <h3>Users</h3>
+        <Link to="/usersTable" className="use">
+          Users
+        </Link>
+        </div>
+<div>
+  <h3> New Product</h3>
+        <Link to="/newProduct" >
+          New Product
+        </Link>
+        </div>
+      </div>
+      <div className="name">
+        <div>
+          {" "}
+          <h1>Users </h1>
+        </div>
+        <div>
+          <p>Users Table</p>
+        </div>
+      </div>
+      <div className="table">
+        <div className="tableDiv">
+          {/* {state.isLoggedIn?
          <div className="tablesLink">
-         <a href="/productsTable" className="pro" >Products </a>
-             <a href="/usersTable" className="use">Users </a>
+         <Link to="/productsTable" className="pro1">Products</Link>
+             <Link to="/usersTable" className="use1">Users</Link>
          </div>:<div></div>
-    }
+    } */}
+          <div>
+            <table className="insidTable">
+              <tr className="tr">
+                <th>id</th>
+                <th>name</th>
+                <th>Email</th>
+                
+                <th>Actions</th>
+              </tr>
+              {show &&
+                state.users.map((user) => {
+                  return (
+                    <tr className="tr">
+                      <td>{user.id}</td>
+                      <td>{user.userName}</td>
+                      <td>{user.email}</td>
+                      {/* <td>{ele.type}</td>
+                      <td>{ele.price}</td> */}
+                      <td>
+                        <RiDeleteBinLine
+                          id="delete"
+                          onClick={() => deleteUser(user.email)}
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+            </table>
+          </div>
+
+          {/* <Link to="/newProduct" className="newProduct">New Product</Link> */}
+          <div className="pagination">
+            <h1 className="h1Pagination"
+              onClick={() => {
+                dec();
+              }}
+            >
+              <BsFillArrowLeftCircleFill/>
+            </h1>
+            <span className="pageNumber">{page}</span>
+            <h1 className="h1Pagination"
+              onClick={() => {
+                inc();
+              }}
+            >
+              <BsFillArrowRightCircleFill/>
+            </h1>
+         
+
+  </div>
+
+        </div>
+      </div>
+    
+  </div>
+
+//     <div className="tableDiv">
+
+//         {state.isLoggedIn?
+//          <div className="tablesLink">
+//          <a href="/productsTable" className="pro" >Products </a>
+//              <a href="/usersTable" className="use">Users </a>
+//          </div>:<div></div>
+//     }
        
-    <table className="table">
-        <tr className="tr">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        {
-            show && state.users.map((user) => {
-                return (
+//     <table className="table">
+//         <tr className="tr">
+//             <th>Id</th>
+//             <th>Name</th>
+//             <th>Email</th>
+//             <th>Actions</th>
+//         </tr>
+//         {
+//             show && state.users.map((user) => {
+//                 return (
                     
-                        <tr className="tr">
-                            <td >{user.id}</td>
-                            <td>{user.userName}</td>
-                            <td>{user.email}</td>
-                            <td><button  className="del"
-        onClick={() => deleteUser(user.id)}>delete</button> 
-        </td>
-                        </tr>
+//                         <tr className="tr">
+//                             <td >{user.id}</td>
+//                             <td>{user.userName}</td>
+//                             <td>{user.email}</td>
+//                             <td><button  className="del"
+//         onClick={() => deleteUser(user.id)}>delete</button> 
+//         </td>
+//                         </tr>
 
-                )
-
-
-            })
-        }
+//                 )
 
 
+//             })
+//         }
 
-    </table>
-</div>
+
+
+//     </table>
+// </div>
 
 )
 
