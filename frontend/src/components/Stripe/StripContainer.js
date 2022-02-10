@@ -8,6 +8,8 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import "./Payment.css";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const StripePayment = () => {
   const stripe = loadStripe(
@@ -20,6 +22,7 @@ const StripePayment = () => {
   );
 };
 function CheckoutForm() {
+  const navigate = useNavigate();
   const [isPaymentLoading, setPaymentLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -29,51 +32,37 @@ function CheckoutForm() {
       return;
     }
     setPaymentLoading(true);
-  const {error,paymentMethod} = await stripe.createPaymentMethod({
-    type: "card",
-    
-    card: elements.getElement(CardElement)})
-    if(!error){
-      try{
-        await axios
-        .post("http://localhost:5000/payment",{
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+
+      card: elements.getElement(CardElement),
+    });
+    if (!error) {
+      try {
+        await axios.post("http://localhost:5000/payment", {
           payment_method: paymentMethod.id,
-        })
-        
+        });
+
         setPaymentLoading(false);
-        alert("Payment Successful")
-        console.log("paymentMethod",paymentMethod);
+        Swal.fire({
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1700,
+        });
+        navigate("/home");
+      } catch (error) {
+        console.log("paymentMerrorcatch", error);
+      }
+    } else {
+      setPaymentLoading(false);
 
-      }
-      catch(error){
-        console.log("paymentMerrorcatch",error);
-      }
-    }else{
-      console.log("paymentMerror",error.message)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.message,
+      });
     }
-
-   
-    // const paymentResult = await stripe.confirmCardPayment(clientSecret, {
-    //   payment_method: {
-    //     card: elements.getElement(CardElement),
-    //     billing_details: {
-    //       name: "crypto",
-    //     },
-    //   },
-    // });
-
-
-// const paymentResult = await stripe.createPaymentMethod({card: elements.getElement(CardElement)}).then((res) => { console.log(res)});
-
-    
-    
-  //   if (paymentResult.error) {
-  //     alert(paymentResult.error.message);
-  //   } else {
-  //     if (paymentResult.paymentIntent.status === "succeeded") {
-  //       alert("Success!");
-  //     }
-  //   }
   };
   return (
     <div
