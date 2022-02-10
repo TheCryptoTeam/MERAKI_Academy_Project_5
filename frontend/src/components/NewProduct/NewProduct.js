@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { addproduct } from "../../reducer/products";
 import axios from "axios";
 import "./NewProduct.css";
@@ -71,16 +71,39 @@ const NewProduct = () => {
 
   return (
     <>
-      <div className=".main-continar1">
-        <div className="login-continar">
-          <div className="login-register">
-            {/* <div className="inner">
-          <span id="loginR" onClick={()=>{navigate("/login")}}>Login</span>
-          <span id="registerR" >Register</span>
-          </div> */}
-          </div>
-          <div className="login-box-Product">
-            <div className="login-box-inner">
+     <div className="mainNewProduct">
+     <div className="side">
+      <div>
+        <h3  >Product</h3>
+        <Link to="/productsTable" className="pro3">
+          Products
+        </Link>
+
+      </div>
+       <div>
+       <h3>Users</h3>
+        <Link to="/usersTable" className="pro3">
+          Users
+        </Link>
+        </div>
+        <div>
+          <h3>New Product</h3>
+        <Link to="/newProduct"  className="newProduct3">
+          New Product
+        </Link>
+        </div>
+      </div>
+      <div className="name">
+        <div>
+          {" "}
+          <h1>New Product </h1>
+        </div>
+        <div>
+          <p>Create Product</p>
+        </div>
+      </div>
+      <div className="create">
+<div className="product-box">
               <input
                 type="text"
                 onChange={(e) => {
@@ -137,15 +160,11 @@ const NewProduct = () => {
                 </button>
               </div>
             </div>
-          </div>
-          <div className="message">
-            {" "}
-            {message ? <p className="ErrorMessage">{message}</p> : <></>}{" "}
-          </div>
-        </div>
-      </div>
+            </div>
 
-      <br />
+     </div>
+     
+      
       {status
         ? message && <div>{message}</div>
         : message && <div>{message}</div>}
