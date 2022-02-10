@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -18,8 +19,8 @@ const Comment = ({ id }) => {
 
   //===============================================================
   const { token, isLoggedIn } = state;
-  const userName=localStorage.getItem("userName")
-  
+  const userName = localStorage.getItem("userName");
+
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
@@ -37,7 +38,6 @@ const Comment = ({ id }) => {
       .then((res) => {
         if (res.data.success) {
           setStatus(true);
-
 
           setMessage(res.data.massege);
           getComments();
@@ -75,6 +75,7 @@ const Comment = ({ id }) => {
           setStatus(true);
 
           getComments();
+
           setMessage(res.data.massege);
         }
       })
@@ -91,10 +92,34 @@ const Comment = ({ id }) => {
           <div key={index}>
             <h3>{comment.commenter}</h3>
             <p>{comment.comment}</p>
-            {userName ==comment.commenter ?<button onClick={() => deleteComment(comment.id)}>
-              Delete comment
-            </button>:<></>}
-            
+            {userName == comment.commenter ? (
+              <button
+                onClick={() =>
+                  Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire(
+                        "Deleted!",
+                        "Your file has been deleted.",
+                        "success"
+                      );
+                      deleteComment(comment.id);
+                    }
+                  })
+                }
+              >
+                Delete comment
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
         );
       })}
