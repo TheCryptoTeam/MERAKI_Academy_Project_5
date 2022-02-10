@@ -70,7 +70,7 @@ const Brand = () => {
   return (
     <>
      <div className="header">
-        <img
+        {/* <img
           className="Imgtype"
           src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
         />
@@ -79,26 +79,25 @@ const Brand = () => {
          PRODUCT
           </h1>
           <p className="pNewCollection">NEW COLLECTION 2022</p>
-        </div>
-        <div className="margin"></div>
+        </div> */}
         <div className="laptop-brand">
           {["Dell","HP","Lenovo"].includes(brand) ? (
             <>
-              <span 
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Dell`);
                 }}
               >
                 Dell
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/HP`);
                 }}
               >
                 HP
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Lenovo`);
                 }}
@@ -112,21 +111,21 @@ const Brand = () => {
 
           { ["Apple","Samsung","Huawei"].includes(brand) ?  (
             <>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Apple`);
                 }}
               >
                 Apple
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Samsung`);
                 }}
               >
                 Samsung
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Huawei`);
                 }}
@@ -139,21 +138,21 @@ const Brand = () => {
           )}
           {["LG","Sony","TCL"].includes(brand) ? (
             <>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/LG`);
                 }}
               >
                 LG
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Sony`);
                 }}
               >
                 Sony
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/TCL`);
                 }}
@@ -167,21 +166,21 @@ const Brand = () => {
 
           {["Rolex","Omega","Blancpain"].includes(brand)? (
             <>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Rolex`);
                 }}
               >
                 Rolex
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Omega`);
                 }}
               >
                 Omega
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Blancpain`);
                 }}
@@ -194,21 +193,21 @@ const Brand = () => {
           )}
           {["Canon","Nikon","DJI"].includes(brand) ? (
             <>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Canon`);
                 }}
               >
                 Canon
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/Nikon`);
                 }}
               >
                 Nikon
               </span>
-              <span
+              <span className="linkSize"
                 onClick={() => {
                   navigate(`/brand/DJI`);
                 }}
@@ -275,7 +274,6 @@ const Brand = () => {
 return(
   <div >
 
-{/* <div className="section3"> */}
 <div class="container page-wrapper">
   <div class="page-inner">
     <div class="row">
@@ -286,7 +284,6 @@ return(
           <div class="img-info">
             <div class="info-inner">
               <span class="p-name"></span>
-              {/* <span class="p-company">Yeezy</span> */}
             </div>
             <span className="add" onClick={() => {
                           addToWishList(element.id);

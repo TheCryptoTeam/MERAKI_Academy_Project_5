@@ -110,34 +110,18 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
-        <div className="aboutUs">
-          <div className="float">
-            <img
-              className="imgAbout"
-              src="https://images.pexels.com/photos/3194519/pexels-photo-3194519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-              "
-            />
-            <div className="pImg ">
-              <div className="pad">
-                <h1>About us</h1>
-                <br />
 
-                <p>
-                  {" "}
-                  this is a market to buy devices there is a lot of type of
-                  devices that we have like laptop and watchs and other so get
-                  started and login now to know more detailes about our website
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      <div>
+<img className="offer" src="https://images.pexels.com/photos/5624998/pexels-photo-5624998.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+<img className="offer" src="https://images.pexels.com/photos/3760809/pexels-photo-3760809.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
       </div>
+
+      
 
       <div className="section2">
         <div className="type-home">
-          <span
+          <span className="linkSize"
             onClick={() => {
               navigate(`/type/Laptop`);
               window.scrollTo(0, 300);
@@ -145,7 +129,7 @@ const Home = () => {
           >
             LAPTOP
           </span>
-          <span
+          <span className="linkSize"
             onClick={() => {
               navigate(`/type/TV`);
               window.scrollTo(0, 300);
@@ -153,7 +137,7 @@ const Home = () => {
           >
             TV
           </span>
-          <span
+          <span className="linkSize"
             onClick={() => {
               navigate(`/type/Mobile`);
               window.scrollTo(0, 300);
@@ -161,7 +145,7 @@ const Home = () => {
           >
             MOBILE
           </span>
-          <span
+          <span className="linkSize"
             onClick={() => {
               navigate(`/type/Watch`);
               window.scrollTo(0, 300);
@@ -169,7 +153,7 @@ const Home = () => {
           >
             WATCH
           </span>
-          <span
+          <span className="linkSize"
             onClick={() => {
               navigate(`/type/Camera`);
               window.scrollTo(0, 300);
@@ -276,6 +260,32 @@ return(
          
 
   </div>
+
+
+  <div>
+        <div className="aboutUs">
+          <div className="float">
+            <img
+              className="imgAbout"
+              src="https://images.pexels.com/photos/3194519/pexels-photo-3194519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+              "
+            />
+            <div className="pImg ">
+              <div className="pad">
+                <h1>About us</h1>
+                <br />
+
+                <p>
+                  {" "}
+                  this is a market to buy devices there is a lot of type of
+                  devices that we have like laptop and watchs and other so get
+                  started and login now to know more detailes about our website
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   );

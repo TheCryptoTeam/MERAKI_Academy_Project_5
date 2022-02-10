@@ -23,8 +23,8 @@ const Navigation = ({setProductName}) => {
       {state.isLoggedIn ? (
         <>
            <div className="test2">
-          <Link to="/carts"><BsCartPlus/></Link>
-          <Link to="/wishLists"><BsHeart/></Link>
+          <Link to="/carts" ><BsCartPlus size={25}/></Link>
+          <Link to="/wishLists"><BsHeart size={25}/></Link>
           </div>
         <div className="test">
           <Link to="/home">Home</Link>

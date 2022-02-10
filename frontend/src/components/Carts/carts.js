@@ -56,7 +56,9 @@ const Carts = () => {
           );
         })}
         <div className="totalDiv">
-              <h2>Total :</h2> <h2 className="total">$</h2>
+              <h2>Total :</h2> <h2 className="total">$</h2><button className="paymentBtn" onClick={()=>{
+                navigate("/payment")
+              }}>payment</button>
               </div>
       {message && <p>{message}</p>}
 

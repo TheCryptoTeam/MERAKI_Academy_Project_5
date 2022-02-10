@@ -9,6 +9,10 @@
     /* position: fixed; */
     text-align: center;
 }
+.iconNan{
+    width: 30px;
+    height: 30px;
+}
 
 a{
     text-decoration: none;
