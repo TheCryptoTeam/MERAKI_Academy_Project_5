@@ -7,7 +7,7 @@
   display: grid;
   
   grid-template-columns: repeat(8,1fr);
-  grid-template-rows: 100px  550px;
+  grid-template-rows: 100px  610px;
   grid-template-areas: "side name name name name name name name" "side  create create create create create create create" ;
   
 }
@@ -145,6 +145,8 @@
 }
 .upload{
   position: relative;
+  width: 12rem;
+  height: 6rem;
 }
 
 
@@ -176,4 +178,16 @@
   height: 60%;
   
 
+}
+
+.uploadContinar{
+  display: flex;
+  /* align-content: space-around; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 5%;
+  align-items: center;
+}
+.up{
+  position: relative;
 }

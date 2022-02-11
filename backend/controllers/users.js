@@ -65,7 +65,7 @@ const getAllUsers = (req, res) => {
 const deleteUserById = (req, res) => {
 
   const id = req.params.id;
-  const query = `DELETE FROM users WHERE id=?`
+  const query = `UPDATE users SET is_deleted=1 WHERE id=?;`
 
   connection.query(query, id, (err, result, field) => {
       if (err) {
