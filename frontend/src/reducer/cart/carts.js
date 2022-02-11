@@ -30,6 +30,7 @@ const cartsReducer = (state = initialState, { type, payload }) => {
               return element.id !== payload;
             }),
           }
+      
 
     default:
       return state;

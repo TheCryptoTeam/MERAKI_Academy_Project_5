@@ -130,6 +130,38 @@ const getAllCart = (req, res) => {
     });
   });
 };
+
+//=========================================================
+const deleteAllMyCart = (req, res) => {
+  id = req.token.userId;
+
+  const query = `UPDATE carts SET is_deleted=1  WHERE user_id=?;`;
+
+ 
+
+  connection.query(query,id,(err, results) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    }
+    if (!results.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `The cart is empty`,
+        err: err,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: `Succeeded to delete All cart `,
+      results: results,
+    });
+  });
+};
 //==================================================================
 
 
@@ -138,5 +170,6 @@ module.exports = {
   getMyCart,
   deleteFromMyCart,
   updateCartById,
-  getAllCart
+  getAllCart,
+  deleteAllMyCart 
 };
