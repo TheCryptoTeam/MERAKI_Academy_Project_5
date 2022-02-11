@@ -6,6 +6,7 @@ import "./NewProduct.css";
 import UploadFile from "./UploadFile";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { logout } from "../../reducer/login/index";
 
 import {
   ComposedChart,
@@ -158,6 +159,20 @@ const NewProduct = () => {
               New Product
             </Link>
           </div>
+          <div >
+        <h3>Logout</h3>
+              <Link
+                className="auth-button"
+                onClick={() => {
+                  dispatch(logout());
+                  localStorage.clear();
+                  history("/login");
+                }}
+                to="/login"
+              >
+                Logout
+              </Link>
+              </div>
         </div>
         <div className="name">
           <div>

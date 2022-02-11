@@ -9,6 +9,7 @@ import {
   updateproductById,
   deleteProductById,
 } from "../../reducer/products";
+import { logout } from "../../reducer/login/index";
 
 import "./ProductsTable.css";
 
@@ -34,17 +35,18 @@ import {
 
 const ProductsTable = () => {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  const dispatch = useDispatch();
+  const history = useNavigate();
   const [allProducts, setAllProducts] = useState("");
   const [users, setUsers] = useState("");
   const [carts, setCarts] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
 
-  const navigate = useNavigate();
+  
   const [show, setShow] = useState(false);
 
-  const dispatch = useDispatch();
+  
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -252,6 +254,20 @@ const data2 = [
           New Product
         </Link>
         </div>
+        <div >
+        <h3>Logout</h3>
+              <Link
+                className="auth-button"
+                onClick={() => {
+                  dispatch(logout());
+                  localStorage.clear();
+                  history("/login");
+                }}
+                to="/login"
+              >
+                Logout
+              </Link>
+              </div>
       </div>
       <div className="name">
         <div>
