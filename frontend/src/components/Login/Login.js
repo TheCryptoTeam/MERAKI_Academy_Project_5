@@ -61,7 +61,12 @@ const Login = () => {
         localStorage.setItem("userToken", result.data.token);
         localStorage.setItem("userName", result.data.userName);
         localStorage.setItem("myRole", result.data.role);
-        navigate("/home");
+        if (result.data.role === 2) {
+          navigate("/ProductsTable");
+        }else{
+          navigate("/home");
+        }
+       
 
         
       })
