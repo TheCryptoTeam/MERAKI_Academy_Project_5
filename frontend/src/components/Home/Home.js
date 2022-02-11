@@ -10,7 +10,7 @@ import {
 } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../reducer/login";
-import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
 
@@ -20,6 +20,9 @@ const Home = () => {
   const [message, setMessage] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
+  const [color, setColor] = useState("");
+  const [elementId, setElementId] = useState([]);
+
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -32,6 +35,8 @@ const Home = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
+
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   //  getAllProducts
@@ -98,6 +103,12 @@ const Home = () => {
     }
   };
 
+  ///////////////////////////////////////////////////////////////////////////////////////////
+
+  const handlecolor = (element) => {
+    setElementId([...elementId,element.id])
+  };
+
   return (
     <div>
       <div className="header">
@@ -113,12 +124,34 @@ const Home = () => {
 
 
 
-      <div>
-<img className="offer" src="https://images.pexels.com/photos/5624998/pexels-photo-5624998.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-<img className="offer" src="https://images.pexels.com/photos/3760809/pexels-photo-3760809.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+      <div className="sliderSection">
+
+
+
+<div class="container1">
+  <div class="slides-wrapper">
+    <div class="img-container">
+      <img src="https://i.ebayimg.com/images/g/h~UAAOSw9zhZ3XnE/s-l1600.jpg" alt=""/>
+    </div>
+    <div class="img-container text">
+      <p>This is a slideshow made with pure CSS. <br/>You can´t control which image to see, but you can pause it by hovering over.</p>
+    </div>
+    <div class="img-container">
+      <img src="https://data.whicdn.com/images/326092072/original.jpg?t=1548965962" alt=""/>
+    </div>
+  </div>
+  
+  <div class="slider">
+     <div class="selected"></div>
+     <button class="slider-button"></button>
+     <button class="slider-button"></button>
+     <button class="slider-button"></button>
+  </div>
+</div>
+ 
       </div>
 
-      
+
 
       <div className="section2">
         <div className="type-home">
@@ -163,7 +196,7 @@ const Home = () => {
             CAMERA
           </span>
         </div>
-       
+
 
 
 
@@ -171,6 +204,8 @@ const Home = () => {
 
 
         <div className="products">
+
+          {show && state.products.map(element => {
           {show&&state.products.map(element=>{
 
 
@@ -207,10 +242,11 @@ return(
           </div>
         </div>
 
-        <div class="box-down">
-          <div class="h-bg">
-            <div class="h-bg-inner"></div>
-          </div>
+
+
+
+            return (
+              <div >
 
           <a class="cart">
             <span class="price">{element.price}$</span>
@@ -242,10 +278,69 @@ return(
 </div>
 
 
+                {/* <div className="section3"> */}
+                <div class="container page-wrapper">
+                  <div class="page-inner">
+                    <div class="row">
+                      <div class="el-wrapper">
+                        <div class="box-up">
+                          <img class="img" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
+                            alt="" />
+                          <div class="img-info">
+                            <div class="info-inner">
+                              <span class="p-name"></span>
+                            </div>
+                            <span className="add" onClick={() => {
+                              addToWishList(element.id);
+
+                            }}>
+                              {elementId.includes(element.id)  ? <BsHeart onClick={() => {
+                                handlecolor(element)
+                              }}
+                                style={{ color: 'red' }}
+                              /> : <BsHeart id={element.id} onClick={() => {
+                                handlecolor(element)
+                              }}
+                              style={{ color: 'black' }}
+                              />}
+                            </span>
+                            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+
+                          </div>
+                        </div>
+
+                        <div class="box-down">
+                          <div class="h-bg">
+                            <div class="h-bg-inner"></div>
+                          </div>
+
+                          <a class="cart">
+                            <span class="price">{element.price}$</span>
+
+                            <span class="add-to-cart">
+                              <span class="txt" onClick={() => {
+                                addToCart(element.id);
+                              }}>
 
 
-  </div>
-)
+
+                                Add to cart
+                              </span>
+
+
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+            )
 
 
 
@@ -257,27 +352,27 @@ return(
       </div>
 
       <div className="pagination">
-            <h1 className="h1Pagination"
-              onClick={() => {
-                dec();
-              }}
-            >
-              <BsFillArrowLeftCircleFill/>
-            </h1>
-            <span className="pageNumber">{page}</span>
-            <h1 className="h1Pagination"
-              onClick={() => {
-                inc();
-              }}
-            >
-              <BsFillArrowRightCircleFill/>
-            </h1>
-         
-
-  </div>
+        <h1 className="h1Pagination"
+          onClick={() => {
+            dec();
+          }}
+        >
+          <BsFillArrowLeftCircleFill />
+        </h1>
+        <span className="pageNumber">{page}</span>
+        <h1 className="h1Pagination"
+          onClick={() => {
+            inc();
+          }}
+        >
+          <BsFillArrowRightCircleFill />
+        </h1>
 
 
-  <div>
+      </div>
+
+
+      <div>
         <div className="aboutUs">
           <div className="float">
             <img
@@ -301,6 +396,9 @@ return(
           </div>
         </div>
       </div>
+
+
+
 
     </div>
   );

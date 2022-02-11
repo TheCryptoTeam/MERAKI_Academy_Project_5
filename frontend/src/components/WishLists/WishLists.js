@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 import { setWishLists,deleteWishListById } from "../../reducer/wishLists";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +52,7 @@ const WishLists = () => {
   }, [])
   return (
     <>
-      {show &&
+      {/* {show &&
         state.wishLists.map((product, index) => {
           return (
             <div key={index} className="products">
@@ -85,7 +86,103 @@ const WishLists = () => {
           );
         })}
      
-      {message && <p>{message}</p>}
+      {message && <p>{message}</p>} */}
+
+
+<div className="products">
+          {show&&state.wishLists.map(element=>{
+
+
+return(
+  <div >
+
+{/* <div className="section3"> */}
+<div class="container page-wrapper">
+  <div class="page-inner">
+    <div class="row">
+      <div class="el-wrapper">
+        <div class="box-up">
+          <img class="img" src={element.image}  onClick={() => navigate(`/products/${element.id}`)}
+ alt=""/>
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"></span>
+              {/* <span class="p-company">Yeezy</span> */}
+            </div>
+            {/* <span className="add" onClick={() => {
+                          deleteWishlist(element.id);
+                        }}> 
+                       delete
+                      </span> */}
+                      <RiDeleteBinLine size={30}
+                          id="delete"
+                          onClick={()=>{
+                            Swal.fire({
+                              title: 'Are you sure?',
+                              text: "You won't be able to revert this!",
+                              icon: 'warning',
+                              showCancelButton: true,
+                              confirmButtonColor: '#3085d6',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                Swal.fire(
+                                  'Deleted!',
+                                  'Your file has been deleted.',
+                                  'success'
+                                )
+                                deleteWishlist(element.id)
+                              }
+                            })
+                            }}
+                        />
+
+            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+           
+          </div>
+        </div>
+
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart">
+            <span class="price">{element.price}$</span>
+
+            <span class="add-to-cart">
+              {/* <span class="txt"    onClick={() => {
+                          addToCart(element.id);
+                        }}>  
+                       
+                      
+                      
+                        Add to cart
+                      </span> */}
+
+                     
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  </div>
+)
+
+
+
+          })}
+
+
+
+        </div>
     </>
   );
 };
