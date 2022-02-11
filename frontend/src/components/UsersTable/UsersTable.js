@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
   } from "../../reducer/users/users";
 
   import "./usersTable.css";
+  import { logout } from "../../reducer/login/index";
 
 const UsersTable = () => {
 
@@ -21,8 +22,9 @@ const UsersTable = () => {
     const [message, setMessage] = useState("");
     const [skip, setSkip] = useState(0);
     const [page, setPage] = useState(1);
+    const history = useNavigate();
 
-    const navigate = useNavigate();
+    
     const [show, setShow] = useState(false);
 
     const dispatch = useDispatch();
@@ -119,6 +121,20 @@ return(
           New Product
         </Link>
         </div>
+        <div >
+        <h3>Logout</h3>
+              <Link
+                className="auth-button"
+                onClick={() => {
+                  dispatch(logout());
+                  localStorage.clear();
+                  history("/login");
+                }}
+                to="/login"
+              >
+                Logout
+              </Link>
+              </div>
       </div>
       <div className="name">
         <div>
