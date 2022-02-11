@@ -10,7 +10,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import "./Payment.css";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const StripePayment = () => {
   const stripe = loadStripe(
     "pk_test_51KQqbdCywILMWPHuZO10mguPNtgJzVrCD0pxcT9JEx4QbUf99Fz3hSur084HvAlojVVCHhVRyd4PFdCVgD2a07zE00iyGO8pHw"
@@ -21,7 +21,17 @@ const StripePayment = () => {
     </Elements>
   );
 };
+
 function CheckoutForm() {
+
+  //==============================
+  const state = useSelector((state) => {
+    return {
+      token: state.loginReducer.token,
+     
+    };
+  });
+  //============================
   const navigate = useNavigate();
   const [isPaymentLoading, setPaymentLoading] = useState(false);
   const stripe = useStripe();
@@ -50,7 +60,9 @@ function CheckoutForm() {
           showConfirmButton: false,
           timer: 1700,
         });
+        await deleteMyCart()
         navigate("/home");
+        
       } catch (error) {
         console.log("paymentMerrorcatch", error);
       }
@@ -64,6 +76,18 @@ function CheckoutForm() {
       });
     }
   };
+//Delete all myCarts after payment
+  //================================
+  const deleteMyCart = async () => {
+
+    const headers = {
+      Authorization: `Bearer ${state.token}`,
+    };
+    
+    await axios.delete(`http://localhost:5000/carts`,{headers})
+    
+  };
+  //===============================
   return (
     <div
       style={{
