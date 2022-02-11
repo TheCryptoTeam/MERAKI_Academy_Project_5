@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
-
+import Swal from "sweetalert2";
   import {
     setusers,
     deleteUserById
@@ -158,7 +158,27 @@ return(
                       <td>
                         <RiDeleteBinLine
                           id="delete"
-                          onClick={() => deleteUser(user.id)}
+                          onClick={() =>
+                            Swal.fire({
+                              title: 'Are you sure?',
+                              text: "You won't be able to revert this!",
+                              icon: 'warning',
+                              showCancelButton: true,
+                              confirmButtonColor: '#3085d6',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                Swal.fire(
+                                  'Deleted!',
+                                  'Your file has been deleted.',
+                                  'success'
+                                )
+                                deleteUser(user.id)
+                              }
+                            })
+                            
+                            }
                         />
                       </td>
                     </tr>
