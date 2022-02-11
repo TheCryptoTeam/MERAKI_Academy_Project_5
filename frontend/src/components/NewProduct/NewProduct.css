@@ -82,6 +82,7 @@
   
   
 }
+
 .product-box input{
   margin-bottom: 20px;
   border-color: currentcolor currentcolor #8e8e8e;
@@ -98,9 +99,11 @@
 }
 .create {
   grid-area: create;
- justify-content: center;
+
  display: flex;
  align-items: center;
+ margin: 10px;
+ justify-content: space-around;
 }
 
 
@@ -142,4 +145,35 @@
 }
 .upload{
   position: relative;
+}
+
+
+.box-chart{
+  width: 60%;
+  height: 90%;
+ 
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.first{
+  height: 40%;
+ 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+.first div{
+  width: 40%;
+  height: 80%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.second{
+  height: 60%;
+  
+
 }
