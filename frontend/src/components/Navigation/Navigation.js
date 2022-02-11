@@ -12,6 +12,7 @@ import { BsHeart } from 'react-icons/bs';
 const Navigation = ({setProductName}) => {
   const dispatch = useDispatch();
   const history = useNavigate();
+const vR = localStorage.getItem("myRole")
 
   const state = useSelector((state) => {
     return {

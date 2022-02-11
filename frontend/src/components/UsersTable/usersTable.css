@@ -1,13 +1,65 @@
-.tablesLink{
+.mainUsers{
+    text-align: start;
+   
+    font-family: sans-serif;
+    display: grid;
+    
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: 100px  550px;
+    grid-template-areas: "side name name name name name name name" "side  table table table table table table table" ;
+    
+  }
+  .side {
+    grid-area: side;
+    background-color: #393939;
+    display: flex;
+    flex-direction: column;
+    
+  
+  }
+  
+  .side div{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: #8e8e8e;
+  }
+  
+  .side div a{
+    
+    padding:0px;
+    padding-top: 10px;
+    border-top: 1px solid #666;
+    
+  }
+  /***********************************************************/
+  .name{
+    grid-area: name;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .name div{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .name div:nth-child(2){
+    background-color: #eee;
+      margin: 10px;
+      padding: 10px;
+  }
+
+
+
+/* .tablesLink{
     font-size: 35px;
     font-family: sans-serif;
     padding: 40px;
 }
 
-/* table{
-    padding-top: 40px;
-    padding-bottom: 20px;
-} */
+
 .tableDiv{
     background-color: whitesmoke;
 }
@@ -17,6 +69,16 @@
 }
 .use{
     font-size: 30px;
+    font-family: sans-serif;
+    color: red;
+} */
+
+.pro{
+    font-size: 20px;
+    font-family: sans-serif; 
+}
+.use{
+    font-size: 20px;
     font-family: sans-serif;
     color: red;
 }

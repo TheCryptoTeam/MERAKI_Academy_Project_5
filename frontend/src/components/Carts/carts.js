@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setcarts,deleteCartstById } from "../../reducer/cart/carts";
+import { setcarts, deleteCartstById } from "../../reducer/cart/carts";
 import { useNavigate } from "react-router-dom";
 import "./carts.css";
 
 import CartItem from "./cartItem";
 
-
 const Carts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const[total,setTotal]=useState(0)
- 
+  const [total, setTotal] = useState(0);
+  const [allTotal, setAllTotal] = useState(0);
   const state = useSelector((state) => {
     return { carts: state.cartsReducer.carts, token: state.loginReducer.token };
   });
@@ -35,33 +34,42 @@ const Carts = () => {
       .catch((err) => {
         setMessage("The cart is empty");
       });
-     
-
   };
-  
-  
+
   useEffect(() => {
-    getMyCart()
-  }, [])
- 
+    getMyCart();
+  }, []);
+
   return (
     <>
       {show &&
         state.carts.map((product, index) => {
         
           return (
-
-           <CartItem key={index} getMyCart={getMyCart } total={total} product={product} setTotal={setTotal} />
-
+            <CartItem
+              key={index}
+              getMyCart={getMyCart}
+              total={total}
+              product={product}
+              setTotal={setTotal}
+             
+            />
           );
         })}
-        <div className="totalDiv">
-              <h2>Total :</h2> <h2 className="total">$</h2><button className="paymentBtn" onClick={()=>{
-                navigate("/payment")
-              }}>payment</button>
-              </div>
+      <div className="totalDiv">
+        <h2>
+          Total : <span className="total">$ {allTotal}</span>
+        </h2>
+        <button
+          className="paymentBtn"
+          onClick={() => {
+            navigate("/payment");
+          }}
+        >
+          Checkout
+        </button>
+      </div>
       {message && <p>{message}</p>}
-
     </>
   );
 };

@@ -12,6 +12,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../reducer/login";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
@@ -203,11 +204,79 @@ const Home = () => {
 
 
         <div className="products">
+
           {show && state.products.map(element => {
+          {show&&state.products.map(element=>{
+
+
+return(
+  <div >
+
+{/* <div className="section3"> */}
+<div class="container page-wrapper">
+  <div class="page-inner">
+    <div class="row">
+      <div class="el-wrapper">
+        <div class="box-up">
+          <img class="img" src={element.image}  onClick={() => navigate(`/products/${element.id}`)}
+ alt=""/>
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"></span>
+              {/* <span class="p-company">Yeezy</span> */}
+            </div>
+            <span className="add" onClick={() => {
+              Swal.fire({
+               
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
+                          addToWishList(element.id);
+                        }}> 
+                        <BsHeart />
+                      </span>
+            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+           
+          </div>
+        </div>
+
+
 
 
             return (
               <div >
+
+          <a class="cart">
+            <span class="price">{element.price}$</span>
+
+            <span class="add-to-cart">
+              <span class="txt"    onClick={() => {
+                Swal.fire({
+                  
+                  icon: 'success',
+                  title: 'Your work has been saved',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+                          addToCart(element.id);
+                        }}>  
+                       
+                      
+                      
+                        Add to cart
+                      </span>
+
+                     
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
                 {/* <div className="section3"> */}
                 <div class="container page-wrapper">
