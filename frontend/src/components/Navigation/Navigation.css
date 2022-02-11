@@ -30,7 +30,13 @@ a:hover{
     margin-top: 15px;
 padding: 10px;
     width: 180px;
-    border:1px solid black;
+    /* border:1px solid black; */
+    /* border-bottom: 1px solid black; */
+    border-top-width: 0px;
+    padding-right: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 3px;
     border-radius: 3%;
 }
 .test{
