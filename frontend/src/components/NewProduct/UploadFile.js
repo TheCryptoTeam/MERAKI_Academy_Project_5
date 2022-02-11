@@ -1,10 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 
 const UploadFile = ({ setImage }) => {
   const [file, setFile] = useState();
-  const [filelink, setFilelink] = useState("Choose File");
+  const [filelink, setFilelink] = useState(null);
   const imageUpload = (imageFile) => {
     const formData = new FormData();
 
@@ -24,9 +24,10 @@ const UploadFile = ({ setImage }) => {
       });
   };
  
+  
   return (
-    <div >
-      <div className="upload">
+    <div className="uploadContinar">
+      <div className="up" >
       <input
         onChange={(event) => {
           setFile(event.target.files[0]);
@@ -47,9 +48,9 @@ const UploadFile = ({ setImage }) => {
       </div>
       
 
-      <br />
-
-      <img className="upload" src={filelink} alt="" />
+     
+{filelink ?( <img className="upload" src={filelink} alt="" />):(<></>)}
+     
     </div>
   );
 };

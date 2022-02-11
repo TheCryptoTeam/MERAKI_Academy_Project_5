@@ -35,7 +35,8 @@ const login = (req, res) => {
             success: true,
             message: "Valid login credentials",
             token,
-            userName: results[0].userName
+            userName: results[0].userName,
+            role: results[0].role_id
           });
         } else {
           res.status(403).json({

@@ -158,7 +158,7 @@ return(
                       <td>
                         <RiDeleteBinLine
                           id="delete"
-                          onClick={() => deleteUser(user.email)}
+                          onClick={() => deleteUser(user.id)}
                         />
                       </td>
                     </tr>

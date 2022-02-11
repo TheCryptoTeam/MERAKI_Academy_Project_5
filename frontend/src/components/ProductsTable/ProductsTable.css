@@ -48,7 +48,7 @@
   margin-left: 10px;
 }
 .name div:nth-child(2){
-  background-color: #393939;
+  background-color: #393939 !important ;
     margin: 10px;
     padding: 10px;
     color: #fff;

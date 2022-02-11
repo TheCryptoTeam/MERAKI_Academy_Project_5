@@ -60,7 +60,10 @@ const Login = () => {
         dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
         localStorage.setItem("userName", result.data.userName);
+        localStorage.setItem("myRole", result.data.role);
         navigate("/home");
+
+        
       })
       .catch((err) => {
         //if error
