@@ -133,14 +133,11 @@ const Home = () => {
   <div class="slides-wrapper">
     <div class="img-container">
       <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
-        {/* "https://images.pexels.com/photos/7564241/pexels-photo-7564241.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt=""/> */}
     </div>
-    {/* "https://i.ebayimg.com/images/g/h~UAAOSw9zhZ3XnE/s-l1600.jpg" */}
     <div class="img-container text">
      
       <img src= "https://images.pexels.com/photos/3643925/pexels-photo-3643925.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""/>
 
-      {/* <p>wlecome to our website <br/>when you will see the last version and any thing you wont there a lot of type of technology<br/> so if you intersted go ahead </p> */}
     </div>
     <div class="img-container">
       <img src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt=""/>
@@ -257,11 +254,37 @@ const Home = () => {
 
                         <div class="box-down">
                           <div class="h-bg">
-                            <div class="h-bg-inner"></div>
+                            <div class="h-bg-inner">
+
+                            </div>
                           </div>
 
                           <a class="cart">
                             <span class="price">{element.price}$</span>
+
+                            <span className="add" onClick={() => {
+                              addToWishList(element.id);
+
+                            }}>
+                              {elementId.includes(element.id)  ? <BsHeart  onClick={() => {
+                                Swal.fire({
+               
+                                  icon: 'success',
+                                  title: 'Your work has been saved',
+                                  showConfirmButton: false,
+                                  timer: 1500
+                                })
+                  
+                                handlecolor(element)
+                              }}
+                                style={{ color: 'red' }}
+                              /> : <BsHeart  id={element.id} onClick={() => {
+                                handlecolor(element)
+                              }}
+                              style={{ color: 'black' }}
+                              />}
+                            </span>
+
 
                             <span class="add-to-cart">
                               <span class="txt" onClick={() => {
@@ -280,6 +303,29 @@ const Home = () => {
 
                                 Add to cart
                               </span>
+
+                               {/* <span className="add" onClick={() => {
+                              addToWishList(element.id);
+
+                            }}>
+                              {elementId.includes(element.id)  ? <BsHeart  onClick={() => {
+                                Swal.fire({
+               
+                                  icon: 'success',
+                                  title: 'Your work has been saved',
+                                  showConfirmButton: false,
+                                  timer: 1500
+                                })
+                  
+                                handlecolor(element)
+                              }}
+                                style={{ color: 'red' }}
+                              /> : <BsHeart  id={element.id} onClick={() => {
+                                handlecolor(element)
+                              }}
+                              style={{ color: 'white' }}
+                              />}
+                            </span> */}
 
 
                             </span>
