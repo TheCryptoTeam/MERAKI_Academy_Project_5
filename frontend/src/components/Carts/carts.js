@@ -38,13 +38,16 @@ const Carts = () => {
 
   useEffect(() => {
     getMyCart();
+    
   }, []);
 
   return (
     <>
+    
       {show &&
         state.carts.map((product, index) => {
           return (
+            
             <CartItem
               key={index}
               getMyCart={getMyCart}
@@ -54,20 +57,7 @@ const Carts = () => {
             />
           );
         })}
-      <div className="totalDiv">
-        <h2>
-          Total : <span className="total">$ {allTotal}</span>
-        </h2>
-        <button
-          className="paymentBtn"
-          onClick={() => {
-            navigate("/payment");
-          }}
-        >
-          Checkout
-        </button>
-      </div>
-      {message && (
+          {message ? (
         <div className="emptyContainer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +72,21 @@ const Carts = () => {
           <h2>{message}</h2>
           <button className="continueShopping" onClick={()=>navigate("/home")}>Continue Shopping</button>
         </div>
-      )}
+      ):<div className="totalDiv">
+      <h2>
+        Total : <span className="total">$ {allTotal}</span>
+      </h2>
+      <button
+        className="paymentBtn"
+        onClick={() => {
+          navigate("/payment");
+        }}
+      >
+        Checkout
+      </button>
+    </div>}
+      
+    
     </>
   );
 };
