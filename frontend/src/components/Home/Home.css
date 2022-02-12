@@ -11,6 +11,9 @@
     margin-top: -100px
 
 }
+.imgProduct{
+  height: 93%;
+}
 
 .product{
 /* border: 1px solid black; */
@@ -61,7 +64,7 @@ img{
 }
 
 .price{
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     font-size: 25px;
     /* color: red; */
 }
@@ -645,5 +648,5 @@ font-size: 20px;
   white-space: nowrap;
 }
 .cart .add-to-cart .txt:hover{
-  color: red;
+  color: rgb(218, 226, 228);
 }

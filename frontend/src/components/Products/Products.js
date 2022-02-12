@@ -226,7 +226,6 @@ const Products = () => {
 		<li><strong>Brand : </strong>{product.brand} </li>
 		<li><strong>Type : </strong>{product.type}</li>
 		<li><strong>Price: </strong>{product.price}</li>
-		{/* <li><strong>Material: </strong>Eco-Friendly</li> */}
 		
 	</ul>
 </div>
@@ -306,7 +305,7 @@ const Products = () => {
             // </div>
           );
         })}</div>
-       <div> <Comment id={id}/></div>
+       <div className="paddBIgDiv"> <Comment id={id}/></div>
         </div>
       </div>
    
