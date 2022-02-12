@@ -1,0 +1,41 @@
+.commentHere{
+    width: 450px;
+    height: 100px;
+    display: flex;
+}
+.addComment{
+    padding: 10px;
+    border: none;
+    display: flex;
+    background-color:rgb(74, 167, 248) ;
+}
+.addComment:hover{
+    background-color:rgb(44, 112, 172) 
+}
+.block{
+    display: flex;
+}
+.pComment{
+    text-align: start;
+}
+.CommentDiv{
+    margin-top: 10px;
+}
+.test4{
+    display: flex;
+    background-color: mintcream;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 450px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.delComment{
+    border: none;
+    background-color: red;
+    width: 40px;
+    margin-left: 10px;
+}
+.delComment:hover{
+    background-color: rgb(216, 25, 25);
+}

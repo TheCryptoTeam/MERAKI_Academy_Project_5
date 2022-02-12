@@ -132,11 +132,15 @@ const Home = () => {
 <div class="container1">
   <div class="slides-wrapper">
     <div class="img-container">
-      <img src= "https://images.pexels.com/photos/7564241/pexels-photo-7564241.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt=""/>
+      <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+        {/* "https://images.pexels.com/photos/7564241/pexels-photo-7564241.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt=""/> */}
     </div>
     {/* "https://i.ebayimg.com/images/g/h~UAAOSw9zhZ3XnE/s-l1600.jpg" */}
     <div class="img-container text">
-      <p>wlecome to our website <br/>when you will see the last version and any thing you wont there a lot of type of technology<br/> so if you intersted go ahead </p>
+     
+      <img src= "https://images.pexels.com/photos/3643925/pexels-photo-3643925.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""/>
+
+      {/* <p>wlecome to our website <br/>when you will see the last version and any thing you wont there a lot of type of technology<br/> so if you intersted go ahead </p> */}
     </div>
     <div class="img-container">
       <img src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt=""/>
@@ -218,13 +222,13 @@ const Home = () => {
                     <div class="row">
                       <div class="el-wrapper">
                         <div class="box-up">
-                          <img class="img" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
+                          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
                             alt="" />
                           <div class="img-info">
                             <div class="info-inner">
                               <span class="p-name"></span>
                             </div>
-                            <span className="add" onClick={() => {
+                            {/* <span className="add" onClick={() => {
                               addToWishList(element.id);
 
                             }}>
@@ -245,7 +249,7 @@ const Home = () => {
                               }}
                               style={{ color: 'black' }}
                               />}
-                            </span>
+                            </span> */}
                             <div class="a-size">Name : <span class="size">{element.name}</span></div>
 
                           </div>

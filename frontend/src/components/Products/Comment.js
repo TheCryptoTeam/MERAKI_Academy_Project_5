@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
+import "./Comment.css";
+
 
 const Comment = ({ id }) => {
   const state = useSelector((state) => {
@@ -89,11 +91,14 @@ const Comment = ({ id }) => {
     <>
       {comments.map((comment, index) => {
         return (
-          <div key={index}>
+          <div >
+          <div className="CommentDiv" key={index}>
+            <div className="test4">
+              <div>
+            <h3 className="block">{comment.commenter}</h3><br/><p className="block pComment">{comment.comment}</p></div>
             
-            <h3>{comment.commenter}</h3><p>{comment.comment}</p>
             {userName == comment.commenter ? (
-              <button
+              <button className="delComment"
                 onClick={() =>
                   Swal.fire({
                     title: "Are you sure?",
@@ -115,21 +120,22 @@ const Comment = ({ id }) => {
                   })
                 }
               >
-                Delete comment
+                X
               </button>
             ) : (
               <></>
             )}
-          </div>
+          </div></div></div>
         );
       })}
       {isLoggedIn ? (
         <div>
           <textarea
+          className="commentHere"
             placeholder="comment here"
             onChange={(e) => setComment(e.target.value)}
-          ></textarea>
-          <button onClick={createNewComment}>New commnet</button>
+          ></textarea><br/>
+          <button className="addComment" onClick={createNewComment}>Commnet</button>
         </div>
       ) : (
         <h2>register to add a comment</h2>
