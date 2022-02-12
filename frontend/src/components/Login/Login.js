@@ -19,16 +19,15 @@ const Login = () => {
   });
   const [userName1, setUserName1] = useState("");
   const onSuccess = (response) => {
-    
     dispatch(login(response.tokenId));
     localStorage.setItem("userToken", response.tokenId);
-     setUserName1(response.profileObj.name);
-    
-     setEmailGoogle(response.profileObj.email);
+    setUserName1(response.profileObj.name);
+
+    setEmailGoogle(response.profileObj.email);
     localStorage.setItem("userName", response.profileObj.name);
     navigate("/home");
-  
-    addNewUserWithGoogle(response.profileObj.name,response.profileObj.email);
+
+    addNewUserWithGoogle(response.profileObj.name, response.profileObj.email);
   };
   const onFailure = (response) => {
     console.log(response);
@@ -63,12 +62,9 @@ const Login = () => {
         localStorage.setItem("myRole", result.data.role);
         if (result.data.role === 2) {
           navigate("/ProductsTable");
-        }else{
+        } else {
           navigate("/home");
         }
-       
-
-        
       })
       .catch((err) => {
         //if error
@@ -78,9 +74,8 @@ const Login = () => {
 
     //================================================================
   };
- 
-  const addNewUserWithGoogle = async (username,email) => {
-    
+
+  const addNewUserWithGoogle = async (username, email) => {
     try {
       const result = await axios.post("http://localhost:5000/users", {
         userName: username,
@@ -93,13 +88,13 @@ const Login = () => {
         console.log(userName1);
         console.log(emailGoogle);
         body.email = email;
-        body.password = "123"
-        loginUser()
-      } 
+        body.password = "123";
+        loginUser();
+      }
     } catch (error) {
       body.email = email;
-        body.password = "123"
-        loginUser()
+      body.password = "123";
+      loginUser();
       console.log(error.response);
     }
   };
@@ -137,24 +132,33 @@ const Login = () => {
               placeholder=" Password"
               required=""
             />
-
+ {message ? <p className="Error">{message}</p> : <></>}{" "}
             <div className="button-signIn">
-              <GoogleLogin
-                clientId="284516947033-o1so93qbr9524dea3slu3ik2j01aqtpp.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={"single_host_origin"}
-              />
+              
               <button onClick={loginUser} id="signIn">
-                sign in
+                Login
               </button>
             </div>
+            <br />
+            <div className="orSection">
+              <hr />
+              <button>OR</button>
+            </div>
+
+            <GoogleLogin
+              className="googleButton"
+              clientId="284516947033-o1so93qbr9524dea3slu3ik2j01aqtpp.apps.googleusercontent.com"
+              buttonText="Login with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+            />
           </div>
         </div>
         <div className="message">
           {" "}
-          {message ? <p className="ErrorMessage">{message}</p> : <></>}{" "}
+         
+         
         </div>
       </div>
     </div>
