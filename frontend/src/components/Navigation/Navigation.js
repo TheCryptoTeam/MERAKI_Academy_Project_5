@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Navigation.css";
 import { BsSearch } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart,BsCart3 } from "react-icons/bs";
 import { useState } from "react";
+import  {MdLogout}  from "react-icons/md";
 
 const Navigation = ({ setProductName }) => {
   const [navbar, setNabar] = useState(false);
@@ -36,33 +37,16 @@ const Navigation = ({ setProductName }) => {
         <>
           {role === "1" ? (
             <>
-              <div className={navbar ? "navigationStiky" : "navigation"}>
-                <div className="test2">
-                  <Link to="/carts">
-                    <BsCartPlus size={25} />
-                  </Link>
-                  <Link to="/wishLists">
-                    <BsHeart size={25} />
-                  </Link>
-                </div>
-                <div className="test">
+              <div className={navbar ? "navigation" : "navigation"}>
+               
+                <div className="logoCrypto">
                   
 
                   <Link to="/home">Home</Link>
 
-                  <Link
-                    className="auth-button"
-                    onClick={() => {
-                      dispatch(logout());
-                      localStorage.clear();
-                      history("/login");
-                    }}
-                    to="/login"
-                  >
-                    Logout
-                  </Link>
+                 
                 </div>
-                <div>
+                <div className="search-continar">
                   <input
                     type="text"
                     placeholder="Search"
@@ -75,6 +59,27 @@ const Navigation = ({ setProductName }) => {
                     <BsSearch />
                   </Link>
                 </div>
+                <div className="icons">
+                  <Link to="/carts">
+                    <BsCart3 size={25} />
+                  </Link>
+                  <Link to="/wishLists">
+                    <BsHeart size={25} />
+                  </Link>
+                  <Link
+               
+                    className="auth-button"
+                    onClick={() => {
+                      dispatch(logout());
+                      localStorage.clear();
+                      history("/login");
+                    }}
+                    to="/login"
+                  >
+                   <MdLogout size={25}/>
+                  </Link>
+                </div>
+                
               </div>
             </>
           ) : (
@@ -83,8 +88,10 @@ const Navigation = ({ setProductName }) => {
         </>
       ) : (
         <>
-          <div className="navigation">
+          <div className={navbar ? "navigation" : "navigation"}>
             <div>
+              <div className="NavNoToken">
+                <div >
               <Link to="/">Home</Link>
               <Link className="auth-button" to="/login">
                 Login
@@ -92,6 +99,8 @@ const Navigation = ({ setProductName }) => {
               <Link className="auth-button" to="/register">
                 Register
               </Link>
+              </div>
+              </div>
             </div>
           </div>
         </>

@@ -221,7 +221,7 @@ font-family: 'EB Garamond', serif;
 	position: relative;
 	overflow: hidden;
 	height: 100%;
-	/* float: right; */
+	float: right;
 	width: 55%;
 	display: inline-block;
 }
