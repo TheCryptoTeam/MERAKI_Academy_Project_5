@@ -1,49 +1,67 @@
-.navigation{
-    display: flex;
-    /* background-color: rgb(176, 174, 184); */
-    width: 100%;
-    padding-top: 30px;
-    /* padding-bottom: 20px; */
-    margin-bottom: 30px;
-    justify-content: space-around;
-    /* position: fixed; */
-    text-align: center;
+.navigation {
+  display: flex;
+  background-color: #d1cfcb;
+  width: 100%;
+  justify-content: space-around;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
-.iconNan{
-    width: 30px;
-    height: 30px;
-}
-
-a{
-    text-decoration: none;
-    padding: 20px;
-    font-size: 20px;
-    color: black;
-
-}
-
-a:hover{
-    color: red;
+.navigationStiky{
+  display: flex;
+  background-color: #d1cfcb;
+  width: 100%;
+  justify-content: space-around;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  opacity: 0.9;
+  z-index: 2;
+  top:0px;
+  
 }
 
-.search{
-    margin-top: 15px;
-padding: 10px;
-    width: 180px;
-    /* border:1px solid black; */
-    /* border-bottom: 1px solid black; */
-    border-top-width: 0px;
-    padding-right: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 3px;
-    border-radius: 3%;
+
+.iconNan {
+  width: 30px;
+  height: 30px;
 }
-.test{
-    display: flex;
-    
+
+a {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 20px;
+  color: black;
 }
-.test2{
-    margin-top: 20px;
-margin-left: 20px;
+
+a:hover {
+  color: red;
+}
+
+.search {
+  margin-top: 15px;
+  padding: 10px;
+  width: 180px;
+  /* border:1px solid black; */
+  /* border-bottom: 1px solid black; */
+  border-top-width: 0px;
+  padding-right: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 3px;
+  border-radius: 3%;
+}
+.test {
+  display: flex;
+}
+.test2 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+#logoCrypto{
+  display: flex !important;
+  flex-direction: row !important;
 }
