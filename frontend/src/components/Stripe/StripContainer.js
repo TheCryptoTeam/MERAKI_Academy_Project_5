@@ -89,48 +89,94 @@ function CheckoutForm() {
   };
   //===============================
   return (
-    <div
-      style={{
-        padding: "3rem",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "500px",
-          margin: "0 auto",
-        }}
-      >
-        <form
-          style={{
-            display: "block",
-            width: "100%",
-          }}
-          onSubmit={payMoney}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <CardElement
-              className="card"
-              options={{
+    <div className="bodyCard">
+    <div class="align-center">
+  <div class="card">
+    <header>
+    <h3 class="card-title">Payment Details</h3>
+    <img id="visa" width="128" alt="Visa Inc. logo"             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/128px-Visa_Inc._logo.svg.png" class="logo"/>
+    </header>
+    
+    <form action="" class="form" onSubmit={payMoney}>
+      <div class="card-number">
+      <label for="number">Card Number</label>
+      <CardElement id="cardE"  options={{
                 style: {
                   base: {
-                    backgroundColor: "white",
+                   
+                    color: "#FFAB40"
                   },
                 },
-              }}
-            />
-            <button className="pay-button" disabled={isPaymentLoading}>
-              {isPaymentLoading ? "Loading..." : "Pay"}
-            </button>
-          </div>
-        </form>
+              }}/>
       </div>
-    </div>
+      
+      <div class="card-name">
+      <label for="name">Name</label>
+      <input id="name" type="text" size="40" required placeholder="Your Name"/>
+      <label for="name" className="lastName">Last Name</label>
+      <input id="name"  type="text" size="40" required placeholder="Your Name"/>
+      </div>
+      
+      <div class="input-row">
+     
+      
+      <div class="card-cvc">
+      <label for="cvc">Total</label>
+      <span id="cvc">60000$</span>
+      </div>
+        
+      <button class="buy-button" disabled={isPaymentLoading}>  {isPaymentLoading ? "Loading..." : "Complete Purchase"}</button>
+      </div>
+    </form>
+    
+  </div>
+</div>
+
+</div>
+
+
+    // <div
+    //   style={{
+    //     padding: "3rem",
+    //   }}
+    // >
+    //   <div
+    //     style={{
+    //       maxWidth: "500px",
+    //       margin: "0 auto",
+    //     }}
+    //   >
+    //     <form
+    //       style={{
+    //         display: "block",
+    //         width: "100%",
+    //       }}
+    //       onSubmit={payMoney}
+    //     >
+    //       <div
+    //         style={{
+    //           display: "flex",
+    //           flexDirection: "column",
+    //           alignItems: "center",
+    //         }}
+    //       >
+    //         <CardElement
+    //           className="card"
+    //           options={{
+    //             style: {
+    //               base: {
+    //                 backgroundColor: "white",
+    //               },
+    //             },
+    //           }}
+    //         />
+    //         <button className="pay-button" disabled={isPaymentLoading}>
+    //           {isPaymentLoading ? "Loading..." : "Pay"}
+    //         </button>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </div>
   );
 }
 export default StripePayment;
