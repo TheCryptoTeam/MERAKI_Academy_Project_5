@@ -90,8 +90,8 @@ const Comment = ({ id }) => {
       {comments.map((comment, index) => {
         return (
           <div key={index}>
-            <h3>{comment.commenter}</h3>
-            <p>{comment.comment}</p>
+            
+            <h3>{comment.commenter}</h3><p>{comment.comment}</p>
             {userName == comment.commenter ? (
               <button
                 onClick={() =>

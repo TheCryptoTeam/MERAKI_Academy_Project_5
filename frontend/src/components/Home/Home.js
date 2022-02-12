@@ -117,8 +117,9 @@ const Home = () => {
           src="https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         />
         <div className="address">
-          <h1 className="what">PRODUCT</h1>
-          <p className="pNewCollection">NEW COLLECTION 2022</p>
+          <h1 className="what">DIGITAL<br/> MARKETING</h1>
+          <br/>
+          <p className="pNewCollection">NEW VERSION 2022</p>
         </div>
       </div>
 
@@ -131,13 +132,14 @@ const Home = () => {
 <div class="container1">
   <div class="slides-wrapper">
     <div class="img-container">
-      <img src="https://i.ebayimg.com/images/g/h~UAAOSw9zhZ3XnE/s-l1600.jpg" alt=""/>
+      <img src= "https://images.pexels.com/photos/7564241/pexels-photo-7564241.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt=""/>
     </div>
+    {/* "https://i.ebayimg.com/images/g/h~UAAOSw9zhZ3XnE/s-l1600.jpg" */}
     <div class="img-container text">
-      <p>This is a slideshow made with pure CSS. <br/>You can´t control which image to see, but you can pause it by hovering over.</p>
+      <p>wlecome to our website <br/>when you will see the last version and any thing you wont there a lot of type of technology<br/> so if you intersted go ahead </p>
     </div>
     <div class="img-container">
-      <img src="https://data.whicdn.com/images/326092072/original.jpg?t=1548965962" alt=""/>
+      <img src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt=""/>
     </div>
   </div>
   

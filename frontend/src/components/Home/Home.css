@@ -70,7 +70,7 @@ img{
 }
 
 .section2{
-    margin-top: 140px;
+    /* margin-top: 140px; */
     background-color: lightgrey;
     padding-top: 5px;
 }
@@ -138,7 +138,7 @@ font-family: 'Poppins', sans-serif;
 
 }
 .what{
-    font-size: 100px;
+    font-size: 60px;
 }
 .pNewCollection{
     font-size: 30px;
@@ -180,17 +180,20 @@ background-color: lightgrey;
   place-content: center;
 } */
 .sliderSection{
-  margin-top:35%;
+  margin-top:440px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 140px;
+  padding-top: 140px;
+  background-color: whitesmoke;
 }
 
 .container1 {
   position: relative;
-  height: 450px;
-  width: 60vw;
-  max-width: 800px;
+  height: 550px;
+  width: 900vw;
+  max-width: 1200px;
   overflow: hidden;
   box-shadow:  9px 9px 16px #cfbcbc, -9px -9px 16px #ffeaea;
   border-radius: 10px;
