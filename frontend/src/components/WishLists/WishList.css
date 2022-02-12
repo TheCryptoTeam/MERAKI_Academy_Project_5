@@ -1,0 +1,21 @@
+.emptyWishlist {
+  padding: 5rem 0;
+  text-align: center;
+}
+.emptyWishlist h2 {
+  padding: 1rem 0;
+}
+.emptyWishlist .continueShopping {
+  padding: 0.8rem 3rem;
+  background-color: #17a2b8;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.emptyWishlist .continueShopping:hover {
+  background-color: #077182;
+}
