@@ -9,13 +9,13 @@ const login = (req, res) => {
   const query = `SELECT * FROM users INNER JOIN roles ON users.role_id=roles.role_id WHERE email=?`;
   const data = [email];
   connection.query(query, data, (err, results) => {
-    if (err) {
-      res.status(404).json({
-        success: false,
-        message: `The email doesn't exist`,
-        err,
-      });
-    }
+    // if (err) {
+    //   res.status(404).json({
+    //     success: false,
+    //     message: `The email doesn't exist`,
+    //     err,
+    //   });
+    // }
     // result are the data returned by mysql server
     if (results.length > 0) {
       bcrypt.compare(password, results[0].password, (err, respons) => {
@@ -49,7 +49,7 @@ const login = (req, res) => {
     } else {
       res
         .status(404)
-        .json({ success: false, massege: "The email doesn't exist", err });
+        .json({ success: false, message: "The email doesn't exist", err });
     }
   });
 };
