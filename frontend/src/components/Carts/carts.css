@@ -75,3 +75,23 @@
   margin-top: 1rem;
   cursor: pointer;
 }
+.emptyContainer {
+  padding: 5rem 0;
+}
+.emptyContainer h2 {
+  padding: 1rem 0;
+}
+.emptyContainer .continueShopping {
+  padding: 0.8rem 3rem;
+  background-color: #17a2b8;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.emptyContainer .continueShopping:hover {
+  background-color: #077182;
+}
