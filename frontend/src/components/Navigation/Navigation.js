@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Navigation.css";
 import { BsSearch } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart,BsCart3 } from "react-icons/bs";
 import { useState } from "react";
+import  {MdLogout}  from "react-icons/md";
 
 const Navigation = ({ setProductName }) => {
   const [navbar, setNabar] = useState(false);
@@ -60,12 +61,13 @@ const Navigation = ({ setProductName }) => {
                 </div>
                 <div className="icons">
                   <Link to="/carts">
-                    <BsCartPlus size={25} />
+                    <BsCart3 size={25} />
                   </Link>
                   <Link to="/wishLists">
                     <BsHeart size={25} />
                   </Link>
                   <Link
+               
                     className="auth-button"
                     onClick={() => {
                       dispatch(logout());
@@ -74,7 +76,7 @@ const Navigation = ({ setProductName }) => {
                     }}
                     to="/login"
                   >
-                    Logout
+                   <MdLogout size={25}/>
                   </Link>
                 </div>
                 
