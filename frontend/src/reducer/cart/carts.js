@@ -1,6 +1,7 @@
 
 const initialState = {
   carts: [],
+  total:0,
 };
 
 const cartsReducer = (state = initialState, { type, payload }) => {
@@ -30,6 +31,13 @@ const cartsReducer = (state = initialState, { type, payload }) => {
               return element.id !== payload;
             }),
           }
+      case  "SUB_TOTAL":
+          return{
+            ...state,
+           total: state.carts.reduce((acc,element) => {
+              return acc + (element.price*(element.quantity));
+            },0),
+          }
       
 
     default:
@@ -52,4 +60,8 @@ export const deleteCartstById = (id) => {
 };
 export const updateCarttById = (updatedCart) => {
   return { type: "UPDATE_Cart", payload: updatedCart };
+};
+export const subTotal = (payload) => {
+  console.log("--------------------------------",payload,"----------------------------",typeof payload)
+  return { type: "SUB_TOTAL", payload };
 };
