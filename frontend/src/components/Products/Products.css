@@ -3,7 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  border-radius: 5px;
+  text-transform: capitalize;
+  
 }
 
 .productContainer {
@@ -15,7 +16,7 @@
 
 .gridProduct{
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-rows: auto auto;
 }
 .image {
   width: 500px;
@@ -81,13 +82,13 @@ background: #DFC2F2;
 
 #container{
 	box-shadow: 0 15px 30px 1px grey;
-	background: rgba(255, 255, 255, 0.90);
-	text-align: center;
-	border-radius: 5px;
-	overflow: hidden;
-	margin: 5em auto;
-	height: 350px;
-	width: 700px;
+    background: rgba(255, 255, 255, 0.90);
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5em auto;
+    height: 350px;
+    width: 62vw;
   
 	
 }
@@ -156,7 +157,7 @@ font-family: 'EB Garamond', serif;
 .control{
 	position: absolute;
 	bottom: 20px;
-	left: 22.8%;
+	left: 30.8%;
 	
 }
 .btn {
@@ -273,5 +274,6 @@ color: red;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
 
 .paddBIgDiv{
-    margin-top: 60px;
+	margin-bottom: 60px;
+	
 }

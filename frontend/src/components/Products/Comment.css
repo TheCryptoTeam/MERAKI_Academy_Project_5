@@ -1,16 +1,30 @@
-.commentHere{
-    width: 450px;
-    height: 100px;
-    display: flex;
+.comment-main{
+    width: 100%;
 }
-.addComment{
-    padding: 10px;
-    border: none;
+.commentHere{
+   
     display: flex;
-    background-color:rgb(74, 167, 248) ;
+    margin-bottom: 20px;
+    border-color: currentcolor currentcolor #8e8e8e;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    color: #686868;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    width: 79%;
+    background: transparent;
+}
+
+.addComment{
+    margin-right: 144px;
+    margin-bottom: 18px;
+
 }
 .addComment:hover{
-    background-color:rgb(44, 112, 172) 
+   cursor: pointer; 
 }
 .block{
     display: flex;
@@ -18,24 +32,49 @@
 .pComment{
     text-align: start;
 }
+
 .CommentDiv{
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    
+    
+    justify-content: center;
+    display: flex;
+    
+}
+.test4-continar{
+    width: 62%;
+    justify-content: start;
+    display: flex;
 }
 .test4{
     display: flex;
-    background-color: mintcream;
+    /* background-color: mintcream; */
     padding: 15px;
-    margin-bottom: 10px;
-    width: 450px;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    /* margin-top: 10px; */
+    width: 84.2%;
+    /* box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%); */
+    background: transparent;
+    box-shadow: 0 0px 12px -3px grey;
+    justify-content: space-between
 }
 .delComment{
-    border: none;
-    background-color: red;
-    width: 40px;
-    margin-left: 10px;
+    
+    margin-top: 10px;
 }
 .delComment:hover{
-    background-color: rgb(216, 25, 25);
+    color: rgb(238, 10, 10);
+    cursor: pointer;
+}
+
+
+/******************************************************/
+.writeComment-continar{
+    display: flex;
+    justify-content: center;
+}
+.writeComment{
+    width: 62%;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
