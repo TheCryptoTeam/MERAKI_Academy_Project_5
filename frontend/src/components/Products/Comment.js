@@ -4,7 +4,8 @@ import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import "./Comment.css";
-
+import{HiOutlinePencilAlt}from "react-icons/hi";
+import{AiOutlineDelete}from "react-icons/ai";
 
 const Comment = ({ id }) => {
   const state = useSelector((state) => {
@@ -89,58 +90,66 @@ const Comment = ({ id }) => {
   };
   return (
     <>
+    {isLoggedIn ? (
+        <div className="writeComment-continar">
+        <div className="writeComment">
+          <input
+          className="commentHere"
+            placeholder="comment here"
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <HiOutlinePencilAlt size={35} className="addComment" onClick={createNewComment}/>
+        </div>
+        </div>
+      ) : (
+        <h2>register to add a comment</h2>
+      )}
       {comments.map((comment, index) => {
         return (
+         
           <div >
           <div className="CommentDiv" key={index}>
+            <div className="test4-continar">
             <div className="test4">
               <div>
             <h3 className="block">{comment.commenter}</h3><br/><p className="block pComment">{comment.comment}</p></div>
             
             {userName == comment.commenter ? (
-              <button className="delComment"
-                onClick={() =>
-                  Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!",
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      Swal.fire(
-                        "Deleted!",
-                        "Your file has been deleted.",
-                        "success"
-                      );
-                      deleteComment(comment.id);
-                    }
-                  })
-                }
-              >
-                X
-              </button>
+              <AiOutlineDelete size={35} className="delComment"
+              onClick={() =>
+                Swal.fire({
+                  title: "Are you sure?",
+                  text: "You won't be able to revert this!",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    Swal.fire(
+                      "Deleted!",
+                      "Your file has been deleted.",
+                      "success"
+                    );
+                    deleteComment(comment.id);
+                  }
+                })
+              }/>
+              
             ) : (
               <></>
             )}
-          </div></div></div>
+          </div>
+          </div>
+          </div>
+          </div>
         );
       })}
-      {isLoggedIn ? (
-        <div>
-          <textarea
-          className="commentHere"
-            placeholder="comment here"
-            onChange={(e) => setComment(e.target.value)}
-          ></textarea><br/>
-          <button className="addComment" onClick={createNewComment}>Commnet</button>
-        </div>
-      ) : (
-        <h2>register to add a comment</h2>
-      )}
+      
+      
     </>
+    
   );
 };
 
