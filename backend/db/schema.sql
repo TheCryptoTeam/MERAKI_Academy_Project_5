@@ -69,3 +69,15 @@ FOREIGN KEY (product_id) REFERENCES products(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE ratings(
+    id INT AUTO_INCREMENT NOT NULL,
+    rating INT(4),
+    product_id INT,
+FOREIGN KEY (product_id) REFERENCES products(id),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
