@@ -17,7 +17,7 @@ import ProductsTable from "./components/ProductsTable/ProductsTable";
 import UsersTable from "./components/UsersTable/UsersTable";
 import StripePayment from "./components/Stripe/StripContainer";
 
-
+import { Chat } from "./chatbot";
 //===============================================================
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <Navigation setProductName={setProductName} />
+      <Chat/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
