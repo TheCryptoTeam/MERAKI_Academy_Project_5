@@ -38,6 +38,7 @@ const cartsReducer = (state = initialState, { type, payload }) => {
               return acc + (element.price*(element.quantity));
             },0),
           }
+          
       
 
     default:
@@ -64,4 +65,7 @@ export const updateCarttById = (updatedCart) => {
 export const subTotal = (payload) => {
   console.log("--------------------------------",payload,"----------------------------",typeof payload)
   return { type: "SUB_TOTAL", payload };
+};
+export const setTotal = (carts) => {
+  return { type: "SET_Total", payload: carts };
 };
