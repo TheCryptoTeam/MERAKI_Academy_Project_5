@@ -5,7 +5,9 @@ export class Chat extends Component {
     (function (d, m) {
       var kommunicateSettings = {
         appId: "12c0d3df85639454753f5e0c42ded5dac",
+        userId: localStorage.getItem("userId"),
         popupWidget: true,
+       
         automaticChatOpenOnNavigation: true,
       };
       var s = document.createElement("script");
@@ -15,6 +17,8 @@ export class Chat extends Component {
       var h = document.getElementsByTagName("head")[0];
       h.appendChild(s);
       window.kommunicate = m;
+     
+
       m._globals = kommunicateSettings;
     })(document, window.kommunicate || {});
     
