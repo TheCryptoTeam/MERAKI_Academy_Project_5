@@ -46,6 +46,20 @@ const WishLists = () => {
         dispatch(deleteWishListById(id));
       });
   };
+
+  //////////////////////////////////////////////////////////////////////////////////
+
+  const addToCart = async (id) => {
+    const headers = {
+      Authorization: `Bearer ${state.token}`,
+    };
+    let quantity = 1;
+    await axios
+      .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
+      .then((res) => {
+        setMessage(res.data.massage);
+      });
+  };
   useEffect(() => {
     getMyWishLists();
   }, []);
@@ -106,7 +120,7 @@ const WishLists = () => {
                           />
                           <div class="img-info">
                             <div class="info-inner">
-                              <span class="p-name"></span>
+                              {/* <span class="p-name"></span> */}
                               {/* <span class="p-company">Yeezy</span> */}
                             </div>
                             {/* <span className="add" onClick={() => {
@@ -114,7 +128,62 @@ const WishLists = () => {
                         }}> 
                        delete
                       </span> */}
+                            {/* <RiDeleteBinLine
+                            className="add"
+                              size={30}
+                              id="delete"
+                              onClick={() => {
+                                Swal.fire({
+                                  title: "Are you sure?",
+                                  text: "You won't be able to revert this!",
+                                  icon: "warning",
+                                  showCancelButton: true,
+                                  confirmButtonColor: "#3085d6",
+                                  cancelButtonColor: "#d33",
+                                  confirmButtonText: "Yes, delete it!",
+                                }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    Swal.fire(
+                                      "Deleted!",
+                                      "Your file has been deleted.",
+                                      "success"
+                                    );
+                                    deleteWishlist(element.id);
+                                  }
+                                });
+                              }}
+                            /> */}
+
+                            {/* <div class="a-size">
+                              Name : <span class="size">{element.name}</span>
+                            </div> */}
+                          </div>
+                        </div>
+
+                        <div class="box-down">
+                          {/* <div class="h-bg">
+                            <div class="h-bg-inner"></div>
+                          </div> */}
+
+                          <a class="cart">
+                            <span class="price">{element.price}$</span>
+
+                            <span class="add-to-cart">
+                              <span class="txt"    onClick={() => {
+                          addToCart(element.id);
+                        }}>  
+                       
+                      
+                      
+                        Add to cart
+                      </span>
+                         
+                      
+                            </span>
+
+                            <span>
                             <RiDeleteBinLine
+                            className="add"
                               size={30}
                               id="delete"
                               onClick={() => {
@@ -138,30 +207,6 @@ const WishLists = () => {
                                 });
                               }}
                             />
-
-                            <div class="a-size">
-                              Name : <span class="size">{element.name}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="box-down">
-                          <div class="h-bg">
-                            <div class="h-bg-inner"></div>
-                          </div>
-
-                          <a class="cart">
-                            <span class="price">{element.price}$</span>
-
-                            <span class="add-to-cart">
-                              {/* <span class="txt"    onClick={() => {
-                          addToCart(element.id);
-                        }}>  
-                       
-                      
-                      
-                        Add to cart
-                      </span> */}
                             </span>
                           </a>
                         </div>
