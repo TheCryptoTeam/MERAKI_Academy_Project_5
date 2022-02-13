@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setcarts, deleteCartstById } from "../../reducer/cart/carts";
+import { setcarts, } from "../../reducer/cart/carts";
 import { useNavigate } from "react-router-dom";
 import "./carts.css";
+import {  subTotal } from "../../reducer/cart/carts";
 
 import CartItem from "./cartItem";
 
@@ -11,8 +12,8 @@ const Carts = () => {
   
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [total, setTotal] = useState(0);
-  const [allTotal, setAllTotal] = useState(0);
+
+  
   const state = useSelector((state) => {
     return { carts: state.cartsReducer.carts, token: state.loginReducer.token,total: state.cartsReducer.total };
   });
@@ -29,6 +30,7 @@ const Carts = () => {
       .then((res) => {
         if (res.data.results.length) {
           dispatch(setcarts(res.data.results));
+          dispatch(subTotal( state.total))
           setShow(true);
         }
       })
@@ -41,7 +43,7 @@ const Carts = () => {
     getMyCart();
     
   }, []);
-  console.log(state.total);
+ 
   return (
     <>
     
@@ -52,9 +54,9 @@ const Carts = () => {
             <CartItem
               key={index}
               getMyCart={getMyCart}
-              total={total}
+              
               product={product}
-              setTotal={setTotal}
+              
             />
           );
         })}
@@ -75,7 +77,7 @@ const Carts = () => {
         </div>
       ):<div className="totalDiv">
       <h2>
-        Total : <span className="total">$ {allTotal}</span>
+        Total : <span className="total">$ {state.total}</span>
       </h2>
       <button
         className="paymentBtn"

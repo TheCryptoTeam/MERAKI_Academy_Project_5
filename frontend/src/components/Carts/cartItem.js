@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { deleteCartstById, updateCarttById,subTotal } from "../../reducer/cart/carts";
+import { deleteCartstById, updateCarttById } from "../../reducer/cart/carts";
 import Swal from "sweetalert2";
-const CartItem = ({ product, setTotal, getMyCart }) => {
+const CartItem = ({ product,  getMyCart }) => {
   const state = useSelector((state) => {
     return { total: state.cartsReducer.total };
   
@@ -27,11 +27,10 @@ const CartItem = ({ product, setTotal, getMyCart }) => {
 
     try {
       await axios.put(`http://localhost:5000/carts/${id}`, body);
+      
       dispatch(updateCarttById(body));
-      dispatch(subTotal( state.total))
-       console.log(typeof state.total);
-       console.log(typeof quantity);
-       console.log(typeof price);
+      
+       
       getMyCart();
     } catch (error) {
       throw error;
@@ -40,6 +39,7 @@ const CartItem = ({ product, setTotal, getMyCart }) => {
 
   useEffect(() => {
     updateProduct(product.id);
+   
   
   }, [quantity]);
 
