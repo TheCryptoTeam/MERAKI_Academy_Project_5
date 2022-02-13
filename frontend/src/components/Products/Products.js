@@ -10,6 +10,7 @@ import {
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./Products.css";
 import Comment from "./Comment";
+import Rating from "./Rating";
 import Swal from "sweetalert2";
 import { BsHeart } from "react-icons/bs";
 
@@ -306,6 +307,7 @@ const Products = () => {
           );
         })}</div>
        <div className="paddBIgDiv"> <Comment id={id}/></div>
+       <Rating/>
         </div>
       </div>
    

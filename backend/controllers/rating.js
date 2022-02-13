@@ -36,7 +36,7 @@ const createNewRateing = (req, res) => {
         res.json({ success: false, massege: "the rating not found", err: err });
         res.status(404);
       } else {
-        res.json({ success: true, massege: `the comments `,results: result });
+        res.json({ success: true, massege: `the ratings `,results: result });
         res.status(200);
       }
     });
