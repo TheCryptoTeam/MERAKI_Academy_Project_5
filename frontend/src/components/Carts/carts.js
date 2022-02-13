@@ -8,12 +8,13 @@ import "./carts.css";
 import CartItem from "./cartItem";
 
 const Carts = () => {
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
   const [allTotal, setAllTotal] = useState(0);
   const state = useSelector((state) => {
-    return { carts: state.cartsReducer.carts, token: state.loginReducer.token };
+    return { carts: state.cartsReducer.carts, token: state.loginReducer.token,total: state.cartsReducer.total };
   });
   const [show, setShow] = useState(false);
   const [message, setMessage] = useState("");
@@ -40,7 +41,7 @@ const Carts = () => {
     getMyCart();
     
   }, []);
-
+  console.log(state.total);
   return (
     <>
     
