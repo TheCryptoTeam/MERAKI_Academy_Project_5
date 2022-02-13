@@ -247,17 +247,17 @@ const Home = () => {
                               style={{ color: 'black' }}
                               />}
                             </span> */}
-                            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+                            {/* <div class="a-size">Name : <span class="size">{element.name}</span></div> */}
 
                           </div>
                         </div>
 
                         <div class="box-down">
-                          <div class="h-bg">
+                          {/* <div class="h-bg">
                             <div class="h-bg-inner">
 
                             </div>
-                          </div>
+                          </div> */}
 
                           <a class="cart">
                             <span class="price">{element.price}$</span>
