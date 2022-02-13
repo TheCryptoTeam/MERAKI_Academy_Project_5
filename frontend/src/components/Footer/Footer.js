@@ -6,7 +6,7 @@ import { BsFacebook } from 'react-icons/bs';
 import { ImGooglePlus3 } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
 
-
+// import Logo from './logo.svg';
 
 
 const Footer=()=>{
@@ -18,6 +18,8 @@ const Footer=()=>{
         <div className="footerImg">
 <div className="footer">
     <div>
+        
+        {/* <img src={Logo} alt="logo" className="logo" /> */}
 <h1>Crypto</h1><br/>
 <p>Get 10% discount with notified about<br/> the latest news and updates. </p>
 </div>

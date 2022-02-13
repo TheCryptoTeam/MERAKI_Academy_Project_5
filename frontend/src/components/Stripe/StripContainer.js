@@ -56,7 +56,7 @@ function CheckoutForm() {
         setPaymentLoading(false);
         Swal.fire({
           icon: "success",
-          title: "Your work has been saved",
+          title: "Thank you for your payment",
           showConfirmButton: false,
           timer: 1700,
         });

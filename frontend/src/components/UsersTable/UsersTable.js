@@ -156,10 +156,10 @@ return(
           <div>
             <table className="insidTable">
               <tr className="tr">
-                <th>id</th>
-                <th>name</th>
+                <th>Id</th>
+                <th>Name</th>
                 <th>Email</th>
-                
+                <th>Role Id</th>
                 <th>Actions</th>
               </tr>
               {show &&
@@ -169,6 +169,7 @@ return(
                       <td>{user.id}</td>
                       <td>{user.userName}</td>
                       <td>{user.email}</td>
+                      <td>{user.role_id}</td>
                       {/* <td>{ele.type}</td>
                       <td>{ele.price}</td> */}
                       <td>
@@ -204,7 +205,7 @@ return(
           </div>
 
           {/* <Link to="/newProduct" className="newProduct">New Product</Link> */}
-          <div className="pagination">
+          <div className="paginationO">
             <h1 className="h1Pagination"
               onClick={() => {
                 dec();
@@ -213,13 +214,14 @@ return(
               <BsFillArrowLeftCircleFill/>
             </h1>
             <span className="pageNumber">{page}</span>
-            <h1 className="h1Pagination"
+            {skip<state.products.length?<h1 className="h1Pagination"
               onClick={() => {
                 inc();
               }}
             >
               <BsFillArrowRightCircleFill/>
-            </h1>
+            </h1>:<></>}
+            
          
 
   </div>

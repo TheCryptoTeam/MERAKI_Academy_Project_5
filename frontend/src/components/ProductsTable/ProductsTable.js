@@ -14,6 +14,10 @@ import { logout } from "../../reducer/login/index";
 import "./ProductsTable.css";
 
 import { RiDeleteBinLine } from "react-icons/ri";
+import {BsPencilSquare} from "react-icons/bs";
+
+
+
 import  { PureComponent } from 'react';
 import Swal from "sweetalert2";
 import {
@@ -43,7 +47,20 @@ const ProductsTable = () => {
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
 
-  
+  //update product
+const [updateBox, setUpdateBox] = useState(false);
+const [name, setName] = useState("");
+const [description, setDescription] = useState("");
+const [price, setPrice] = useState(0);
+const [type, setType] = useState("");
+const [brand, setBrand] = useState("");
+const [elementId, setElementId] = useState([]);
+
+
+const [productId, setProductId] = useState(false);
+const [message, setMessage] = useState("");
+
+//////////////////////////
   const [show, setShow] = useState(false);
 
   
@@ -106,6 +123,50 @@ const ProductsTable = () => {
         throw err;
       });
   };
+
+
+
+//==========================================================================
+//update product
+const handleUpdateClick = (product) => {
+  setUpdateBox(!updateBox);
+  setProductId(product.id);
+  setName(product.name);
+  setDescription(product.description);
+  setBrand(product.brand);
+  setType(product.type);
+  setPrice(product.price);
+  setElementId([...elementId,product.id])
+
+  if (updateBox) updateProduct(product.id);
+};
+
+const updateProduct = async (id) => {
+  const body = {
+    name,
+    type,
+    brand,
+    description,
+    price,
+  };
+
+  try {
+    await axios.put(`http://localhost:5000/products/${id}`, body);
+    dispatch(updateproductById(body));
+    Swal.fire({
+      
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    getAllProducts();
+  } catch (error) {
+    throw error;
+  }
+};
+
+//==========================================================================
 
   //================================================================================
 
@@ -376,11 +437,11 @@ const data2 = [
           <div>
             <table className="insidTable">
               <tr className="tr">
-                <th>id</th>
-                <th>name</th>
-                <th>brand</th>
-                <th>type</th>
-                <th>price</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Type</th>
+                <th>Price</th>
                 <th>Actions</th>
               </tr>
               {show &&
@@ -388,11 +449,53 @@ const data2 = [
                   return (
                     <tr className="tr">
                       <td>{ele.id}</td>
-                      <td>{ele.name}</td>
-                      <td>{ele.brand}</td>
-                      <td>{ele.type}</td>
-                      <td>{ele.price}</td>
+                     
+                      <td>{updateBox && productId === ele.id ?<input
+                      type="text"
+                      defaultValue={ele.name}
+                      placeholder="Name here"
+                      onChange={(e) => setName(e.target.value)}
+                    />: ele.name}</td>
+                      <td>{updateBox && productId === ele.id ?<input
+                      type="text"
+                      defaultValue={ele.brand}
+                      placeholder="brand here"
+                      onChange={(e) => setBrand(e.target.value)}
+                    />:ele.brand}</td>
+                      <td>{updateBox && productId === ele.id ?<input
+                      type="text"
+                      defaultValue={ele.type}
+                      placeholder="type here"
+                      onChange={(e) => setType(e.target.value)}
+                    />:ele.type}</td>
+                      <td>{updateBox && productId === ele.id ?<input
+                      type="number"
+                      defaultValue={ele.price}
+                      placeholder="Price here"
+                      onChange={(e) => setPrice(e.target.value)}
+                    />:ele.price}</td>
+                     
                       <td>
+                        {updateBox && productId === ele.id ? ( <svg onClick={()=>{Swal.fire({
+ 
+  icon: 'info',
+  title: 'Close...',
+  showConfirmButton: false,
+  timer: 1500
+});setUpdateBox(false)}} xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-x-circle close" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg>):<></>}
+                     
+                
+                      <BsPencilSquare id="update"  onClick={() => handleUpdateClick(ele)} />
+                      {updateBox && productId === ele.id && (
+                  <>
+                    
+                    
+                  </>
+                )}
+                    
                         <RiDeleteBinLine
                           id="delete"
                           onClick={() => 
@@ -416,6 +519,8 @@ const data2 = [
                             })
                             }
                         />
+                       
+
                       </td>
                     </tr>
                   );
@@ -424,7 +529,7 @@ const data2 = [
           </div>
 
           {/* <Link to="/newProduct" className="newProduct">New Product</Link> */}
-          <div className="pagination">
+          <div className="paginationO">
             <h1 className="h1Pagination"
               onClick={() => {
                 dec();
@@ -433,13 +538,14 @@ const data2 = [
               <BsFillArrowLeftCircleFill/>
             </h1>
             <span className="pageNumber">{page}</span>
-            <h1 className="h1Pagination"
+            {skip<state.products.length?<h1 className="h1Pagination"
               onClick={() => {
                 inc();
               }}
             >
               <BsFillArrowRightCircleFill/>
-            </h1>
+            </h1>:<></>}
+            
          
 
   </div>
