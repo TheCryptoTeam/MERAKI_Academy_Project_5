@@ -1,46 +1,41 @@
-.margin{
-    height: 250px;
+.margin {
+  height: 250px;
 }
 
-.Imgtype{
-    width: 100%;
-    height: auto;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    
-    
+.Imgtype {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
 }
-.linkSize{
-    font-size: 20px;
-    padding: 20px;
+.linkSize {
+  font-size: 20px;
+  padding: 20px;
 }
-.laptop-brand{
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 37%;
-    margin-right: 35%;
-    
-    color: #666;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 20px;
-    padding: 0 20px;
-    text-transform: uppercase;
-    transition: all .4s ease 0s;
-   
+.laptop-brand {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 37%;
+  margin-right: 35%;
+
+  color: #666;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
 }
-.laptop-brand span:hover{
-   color:  #ff4136;
-   cursor: pointer;
+.laptop-brand span:hover {
+  color: #ff4136;
+  cursor: pointer;
 }
 
-.type{
-    justify-content: space-evenly;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    margin-top: 15px;
-    
-    
+.type {
+  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-top: 15px;
 }

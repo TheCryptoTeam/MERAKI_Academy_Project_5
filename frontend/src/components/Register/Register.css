@@ -4,16 +4,13 @@
   box-sizing: border-box;
 }
 
-
-
-#registerR{
+#registerR {
   color: #ff4136;
 }
-#loginR{
+#loginR {
   color: #000;
-  transition: all .4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
-#loginR:hover{
+#loginR:hover {
   color: #ff4136;
 }
-
