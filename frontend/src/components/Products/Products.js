@@ -14,6 +14,9 @@ import Rating from "./Rating";
 import Swal from "sweetalert2";
 import { BsHeart } from "react-icons/bs";
 
+
+
+
 const Products = () => {
   const navigate = useNavigate();
   
@@ -151,7 +154,18 @@ const Products = () => {
 <div id="container">	
 	
 	<div class="product-details">
-		
+ <span className="BsHeartProduct"> {elementId.includes(product.id)  ? <BsHeart    width={30} onClick={() => {
+                                
+                  
+                                handleUpdateClick(product)
+                              }}
+                                style={{ color: 'red' }}
+                              /> : <BsHeart size={30} id={product.id} onClick={() => {
+                                handleUpdateClick(product)
+                              }}
+                              style={{ color: 'black' }}
+                              />}
+                              </span>
 	<h1>{product.name}</h1><br/>
 	<span class="hint-star star">
   <Rating /> 
@@ -171,23 +185,7 @@ const Products = () => {
                             }}>
 
 
-{elementId.includes(product.id)  ? <BsHeart width={30} onClick={() => {
-                                Swal.fire({
-               
-                                  icon: 'success',
-                                  title: 'Your work has been saved',
-                                  showConfirmButton: false,
-                                  timer: 1500
-                                })
-                  
-                                handleUpdateClick(product)
-                              }}
-                                style={{ color: 'red' }}
-                              /> : <BsHeart size={30} id={product.id} onClick={() => {
-                                handleUpdateClick(product)
-                              }}
-                              style={{ color: 'black' }}
-                              />}
+
                             </span>
 
 
