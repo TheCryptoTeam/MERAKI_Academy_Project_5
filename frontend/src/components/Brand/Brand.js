@@ -3,19 +3,18 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { BsCartPlus } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 const Brand = () => {
-  
+
   const [products, setProducts] = useState([]);
   const [show, setShow] = useState(false);
   const { brand } = useParams();
   const navigate = useNavigate();
-  
-    const state = useSelector((state) => {
-        return { token: state.loginReducer.token};
 
-    })
+  const state = useSelector((state) => {
+    return { token: state.loginReducer.token };
+
+  })
 
   const getByBrand = () => {
     axios
@@ -23,24 +22,23 @@ const Brand = () => {
       .get(`http://localhost:5000/products/brand/${brand}`)
       .then((result) => {
         setProducts(result.data.products);
-        console.log(result.data);
         setShow(true);
       })
       .catch((err) => {
-        console.log(err);
+        throw err
       });
   };
   //=======================================
   const addToCart = async (id) => {
     const headers = {
-        Authorization: `Bearer ${state.token}`,
+      Authorization: `Bearer ${state.token}`,
     };
     let quantity = 1;
     await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
-        .then((res) => {
-            
-        })
-}
+      .then((res) => {
+
+      })
+  }
 
   //======================================
 
@@ -48,40 +46,31 @@ const Brand = () => {
   const addToWishList = async (id) => {
     console.log(state.token);
     const headers = {
-        Authorization: `Bearer ${state.token}`,
+      Authorization: `Bearer ${state.token}`,
     };
 
-    await axios.post(`http://localhost:5000/wishList/${id}`, {},{ headers })
-        .then((res) => {
-           
-        })
-        .catch(err => {
-            console.log(err);
-        })
-}
+    await axios.post(`http://localhost:5000/wishList/${id}`, {}, { headers })
+      .then((res) => {
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   //======================================
 
   useEffect(() => {
     getByBrand();
   }, [brand]);
-  
+
 
   return (
     <>
-     <div className="header">
-        {/* <img
-          className="Imgtype"
-          src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
-        />
-        <div className="address">
-          <h1 className="what">
-         PRODUCT
-          </h1>
-          <p className="pNewCollection">NEW COLLECTION 2022</p>
-        </div> */}
+      <div className="header">
+
         <div className="laptop-brand">
-          {["Dell","HP","Lenovo"].includes(brand) ? (
+          {["Dell", "HP", "Lenovo"].includes(brand) ? (
             <>
               <span className="linkSize"
                 onClick={() => {
@@ -109,7 +98,7 @@ const Brand = () => {
             <></>
           )}
 
-          { ["Apple","Samsung","Huawei"].includes(brand) ?  (
+          {["Apple", "Samsung", "Huawei"].includes(brand) ? (
             <>
               <span className="linkSize"
                 onClick={() => {
@@ -136,7 +125,7 @@ const Brand = () => {
           ) : (
             <></>
           )}
-          {["LG","Sony","TCL"].includes(brand) ? (
+          {["LG", "Sony", "TCL"].includes(brand) ? (
             <>
               <span className="linkSize"
                 onClick={() => {
@@ -164,7 +153,7 @@ const Brand = () => {
             <></>
           )}
 
-          {["Rolex","Omega","Blancpain"].includes(brand)? (
+          {["Rolex", "Omega", "Blancpain"].includes(brand) ? (
             <>
               <span className="linkSize"
                 onClick={() => {
@@ -191,7 +180,7 @@ const Brand = () => {
           ) : (
             <></>
           )}
-          {["Canon","Nikon","DJI"].includes(brand) ? (
+          {["Canon", "Nikon", "DJI"].includes(brand) ? (
             <>
               <span className="linkSize"
                 onClick={() => {
@@ -220,7 +209,7 @@ const Brand = () => {
           )}
         </div>
 
-       
+
 
 
 
@@ -228,77 +217,77 @@ const Brand = () => {
 
 
 
-      <div>
+        <div>
 
-      <div className="products">
-          {show&&products.map(element=>{
+          <div className="products">
+            {show && products.map(element => {
 
 
-return(
-  <div >
+              return (
+                <div >
 
-<div class="container page-wrapper">
-  <div class="page-inner">
-    <div class="row">
-      <div class="el-wrapper">
-        <div class="box-up">
-          <img class="img" src={element.image}  onClick={() => navigate(`/products/${element.id}`)}
- alt=""/>
-          <div class="img-info">
-            <div class="info-inner">
-              <span class="p-name"></span>
-            </div>
-           
-           
+                  <div class="container page-wrapper">
+                    <div class="page-inner">
+                      <div class="row">
+                        <div class="el-wrapper">
+                          <div class="box-up">
+                            <img class="img" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
+                              alt="" />
+                            <div class="img-info">
+                              <div class="info-inner">
+                                <span class="p-name"></span>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                          <div class="box-down">
+                            <div class="h-bg">
+                              <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart">
+                              <span class="price">{element.price}$</span>
+
+                              <span class="add-to-cart">
+                                <span class="txt" onClick={() => {
+                                  addToCart(element.id);
+                                }}>
+
+
+
+                                  Add to cart
+                                </span>
+
+
+                              </span>
+                              <span className="add" onClick={() => {
+                                addToWishList(element.id);
+                              }}>
+                                <BsHeart />
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+              )
+
+
+
+            })}
+
+
+
           </div>
         </div>
-
-        <div class="box-down">
-          <div class="h-bg">
-            <div class="h-bg-inner"></div>
-          </div>
-
-          <a class="cart">
-            <span class="price">{element.price}$</span>
-
-            <span class="add-to-cart">
-              <span class="txt"    onClick={() => {
-                          addToCart(element.id);
-                        }}>  
-                       
-                      
-                      
-                        Add to cart
-                      </span>
-
-                     
-            </span>
-            <span className="add" onClick={() => {
-                          addToWishList(element.id);
-                        }}> 
-                        <BsHeart />
-                      </span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-  </div>
-)
-
-
-
-          })}
-
-
-
-        </div>
-      </div>
       </div>
     </>
   );
