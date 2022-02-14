@@ -9,7 +9,6 @@ import {
   deleteProductById,
 } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
-import { login } from "../../reducer/login";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
@@ -20,7 +19,6 @@ const Home = () => {
   const [message, setMessage] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
-  const [color, setColor] = useState("");
   const [elementId, setElementId] = useState([]);
 
 
@@ -61,7 +59,6 @@ const Home = () => {
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
-    console.log(headers);
     let quantity = 1;
     await axios
       .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
@@ -71,7 +68,6 @@ const Home = () => {
   };
   //=====================================================
   const addToWishList = async (id) => {
-    console.log(state.token);
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
@@ -106,7 +102,7 @@ const Home = () => {
   ///////////////////////////////////////////////////////////////////////////////////////////
 
   const handlecolor = (element) => {
-    setElementId([...elementId,element.id])
+    setElementId([...elementId, element.id])
   };
 
   return (
@@ -114,11 +110,11 @@ const Home = () => {
       <div className="header">
         <img
           className="headerImg"
-          src= "https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          src="https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         />
         <div className="address">
-          <h1 className="what">DIGITAL<br/> MARKETING</h1>
-          <br/>
+          <h1 className="what">DIGITAL<br /> MARKETING</h1>
+          <br />
           <p className="pNewCollection">NEW VERSION 2022</p>
         </div>
       </div>
@@ -129,29 +125,29 @@ const Home = () => {
 
 
 
-<div class="container1">
-  <div class="slides-wrapper">
-    <div class="img-container">
-      <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
-    </div>
-    <div class="img-container text">
-     
-      <img src= "https://images.pexels.com/photos/7430733/pexels-photo-7430733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
+        <div class="container1">
+          <div class="slides-wrapper">
+            <div class="img-container">
+              <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+            </div>
+            <div class="img-container text">
 
-    </div>
-    <div class="img-container">
-      <img src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt=""/>
-    </div>
-  </div>
-  
-  <div class="slider">
-     <div class="selected"></div>
-     <button class="slider-button"></button>
-     <button class="slider-button"></button>
-     <button class="slider-button"></button>
-  </div>
-</div>
- 
+              <img src="https://images.pexels.com/photos/7430733/pexels-photo-7430733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+
+            </div>
+            <div class="img-container">
+              <img src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" />
+            </div>
+          </div>
+
+          <div class="slider">
+            <div class="selected"></div>
+            <button class="slider-button"></button>
+            <button class="slider-button"></button>
+            <button class="slider-button"></button>
+          </div>
+        </div>
+
       </div>
 
 
@@ -224,8 +220,7 @@ const Home = () => {
                             <div class="info-inner">
                               <span class="p-name"></span>
                             </div>
-                          
-                            {/* <div class="a-size">Name : <span class="size">{element.name}</span></div> */}
+
 
                           </div>
                         </div>
@@ -239,22 +234,21 @@ const Home = () => {
                               addToWishList(element.id);
 
                             }}>
-                              {elementId.includes(element.id)  ? <BsHeart  onClick={() => {
+                              {elementId.includes(element.id) ? <BsHeart onClick={() => {
                                 Swal.fire({
-               
+
                                   icon: 'success',
                                   title: 'Your work has been saved',
                                   showConfirmButton: false,
                                   timer: 1500
                                 })
-                  
+
                                 handlecolor(element)
                               }}
                                 style={{ color: 'red' }}
-                              /> : <BsHeart  id={element.id} onClick={() => {
+                              /> : <BsHeart id={element.id} onClick={() => {
                                 handlecolor(element)
                               }}
-                              // style={{ color: 'black' }}
                               />}
                             </span>
 
@@ -262,13 +256,13 @@ const Home = () => {
                             <span class="add-to-cart">
                               <span class="txt" onClick={() => {
                                 Swal.fire({
-               
+
                                   icon: 'success',
                                   title: 'Your work has been saved',
                                   showConfirmButton: false,
                                   timer: 1500
                                 })
-                  
+
                                 addToCart(element.id);
                               }}>
 
