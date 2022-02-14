@@ -9,7 +9,7 @@ import {
 } from "../../reducer/products";
 import { useNavigate } from "react-router-dom";
 
-const Search = ({productName}) => {
+const Search = ({ productName }) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
@@ -26,7 +26,6 @@ const Search = ({productName}) => {
     await axios
       .get(`http://localhost:5000/products/search_name?name=${productName}`)
       .then((res) => {
-        console.log(res.data.products);
         if (!res.data.products[0]) {
           setShow(2);
         } else {
@@ -38,57 +37,42 @@ const Search = ({productName}) => {
         throw err;
       });
   };
-//=======================================
-const addToCart = async (id) => {
-  const headers = {
+  //=======================================
+  const addToCart = async (id) => {
+    const headers = {
       Authorization: `Bearer ${state.token}`,
-  };
-  let quantity = 1;
-  await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
+    };
+    let quantity = 1;
+    await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
       .then((res) => {
-          
+
       })
-}
+  }
 
-//======================================
+  //======================================
 
-//=======================================
-const addToWishList = async (id) => {
-  console.log(state.token);
-  const headers = {
+  //=======================================
+  const addToWishList = async (id) => {
+    const headers = {
       Authorization: `Bearer ${state.token}`,
-  };
+    };
 
-  await axios.post(`http://localhost:5000/wishList/${id}`, {},{ headers })
+    await axios.post(`http://localhost:5000/wishList/${id}`, {}, { headers })
       .then((res) => {
-         
+
       })
       .catch(err => {
-          console.log(err);
+        console.log(err);
       })
-}
+  }
 
-useEffect(() => {
+  useEffect(() => {
     getProductByName(productName)
   }, [productName]);
   return (
     <div>
       <div>
-        {/* <input
-          className="search"
-          placeholder="search..."
-          onChange={(event) => {
-            setSearch(event.target.value);
-          }}
-          onKeyPress={(e) => {
-            console.log(e.key);
 
-            if (e.key === "Enter") {
-              console.log(show);
-              getProductByName();
-            }
-          }}
-        /> */}
 
         <div>
           {show == 1 ? (
