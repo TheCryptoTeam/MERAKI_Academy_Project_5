@@ -1,42 +1,37 @@
-
-
-.footer{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    padding: 5%;
+.footer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 5%;
 }
-.footerImg{
-    background-color: rgba(168, 182, 190, 0.473);
-    font-family: 'Poppins', sans-serif;
-    color: #303030;
-    font-weight: 400;
+.footerImg {
+  background-color: rgba(168, 182, 190, 0.473);
+  font-family: "Poppins", sans-serif;
+  color: #303030;
+  font-weight: 400;
 }
 
-.emailAddress{
-   padding: 14px; 
-   /* border: 1px solid gray; */
+.emailAddress {
+  padding: 14px;
 }
 
-.go{
-    padding: 15px;
-    font-size: 15px;
-    background-color: rgb(107, 114, 114);
-    border: none;
+.go {
+  padding: 15px;
+  font-size: 15px;
+  background-color: rgb(107, 114, 114);
+  border: none;
 }
-.go:hover{
-    background-color: cornflowerblue;
+.go:hover {
+  background-color: cornflowerblue;
 }
-hr{
-    /* width: 2px; */
-    margin-left: 10%;
-    margin-right: 10%;
+hr {
+  margin-left: 10%;
+  margin-right: 10%;
 }
-.icon{
-  
-    font-size: 25px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    /* margin: 4%; */
+.icon {
+  font-size: 25px;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
-.icon1{
-padding-top: 10px;}
+.icon1 {
+  padding-top: 10px;
+}
