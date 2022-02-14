@@ -240,7 +240,7 @@ const Type = () => {
                               <div class="h-bg-inner"></div>
                             </div>
 
-                            <a class="cart">
+                            <a class="cart h-bg">
                               <span class="price">{element.price}$</span>
 
                               <span class="add-to-cart">
