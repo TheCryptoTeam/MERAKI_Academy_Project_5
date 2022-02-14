@@ -9,6 +9,7 @@ import { FaInstagram } from 'react-icons/fa';
 import { useRef, useState } from "react";
 import emailjs from 'emailjs-com';
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 import { init } from '@emailjs/browser';
 init("user_SBk74LXiwtQFn10I8H4vW");
@@ -92,7 +93,15 @@ const Footer = () => {
                             setTxtFeedBack(e.target.value)
                         }}
                         />
-                        <button className="go">Go</button></form>
+                        <button className="go" onClick={()=>{
+                             Swal.fire({
+               
+                                icon: 'success',
+                                title: 'Your work has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                              })
+                        }}>Go</button></form>
                 </div>
                 <div>
                     <h3>Contact Us</h3><br />
