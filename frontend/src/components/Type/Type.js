@@ -241,12 +241,12 @@ const Type = () => {
                               <div class="info-inner">
                                 <span class="p-name"></span>
                               </div>
-                              <span className="add" onClick={() => {
+                              {/* <span className="add" onClick={() => {
                                 addToWishList(element.id);
                               }}>
                                 <BsHeart />
-                              </span>
-                              <div class="a-size">Name : <span class="size">{element.name}</span></div>
+                              </span> */}
+                              {/* <div class="a-size">Name : <span class="size">{element.name}</span></div> */}
 
                             </div>
                           </div>
@@ -270,6 +270,11 @@ const Type = () => {
                                 </span>
 
 
+                              </span>
+                              <span className="add" onClick={() => {
+                                addToWishList(element.id);
+                              }}>
+                                <BsHeart />
                               </span>
                             </a>
                           </div>
