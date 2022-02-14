@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Navigation.css";
 import { BsSearch } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
-import { BsHeart,BsCart3 } from "react-icons/bs";
+import { BsHeart, BsCart3 } from "react-icons/bs";
 import { useState } from "react";
-import  {MdLogout}  from "react-icons/md";
+import { MdLogout } from "react-icons/md";
 
 const Navigation = ({ setProductName }) => {
   const [navbar, setNabar] = useState(false);
@@ -38,13 +38,13 @@ const Navigation = ({ setProductName }) => {
           {role === "1" ? (
             <>
               <div className={navbar ? "navigation" : "navigation"}>
-               
+
                 <div className="logoCrypto">
-                  
+
 
                   <Link to="/home">Home</Link>
 
-                 
+
                 </div>
                 <div className="search-continar">
                   <input
@@ -67,7 +67,7 @@ const Navigation = ({ setProductName }) => {
                     <BsHeart size={25} />
                   </Link>
                   <Link
-               
+
                     className="auth-button"
                     onClick={() => {
                       dispatch(logout());
@@ -76,10 +76,10 @@ const Navigation = ({ setProductName }) => {
                     }}
                     to="/login"
                   >
-                   <MdLogout size={25}/>
+                    <MdLogout size={25} />
                   </Link>
                 </div>
-                
+
               </div>
             </>
           ) : (
@@ -92,14 +92,14 @@ const Navigation = ({ setProductName }) => {
             <div>
               <div className="NavNoToken">
                 <div >
-              <Link to="/">Home</Link>
-              <Link className="auth-button" to="/login">
-                Login
-              </Link>
-              <Link className="auth-button" to="/register">
-                Register
-              </Link>
-              </div>
+                  <Link to="/">Home</Link>
+                  <Link className="auth-button" to="/login">
+                    Login
+                  </Link>
+                  <Link className="auth-button" to="/register">
+                    Register
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
