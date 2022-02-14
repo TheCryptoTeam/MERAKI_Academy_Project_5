@@ -72,7 +72,7 @@ FOREIGN KEY (product_id) REFERENCES products(id),
 
 CREATE TABLE ratings(
     id INT AUTO_INCREMENT NOT NULL,
-    rating INT(4),
+    rating DECIMAL(2,1),
     product_id INT,
 FOREIGN KEY (product_id) REFERENCES products(id),
     user_id INT,

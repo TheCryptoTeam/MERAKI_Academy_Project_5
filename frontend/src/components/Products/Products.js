@@ -16,6 +16,7 @@ import { BsHeart } from "react-icons/bs";
 
 const Products = () => {
   const navigate = useNavigate();
+  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
@@ -153,11 +154,7 @@ const Products = () => {
 		
 	<h1>{product.name}</h1><br/>
 	<span class="hint-star star">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star-o" aria-hidden="true"></i>
+  <Rating /> 
 	</span>
 		
 			<p class="information">{product.description}</p>
@@ -307,7 +304,7 @@ const Products = () => {
           );
         })}</div>
        <div className="paddBIgDiv"> <Comment id={id}/></div>
-       <Rating/>
+      
         </div>
       </div>
    
