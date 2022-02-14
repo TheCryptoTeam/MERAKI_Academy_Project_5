@@ -1,53 +1,34 @@
 .navigation {
   display: flex;
-    background-color: #ffffff;
-    width: 100%;
-    justify-content: space-between;
-    /* height: 56px; */
-    padding: 10px 0px 10px 0px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: sticky;
-    opacity: 0.9;
-    z-index: 2;
-    top: 0px;
-    box-shadow: 5px 4px 8px #88888878;
-}
-/* .navigationStiky{
-  display: flex;
-  background-color: #d1cfcb;
+  background-color: #ffffff;
   width: 100%;
   justify-content: space-between;
-  height: 100px;
+  padding: 10px 0px 10px 0px;
   display: flex;
   align-items: center;
   width: 100%;
   position: sticky;
   opacity: 0.9;
   z-index: 2;
-  top:0px;
-  
-} */
-
-.logoCrypto{
-  width: 15%;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-.icons{
-  width: 15%;
-    justify-content: space-evenly;
-    display: flex;
-    align-items: center;
+  top: 0px;
+  box-shadow: 5px 4px 8px #88888878;
 }
 
-
+.logoCrypto {
+  width: 15%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.icons {
+  width: 15%;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+}
 
 a {
   text-decoration: none;
-  /* padding: 20px; */
   font-size: 20px;
   color: black;
 }
@@ -55,23 +36,22 @@ a {
 a:hover {
   color: red;
 }
-.serach-continar{
+.serach-continar {
   display: flex;
-    align-items: center;
-    width: 28%;
-    justify-content: space-between;
+  align-items: center;
+  width: 28%;
+  justify-content: space-between;
 }
 .search {
-  
   padding: 10px;
-    width: 400px;
-    border-top-width: 0px;
-    padding-right: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 3px;
-    border-radius: 3%;
-    background: #fff;
+  width: 400px;
+  border-top-width: 0px;
+  padding-right: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 3px;
+  border-radius: 3%;
+  background: #fff;
 }
 .test {
   display: flex;
@@ -80,18 +60,18 @@ a:hover {
   margin-top: 20px;
   margin-left: 20px;
 }
-#logoCrypto{
+#logoCrypto {
   display: flex !important;
   flex-direction: row !important;
 }
 
-.NavNoToken{
+.NavNoToken {
   width: 98vw;
   justify-content: center;
   display: flex;
 }
-.NavNoToken div{
-width: 30%;
-display: flex;
-justify-content: space-evenly;
+.NavNoToken div {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
 }
