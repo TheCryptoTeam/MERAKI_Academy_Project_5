@@ -3,6 +3,16 @@
   grid-template-columns: auto auto auto auto;
   padding: 5%;
 }
+@media(max-width: 1100px){
+  .footer {
+    display: grid;
+    grid-template-columns:  auto;
+    padding: 5%;
+  }
+  .t{
+    margin-bottom: 10%;
+  }
+}
 .footerImg {
   background-color: rgba(168, 182, 190, 0.473);
   font-family: "Poppins", sans-serif;
@@ -17,8 +27,9 @@
 .go {
   padding: 15px;
   font-size: 15px;
-  background-color: rgb(107, 114, 114);
+  background-color:cadetblue;
   border: none;
+  color: black;
 }
 .go:hover {
   background-color: cornflowerblue;
