@@ -47,9 +47,7 @@ const Login = () => {
     email: email,
     password: password,
   };
-  // const register = () => {
-  //   navigate("/register");
-  // };
+
   const loginUser = () => {
     //show backend server
     axios
@@ -85,8 +83,6 @@ const Login = () => {
       });
       if (result.data.success) {
         navigate("/home");
-        console.log(userName1);
-        console.log(emailGoogle);
         body.email = email;
         body.password = "123";
         loginUser();
@@ -95,7 +91,6 @@ const Login = () => {
       body.email = email;
       body.password = "123";
       loginUser();
-      console.log(error.response);
     }
   };
   return (
@@ -132,9 +127,9 @@ const Login = () => {
               placeholder=" Password"
               required=""
             />
- {message ? <p className="Error">{message}</p> : <></>}{" "}
+            {message ? <p className="Error">{message}</p> : <></>}{" "}
             <div className="button-signIn">
-              
+
               <button onClick={loginUser} id="signIn">
                 Login
               </button>
@@ -157,45 +152,12 @@ const Login = () => {
         </div>
         <div className="message">
           {" "}
-         
-         
+
+
         </div>
       </div>
     </div>
-    // <div className="authentication">
 
-    //         <p className="Title">Login:</p>
-
-    //     <div className="authentication-inputs">
-    //       <label>Email</label>
-    //       <input
-    //         type="email"
-    //         onChange={(e) => {
-    //           setEmail(e.target.value);
-    //         }}
-    //         placeholder="Enter Email Address"
-    //         required=""
-    //       />
-    //       <label>Password</label>
-    //       <input
-    //         type="password"
-    //         onChange={(e) => {
-    //           setPassword(e.target.value);
-    //         }}
-    //         placeholder="Enter Password"
-    //         required=""
-    //       />
-    //       <button onClick={loginUser}>Login</button>
-    //       {message ? <p className="ErrorMessage">{message}</p> : <></>}
-    //     </div>
-
-    //     <p>
-    //       You don't have an account?{" "}
-    //       <a className="no-account" onClick={register}>
-    //         Register
-    //       </a>
-    //     </p>
-    //   </div>
   );
 };
 export default Login;
