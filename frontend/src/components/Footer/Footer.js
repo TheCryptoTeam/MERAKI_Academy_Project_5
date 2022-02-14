@@ -37,12 +37,12 @@ const Footer = () => {
     // };
     const sendEmail = (e) => {
         e.preventDefault();
-        emailjs.send("service_6fetmt6","template_i0a03na",{
+        emailjs.send("service_6fetmt6", "template_i0a03na", {
             from_name: localStorage.getItem('userName'),
             to_name: 'Crypto team',
-            message:txtFeedBack,
+            message: txtFeedBack,
             reply_to: "crypto",
-            },'user_SBk74LXiwtQFn10I8H4vW')
+        }, 'user_SBk74LXiwtQFn10I8H4vW')
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
             }, (err) => {
@@ -86,22 +86,22 @@ const Footer = () => {
                     <p>Get 10% discount with notified about<br /> the latest news and updates. </p>
                 </div>
                 <div>
-                    <h3>feedback</h3>
+                    <h3>any suggestion</h3>
                     <br />
                     <form ref={form} onSubmit={sendEmail}>
                         <input className="emailAddress" placeholder="Email Address" onChange={(e) => {
                             setTxtFeedBack(e.target.value)
                         }}
                         />
-                        <button className="go" onClick={()=>{
-                             Swal.fire({
-               
+                        <button className="go" onClick={() => {
+                            Swal.fire({
+
                                 icon: 'success',
                                 title: 'Your work has been saved',
                                 showConfirmButton: false,
                                 timer: 1500
-                              })
-                        }}>Go</button></form>
+                            })
+                        }}>send</button></form>
                 </div>
                 <div>
                     <h3>Contact Us</h3><br />
