@@ -52,7 +52,6 @@ const Type = () => {
   };
   //============================
   const addToWishList = async (id) => {
-    console.log(state.token);
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
@@ -67,20 +66,10 @@ const Type = () => {
       });
   };
   //============================
-  console.log(brand);
   return (
     <>
       <div className="header">
-        {/* <img
-          className="Imgtype"
-          src="//cdn.shopify.com/s/files/1/2508/8420/files/4.jpg?v=1509680577"
-        />
-        <div className="address">
-          <h1 className="what">
-            PRODUCT
-          </h1>
-          <p className="pNewCollection">NEW COLLECTION 2022</p>
-        </div> */}
+
 
         <div className="laptop-brand">
           {type === "Laptop" ? (
@@ -241,12 +230,7 @@ const Type = () => {
                               <div class="info-inner">
                                 <span class="p-name"></span>
                               </div>
-                              {/* <span className="add" onClick={() => {
-                                addToWishList(element.id);
-                              }}>
-                                <BsHeart />
-                              </span> */}
-                              {/* <div class="a-size">Name : <span class="size">{element.name}</span></div> */}
+
 
                             </div>
                           </div>

@@ -28,7 +28,6 @@ const WishLists = () => {
       .then((res) => {
         if (res.data.results.length) {
           dispatch(setWishLists(res.data.results));
-          console.log(res.data.results);
           setShow(true);
         }
       })
@@ -65,7 +64,7 @@ const WishLists = () => {
   }, []);
   return (
     <>
-     
+
 
       <div className="products">
         {show &&
@@ -83,13 +82,11 @@ const WishLists = () => {
                             onClick={() => navigate(`/products/${element.id}`)}
                             alt=""
                           />
-                         
+
                         </div>
 
                         <div class="box-down">
-                          {/* <div class="h-bg">
-                            <div class="h-bg-inner"></div>
-                          </div> */}
+
 
                           <a class="cart">
                             <span class="price">{element.price}$</span>
