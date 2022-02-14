@@ -218,7 +218,7 @@ const Home = () => {
                             alt="" />
                           <div class="img-info">
                             <div class="info-inner">
-                              <span class="p-name"></span>
+                              <span class="p-name padName">{element.name}</span>
                             </div>
 
 
@@ -227,7 +227,7 @@ const Home = () => {
 
                         <div class="box-down">
 
-                          <a class="cart">
+                          <a class="cart h-bg">
                             <span class="price">{element.price}$</span>
 
                             <span className="add" onClick={() => {
