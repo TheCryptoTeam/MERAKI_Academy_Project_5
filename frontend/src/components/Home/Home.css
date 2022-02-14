@@ -462,6 +462,10 @@ html {
 .notActive {
   color: black;
 }
+.padName{
+  margin-bottom: -200px;
+  background-color: #3f96cd;
+}
 
 .el-wrapper .box-up {
   width: 100%;
@@ -536,7 +540,9 @@ html {
 .info-inner .p-name {
   font-family: "PT Sans", sans-serif;
   font-size: 18px;
-  color: #252525;
+  color: white;
+  /* background-color: white; */
+  padding: 10px;
 }
 
 .info-inner .p-company {
