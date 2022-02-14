@@ -20,13 +20,13 @@ stripeRouter.post("/", cors(), async (req, res) => {
 			payment_method: payment_method,
 			confirm: true
 		})
-		console.log("Payment", payment)
+	
 		res.json({
 			message: "Payment successful",
 			success: true
 		})
 	} catch (error) {
-		console.log("Error", error)
+	
 		res.json({
 			message: "Payment failed",
 			success: false
