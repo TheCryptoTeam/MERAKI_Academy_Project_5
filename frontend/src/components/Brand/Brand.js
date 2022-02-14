@@ -220,44 +220,7 @@ const Brand = () => {
           )}
         </div>
 
-        {/* <div className="type">
-          {products.map((product, index) => {
-            return (
-              <div key={index}>
-                  <div className="product">
-                    <img
-                      onClick={() => navigate(`/products/${product.id}`)}
-                      src={product.image}
-                      alt=""
-                    />
-                    <div className="price">
-                      <p> {product.name}</p>
-                      <p className="priceColor"> {product.price}</p>
-                    </div>
-                    <div className="twoButton">
-                      <button
-                        className="add"
-                        onClick={() => {
-                          addToCart(product.id);
-                        }}
-                      >
-                        <BsCartPlus />
-                      </button>
-                      <button
-                        className="add"
-                        onClick={() => {
-                          addToWishList(product.id);
-                        }}
-                      >
-                        <BsHeart />
-                      </button>
-                    </div>
-                  </div>
-                  <br />
-                </div>
-            );
-          })}
-        </div> */}
+       
 
 
 
@@ -285,12 +248,7 @@ return(
             <div class="info-inner">
               <span class="p-name"></span>
             </div>
-            <span className="add" onClick={() => {
-                          addToWishList(element.id);
-                        }}> 
-                        <BsHeart />
-                      </span>
-            <div class="a-size">Name : <span class="size">{element.name}</span></div>
+           
            
           </div>
         </div>
@@ -315,6 +273,11 @@ return(
 
                      
             </span>
+            <span className="add" onClick={() => {
+                          addToWishList(element.id);
+                        }}> 
+                        <BsHeart />
+                      </span>
           </a>
         </div>
       </div>

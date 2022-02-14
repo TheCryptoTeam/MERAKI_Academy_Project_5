@@ -23,6 +23,9 @@
     background-color: rgb(107, 114, 114);
     border: none;
 }
+.go:hover{
+    background-color: cornflowerblue;
+}
 hr{
     /* width: 2px; */
     margin-left: 10%;
