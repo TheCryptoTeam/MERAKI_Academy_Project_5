@@ -1,62 +1,53 @@
-
-
-.mainNewProduct{
+.mainNewProduct {
   text-align: start;
- 
+
   font-family: sans-serif;
   display: grid;
-  
-  grid-template-columns: repeat(8,1fr);
-  grid-template-rows: 100px  610px;
-  grid-template-areas: "side name name name name name name name" "side  create create create create create create create" ;
-  
+
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 100px 610px;
+  grid-template-areas: "side name name name name name name name" "side  create create create create create create create";
 }
 .side {
   grid-area: side;
   background-color: #393939;
   display: flex;
   flex-direction: column;
-  
-
 }
 
-.side div{
+.side div {
   display: flex;
   flex-direction: column;
   padding: 10px;
   color: #8e8e8e;
 }
 
-.side div a{
-  
-  padding:0px;
+.side div a {
+  padding: 0px;
   padding-top: 10px;
   border-top: 1px solid #666;
-  
 }
-/***********************************************************/
-.name{
+.name {
   grid-area: name;
   background-color: white;
   display: flex;
   flex-direction: column;
 }
-.name div{
+.name div {
   height: 50%;
   display: flex;
   align-items: center;
   margin-left: 10px;
 }
-.name div:nth-child(2){
+.name div:nth-child(2) {
   background-color: #eee;
-    margin: 10px;
-    padding: 10px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .pro3 {
   font-size: 20px;
   font-family: sans-serif;
-  
 }
 .newProduct3 {
   font-size: 20px;
@@ -64,109 +55,96 @@
   color: red;
 }
 
+.login-box-Product {
+  height: 100%;
 
-.login-box-Product{
-    height: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.product-box{
+.product-box {
   width: 30%;
   border: 1px solid;
   padding: 10px;
   box-shadow: 5px 10px #888888;
-  /* background-color: antiquewhite; */
-  
-  
 }
 
-.product-box input{
+.product-box input {
   margin-bottom: 20px;
   border-color: currentcolor currentcolor #8e8e8e;
-    border-image: none;
-    border-style: none none solid;
-    border-width: 0 0 1px;
-    color: #686868;
-    font-size: 16px;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 15px;
-    width: 100%;
-    background: transparent;
+  border-image: none;
+  border-style: none none solid;
+  border-width: 0 0 1px;
+  color: #686868;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  width: 100%;
+  background: transparent;
 }
 .create {
   grid-area: create;
 
- display: flex;
- align-items: center;
- margin: 10px;
- justify-content: space-around;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  justify-content: space-around;
 }
-
-
 
 .ErrorMessage {
-  
- 
-    background-color: rgb(159, 216, 105);
-    color: rgb(139, 5, 5);
-    font-size: 18px;
-    margin: 5px;
-    padding: 12px;
-    text-align: center;
-    border-radius: 5px;
-    font-family: "Segoe UI";
-    border: solid 1px rgba(128, 128, 128, 0.376);
-  }
-
-  .main-continar1 {
-    /* width: 100vw; */
-    /* height: 80vh; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
+  background-color: rgb(159, 216, 105);
+  color: rgb(139, 5, 5);
+  font-size: 18px;
+  margin: 5px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "Segoe UI";
+  border: solid 1px rgba(128, 128, 128, 0.376);
 }
-.btnUpload{
+
+.main-continar1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+.btnUpload {
   background-color: transparent;
   border: none;
   cursor: pointer;
   background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 8%;
-    bottom: 51%;
-    font-size: 16px;
-  
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 8%;
+  bottom: 51%;
+  font-size: 16px;
 }
-.upload{
+.upload {
   position: relative;
   width: 12rem;
   height: 6rem;
 }
 
-
-.box-chart{
+.box-chart {
   width: 60%;
   height: 90%;
- 
+
   margin-left: 20px;
   display: flex;
   flex-direction: column;
 }
-.first{
+.first {
   height: 40%;
- 
+
   justify-content: center;
   align-items: center;
   display: flex;
-
 }
-.first div{
+.first div {
   width: 40%;
   height: 80%;
   border-radius: 10px;
@@ -174,20 +152,17 @@
   flex-direction: column;
   justify-content: center;
 }
-.second{
+.second {
   height: 60%;
-  
-
 }
 
-.uploadContinar{
+.uploadContinar {
   display: flex;
-  /* align-content: space-around; */
   flex-direction: column;
   flex-wrap: wrap;
   padding-bottom: 5%;
   align-items: center;
 }
-.up{
+.up {
   position: relative;
 }
