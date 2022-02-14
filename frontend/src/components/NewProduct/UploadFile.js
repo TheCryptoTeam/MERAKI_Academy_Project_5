@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const UploadFile = ({ setImage }) => {
@@ -17,40 +17,38 @@ const UploadFile = ({ setImage }) => {
         setFilelink(res.data.secure_url);
         setImage(res.data.secure_url);
       })
-
-      // .then(url => callback(url))
       .catch((err) => {
         console.log(err.response);
       });
   };
- 
-  
+
+
   return (
     <div className="uploadContinar">
       <div className="up" >
-      <input
-        onChange={(event) => {
-          setFile(event.target.files[0]);
-          imageUpload(file);
-        
-        }}
-        type="file"
-      ></input>
+        <input
+          onChange={(event) => {
+            setFile(event.target.files[0]);
+            imageUpload(file);
+
+          }}
+          type="file"
+        ></input>
 
 
-      <button className="btnUpload"
-        onClick={() => {
-          imageUpload(file);
-        }}
-      >
-        Upload
-      </button>
+        <button className="btnUpload"
+          onClick={() => {
+            imageUpload(file);
+          }}
+        >
+          Upload
+        </button>
       </div>
-      
 
-     
-{filelink ?( <img className="upload" src={filelink} alt="" />):(<></>)}
-     
+
+
+      {filelink ? (<img className="upload" src={filelink} alt="" />) : (<></>)}
+
     </div>
   );
 };
