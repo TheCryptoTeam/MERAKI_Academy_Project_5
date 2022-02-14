@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import { useParams } from "react-router-dom";
+import { MdPerson } from "react-icons/md";
 
 const Rating = () => {
   const { id } = useParams();
@@ -103,10 +104,11 @@ const Rating = () => {
         fullIcon={<i className="fa fa-star"></i>}
         activeColor="#ffd700"
       />
-      <span id="votes">{ratings.length}</span>
-      <br />
-      <span>{avarage.toFixed(2)}</span>
+      <span id="votes">{ratings.length} </span> <MdPerson color={"#344055"} size={25}/>
+      <div className="avarage">
+      <span>{avarage.toFixed(1)}</span>
       <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
     </>
   );
 };

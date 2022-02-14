@@ -16,10 +16,11 @@
     padding: 0 15px;
     width: 79%;
     background: transparent;
+    margin-left: 3.8%;
 }
 
 .addComment{
-    margin-right: 144px;
+    margin-right: 133px;
     margin-bottom: 18px;
 
 }
@@ -45,6 +46,7 @@
     width: 62%;
     justify-content: start;
     display: flex;
+    margin-left: 4%;
 }
 .test4{
     display: flex;

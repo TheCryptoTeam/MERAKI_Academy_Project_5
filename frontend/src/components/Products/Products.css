@@ -87,8 +87,8 @@ background: #DFC2F2;
     border-radius: 5px;
     overflow: hidden;
     margin: 5em auto;
-    height: 350px;
-    width: 62vw;
+    height: 366px;
+    width: 57vw;
   
 	
 }
@@ -102,7 +102,7 @@ background: #DFC2F2;
 	padding: 30px;
 	height: 100%;
 	float: left;
-	width: 40%;
+	width: 45%;
 
 }
 
@@ -141,7 +141,7 @@ background: #DFC2F2;
 
 .hint-star {
 	display: inline-block;
-	margin-left: 0.5em;
+	
 	color: gold;
 	width: 50%;
 }
@@ -152,12 +152,14 @@ font-family: 'EB Garamond', serif;
 	text-align: center;
 	font-size: 18px;
 	color: #7d7d7d;
+	margin-top: 1%;
 	
 }
 .control{
 	position: absolute;
 	bottom: 20px;
-	left: 30.8%;
+	left: 3%;
+	
 	
 }
 .btn {
@@ -277,6 +279,24 @@ color: red;}
 	margin-bottom: 60px;
 	
 }
-.votes{
-	color: #8e8e8e
+#votes{
+	color: #344055;
+    height: 18px;
+    position: absolute;
+    left: 15%;
+    top: 29%;
+	
+}
+.avarage{
+	position: absolute;
+    top: 22%;
+    right: 7%;
+    font-size: large;
+}
+.avarage span{
+	color: #808080;
+}
+.BsHeartProduct{
+    position: absolute;
+    right: 7%;
 }
