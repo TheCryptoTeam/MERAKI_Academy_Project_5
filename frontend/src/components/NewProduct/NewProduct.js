@@ -68,7 +68,6 @@ const NewProduct = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          // history("/home");
         }
       })
       .catch((err) => {
