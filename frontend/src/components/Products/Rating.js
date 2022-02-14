@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { MdPerson } from "react-icons/md";
 
 const Rating = () => {
+    const userId = localStorage.getItem("myUserId");
   const { id } = useParams();
   const [ratings, setRatings] = useState([]);
   const [rating, setRating] = useState("");
@@ -40,6 +41,21 @@ const Rating = () => {
   };
 
     const createRating = async () => {
+       console.log(ratings[0].user_id);
+       console.log("userId",userId);
+       let isVoted =false
+       ratings.forEach(element=>{
+
+           if (element.user_id == userId) {
+           return isVoted = true
+           }
+           
+       })
+       if (isVoted) {
+           return "voted"
+       }
+      
+       
       const headers = {
         Authorization: `Bearer ${state.token}`,
       };
