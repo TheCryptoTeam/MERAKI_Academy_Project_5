@@ -1,7 +1,6 @@
-
 const initialState = {
   carts: [],
-  total:0,
+  total: 0,
 };
 
 const cartsReducer = (state = initialState, { type, payload }) => {
@@ -16,7 +15,7 @@ const cartsReducer = (state = initialState, { type, payload }) => {
         ...state,
         carts: [...state.carts, payload],
       };
-      case "UPDATE_Cart":
+    case "UPDATE_Cart":
       return {
         ...state,
         carts: state.carts.map((element) => {
@@ -24,22 +23,20 @@ const cartsReducer = (state = initialState, { type, payload }) => {
           return element;
         }),
       };
-      case  "DELETE_CART":
-          return{
-            ...state,
-            carts: state.carts.filter((element) => {
-              return element.id !== payload;
-            }),
-          }
-      case  "SUB_TOTAL":
-          return{
-            ...state,
-           total: state.carts.reduce((acc,element) => {
-              return acc + (element.price*(element.quantity));
-            },0),
-          }
-          
-      
+    case "DELETE_CART":
+      return {
+        ...state,
+        carts: state.carts.filter((element) => {
+          return element.id !== payload;
+        }),
+      };
+    case "SUB_TOTAL":
+      return {
+        ...state,
+        total: state.carts.reduce((acc, element) => {
+          return acc + element.price * element.quantity;
+        }, 0),
+      };
 
     default:
       return state;
@@ -63,7 +60,6 @@ export const updateCarttById = (updatedCart) => {
   return { type: "UPDATE_Cart", payload: updatedCart };
 };
 export const subTotal = (payload) => {
-  console.log("--------------------------------",payload,"----------------------------",typeof payload)
   return { type: "SUB_TOTAL", payload };
 };
 export const setTotal = (carts) => {
