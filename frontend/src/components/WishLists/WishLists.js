@@ -88,7 +88,7 @@ const WishLists = () => {
                         <div class="box-down">
 
 
-                          <a class="cart">
+                          <a class="cart h-bg">
                             <span class="price">{element.price}$</span>
 
                             <span class="add-to-cart">
