@@ -3,6 +3,8 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { BsCartPlus } from "react-icons/bs";
+
 import "./WishList.css";
 import { setWishLists, deleteWishListById } from "../../reducer/wishLists";
 import { useNavigate } from "react-router-dom";
@@ -75,15 +77,48 @@ const WishLists = () => {
                   <div class="page-inner">
                     <div class="row">
                       <div class="el-wrapper">
-                        <div class="box-up">
-                          <img
-                            class="imgProduct"
-                            src={element.image}
-                            onClick={() => navigate(`/products/${element.id}`)}
-                            alt=""
-                          />
+                      <div class="box-up">
+                          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
+                            alt="" />
+                          <div class="img-info">
 
+                            <div class="info-inner">
+                            
+
+                            <span className="add">
+                              <RiDeleteBinLine
+                                className="t1"
+                                size={30}
+                                id="delete"
+                                onClick={() => {
+                                  Swal.fire({
+                                    title: "Are you sure?",
+                                    text: "You won't be able to revert this!",
+                                    icon: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Yes, delete it!",
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                      Swal.fire(
+                                        "Deleted!",
+                                        "Your file has been deleted.",
+                                        "success"
+                                      );
+                                      deleteWishlist(element.id);
+                                    }
+                                  });
+                                }}
+                              />
+                            </span>
+                            </div>
+
+
+                          </div>
                         </div>
+             
+
 
                         <div class="box-down">
 
@@ -91,20 +126,20 @@ const WishLists = () => {
                           <a class="cart h-bg">
                             <span class="price">{element.price}$</span>
 
-                            <span class="add-to-cart">
+                            <span class="p-name padName">
                               <span class="txt" onClick={() => {
                                 addToCart(element.id);
                               }}>
 
 
 
-                                Add to cart
+<BsCartPlus size={29} className='addToIcon'/>
                               </span>
 
 
                             </span>
 
-                            <span>
+                            <span className="add">
                               <RiDeleteBinLine
                                 className="add"
                                 size={30}
@@ -131,13 +166,14 @@ const WishLists = () => {
                                 }}
                               />
                             </span>
+                            <span class="add-to-cart">{element.name}</span>
+
                           </a>
-                        </div>
-                      </div>
-                    </div>
+                     
                   </div>
                 </div>
               </div>
+              </div></div></div>
             );
           })}
       </div>

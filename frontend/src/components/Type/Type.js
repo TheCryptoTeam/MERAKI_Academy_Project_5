@@ -6,9 +6,12 @@ import { useSelector } from "react-redux";
 import "./Type.css";
 import { BsCartPlus } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const Type = () => {
   const { brand } = useParams();
+  const [elementId, setElementId] = useState([]);
+
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
@@ -64,6 +67,11 @@ const Type = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+
+  const handlecolor = (element) => {
+    setElementId([...elementId, element.id])
   };
   //============================
   return (
@@ -223,17 +231,40 @@ const Type = () => {
                     <div class="page-inner">
                       <div class="row">
                         <div class="el-wrapper">
-                          <div class="box-up">
-                            <img class="img" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
-                              alt="" />
-                            <div class="img-info">
-                              <div class="info-inner">
-                                <span class="p-name"></span>
-                              </div>
+                        <div class="box-up">
+                          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
+                            alt="" />
+                          <div class="img-info">
 
+                            <div class="info-inner">
+                            
 
+                              <span className="add " onClick={() => {
+                              addToWishList(element.id);
+
+                            }}>
+                              {elementId.includes(element.id) ? <BsHeart className="t1" onClick={() => {
+                                Swal.fire({
+
+                                  icon: 'success',
+                                  title: 'Your work has been saved',
+                                  showConfirmButton: false,
+                                  timer: 1500
+                                })
+
+                                handlecolor(element)
+                              }}
+                                style={{ color: 'red' }}
+                              /> : <BsHeart className="t1" id={element.id} onClick={() => {
+                                handlecolor(element)
+                              }}
+                              />}
+                            </span>
                             </div>
+
+
                           </div>
+                        </div>
 
                           <div class="box-down">
                             <div class="h-bg">
@@ -243,23 +274,28 @@ const Type = () => {
                             <a class="cart h-bg">
                               <span class="price">{element.price}$</span>
 
-                              <span class="add-to-cart">
-                                <span class="txt" onClick={() => {
-                                  addToCart(element.id);
-                                }}>
+                              <span class="p-name padName">
+                              <span class="txt" onClick={() => {
+                                Swal.fire({
 
+                                  icon: 'success',
+                                  title: 'Your work has been saved',
+                                  showConfirmButton: false,
+                                  timer: 1500
+                                })
 
-
-                                  Add to cart
-                                </span>
-
-
-                              </span>
-                              <span className="add" onClick={() => {
-                                addToWishList(element.id);
+                                addToCart(element.id);
                               }}>
-                                <BsHeart />
+
+
+
+                                <BsCartPlus size={29} className='addToIcon'/>
                               </span>
+                              <span class="add-to-cart">{element.name}</span>
+
+
+                              </span>
+                             
                             </a>
                           </div>
                         </div>
