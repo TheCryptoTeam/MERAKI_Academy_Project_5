@@ -222,9 +222,9 @@ img {
   animation: slides 10s ease-out infinite;
 }
 
-.slides-wrapper:hover {
+/* .slides-wrapper:hover {
   animation-play-state: paused;
-}
+} */
 
 .img-container {
   height: 100%;
@@ -434,7 +434,7 @@ html {
   left: 50%;
   display: grid;
   grid-template-columns: auto auto;
-  /* margin-left: 60px; */
+  margin-left: -90px;
   background-color: none;
 }
 .cart:hover {
@@ -670,5 +670,6 @@ html {
   z-index: 0;
   color: rgb(218, 226, 228);
   cursor: pointer;
+
 
 }
