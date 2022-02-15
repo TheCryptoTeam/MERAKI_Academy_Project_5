@@ -158,7 +158,9 @@ const Products = () => {
 <div id="container">	
 	
 	<div class="product-details">
- <span className="BsHeartProduct"> {elementId.includes(product.id)  ? <BsHeart    width={30} onClick={() => {
+  <h1>{product.name}</h1>
+
+ <span className=" addTo"> {elementId.includes(product.id)  ? <BsHeart    width={30} onClick={() => {
                                 
                   
                                 handleUpdateClick(product)
@@ -169,8 +171,7 @@ const Products = () => {
                               }}
                               style={{ color: 'black' }}
                               />}
-                              </span>
-	<h1>{product.name}</h1><br/>
+                              </span><br/>
 	<span class="hint-star star">
   <Rating /> 
 	</span>
@@ -182,38 +183,6 @@ const Products = () => {
 <div class="control">
 	
 
-<span
-                                  className="add "
-                                  onClick={() => {
-                                    addToWishList(product.id);
-                                  }}
-                                >
-                                  {elementId.includes(product.id) ? (
-                                    <BsHeart
-                                      className="add"
-                                      onClick={() => {
-                                        Swal.fire({
-                                          icon: "success",
-                                          title: "Your work has been saved",
-                                          showConfirmButton: false,
-                                          timer: 1500,
-                                        });
-
-                                        handlecolor(product);
-                                      }}
-                                      style={{ color: "red" }}
-                                    />
-                                  ) : (
-                                    <BsHeart
-                                      className="t1"
-                                      id={product.id}
-                                      onClick={() => {
-                                        handlecolor(product);
-                                        addToWishList(product.id);
-                                      }}
-                                    />
-                                  )}
-                                </span>
 
 
 
