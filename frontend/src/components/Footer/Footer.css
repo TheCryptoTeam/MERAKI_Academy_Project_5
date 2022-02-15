@@ -27,12 +27,12 @@
 .go {
   padding: 15px;
   font-size: 15px;
-  background-color:cadetblue;
+  background-color:rgb(164, 177, 218);
   border: none;
   color: black;
 }
 .go:hover {
-  background-color: cornflowerblue;
+  background-color: rgb(130, 160, 216);
 }
 hr {
   margin-left: 10%;

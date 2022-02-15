@@ -76,8 +76,9 @@ const Footer = () => {
                 </div>
                 <div className="t">
                     <h3>Contact Us</h3><br />
-                    <p>Your address or<br />
-                        contact info goes here</p>
+                    <p>Hawamdey@gmail.com<br />
+                    omar.haamdan@gmail.com<br/>
+</p>
                 </div>
                 <div className="t">
                     <h3>Follow Us</h3><br />

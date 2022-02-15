@@ -8,7 +8,7 @@ import {
   deleteProductById,
 } from "../../reducer/products";
 import { useNavigate } from "react-router-dom";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart,BsCartPlus } from "react-icons/bs";
 import Swal from "sweetalert2";
 
 const Search = ({ productName }) => {
@@ -102,65 +102,77 @@ const Search = ({ productName }) => {
     <div class="row">
       <div class="el-wrapper">
         <div class="box-up">
-          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
-            alt="" />
-          <div class="img-info">
-            <div class="info-inner">
-              <span class="p-name padName">{element.name}</span>
-            </div>
+                            <img
+                              class="imgProduct"
+                              src={element.image}
+                              onClick={() =>
+                                navigate(`/products/${element.id}`)
+                              }
+                              alt=""
+                            />
+                            <div class="img-info">
+                              <div class="info-inner">
+                                <span
+                                  className="add "
+                                  onClick={() => {
+                                    addToWishList(element.id);
+                                  }}
+                                >
+                                  {elementId.includes(element.id) ? (
+                                    <BsHeart
+                                      className="t1"
+                                      onClick={() => {
+                                        Swal.fire({
+                                          icon: "success",
+                                          title: "Your work has been saved",
+                                          showConfirmButton: false,
+                                          timer: 1500,
+                                        });
 
-
-          </div>
-        </div>
+                                        handlecolor(element);
+                                      }}
+                                      style={{ color: "red" }}
+                                    />
+                                  ) : (
+                                    <BsHeart
+                                      className="t1"
+                                      id={element.id}
+                                      onClick={() => {
+                                        handlecolor(element);
+                                      }}
+                                    />
+                                  )}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
 
         <div class="box-down">
 
           <a class="cart h-bg">
-            <span class="price">{element.price}$</span>
+            <span class="price">{"$"+element.price}</span>
 
-            <span className="add" onClick={() => {
-              addToWishList(element.id);
+            <span class="p-name padName">
+                                <span
+                                  class="txt"
+                                  onClick={() => {
+                                    Swal.fire({
+                                      icon: "success",
+                                      title: "Your work has been saved",
+                                      showConfirmButton: false,
+                                      timer: 1500,
+                                    });
 
-            }}>
-              {elementId.includes(element.id) ? <BsHeart onClick={() => {
-                Swal.fire({
-
-                  icon: 'success',
-                  title: 'Your work has been saved',
-                  showConfirmButton: false,
-                  timer: 1500
-                })
-
-                handlecolor(element)
-              }}
-                style={{ color: 'red' }}
-              /> : <BsHeart id={element.id} onClick={() => {
-                handlecolor(element)
-              }}
-              />}
-            </span>
+                                    addToCart(element.id);
+                                  }}
+                                >
+                                  <BsCartPlus size={29} className="addToIcon" />
+                                </span>
+                                <span class="add-to-cart">{element.name}</span>
+                              </span>
 
 
-            <span class="add-to-cart">
-              <span class="txt" onClick={() => {
-                Swal.fire({
-
-                  icon: 'success',
-                  title: 'Your work has been saved',
-                  showConfirmButton: false,
-                  timer: 1500
-                })
-
-                addToCart(element.id);
-              }}>
-
-
-
-                Add to cart
-              </span>
-
-
-            </span>
+          
           </a>
         </div>
       </div>
