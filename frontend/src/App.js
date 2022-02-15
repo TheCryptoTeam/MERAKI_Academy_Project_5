@@ -21,18 +21,33 @@ import { Chat } from "./chatbot";
 //===============================================================
 
 const App = () => {
-  const token = localStorage.getItem("userToken");
+  const role = localStorage.getItem("myRole");
   const [productName, setProductName] = useState("");
   return (
     <div className="App">
       <Navigation setProductName={setProductName} />
-      <Chat/>
+      <Chat />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/newProduct" element={<NewProduct />} />
+        <Route
+          path="/newProduct"
+          element={
+            role == 2 ? (
+              <NewProduct />
+            ) : (
+              <>
+                <img
+                  style={{ height: "40rem", width: "90rem" }}
+                  src="https://www.howtoquestion.com/wp-content/uploads/2020/05/fix-401-Error.jpg"
+                  alt="401 Unauthorized"
+                />
+              </>
+            )
+          }
+        />
         <Route path="/brand" element={<Brand />} />
         {<Route path="type/:type" element={<Type />} />}
         <Route path="/carts" element={<Carts />} />
@@ -40,10 +55,39 @@ const App = () => {
         <Route path="/products/:id" element={<Products />} />
         <Route path="/wishLists" element={<WishLists />} />
         <Route path="brand/:brand" element={<Brand />} />
-        <Route path="/productsTable" element={<ProductsTable />} />
-        <Route path="/usersTable" element={<UsersTable />} />
-<Route path="/payment" element={<StripePayment/>} />
-
+        <Route
+          path="/productsTable"
+          element={
+            role == 2 ? (
+              <ProductsTable />
+            ) : (
+              <>
+                <img
+                  style={{ height: "40rem", width: "90rem" }}
+                  src="https://www.howtoquestion.com/wp-content/uploads/2020/05/fix-401-Error.jpg"
+                  alt="401 Unauthorized"
+                />
+              </>
+            )
+          }
+        />
+        <Route
+          path="/usersTable"
+          element={
+            role == 2 ? (
+              <UsersTable />
+            ) : (
+              <>
+                <img
+                  style={{ height: "40rem", width: "90rem" }}
+                  src="https://www.howtoquestion.com/wp-content/uploads/2020/05/fix-401-Error.jpg"
+                  alt="401 Unauthorized"
+                />
+              </>
+            )
+          }
+        />
+        <Route path="/payment" element={<StripePayment />} />
         <Route
           path="*"
           element={
@@ -57,7 +101,7 @@ const App = () => {
           }
         />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
