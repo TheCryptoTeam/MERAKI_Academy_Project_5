@@ -22,33 +22,19 @@ const UploadFile = ({ setImage }) => {
       });
   };
 
-
   return (
     <div className="uploadContinar">
-      <div className="up" >
+      <div className="up">
         <input
-          onChange={(event) => {
+          onChange={async (event) => {
             setFile(event.target.files[0]);
-            imageUpload(file);
-
+            imageUpload(event.target.files[0]);
           }}
           type="file"
         ></input>
-
-
-        <button className="btnUpload"
-          onClick={() => {
-            imageUpload(file);
-          }}
-        >
-          Upload
-        </button>
       </div>
 
-
-
-      {filelink ? (<img className="upload" src={filelink} alt="" />) : (<></>)}
-
+      {filelink ? <img className="upload" src={filelink} alt="" /> : <></>}
     </div>
   );
 };
