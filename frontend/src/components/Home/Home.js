@@ -12,7 +12,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
-
+import{addcart} from"../../reducer/cart/carts";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
 const Home = () => {
@@ -63,7 +63,7 @@ const Home = () => {
     await axios
       .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
       .then((res) => {
-        setMessage(res.data.massage);
+        dispatch(addcart(res.data.result)) ;
       });
   };
   //=====================================================
