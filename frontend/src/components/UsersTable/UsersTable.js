@@ -81,12 +81,12 @@ const UsersTable = () => {
   }, [skip]);
 
   const inc = () => {
-    setSkip(skip + 3);
+    setSkip(skip + 4);
     setPage(page + 1);
   };
   const dec = () => {
     if (page > 1) {
-      setSkip(skip - 3);
+      setSkip(skip - 4);
       setPage(page - 1);
     }
   };
@@ -196,13 +196,19 @@ const UsersTable = () => {
           </div>
 
           <div className="paginationO">
-            <h1 className="h1Pagination"
+          {page !== 1 && (
+          <>
+            <h1
+              className="h1Pagination"
               onClick={() => {
                 dec();
               }}
             >
               <BsFillArrowLeftCircleFill />
             </h1>
+          </>
+        )}
+
             <span className="pageNumber">{page}</span>
             {skip < state.products.length ? <h1 className="h1Pagination"
               onClick={() => {
