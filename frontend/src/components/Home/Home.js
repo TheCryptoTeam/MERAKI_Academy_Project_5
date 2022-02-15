@@ -147,14 +147,18 @@ const Home = () => {
             <div class="selected"></div>
             <button class="slider-button"></button>
             <button class="slider-button"></button>
-            <button class="slider-button"></button>
+            <button  class="slider-button"></button>
           </div>
         </div>
       </div>
 
       <div className="section2">
-        <div className="type-home">
+      <span id="hidden"></span>
+        <div   className="type-home">
+        
+
           <span
+         
             className="linkSize"
             onClick={() => {
               navigate(`/type/Laptop`);
@@ -216,8 +220,9 @@ const Home = () => {
                             <img
                               class="imgProduct"
                               src={element.image}
-                              onClick={() =>
-                                navigate(`/products/${element.id}`)
+                              onClick={() =>{ navigate(`/products/${element.id}`); window.scrollTo(0, 0)}
+                               
+                                
                               }
                               alt=""
                             />

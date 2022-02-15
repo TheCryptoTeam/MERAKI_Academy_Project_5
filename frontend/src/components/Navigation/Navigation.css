@@ -42,6 +42,9 @@ a {
 }
 
 a:hover {
+  color: #3f96cd;
+}
+#nav-heart:hover{
   color: red;
 }
 .serach-continar {
