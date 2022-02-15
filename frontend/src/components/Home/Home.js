@@ -9,7 +9,11 @@ import {
   deleteProductById,
 } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
-import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill,BsCartPlus } from "react-icons/bs";
+import {
+  BsFillArrowRightCircleFill,
+  BsFillArrowLeftCircleFill,
+  BsCartPlus,
+} from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
 
@@ -20,7 +24,6 @@ const Home = () => {
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
   const [elementId, setElementId] = useState([]);
-
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -33,8 +36,6 @@ const Home = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-
-
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   //  getAllProducts
@@ -89,12 +90,12 @@ const Home = () => {
   }, [skip]);
 
   const inc = () => {
-    setSkip(skip + 3);
+    setSkip(skip + 8);
     setPage(page + 1);
   };
   const dec = () => {
     if (page > 1) {
-      setSkip(skip - 3);
+      setSkip(skip - 8);
       setPage(page - 1);
     }
   };
@@ -102,7 +103,7 @@ const Home = () => {
   ///////////////////////////////////////////////////////////////////////////////////////////
 
   const handlecolor = (element) => {
-    setElementId([...elementId, element.id])
+    setElementId([...elementId, element.id]);
   };
 
   return (
@@ -113,30 +114,32 @@ const Home = () => {
           src="https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         />
         <div className="address">
-          <h1 className="what">DIGITAL<br /> MARKETING</h1>
+          <h1 className="what">
+            DIGITAL
+            <br /> MARKETING
+          </h1>
           <br />
           <p className="pNewCollection">NEW VERSION 2022</p>
         </div>
       </div>
 
-
-
       <div className="sliderSection">
-
-
-
         <div class="container1">
           <div class="slides-wrapper">
             <div class="img-container">
               <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
             </div>
             <div class="img-container text">
-
-              <img src="https://images.pexels.com/photos/7430733/pexels-photo-7430733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
-
+              <img
+                src="https://images.pexels.com/photos/7430733/pexels-photo-7430733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt=""
+              />
             </div>
             <div class="img-container">
-              <img src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" />
+              <img
+                src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                alt=""
+              />
             </div>
           </div>
 
@@ -147,14 +150,12 @@ const Home = () => {
             <button class="slider-button"></button>
           </div>
         </div>
-
       </div>
-
-
 
       <div className="section2">
         <div className="type-home">
-          <span className="linkSize"
+          <span
+            className="linkSize"
             onClick={() => {
               navigate(`/type/Laptop`);
               window.scrollTo(0, 300);
@@ -162,7 +163,8 @@ const Home = () => {
           >
             LAPTOP
           </span>
-          <span className="linkSize"
+          <span
+            className="linkSize"
             onClick={() => {
               navigate(`/type/TV`);
               window.scrollTo(0, 300);
@@ -170,7 +172,8 @@ const Home = () => {
           >
             TV
           </span>
-          <span className="linkSize"
+          <span
+            className="linkSize"
             onClick={() => {
               navigate(`/type/Mobile`);
               window.scrollTo(0, 300);
@@ -178,7 +181,8 @@ const Home = () => {
           >
             MOBILE
           </span>
-          <span className="linkSize"
+          <span
+            className="linkSize"
             onClick={() => {
               navigate(`/type/Watch`);
               window.scrollTo(0, 300);
@@ -186,7 +190,8 @@ const Home = () => {
           >
             WATCH
           </span>
-          <span className="linkSize"
+          <span
+            className="linkSize"
             onClick={() => {
               navigate(`/type/Camera`);
               window.scrollTo(0, 300);
@@ -196,129 +201,125 @@ const Home = () => {
           </span>
         </div>
 
-
-
-
         {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-
         <div className="products">
-          {show && state.products.map(element => {
+          {show &&
+            state.products.map((element) => {
+              return (
+                <div>
+                  <div class="container page-wrapper">
+                    <div class="page-inner">
+                      <div class="row">
+                        <div class="el-wrapper">
+                          <div class="box-up">
+                            <img
+                              class="imgProduct"
+                              src={element.image}
+                              onClick={() =>
+                                navigate(`/products/${element.id}`)
+                              }
+                              alt=""
+                            />
+                            <div class="img-info">
+                              <div class="info-inner">
+                                <span
+                                  className="add "
+                                  onClick={() => {
+                                    addToWishList(element.id);
+                                  }}
+                                >
+                                  {elementId.includes(element.id) ? (
+                                    <BsHeart
+                                      className="t1"
+                                      onClick={() => {
+                                        Swal.fire({
+                                          icon: "success",
+                                          title: "Your work has been saved",
+                                          showConfirmButton: false,
+                                          timer: 1500,
+                                        });
 
-
-            return (
-              <div >
-
-                <div class="container page-wrapper">
-                  <div class="page-inner">
-                    <div class="row">
-                      <div class="el-wrapper">
-                        <div class="box-up">
-                          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
-                            alt="" />
-                          <div class="img-info">
-
-                            <div class="info-inner">
-                            
-
-                              <span className="add " onClick={() => {
-                              addToWishList(element.id);
-
-                            }}>
-                              {elementId.includes(element.id) ? <BsHeart className="t1" onClick={() => {
-                                Swal.fire({
-
-                                  icon: 'success',
-                                  title: 'Your work has been saved',
-                                  showConfirmButton: false,
-                                  timer: 1500
-                                })
-
-                                handlecolor(element)
-                              }}
-                                style={{ color: 'red' }}
-                              /> : <BsHeart className="t1" id={element.id} onClick={() => {
-                                handlecolor(element)
-                              }}
-                              />}
-                            </span>
+                                        handlecolor(element);
+                                      }}
+                                      style={{ color: "red" }}
+                                    />
+                                  ) : (
+                                    <BsHeart
+                                      className="t1"
+                                      id={element.id}
+                                      onClick={() => {
+                                        handlecolor(element);
+                                      }}
+                                    />
+                                  )}
+                                </span>
+                              </div>
                             </div>
-
-
                           </div>
-                        </div>
 
-                        <div class="box-down">
+                          <div class="box-down">
+                            <a class="cart h-bg">
+                              <span class="price">{"$" + element.price}</span>
 
-                          <a class="cart h-bg">
-                            <span class="price">${element.price}</span>
+                              <span class="p-name padName">
+                                <span
+                                  class="txt"
+                                  onClick={() => {
+                                    Swal.fire({
+                                      icon: "success",
+                                      title: "Your work has been saved",
+                                      showConfirmButton: false,
+                                      timer: 1500,
+                                    });
 
-
-
-
-                            <span class="p-name padName">
-                              <span class="txt" onClick={() => {
-                                Swal.fire({
-
-                                  icon: 'success',
-                                  title: 'Your work has been saved',
-                                  showConfirmButton: false,
-                                  timer: 1500
-                                })
-
-                                addToCart(element.id);
-                              }}>
-
-
-
-                                <BsCartPlus size={29} className='addToIcon'/>
+                                    addToCart(element.id);
+                                  }}
+                                >
+                                  <BsCartPlus size={29} className="addToIcon" />
+                                </span>
+                                <span class="add-to-cart">{element.name}</span>
                               </span>
-                              <span class="add-to-cart">{element.name}</span>
-
-
-                            </span>
-                          </a>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-
-
-
-              </div>
-            )
-
-
-
-          })}
-
-
-
+              );
+            })}
         </div>
       </div>
 
       <div className="pagination">
-        <h1 className="h1Pagination"
-          onClick={() => {
-            dec();
-          }}
-        >
-          <BsFillArrowLeftCircleFill />
-        </h1>
+        {page !== 1 && (
+          <>
+            <h1
+              className="h1Pagination"
+              onClick={() => {
+                dec();
+              }}
+            >
+              <BsFillArrowLeftCircleFill />
+            </h1>
+          </>
+        )}
+
         <span className="pageNumber">{page}</span>
-        <h1 className="h1Pagination"
-          onClick={() => {
-            inc();
-          }}
-        >
-          <BsFillArrowRightCircleFill />
-        </h1>
-
-
+        {skip < state.products.length ? (
+          <h1
+            className="h1Pagination"
+            onClick={() => {
+              inc();
+            }}
+          >
+            <BsFillArrowRightCircleFill />
+          </h1>
+        ) : (
+          <></>
+        )}
       </div>
-
 
       <div>
         <div className="aboutUs">
@@ -344,10 +345,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   );
 };
