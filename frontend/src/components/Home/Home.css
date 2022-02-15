@@ -62,16 +62,26 @@
 
 
 .add {
-  font-size: 30px;
-  margin-left: 230px;
-  margin-bottom: 20px;
+  font-size: 50px;
+  /* margin-bottom: 20px; */
   /* color: white; */
+  /* margin-top: 200px; */
+color: red;
   background-color: none;
   width: 90px;
   border: none;
 }
+.t1{
+  margin-bottom: -100px;
+  width: 50px;
+  height: 50px;
+}
 .add:hover {
   color: red;
+  width: 90px;
+  font-size: 50px;
+
+
 }
 img {
   width: 100%;
@@ -453,6 +463,7 @@ html {
   position: relative;
   overflow: hidden;
   margin-top: -25px;
+  cursor: default;
 }
 
 .active {
@@ -463,8 +474,11 @@ html {
   color: black;
 }
 .padName{
-  margin-bottom: -200px;
-  background-color: #3f96cd;
+  /* margin-bottom: -200px; */
+  /* background-color: #3f96cd; */
+    margin-left: 230px;
+    color: white;
+
 }
 
 .el-wrapper .box-up {
@@ -635,6 +649,7 @@ html {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .cart .add-to-cart .txt {
@@ -649,4 +664,6 @@ html {
 .cart .add-to-cart .txt:hover {
   z-index: 0;
   color: rgb(218, 226, 228);
+  cursor: pointer;
+
 }

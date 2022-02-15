@@ -217,24 +217,15 @@ const Home = () => {
                           <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
                             alt="" />
                           <div class="img-info">
+
                             <div class="info-inner">
-                              <span class="p-name padName">{element.name}</span>
-                            </div>
+                            
 
-
-                          </div>
-                        </div>
-
-                        <div class="box-down">
-
-                          <a class="cart h-bg">
-                            <span class="price">{element.price}$</span>
-
-                            <span className="add" onClick={() => {
+                              <span className="add " onClick={() => {
                               addToWishList(element.id);
 
                             }}>
-                              {elementId.includes(element.id) ? <BsHeart onClick={() => {
+                              {elementId.includes(element.id) ? <BsHeart className="t1" onClick={() => {
                                 Swal.fire({
 
                                   icon: 'success',
@@ -246,14 +237,26 @@ const Home = () => {
                                 handlecolor(element)
                               }}
                                 style={{ color: 'red' }}
-                              /> : <BsHeart id={element.id} onClick={() => {
+                              /> : <BsHeart className="t1" id={element.id} onClick={() => {
                                 handlecolor(element)
                               }}
                               />}
                             </span>
+                            </div>
 
 
-                            <span class="add-to-cart">
+                          </div>
+                        </div>
+
+                        <div class="box-down">
+
+                          <a class="cart h-bg">
+                            <span class="price">{element.price}$</span>
+
+
+
+
+                            <span class="p-name padName">
                               <span class="txt" onClick={() => {
                                 Swal.fire({
 
@@ -270,6 +273,7 @@ const Home = () => {
 
                                 Add to cart
                               </span>
+                              <span class="add-to-cart">{element.name}</span>
 
 
                             </span>
