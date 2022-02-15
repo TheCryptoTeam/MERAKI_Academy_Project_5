@@ -185,6 +185,7 @@ img {
 }
 .h1Pagination:hover {
   color: red;
+  cursor: pointer;
 }
 .pageNumber {
   font-size: 20px;
@@ -439,6 +440,9 @@ html {
 }
 .cart:hover {
   background-color: #464646;
+}
+.add-to-cart{
+  color: white;
 }
 
 .el-wrapper:hover .img {
