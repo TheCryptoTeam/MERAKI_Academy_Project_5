@@ -78,6 +78,8 @@ const Footer = () => {
                     <h3>Contact Us</h3><br />
                     <p>Hawamdey@gmail.com<br />
                     omar.haamdan@gmail.com<br/>
+                    alayedmohammed0@gmail.com
+
 </p>
                 </div>
                 <div className="t">
