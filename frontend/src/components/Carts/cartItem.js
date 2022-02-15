@@ -17,6 +17,7 @@ const CartItem = ({ product,  getMyCart }) => {
   const deleteCart = async (id) => {
     await axios.delete(`http://localhost:5000/carts/${id}`).then((response) => {
       dispatch(deleteCartstById(id));
+      getMyCart();
     });
   };
 
