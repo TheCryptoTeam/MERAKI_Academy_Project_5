@@ -111,6 +111,7 @@ img {
 .section2 {
   background-color: lightgrey;
   padding-top: 5px;
+  position: relative;
 }
 .header {
   font-family: "Lobster Two", cursive;
@@ -135,12 +136,22 @@ img {
   padding: 0 20px;
   text-transform: uppercase;
   transition: all 0.4s ease 0s;
-  margin-top: 100px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  
+  
+  
+}
+.type-home span {
+  border-bottom: 3px solid transparent;
+  
 }
 .type-home span:hover {
-  color: #ff4136;
+  color: #3f96cd;
   cursor: pointer;
+  border-bottom: 3px solid #3f96cd;
 }
+
 .aboutUs {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -184,7 +195,7 @@ img {
   font-size: 30px;
 }
 .h1Pagination:hover {
-  color: red;
+  color: #3f96cd;
   cursor: pointer;
 }
 .pageNumber {
@@ -677,3 +688,6 @@ html {
 
 
 }
+/* #hidden{
+  display: none;
+} */

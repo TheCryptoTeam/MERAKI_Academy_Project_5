@@ -6,6 +6,7 @@ import { useDispatch,useSelector } from "react-redux";
 import "./Type.css";
 import { BsCartPlus } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
+import {TiArrowBackOutline } from "react-icons/ti";
 import Swal from "sweetalert2";
 import{addcart} from"../../reducer/cart/carts";
 
@@ -105,6 +106,9 @@ const Type = () => {
               >
                 Lenovo
               </span>
+              <a href="#hidden" className="linkSizeArrow"><TiArrowBackOutline size={25} onClick={() => {
+                  navigate(`/home`);
+                }}/></a>
             </>
           ) : (
             <></>
@@ -132,6 +136,9 @@ const Type = () => {
               >
                 Huawei
               </span>
+              <a href="#hidden" className="linkSizeArrow"><TiArrowBackOutline size={25} onClick={() => {
+                  navigate(`/home`);
+                }}/></a>
             </>
           ) : (
             <></>
@@ -159,6 +166,9 @@ const Type = () => {
               >
                 TCL
               </span>
+              <a href="#hidden" className="linkSizeArrow"><TiArrowBackOutline size={25} onClick={() => {
+                  navigate(`/home`);
+                }}/></a>
             </>
           ) : (
             <></>
@@ -187,6 +197,9 @@ const Type = () => {
               >
                 Blancpain
               </span>
+              <a href="#hidden" className="linkSizeArrow"><TiArrowBackOutline size={25} onClick={() => {
+                  navigate(`/home`);
+                }}/></a>
             </>
           ) : (
             <></>
@@ -214,6 +227,9 @@ const Type = () => {
               >
                 DJI
               </span>
+              <a href="#hidden" className="linkSizeArrow"><TiArrowBackOutline size={25} onClick={() => {
+                  navigate(`/home`);
+                }}/></a>
             </>
           ) : (
             <></>
@@ -234,7 +250,7 @@ const Type = () => {
                       <div class="row">
                         <div class="el-wrapper">
                         <div class="box-up">
-                          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
+                          <img class="imgProduct" src={element.image} onClick={() =>{ navigate(`/products/${element.id}`);window.scrollTo(0, 0)}}
                             alt="" />
                           <div class="img-info">
 
