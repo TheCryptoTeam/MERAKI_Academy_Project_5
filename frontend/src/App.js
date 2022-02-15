@@ -41,7 +41,7 @@ const App = () => {
               <>
                 <img
                   style={{ height: "40rem", width: "90rem" }}
-                  src="https://www.howtoquestion.com/wp-content/uploads/2020/05/fix-401-Error.jpg"
+                  src="https://res.cloudinary.com/cryptoteam/image/upload/v1644924821/fn6rmgiqzmtkfeawgmco.svg"
                   alt="401 Unauthorized"
                 />
               </>
@@ -64,7 +64,7 @@ const App = () => {
               <>
                 <img
                   style={{ height: "40rem", width: "90rem" }}
-                  src="https://www.howtoquestion.com/wp-content/uploads/2020/05/fix-401-Error.jpg"
+                  src="https://res.cloudinary.com/cryptoteam/image/upload/v1644924821/fn6rmgiqzmtkfeawgmco.svg"
                   alt="401 Unauthorized"
                 />
               </>
@@ -80,7 +80,7 @@ const App = () => {
               <>
                 <img
                   style={{ height: "40rem", width: "90rem" }}
-                  src="https://www.howtoquestion.com/wp-content/uploads/2020/05/fix-401-Error.jpg"
+                  src="https://res.cloudinary.com/cryptoteam/image/upload/v1644924821/fn6rmgiqzmtkfeawgmco.svg"
                   alt="401 Unauthorized"
                 />
               </>
@@ -94,7 +94,7 @@ const App = () => {
             <>
               <img
                 style={{ height: "40rem", width: "90rem" }}
-                src="http://www.repairmycreditnow.com/wp-content/uploads/2014/11/404-not-found.jpg"
+                src="https://res.cloudinary.com/cryptoteam/image/upload/v1644924971/x9qdat6cfv07qxpynsqa.svg"
                 alt="404 Page not found"
               />
             </>
