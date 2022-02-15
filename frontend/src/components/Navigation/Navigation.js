@@ -78,7 +78,7 @@ const Navigation = ({ setProductName }) => {
                  </Link>)}
                 
                   <Link to="/wishLists">
-                    <BsHeart size={25} />
+                    <BsHeart id="nav-heart" size={25} />
                   </Link>
                   <Link
 
