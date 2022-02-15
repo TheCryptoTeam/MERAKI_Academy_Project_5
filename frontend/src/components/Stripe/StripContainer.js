@@ -28,9 +28,11 @@ function CheckoutForm() {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
+      total: state.cartsReducer.total,
 
     };
   });
+  
   //============================
   const navigate = useNavigate();
   const [isPaymentLoading, setPaymentLoading] = useState(false);
@@ -122,7 +124,7 @@ function CheckoutForm() {
 
               <div class="card-cvc">
                 <label for="cvc">Total</label>
-                <span id="cvc">60000$</span>
+                <span id="cvc">{"$"+state.total}</span>
               </div>
 
               <button class="buy-button" disabled={isPaymentLoading}>  {isPaymentLoading ? "Loading..." : "Complete Purchase"}</button>

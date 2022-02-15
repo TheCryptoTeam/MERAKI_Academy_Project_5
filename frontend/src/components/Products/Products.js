@@ -13,6 +13,7 @@ import Comment from "./Comment";
 import Rating from "./Rating";
 import Swal from "sweetalert2";
 import { BsHeart } from "react-icons/bs";
+import{addcart} from"../../reducer/cart/carts";
 
 
 
@@ -105,7 +106,7 @@ const Products = () => {
     await axios
       .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
       .then((res) => {
-        setMessage(res.data.massage);
+        dispatch(addcart(res.data.result)) ;
       });
   };
 
@@ -140,6 +141,9 @@ const Products = () => {
     } catch (error) {
       throw error;
     }
+  };
+  const handlecolor = (element) => {
+    setElementId([...elementId, element.id]);
   };
   return (
   
@@ -178,15 +182,38 @@ const Products = () => {
 <div class="control">
 	
 
+<span
+                                  className="add "
+                                  onClick={() => {
+                                    addToWishList(product.id);
+                                  }}
+                                >
+                                  {elementId.includes(product.id) ? (
+                                    <BsHeart
+                                      className="add"
+                                      onClick={() => {
+                                        Swal.fire({
+                                          icon: "success",
+                                          title: "Your work has been saved",
+                                          showConfirmButton: false,
+                                          timer: 1500,
+                                        });
 
-<span className="addTo" onClick={() => {
-                              addToWishList(product.id);
-
-                            }}>
-
-
-
-                            </span>
+                                        handlecolor(product);
+                                      }}
+                                      style={{ color: "red" }}
+                                    />
+                                  ) : (
+                                    <BsHeart
+                                      className="t1"
+                                      id={product.id}
+                                      onClick={() => {
+                                        handlecolor(product);
+                                        addToWishList(product.id);
+                                      }}
+                                    />
+                                  )}
+                                </span>
 
 
 

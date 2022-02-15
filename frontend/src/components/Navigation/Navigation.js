@@ -61,7 +61,7 @@ const Navigation = ({ setProductName }) => {
                   </Link>
                 </div>
                 <div className="icons">
-                <div >
+                  {state.carts.length?(<div >
                 <span class="background"></span>
            
             <span class="number">{state.carts.length}</span>
@@ -71,7 +71,12 @@ const Navigation = ({ setProductName }) => {
                   
                   </Link>
                   
-                  </div>
+                  </div>):(<Link className="BsCart3" to="/carts">
+                   
+                   <BsCart3 size={25} />
+                 
+                 </Link>)}
+                
                   <Link to="/wishLists">
                     <BsHeart size={25} />
                   </Link>

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { BsHeart,BsCartPlus } from "react-icons/bs";
 import Swal from "sweetalert2";
 import "./Search.css";
+import{addcart} from"../../reducer/cart/carts";
 const Search = ({ productName }) => {
   const [elementId, setElementId] = useState([]);
 
@@ -49,7 +50,7 @@ const Search = ({ productName }) => {
     let quantity = 1;
     await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
       .then((res) => {
-
+        dispatch(addcart(res.data.result))
       })
   }
 

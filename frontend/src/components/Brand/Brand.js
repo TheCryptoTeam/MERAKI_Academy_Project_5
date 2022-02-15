@@ -2,12 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { BsHeart,BsCartPlus } from "react-icons/bs";
 import Swal from "sweetalert2";
+import{addcart} from"../../reducer/cart/carts";
 
 const Brand = () => {
-
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [elementId, setElementId] = useState([]);
 
@@ -40,7 +41,7 @@ const Brand = () => {
     let quantity = 1;
     await axios.post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
       .then((res) => {
-
+        dispatch(addcart(res.data.result)) ;
       })
   }
 
