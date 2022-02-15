@@ -9,7 +9,7 @@ import {
   deleteProductById,
 } from "../../reducer/products";
 import { Navigate, useNavigate } from "react-router-dom";
-import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill,BsCartPlus } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
 
@@ -251,7 +251,7 @@ const Home = () => {
                         <div class="box-down">
 
                           <a class="cart h-bg">
-                            <span class="price">{element.price}$</span>
+                            <span class="price">${element.price}</span>
 
 
 
@@ -271,7 +271,7 @@ const Home = () => {
 
 
 
-                                Add to cart
+                                <BsCartPlus size={29} className='addToIcon'/>
                               </span>
                               <span class="add-to-cart">{element.name}</span>
 
