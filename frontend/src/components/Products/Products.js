@@ -191,7 +191,7 @@ const Products = () => {
 
 
 	<button class="btn">
-	 <span class="price">{product.price}</span>
+	 <span class="price">{"$"+product.price}</span>
    <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
    <span class="buy"
     onClick={() => {

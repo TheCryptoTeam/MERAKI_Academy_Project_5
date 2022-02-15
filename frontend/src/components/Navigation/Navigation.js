@@ -17,6 +17,7 @@ const Navigation = ({ setProductName }) => {
   const state = useSelector((state) => {
     return {
       isLoggedIn: state.loginReducer.isLoggedIn,
+      carts: state.cartsReducer.carts
     };
   });
 
@@ -41,7 +42,8 @@ const Navigation = ({ setProductName }) => {
                 <div className="logoCrypto">
 
 
-                  <Link to="/home">Home</Link>
+                  <Link to="/home"><img id="design-logo" src="https://res.cloudinary.com/cryptoteam/image/upload/v1644916542/s6s5uvrbwcb3nbisvoiw.svg
+" alt="home"/></Link>
 
 
                 </div>
@@ -59,9 +61,17 @@ const Navigation = ({ setProductName }) => {
                   </Link>
                 </div>
                 <div className="icons">
-                  <Link to="/carts">
+                <div >
+                <span class="background"></span>
+           
+            <span class="number">{state.carts.length}</span>
+                  <Link className="BsCart3" to="/carts">
+                   
                     <BsCart3 size={25} />
+                  
                   </Link>
+                  
+                  </div>
                   <Link to="/wishLists">
                     <BsHeart size={25} />
                   </Link>
