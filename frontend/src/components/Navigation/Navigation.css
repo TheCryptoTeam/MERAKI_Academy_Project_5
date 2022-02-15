@@ -44,14 +44,15 @@ a:hover {
 }
 .search {
   padding: 10px;
-  width: 400px;
+  width: 340px;
   border-top-width: 0px;
   padding-right: 0px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-bottom-width: 3px;
-  border-radius: 3%;
+  /* border-radius: 3%; */
   background: #fff;
+  font-size: 16px;
 }
 .test {
   display: flex;
@@ -74,4 +75,7 @@ a:hover {
   width: 30%;
   display: flex;
   justify-content: space-evenly;
+}
+.searchIcon{
+  margin: 15px;
 }

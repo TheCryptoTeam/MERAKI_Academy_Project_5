@@ -13,7 +13,6 @@ const Navigation = ({ setProductName }) => {
   const dispatch = useDispatch();
   const history = useNavigate();
   const role = localStorage.getItem("myRole");
-  console.log(role);
 
   const state = useSelector((state) => {
     return {
@@ -55,7 +54,7 @@ const Navigation = ({ setProductName }) => {
                       setProductName(e.target.value);
                     }}
                   />
-                  <Link to="/search">
+                  <Link className="searchIcon" to="/search">
                     <BsSearch />
                   </Link>
                 </div>
