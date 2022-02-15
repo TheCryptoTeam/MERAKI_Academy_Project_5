@@ -10,7 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
-
+import "./Search.css";
 const Search = ({ productName }) => {
   const [elementId, setElementId] = useState([]);
 
@@ -177,7 +177,8 @@ const Search = ({ productName }) => {
             })
           ) : show == 2 ? (
             <>
-              <p>Not found !!</p>
+            <img className="notFound" src="https://res.cloudinary.com/cryptoteam/image/upload/v1644926255/lpowmgomvblf3gcb7exj.svg"   alt="Not found !!" />
+            
             </>
           ) : (
             <></>
