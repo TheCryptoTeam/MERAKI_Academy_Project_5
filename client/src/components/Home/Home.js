@@ -307,7 +307,7 @@ const Home = () => {
         )}
 
         <span className="pageNumber">{page}</span>
-        {skip < state.products.length ? (
+        {skip < state?.products?.length ? (
           <h1
             className="h1Pagination"
             onClick={() => {

@@ -11,7 +11,7 @@ const CartItem = ({ product, getMyCart }) => {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(product?.quantity);
 
   const deleteCart = async (id) => {
     await axios.delete(`/carts/${id}`).then((response) => {
