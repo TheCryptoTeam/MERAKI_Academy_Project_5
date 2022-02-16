@@ -42,6 +42,8 @@ app.use(commentsRouter);
 const PORT = process.env.PORT || 5000;
 app.use("/payment", stripe);
 
+
+app.use("*","not found")
 app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
 });
