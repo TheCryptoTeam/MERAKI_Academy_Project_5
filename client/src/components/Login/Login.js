@@ -67,8 +67,7 @@ const Login = () => {
       })
       .catch((err) => {
         //if error
-console.log(err);
-        // setmessage(err);
+        setmessage(err);
       });
 
     //================================================================
