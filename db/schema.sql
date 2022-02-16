@@ -1,8 +1,5 @@
 
-DROP DATABASE crypto;
-CREATE DATABASE crypto;
-
-USE crypto;
+USE sql11473208;
 
 CREATE TABLE roles (
     role_id INT AUTO_INCREMENT NOT NULL,
