@@ -23,12 +23,6 @@ const stripe = require("./routes/stripe");
 
 
 
-if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
-}
-// app.get('*',(req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
 
 
 // Routes Middleware
@@ -43,7 +37,12 @@ const PORT = process.env.PORT || 5000;
 app.use("/payment", stripe);
 
 
-app.use("*","not found")
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
+}
+app.get('*',(req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
 });
