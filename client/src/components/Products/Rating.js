@@ -46,7 +46,7 @@ const Rating = () => {
     let isVoted = false;
     ratings.forEach((element) => {
       if (element.user_id == userId) {
-        return (isVoted = true);
+        (isVoted = true);
       }
     });
     if (isVoted) {
