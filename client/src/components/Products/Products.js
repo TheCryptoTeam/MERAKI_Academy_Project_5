@@ -160,6 +160,7 @@ const Products = () => {
                         <BsHeart
                           width={30}
                           onClick={() => {
+                            addToWishList(product.id)
                             handleUpdateClick(product);
                           }}
                           style={{ color: "red" }}
@@ -169,6 +170,7 @@ const Products = () => {
                           size={30}
                           id={product.id}
                           onClick={() => {
+                            addToWishList(product.id)
                             handleUpdateClick(product);
                           }}
                           style={{ color: "black" }}

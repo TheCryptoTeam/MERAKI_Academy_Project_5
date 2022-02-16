@@ -88,7 +88,7 @@ const App = () => {
           }
         />
         <Route path="/payment" element={<StripePayment />} />
-        <Route
+        {/* <Route
           path="*"
           element={
             <>
@@ -99,7 +99,7 @@ const App = () => {
               />
             </>
           }
-        />
+        /> */}
       </Routes>
       <Footer />
     </div>
