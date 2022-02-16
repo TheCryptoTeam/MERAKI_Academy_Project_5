@@ -1,21 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { deleteCartstById, updateCarttById } from "../../reducer/cart/carts";
 import Swal from "sweetalert2";
-const CartItem = ({ product,  getMyCart }) => {
+const CartItem = ({ product, getMyCart }) => {
   const state = useSelector((state) => {
     return { total: state.cartsReducer.total };
-  
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState("");
 
   const deleteCart = async (id) => {
-    await axios.delete(`http://localhost:5000/carts/${id}`).then((response) => {
+    await axios.delete(`/carts/${id}`).then((response) => {
       dispatch(deleteCartstById(id));
       getMyCart();
     });
@@ -27,11 +26,10 @@ const CartItem = ({ product,  getMyCart }) => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/carts/${id}`, body);
-      
+      await axios.put(`/carts/${id}`, body);
+
       dispatch(updateCarttById(body));
-      
-       
+
       getMyCart();
     } catch (error) {
       throw error;
@@ -40,11 +38,8 @@ const CartItem = ({ product,  getMyCart }) => {
 
   useEffect(() => {
     updateProduct(product.id);
-   
-  
   }, [quantity]);
 
-  
   return (
     <>
       <div key={product.id} className="addToCarts">
@@ -64,8 +59,6 @@ const CartItem = ({ product,  getMyCart }) => {
             min="1"
             onChange={(e) => {
               setQuantity(e.target.value);
-              
-            
             }}
           />
         </div>
@@ -75,7 +68,7 @@ const CartItem = ({ product,  getMyCart }) => {
         </div>
         <div className="total-container">
           <p>Total</p>
-          <h2 >{product.quantity * product.price}</h2>
+          <h2>{product.quantity * product.price}</h2>
         </div>
 
         <button
@@ -90,7 +83,6 @@ const CartItem = ({ product,  getMyCart }) => {
               confirmButtonText: "Yes, delete it!",
             }).then((result) => {
               if (result.isConfirmed) {
-                
                 deleteCart(product.id);
               }
             });

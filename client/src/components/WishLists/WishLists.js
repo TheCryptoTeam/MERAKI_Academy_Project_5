@@ -25,7 +25,7 @@ const WishLists = () => {
       Authorization: `Bearer ${state.token}`,
     };
     await axios
-      .get("http://localhost:5000/wishList", { headers })
+      .get("/wishList", { headers })
 
       .then((res) => {
         if (res.data.results.length) {
@@ -40,12 +40,10 @@ const WishLists = () => {
 
   //delete depend on product_id
   const deleteWishlist = async (id) => {
-    await axios
-      .delete(`http://localhost:5000/wishList/${id}`)
-      .then((response) => {
-        getMyWishLists();
-        dispatch(deleteWishListById(id));
-      });
+    await axios.delete(`/wishList/${id}`).then((response) => {
+      getMyWishLists();
+      dispatch(deleteWishListById(id));
+    });
   };
 
   //////////////////////////////////////////////////////////////////////////////////
@@ -55,19 +53,15 @@ const WishLists = () => {
       Authorization: `Bearer ${state.token}`,
     };
     let quantity = 1;
-    await axios
-      .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
-      .then((res) => {
-        setMessage(res.data.massage);
-      });
+    await axios.post(`/carts/${id}`, { quantity }, { headers }).then((res) => {
+      setMessage(res.data.massage);
+    });
   };
   useEffect(() => {
     getMyWishLists();
   }, []);
   return (
     <>
-
-
       <div className="products">
         {show &&
           state.wishLists.map((element) => {
@@ -77,62 +71,54 @@ const WishLists = () => {
                   <div class="page-inner">
                     <div class="row">
                       <div class="el-wrapper">
-                      <div class="box-up">
-                          <img class="imgProduct" src={element.image} onClick={() => navigate(`/products/${element.id}`)}
-                            alt="" />
+                        <div class="box-up">
+                          <img
+                            class="imgProduct"
+                            src={element.image}
+                            onClick={() => navigate(`/products/${element.id}`)}
+                            alt=""
+                          />
                           <div class="img-info">
-
                             <div class="info-inner">
-                            
-
-                            <span className="add">
-                              <RiDeleteBinLine
-                                className="t1"
-                                size={30}
-                                id="delete"
-                                onClick={() => {
-                                  Swal.fire({
-                                    title: "Are you sure?",
-                                    text: "You won't be able to revert this!",
-                                    icon: "warning",
-                                    showCancelButton: true,
-                                    confirmButtonColor: "#3085d6",
-                                    cancelButtonColor: "#d33",
-                                    confirmButtonText: "Yes, delete it!",
-                                  }).then((result) => {
-                                    if (result.isConfirmed) {
-                                      
-                                      deleteWishlist(element.id);
-                                    }
-                                  });
-                                }}
-                              />
-                            </span>
+                              <span className="add">
+                                <RiDeleteBinLine
+                                  className="t1"
+                                  size={30}
+                                  id="delete"
+                                  onClick={() => {
+                                    Swal.fire({
+                                      title: "Are you sure?",
+                                      text: "You won't be able to revert this!",
+                                      icon: "warning",
+                                      showCancelButton: true,
+                                      confirmButtonColor: "#3085d6",
+                                      cancelButtonColor: "#d33",
+                                      confirmButtonText: "Yes, delete it!",
+                                    }).then((result) => {
+                                      if (result.isConfirmed) {
+                                        deleteWishlist(element.id);
+                                      }
+                                    });
+                                  }}
+                                />
+                              </span>
                             </div>
-
-
                           </div>
                         </div>
-             
-
 
                         <div class="box-down">
-
-
                           <a class="cart h-bg">
                             <span class="price">{element.price}$</span>
 
                             <span class="p-name padName">
-                              <span class="txt" onClick={() => {
-                                addToCart(element.id);
-                              }}>
-
-
-
-<BsCartPlus size={29} className='addToIcon'/>
+                              <span
+                                class="txt"
+                                onClick={() => {
+                                  addToCart(element.id);
+                                }}
+                              >
+                                <BsCartPlus size={29} className="addToIcon" />
                               </span>
-
-
                             </span>
 
                             <span className="add">
@@ -163,13 +149,13 @@ const WishLists = () => {
                               />
                             </span>
                             <span class="add-to-cart">{element.name}</span>
-
                           </a>
-                     
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              </div></div></div>
             );
           })}
       </div>

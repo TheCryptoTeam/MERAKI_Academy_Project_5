@@ -57,11 +57,7 @@ const Rating = () => {
       Authorization: `Bearer ${state.token}`,
     };
     await axios
-      .post(
-        `http://localhost:5000/products/rate/${id}`,
-        { rating },
-        { headers }
-      )
+      .post(`/products/rate/${id}`, { rating }, { headers })
       .then((res) => {
         if (res.data.success) {
           getRatings(id);
@@ -76,7 +72,7 @@ const Rating = () => {
   const getRatings = async () => {
     console.log("in get ratings");
     await axios
-      .get(`http://localhost:5000/products/rate/${id}`)
+      .get(`/products/rate/${id}`)
       .then((res) => {
         console.log(res);
         if (res.data.success) {
