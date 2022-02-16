@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 require("./db/db");
+const path = require("path");
 
 const app = express();
 
@@ -19,6 +20,17 @@ const wishListRouter = require("./routes/wishList");
 const commentsRouter = require("./routes/comments");
 
 const stripe = require("./routes/stripe");
+
+
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
+}
+app.get('*',(req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+
+
 // Routes Middleware
 app.use("/users", usersRouter);
 app.use("/roles", rolesRouter);
