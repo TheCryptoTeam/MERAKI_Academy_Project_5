@@ -52,7 +52,7 @@ const Login = () => {
     //show backend server
     axios
       //send data from body object
-      .post("http://localhost:5000/login", body)
+      .post("/login", body)
       .then((result) => {
         dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
@@ -76,7 +76,7 @@ const Login = () => {
 
   const addNewUserWithGoogle = async (username, email) => {
     try {
-      const result = await axios.post("http://localhost:5000/users", {
+      const result = await axios.post("/users", {
         userName: username,
         email: email,
         password: "123",
@@ -130,7 +130,6 @@ const Login = () => {
             />
             {message ? <p className="Error">{message}</p> : <></>}{" "}
             <div className="button-signIn">
-
               <button onClick={loginUser} id="signIn">
                 Login
               </button>
@@ -140,7 +139,6 @@ const Login = () => {
               <hr />
               <button>OR</button>
             </div>
-
             <GoogleLogin
               className="googleButton"
               clientId="284516947033-o1so93qbr9524dea3slu3ik2j01aqtpp.apps.googleusercontent.com"
@@ -151,14 +149,9 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className="message">
-          {" "}
-
-
-        </div>
+        <div className="message"> </div>
       </div>
     </div>
-
   );
 };
 export default Login;

@@ -56,7 +56,7 @@ const NewProduct = () => {
       price,
     };
     await axios
-      .post("http://localhost:5000/products", product)
+      .post("/products", product)
       .then((res) => {
         if (res.data.success) {
           setStatus(true);
@@ -125,7 +125,7 @@ const NewProduct = () => {
   //======================================
   const getProductsNoLimit = async () => {
     await axios
-      .get(`http://localhost:5000/products`)
+      .get(`/products`)
       .then((res) => {
         setAllProducts(res.data.result);
       })
@@ -158,20 +158,20 @@ const NewProduct = () => {
               New Product
             </Link>
           </div>
-          <div >
-        <h3>Logout</h3>
-              <Link
-                className="auth-button"
-                onClick={() => {
-                  dispatch(logout());
-                  localStorage.clear();
-                  history("/login");
-                }}
-                to="/login"
-              >
-                Logout
-              </Link>
-              </div>
+          <div>
+            <h3>Logout</h3>
+            <Link
+              className="auth-button"
+              onClick={() => {
+                dispatch(logout());
+                localStorage.clear();
+                history("/login");
+              }}
+              to="/login"
+            >
+              Logout
+            </Link>
+          </div>
         </div>
         <div className="name">
           <div>

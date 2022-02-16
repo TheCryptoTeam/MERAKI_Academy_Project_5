@@ -29,7 +29,7 @@ const Register = () => {
   const addNewUser = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:5000/users", {
+      const result = await axios.post("/users", {
         userName,
         email,
         password,
@@ -38,7 +38,7 @@ const Register = () => {
       if (result.data.success) {
         setStatus(true);
         setMessage("The user has been created successfully");
-        navigate("/login")
+        navigate("/login");
       } else throw Error;
     } catch (error) {
       setStatus(false);
@@ -49,24 +49,25 @@ const Register = () => {
     }
   };
 
-
-
-
-
   // =================================================================
 
   return (
     <>
-
       {!state.isLoggedIn ? (
         <>
-
           <div className="main-continar">
             <div className="login-continar">
               <div className="login-register">
                 <div className="inner">
-                  <span id="loginR" onClick={() => { navigate("/login") }}>Login</span>
-                  <span id="registerR" >Register</span>
+                  <span
+                    id="loginR"
+                    onClick={() => {
+                      navigate("/login");
+                    }}
+                  >
+                    Login
+                  </span>
+                  <span id="registerR">Register</span>
                 </div>
               </div>
               <div className="login-box-out">
@@ -96,21 +97,28 @@ const Register = () => {
                     required=""
                   />
 
-                  <div className="button-signIn"> <button onClick={addNewUser} id="signIn">Create</button></div>
-
+                  <div className="button-signIn">
+                    {" "}
+                    <button onClick={addNewUser} id="signIn">
+                      Create
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="message"> {message ? <p className="ErrorMessage">{message}</p> : <></>} </div>
+              <div className="message">
+                {" "}
+                {message ? (
+                  <p className="ErrorMessage">{message}</p>
+                ) : (
+                  <></>
+                )}{" "}
+              </div>
             </div>
-
-
           </div>
-
         </>
       ) : (
         <p>Logout First</p>
       )}
-
     </>
   );
 };

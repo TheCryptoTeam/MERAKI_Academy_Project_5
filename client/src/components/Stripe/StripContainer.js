@@ -23,16 +23,14 @@ const StripePayment = () => {
 };
 
 function CheckoutForm() {
-
   //==============================
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       total: state.cartsReducer.total,
-
     };
   });
-  
+
   //============================
   const navigate = useNavigate();
   const [isPaymentLoading, setPaymentLoading] = useState(false);
@@ -51,7 +49,7 @@ function CheckoutForm() {
     });
     if (!error) {
       try {
-        await axios.post("http://localhost:5000/payment", {
+        await axios.post("/payment", {
           payment_method: paymentMethod.id,
         });
 
@@ -62,9 +60,8 @@ function CheckoutForm() {
           showConfirmButton: false,
           timer: 1700,
         });
-        await deleteMyCart()
+        await deleteMyCart();
         navigate("/home");
-
       } catch (error) {
         console.log("paymentMerrorcatch", error);
       }
@@ -81,13 +78,11 @@ function CheckoutForm() {
   //Delete all myCarts after payment
   //================================
   const deleteMyCart = async () => {
-
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
 
-    await axios.delete(`http://localhost:5000/carts`, { headers })
-
+    await axios.delete(`/carts`, { headers });
   };
   //===============================
   return (
@@ -96,47 +91,66 @@ function CheckoutForm() {
         <div class="card">
           <header>
             <h3 class="card-title">Payment Details</h3>
-            <img id="visa" width="128" alt="Visa Inc. logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/128px-Visa_Inc._logo.svg.png" class="logo" />
+            <img
+              id="visa"
+              width="128"
+              alt="Visa Inc. logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/128px-Visa_Inc._logo.svg.png"
+              class="logo"
+            />
           </header>
 
           <form action="" class="form" onSubmit={payMoney}>
             <div class="card-number">
               <label for="number">Card Number</label>
-              <CardElement id="cardE" options={{
-                style: {
-                  base: {
-
-                    color: "#FFAB40"
+              <CardElement
+                id="cardE"
+                options={{
+                  style: {
+                    base: {
+                      color: "#FFAB40",
+                    },
                   },
-                },
-              }} />
+                }}
+              />
             </div>
 
             <div class="card-name">
               <label for="name">Name</label>
-              <input id="name" type="text" size="40" required placeholder="Your Name" />
-              <label for="name" className="lastName">Last Name</label>
-              <input id="name" type="text" size="40" required placeholder="Your Name" />
+              <input
+                id="name"
+                type="text"
+                size="40"
+                required
+                placeholder="Your Name"
+              />
+              <label for="name" className="lastName">
+                Last Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                size="40"
+                required
+                placeholder="Your Name"
+              />
             </div>
 
             <div class="input-row">
-
-
               <div class="card-cvc">
                 <label for="cvc">Total</label>
-                <span id="cvc">{"$"+state.total}</span>
+                <span id="cvc">{"$" + state.total}</span>
               </div>
 
-              <button class="buy-button" disabled={isPaymentLoading}>  {isPaymentLoading ? "Loading..." : "Complete Purchase"}</button>
+              <button class="buy-button" disabled={isPaymentLoading}>
+                {" "}
+                {isPaymentLoading ? "Loading..." : "Complete Purchase"}
+              </button>
             </div>
           </form>
-
         </div>
       </div>
-
     </div>
-
-
   );
 }
 export default StripePayment;

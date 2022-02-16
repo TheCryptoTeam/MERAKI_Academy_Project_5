@@ -16,7 +16,7 @@ import {
 } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import Swal from "sweetalert2";
-import{addcart} from"../../reducer/cart/carts";
+import { addcart } from "../../reducer/cart/carts";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
 const Home = () => {
@@ -42,7 +42,7 @@ const Home = () => {
 
   const getAllProducts = async () => {
     await axios
-      .get(`http://localhost:5000/products/page?skip=${skip}&limit=8`)
+      .get(`/products/page?skip=${skip}&limit=8`)
       .then((res) => {
         dispatch(setproducts(res.data.result));
 
@@ -61,11 +61,9 @@ const Home = () => {
       Authorization: `Bearer ${state.token}`,
     };
     let quantity = 1;
-    await axios
-      .post(`http://localhost:5000/carts/${id}`, { quantity }, { headers })
-      .then((res) => {
-        dispatch(addcart(res.data.result)) ;
-      });
+    await axios.post(`/carts/${id}`, { quantity }, { headers }).then((res) => {
+      dispatch(addcart(res.data.result));
+    });
   };
   //=====================================================
   const addToWishList = async (id) => {
@@ -74,7 +72,7 @@ const Home = () => {
     };
 
     await axios
-      .post(`http://localhost:5000/wishList/${id}`, {}, { headers })
+      .post(`/wishList/${id}`, {}, { headers })
       .then((res) => {
         setMessage(res.data.massage);
       })
@@ -147,18 +145,15 @@ const Home = () => {
             <div class="selected"></div>
             <button class="slider-button"></button>
             <button class="slider-button"></button>
-            <button  class="slider-button"></button>
+            <button class="slider-button"></button>
           </div>
         </div>
       </div>
 
       <div className="section2">
-      <span id="hidden"></span>
-        <div   className="type-home">
-        
-
+        <span id="hidden"></span>
+        <div className="type-home">
           <span
-         
             className="linkSize"
             onClick={() => {
               navigate(`/type/Laptop`);
@@ -220,10 +215,10 @@ const Home = () => {
                             <img
                               class="imgProduct"
                               src={element.image}
-                              onClick={() =>{ navigate(`/products/${element.id}`); window.scrollTo(0, 0)}
-                               
-                                
-                              }
+                              onClick={() => {
+                                navigate(`/products/${element.id}`);
+                                window.scrollTo(0, 0);
+                              }}
                               alt=""
                             />
                             <div class="img-info">
