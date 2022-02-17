@@ -141,12 +141,6 @@ const Home = () => {
             </div>
           </div>
 
-          <div class="slider">
-            <div class="selected"></div>
-            <button class="slider-button"></button>
-            <button class="slider-button"></button>
-            <button class="slider-button"></button>
-          </div>
         </div>
       </div>
 
