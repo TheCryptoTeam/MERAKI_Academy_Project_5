@@ -95,37 +95,7 @@ const Products = () => {
     });
   };
 
-  /////////////////////////////////////////////////////////////////////////////////////
-  const handleUpdateClick = (product) => {
-    setUpdateBox(!updateBox);
-    setProductId(product.id);
-    setName(product.name);
-    setDescription(product.description);
-    setBrand(product.brand);
-    setType(product.type);
-    setPrice(product.price);
-    setElementId([...elementId, product.id]);
-
-    if (updateBox) updateProduct(product.id);
-  };
-
-  const updateProduct = async (id) => {
-    const body = {
-      name,
-      type,
-      brand,
-      description,
-      price,
-    };
-
-    try {
-      await axios.put(`/products/${id}`, body);
-      dispatch(updateproductById(body));
-      getproductById();
-    } catch (error) {
-      throw error;
-    }
-  };
+ 
   const handlecolor = (element) => {
     setElementId([...elementId, element.id]);
   };
@@ -135,7 +105,7 @@ const Products = () => {
         <div>
           {state.products.map((product, index) => {
             return (
-              <div>
+              <div key={index}>
                 <link
                   rel="stylesheet"
                   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -151,7 +121,7 @@ const Products = () => {
                           width={30}
                           onClick={() => {
                             addToWishList(product.id)
-                            handleUpdateClick(product);
+                            handlecolor(product);
                           }}
                           style={{ color: "red" }}
                         />
@@ -161,7 +131,7 @@ const Products = () => {
                           id={product.id}
                           onClick={() => {
                             addToWishList(product.id)
-                            handleUpdateClick(product);
+                            handlecolor(product);
                           }}
                           style={{ color: "black" }}
                         />
