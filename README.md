@@ -44,6 +44,49 @@ clone the repository to your local machin
 ```
 https://github.com/TheCryptoTeam/MERAKI_Academy_Project_5
 ```
+Install all dependencies needed for the project 
+
+1- for  Backend :
+```
+bcrypt
+cors
+dotenv
+express
+jsonwebtoken
+mysql2
+stripe
+```
+2- Frontend:
+```
+emailjs/browser
+@stripe/react-stripe-js
+@stripe/stripe-js
+@testing-library/jest-dom
+@testing-library/react
+@testing-library/user-event
+axios
+emailjs
+emailjs-com
+jsonwebtoken
+react
+react-dom
+react-google-login
+react-icons
+react-rating-stars-component
+eact-redux
+react-router-dom
+react-scripts
+recharts
+redux
+sweetalert2
+ 
+```
+you need to make sure that there is apackage.json file
+if the apackage.json is not present 
+```
+npm init -y
+npm i
+```
 open root folder and install required packages
 ```
 npm i
@@ -61,6 +104,7 @@ to start react (in root folder)
 ```
 npm run dev
 ```
+
 
 ## Acknowlegments <a name = "acknowlegments"></a>
 
