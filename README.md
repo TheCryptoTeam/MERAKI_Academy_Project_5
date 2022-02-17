@@ -67,7 +67,7 @@ to run the backend server, use the following command in the root file
 ```
 npm run dev
 ```
-
+![Diagram](./img/Data.png)
 
 ## Acknowlegments <a name = "acknowlegments"></a>
 
