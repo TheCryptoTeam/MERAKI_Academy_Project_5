@@ -41,14 +41,18 @@ const Rating = () => {
   };
 
   const createRating = async () => {
-    console.log(ratings[0].user_id);
-    console.log("userId", userId);
+    
+    
     let isVoted = false;
-    ratings.forEach((element) => {
-      if (element.user_id == userId) {
-        (isVoted = true);
-      }
-    });
+    if (ratings.length) {
+      ratings.forEach((element) => {
+        if ( element.user_id ===parseInt(userId) ) {
+          (isVoted = true);
+        }
+      });
+      
+    }
+    
     if (isVoted) {
       return "voted";
     }
@@ -93,6 +97,7 @@ const Rating = () => {
 
   useEffect(() => {
     avarageCalc();
+  
   }, [ratings]);
 
   useEffect(() => {
