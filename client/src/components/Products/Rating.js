@@ -106,7 +106,7 @@ const Rating = () => {
       <MdPerson color={"#344055"} size={25} />
       <div className="avarage">
         <span>{avarage.toFixed(1)}</span>
-        <i class="fa fa-star" aria-hidden="true"></i>
+        <i className="fa fa-star" aria-hidden="true"></i>
       </div>
     </>
   );
