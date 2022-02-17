@@ -107,7 +107,8 @@ const Home = () => {
       <div className="header">
         <img
           className="headerImg"
-          src="https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          src="https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          // "https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         alt=""/>
         <div className="address">
           <h1 className="what">
@@ -123,7 +124,10 @@ const Home = () => {
         <div className="container1">
           <div className="slides-wrapper">
             <div className="img-container">
-              <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
+              <img src=
+              // "https://images.pexels.com/photos/3243090/pexels-photo-3243090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              "https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+               alt=""/>
             </div>
             <div className="img-container text">
               <img
@@ -131,9 +135,12 @@ const Home = () => {
                 alt=""
               />
             </div>
+            
             <div className="img-container">
               <img
-                src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                src=
+                // "https://images.pexels.com/photos/6483582/pexels-photo-6483582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                "https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                 alt=""
               />
             </div>
