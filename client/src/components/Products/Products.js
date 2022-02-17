@@ -111,7 +111,7 @@ const Products = () => {
                   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
                 <div id="container">
-                  <div class="product-details">
+                  <div className="product-details">
                     <h1>{product.name}</h1>
 
                     <span className=" addTo">
@@ -138,20 +138,20 @@ const Products = () => {
                       )}
                     </span>
                     <br />
-                    <span class="hint-star star">
+                    <span className="hint-star star">
                       <Rating />
                     </span>
 
-                    <p class="information">{product.description}</p>
+                    <p className="information">{product.description}</p>
 
-                    <div class="control">
-                      <button class="btn">
-                        <span class="price">{"$" + product.price}</span>
-                        <span class="shopping-cart">
-                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <div className="control">
+                      <button className="btn">
+                        <span className="price">{"$" + product.price}</span>
+                        <span className="shopping-cart">
+                          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                         </span>
                         <span
-                          class="buy"
+                          className="buy"
                           onClick={() => {
                             Swal.fire({
                               icon: "success",
@@ -169,10 +169,10 @@ const Products = () => {
                     </div>
                   </div>
 
-                  <div class="product-image">
+                  <div className="product-image">
                     <img src={product.image} alt="" />
 
-                    <div class="info">
+                    <div className="info">
                       <h2> Detailes</h2>
                       <ul>
                         <li>

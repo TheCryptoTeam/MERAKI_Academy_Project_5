@@ -122,18 +122,18 @@ const Home = () => {
       </div>
 
       <div className="sliderSection">
-        <div class="container1">
-          <div class="slides-wrapper">
-            <div class="img-container">
+        <div className="container1">
+          <div className="slides-wrapper">
+            <div className="img-container">
               <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
             </div>
-            <div class="img-container text">
+            <div className="img-container text">
               <img
                 src="https://images.pexels.com/photos/7430733/pexels-photo-7430733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt=""
               />
             </div>
-            <div class="img-container">
+            <div className="img-container">
               <img
                 src="https://images.pexels.com/photos/6476373/pexels-photo-6476373.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                 alt=""
@@ -198,16 +198,16 @@ const Home = () => {
 
         <div className="products">
           {show &&
-            state.products.map((element) => {
+            state.products.map((element,index) => {
               return (
-                <div>
-                  <div class="container page-wrapper">
-                    <div class="page-inner">
-                      <div class="row">
-                        <div class="el-wrapper">
-                          <div class="box-up">
+                <div key={index}>
+                  <div className="container page-wrapper">
+                    <div className="page-inner">
+                      <div className="row">
+                        <div className="el-wrapper">
+                          <div className="box-up">
                             <img
-                              class="imgProduct"
+                              className="imgProduct"
                               src={element.image}
                               onClick={() => {
                                 navigate(`/products/${element.id}`);
@@ -215,8 +215,8 @@ const Home = () => {
                               }}
                               alt=""
                             />
-                            <div class="img-info">
-                              <div class="info-inner">
+                            <div className="img-info">
+                              <div className="info-inner">
                                 <span
                                   className="add "
                                   onClick={() => {
@@ -252,13 +252,13 @@ const Home = () => {
                             </div>
                           </div>
 
-                          <div class="box-down">
-                            <a class="cart h-bg">
-                              <span class="price">{"$" + element.price}</span>
+                          <div className="box-down">
+                            <a className="cart h-bg">
+                              <span className="price">{"$" + element.price}</span>
 
-                              <span class="p-name padName">
+                              <span className="p-name padName">
                                 <span
-                                  class="txt"
+                                  className="txt"
                                   onClick={() => {
                                     Swal.fire({
                                       icon: "success",
@@ -272,7 +272,7 @@ const Home = () => {
                                 >
                                   <BsCartPlus size={29} className="addToIcon" />
                                 </span>
-                                <span class="add-to-cart">{element.name}</span>
+                                <span className="add-to-cart">{element.name}</span>
                               </span>
                             </a>
                           </div>

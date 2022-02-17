@@ -279,13 +279,13 @@ const Brand = () => {
               products.map((element) => {
                 return (
                   <div>
-                    <div class="container page-wrapper">
-                      <div class="page-inner">
-                        <div class="row">
-                          <div class="el-wrapper">
-                            <div class="box-up">
+                    <div className="container page-wrapper">
+                      <div className="page-inner">
+                        <div className="row">
+                          <div className="el-wrapper">
+                            <div className="box-up">
                               <img
-                                class="imgProduct"
+                                className="imgProduct"
                                 src={element.image}
                                 onClick={() => {
                                   navigate(`/products/${element.id}`);
@@ -293,8 +293,8 @@ const Brand = () => {
                                 }}
                                 alt=""
                               />
-                              <div class="img-info">
-                                <div class="info-inner">
+                              <div className="img-info">
+                                <div className="info-inner">
                                   <span
                                     className="add "
                                     onClick={() => {
@@ -330,17 +330,17 @@ const Brand = () => {
                               </div>
                             </div>
 
-                            <div class="box-down">
-                              <div class="h-bg">
-                                <div class="h-bg-inner"></div>
+                            <div className="box-down">
+                              <div className="h-bg">
+                                <div className="h-bg-inner"></div>
                               </div>
 
-                              <a class="cart h-bg">
-                                <span class="price">{"$" + element.price}</span>
+                              <a className="cart h-bg">
+                                <span className="price">{"$" + element.price}</span>
 
-                                <span class="p-name padName">
+                                <span className="p-name padName">
                                   <span
-                                    class="txt"
+                                    className="txt"
                                     onClick={() => {
                                       Swal.fire({
                                         icon: "success",
@@ -357,7 +357,7 @@ const Brand = () => {
                                       className="addToIcon"
                                     />
                                   </span>
-                                  <span class="add-to-cart">
+                                  <span className="add-to-cart">
                                     {element.name}
                                   </span>
                                 </span>

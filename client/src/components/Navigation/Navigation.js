@@ -62,9 +62,9 @@ const Navigation = ({ setProductName }) => {
                 </div>
                 <div className="icons">
                   {state.carts.length?(<div >
-                <span class="background"></span>
+                <span className="background"></span>
            
-            <span class="number">{state.carts.length}</span>
+            <span className="number">{state.carts.length}</span>
                   <Link className="BsCart3" to="/carts">
                    
                     <BsCart3 size={25} />

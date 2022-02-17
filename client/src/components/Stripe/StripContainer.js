@@ -87,21 +87,21 @@ function CheckoutForm() {
   //===============================
   return (
     <div className="bodyCard">
-      <div class="align-center">
-        <div class="card">
+      <div className="align-center">
+        <div className="card">
           <header>
-            <h3 class="card-title">Payment Details</h3>
+            <h3 className="card-title">Payment Details</h3>
             <img
               id="visa"
               width="128"
               alt="Visa Inc. logo"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/128px-Visa_Inc._logo.svg.png"
-              class="logo"
+              className="logo"
             />
           </header>
 
-          <form action="" class="form" onSubmit={payMoney}>
-            <div class="card-number">
+          <form action="" className="form" onSubmit={payMoney}>
+            <div className="card-number">
               <label for="number">Card Number</label>
               <CardElement
                 id="cardE"
@@ -115,7 +115,7 @@ function CheckoutForm() {
               />
             </div>
 
-            <div class="card-name">
+            <div className="card-name">
               <label for="name">Name</label>
               <input
                 id="name"
@@ -136,13 +136,13 @@ function CheckoutForm() {
               />
             </div>
 
-            <div class="input-row">
-              <div class="card-cvc">
+            <div className="input-row">
+              <div className="card-cvc">
                 <label for="cvc">Total</label>
                 <span id="cvc">{"$" + state.total}</span>
               </div>
 
-              <button class="buy-button" disabled={isPaymentLoading}>
+              <button className="buy-button" disabled={isPaymentLoading}>
                 {" "}
                 {isPaymentLoading ? "Loading..." : "Complete Purchase"}
               </button>
