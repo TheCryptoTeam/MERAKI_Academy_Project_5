@@ -247,23 +247,20 @@ font-family: 'EB Garamond', serif;
     top: 0;
 }
 
-.addTo{
-	margin-left: 230px;
-}
+
 .addTo{
     font-size: 30px;
-    padding-top: 20px;
-    margin-bottom: 20px;
+    position: absolute;
     color: black;
     background-color: white;
-    width: 90px;
     border: none;
-	right: 7%;
+    right: 7%;
+    right: 8%;
 
 }
 .addTo:hover{
 color: red;
-width: 90px;
+
 
 }
 .info h2 {text-align: center}
