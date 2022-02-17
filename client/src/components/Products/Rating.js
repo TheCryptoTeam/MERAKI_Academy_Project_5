@@ -47,7 +47,7 @@ const Rating = () => {
       }
     }
     if (isVoted) {
-      console.log("hi");
+    
       const headers = {
         Authorization: `Bearer ${state.token}`,
       };
@@ -60,7 +60,7 @@ const Rating = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          throw err;
         });
     }
   };
@@ -76,7 +76,7 @@ const Rating = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        throw(err);
       });
   };
 

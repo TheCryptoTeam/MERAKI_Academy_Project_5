@@ -3,10 +3,9 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setproducts,
-  updateproductById,
-  deleteProductById,
+  
 } from "../../reducer/products";
-import {  useNavigate, useParams } from "react-router-dom";
+import {   useParams } from "react-router-dom";
 import "./Products.css";
 import Comment from "./Comment";
 import Rating from "./Rating";
@@ -15,20 +14,13 @@ import { BsHeart } from "react-icons/bs";
 import { addcart } from "../../reducer/cart/carts";
 
 const Products = () => {
-  const navigate = useNavigate();
+ 
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
-  const [type, setType] = useState("");
-  const [brand, setBrand] = useState("");
+  
   const [elementId, setElementId] = useState([]);
+  
 
-  const [updateBox, setUpdateBox] = useState(false);
-  const [productId, setProductId] = useState(false);
-  const [message, setMessage] = useState("");
-
-  // const [id,setId]=useState("")
+  
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
@@ -67,7 +59,7 @@ const Products = () => {
 
 
   const addToWishList = async (id) => {
-    console.log(state.token);
+    
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
@@ -75,10 +67,10 @@ const Products = () => {
     await axios
       .post(`/wishList/${id}`, {}, { headers })
       .then((res) => {
-        setMessage(res.data.massage);
+        
       })
       .catch((err) => {
-        console.log(err);
+        throw err;
       });
   };
 
@@ -88,7 +80,7 @@ const Products = () => {
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
-    console.log(headers);
+    
     let quantity = 1;
     await axios.post(`/carts/${id}`, { quantity }, { headers }).then((res) => {
       dispatch(addcart(res.data.result));

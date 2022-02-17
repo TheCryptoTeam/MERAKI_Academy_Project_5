@@ -57,7 +57,7 @@ const UsersTable = () => {
       dispatch(deleteUserById(id));
       getAllUsers();
     } catch (error) {
-      console.log(error);
+      throw(error);
     }
   };
 
