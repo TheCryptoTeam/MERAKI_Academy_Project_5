@@ -82,24 +82,24 @@ const UsersTable = () => {
     <div className="mainUsers">
       <div className="side">
         <div>
-          <h3>Product</h3>
+          
           <Link to="/productsTable" className="pro">
             Products
           </Link>
         </div>
 
         <div>
-          <h3>Users</h3>
+         
           <Link to="/usersTable" className="use">
             Users
           </Link>
         </div>
         <div>
-          <h3> New Product</h3>
+         
           <Link to="/newProduct">New Product</Link>
         </div>
         <div>
-          <h3>Logout</h3>
+          
           <Link
             className="auth-button"
             onClick={() => {
