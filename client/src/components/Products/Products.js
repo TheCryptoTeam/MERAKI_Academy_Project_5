@@ -3,11 +3,10 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setproducts,
-  addproduct,
   updateproductById,
   deleteProductById,
 } from "../../reducer/products";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import "./Products.css";
 import Comment from "./Comment";
 import Rating from "./Rating";
@@ -28,7 +27,6 @@ const Products = () => {
   const [updateBox, setUpdateBox] = useState(false);
   const [productId, setProductId] = useState(false);
   const [message, setMessage] = useState("");
-  const [color, setColor] = useState("");
 
   // const [id,setId]=useState("")
   const dispatch = useDispatch();
@@ -65,16 +63,8 @@ const Products = () => {
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////
-  const deleteProduct = async (id) => {
-    try {
-      await axios.delete(`/products/${id}`);
-      dispatch(deleteProductById(id));
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
   const addToWishList = async (id) => {
     console.log(state.token);
@@ -232,73 +222,7 @@ const Products = () => {
                   </div>
                 </div>
               </div>
-              // <div key={index} className="productContainer">
-              //   <div className="left-image">
-              //     <img className="image" src={product.image} alt="image" />
-              //   </div>
-              //   <div className="productPage">
-              //     <h1>{product.name}</h1>
-              //     <h3>{product.brand}</h3>
-
-              //     <h3>{product.type}</h3>
-              //     <p>{product.description}</p>
-              //     <h2 className="productPrice">{"$" + product.price}</h2>
-              //     {updateBox && productId === product.id && (
-              //       <form>
-              //         <br />
-              //         <input
-              //           type="text"
-              //           defaultValue={product.name}
-              //           placeholder="Name here"
-              //           onChange={(e) => setName(e.target.value)}
-              //         />
-              //         <input
-              //           type="text"
-              //           defaultValue={product.brand}
-              //           placeholder="brand here"
-              //           onChange={(e) => setBrand(e.target.value)}
-              //         />
-              //         <input
-              //           type="text"
-              //           defaultValue={product.type}
-              //           placeholder="type here"
-              //           onChange={(e) => setType(e.target.value)}
-              //         />
-              //         <br />
-
-              //         <textarea
-              //           placeholder="description here"
-              //           defaultValue={product.description}
-              //           onChange={(e) => setDescription(e.target.value)}
-              //         ></textarea>
-              //         <input
-              //           type="number"
-              //           defaultValue={product.price}
-              //           placeholder="Price here"
-              //           onChange={(e) => setPrice(e.target.value)}
-              //         />
-              //       </form>
-              //     )}
-              //     <div className="product-buttons">
-              //       <button className="add">add to cart</button>
-              //       <button className="add">add to wishList</button>
-              //       <button
-              //         className="update"
-              //         onClick={() => handleUpdateClick(product)}
-              //       >
-              //         Update
-              //       </button>
-              //       <button
-              //         className="Delete"
-              //         onClick={() => deleteProduct(product.id)}
-              //       >
-              //         Delete
-              //       </button>
-              //     </div>
-              //   </div>
-              //   <br />
-
-              // </div>
+             
             );
           })}
         </div>

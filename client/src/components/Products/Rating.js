@@ -9,9 +9,7 @@ const Rating = () => {
   const userId = localStorage.getItem("myUserId");
   const { id } = useParams();
   const [ratings, setRatings] = useState([]);
-  // const [rating, setRating] = useState("");
   const [avarage, setAvarage] = useState(0);
-  // const [isVoted ,setIsVoted ]=useState(false)
 
   const state = useSelector((state) => {
     return {
@@ -21,24 +19,19 @@ const Rating = () => {
   });
 
   const avarageCalc = () => {
-    console.log("in average calculator");
 
     let result = 0;
     for (let i = 0; i < ratings.length; i++) {
       const element = ratings[i];
-      console.log(element);
       result += parseInt(element.rating);
     }
     if (result) {
       let num = result / ratings.length;
       setAvarage(num);
-      console.log("avarage ", avarage);
     }
   };
 
   const ratingChanged = (newRating) => {
-    console.log(newRating);
-    // setRating(newRating);
     createRating(newRating);
   };
 
@@ -64,7 +57,6 @@ const Rating = () => {
         .then((res) => {
           if (res.data.success) {
             getRatings(id);
-            console.log("in Create", newRating);
           }
         })
         .catch((err) => {
@@ -74,11 +66,9 @@ const Rating = () => {
   };
 
   const getRatings = async () => {
-    console.log("in get ratings");
     await axios
       .get(`/products/rate/${id}`)
       .then((res) => {
-        console.log(res);
         if (res.data.success) {
           setRatings(res.data.results);
         } else {
@@ -91,7 +81,6 @@ const Rating = () => {
   };
 
   useEffect(() => {
-    console.log("in use effect component");
     getRatings();
   }, []);
 
@@ -99,10 +88,7 @@ const Rating = () => {
     avarageCalc();
   }, [ratings]);
 
-  // useEffect(() => {
-  //   createRating();
-  // }, [rating]);
-  //   console.log(ratings);
+ 
 
   return (
     <>

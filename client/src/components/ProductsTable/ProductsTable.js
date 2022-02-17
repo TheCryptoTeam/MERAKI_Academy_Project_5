@@ -8,7 +8,6 @@ import {
 } from "react-icons/bs";
 import {
   setproducts,
-  addproduct,
   updateproductById,
   deleteProductById,
 } from "../../reducer/products";
