@@ -20,7 +20,7 @@
 - [Getting Started](#getting_started)
 - [Built Using](#built_using)
 - [Acknowlegments](#acknowlegments)
- -[User Story](#user_story)
+ -[Project Management System](#Project Management System)
 - [Guided By](#guided_by)
 
 ## 🧐 About <a name = "about"></a>
