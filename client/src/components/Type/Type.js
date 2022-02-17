@@ -12,7 +12,6 @@ import { addcart } from "../../reducer/cart/carts";
 
 const Type = () => {
   const dispatch = useDispatch();
-  const { brand } = useParams();
   const [elementId, setElementId] = useState([]);
 
   const navigate = useNavigate();
