@@ -32,7 +32,7 @@ const NewProduct = () => {
     };
   });
 
-  const { token, isLoggedIn } = state;
+  const {  isLoggedIn } = state;
 
   const [name, setName] = useState("");
   const [image, setImage] = useState("");

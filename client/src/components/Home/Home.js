@@ -4,11 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Home.css";
 import {
   setproducts,
-  addproduct,
-  updateproductById,
-  deleteProductById,
+  
 } from "../../reducer/products";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
@@ -20,7 +18,7 @@ import { addcart } from "../../reducer/cart/carts";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //component Home
 const Home = () => {
-  const [message, setMessage] = useState("");
+  
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
   const [elementId, setElementId] = useState([]);
@@ -74,7 +72,7 @@ const Home = () => {
     await axios
       .post(`/wishList/${id}`, {}, { headers })
       .then((res) => {
-        setMessage(res.data.massage);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -110,7 +108,7 @@ const Home = () => {
         <img
           className="headerImg"
           src="https://images.pexels.com/photos/4064826/pexels-photo-4064826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
+        alt=""/>
         <div className="address">
           <h1 className="what">
             DIGITAL
@@ -125,7 +123,7 @@ const Home = () => {
         <div className="container1">
           <div className="slides-wrapper">
             <div className="img-container">
-              <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+              <img src="https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
             </div>
             <div className="img-container text">
               <img
@@ -322,7 +320,7 @@ const Home = () => {
               className="imgAbout"
               src="https://images.pexels.com/photos/3563627/pexels-photo-3563627.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
               "
-            />
+             alt=""/>
             <div className="pImg ">
               <div className="pad">
                 <h1>About us</h1>
