@@ -42,7 +42,7 @@ const NewProduct = () => {
   const [price, setPrice] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
-  const [allProducts, setAllProducts] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
 
   const createNewProduct = async (e) => {
     e.preventDefault();
@@ -141,25 +141,25 @@ const NewProduct = () => {
       <div className="mainNewProduct">
         <div className="side">
           <div>
-            <h3>Product</h3>
+            
             <Link to="/productsTable" className="pro3">
               Products
             </Link>
           </div>
           <div>
-            <h3>Users</h3>
+            
             <Link to="/usersTable" className="pro3">
               Users
             </Link>
           </div>
           <div>
-            <h3>New Product</h3>
+           
             <Link to="/newProduct" className="newProduct3">
               New Product
             </Link>
           </div>
           <div>
-            <h3>Logout</h3>
+          
             <Link
               className="auth-button"
               onClick={() => {
