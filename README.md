@@ -1,5 +1,3 @@
-# MERAKI_Academy_Project_5
-
 
 <p align="center">
   <a href="" rel="noopener">
