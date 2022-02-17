@@ -335,9 +335,7 @@ const Home = () => {
 
                 <p>
                   {" "}
-                  this is a market to buy devices there is a lot of type of
-                  devices that we have like laptop and watchs and other so get
-                  started and login now to know more detailes about our website
+                  This is an online market for buying electronic devices. There are a lot of categories such as, laptops and watches..etc. Get started and signup with us now to view more detailes about our website.
                 </p>
               </div>
             </div>

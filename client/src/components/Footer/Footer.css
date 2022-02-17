@@ -33,6 +33,7 @@
 }
 .go:hover {
   background-color: rgb(130, 160, 216);
+  cursor: pointer;
 }
 hr {
   margin-left: 10%;
