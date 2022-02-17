@@ -270,24 +270,25 @@ const ProductsTable = () => {
   return (
     <div className="main">
       <div className="side">
+     
         <div>
-          <h3>Product</h3>
+         
           <Link to="/productsTable" className="pro1">
             Products
           </Link>
         </div>
         <div>
-          <h3>Users</h3>
+          
           <Link to="/usersTable" className="use1">
             Users
           </Link>
         </div>
         <div>
-          <h3>New Product</h3>
+        
           <Link to="/newProduct">New Product</Link>
         </div>
         <div>
-          <h3>Logout</h3>
+         
           <Link
             className="auth-button"
             onClick={() => {
@@ -544,7 +545,7 @@ const ProductsTable = () => {
                     dec();
                   }}
                 >
-                  <BsFillArrowLeftCircleFill />
+                  <BsFillArrowLeftCircleFill  />
                 </h1>
               </>
             )}
@@ -557,7 +558,7 @@ const ProductsTable = () => {
                   inc();
                 }}
               >
-                <BsFillArrowRightCircleFill />
+                <BsFillArrowRightCircleFill   />
               </h1>
             ) : (
               <></>
