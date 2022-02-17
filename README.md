@@ -19,10 +19,12 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Built Using](#built_using)
+- [Project Digram](#project_digram)
 - [Acknowlegments](#acknowlegments)
 -[Project Management System](#Project_Management_System)
 - [Guided By](#guided_by)
 
+ 
 ## 🧐 About <a name = "about"></a>
 
 This is an online market for buying electronic devices.  There are a lot of categories such as, laptops and watches..etc. Get started and signup with us now to view more detailes about our website.
@@ -67,13 +69,15 @@ to run the backend server, use the following command in the root file
 ```
 npm run dev
 ```
+## Project Digram <a name = "project_digram"></a>
+
 ![Diagram](./img/Data.png)
 
 ## Acknowlegments <a name = "acknowlegments"></a>
 
 **[MERAKI Academy](https://www.meraki-academy.org)**
  
-##  Project Management System <a name = "#user_story"></a>
+##  Project Management System <a name = "#Project_Management_System"></a>
 
 
 Trello : https://trello.com/b/qIUBBpwi/crypto-team
