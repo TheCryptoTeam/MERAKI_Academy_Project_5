@@ -6,7 +6,7 @@ import "./Login.css";
 import GoogleLogin from "react-google-login";
 
 //redax
-import { login } from "../../reducer/login/index";
+import { login, role } from "../../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 //********************** */
 
@@ -15,6 +15,7 @@ const Login = () => {
     return {
       isLoggedIn: state.loginReducer.isLoggedIn,
       token: state.loginReducer.token,
+      userRole: state.loginReducer,
     };
   });
   const [userName1, setUserName1] = useState("");
@@ -39,7 +40,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [message, setmessage] = useState("");
-  const role_id = "1";
 
   const navigate = useNavigate();
 
@@ -57,11 +57,16 @@ const Login = () => {
         dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
         localStorage.setItem("userName", result.data.userName);
+
+        dispatch(role(result.data.role));
+
         localStorage.setItem("myRole", result.data.role);
         localStorage.setItem("myUserId", result.data.userId);
         if (result.data.role === 2) {
+          console.log( state.userRole);
           navigate("/ProductsTable");
         } else {
+          console.log(state.userRole);
           navigate("/home");
         }
       })
@@ -82,7 +87,6 @@ const Login = () => {
         role_id: "1",
       });
       if (result.data.success) {
-        navigate("/home");
         body.email = email;
         body.password = "123";
         loginUser();

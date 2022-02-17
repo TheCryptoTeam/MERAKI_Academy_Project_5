@@ -1,4 +1,5 @@
 const initialState = {
+ userRole:"1",
   token: localStorage.getItem("userToken") || "",
   isLoggedIn: localStorage.getItem("userToken") ? true : false,
 };
@@ -17,7 +18,10 @@ const loginReducer = (state = initialState, { type, payload }) => {
         token: "",
         isLoggedIn: false,
       };
-
+    case "ROLE":
+      return {
+        userRole: payload,
+      };
     default:
       return state;
   }
@@ -31,6 +35,9 @@ export const login = (token) => {
   return { type: "LOG_IN", payload: token };
 };
 
+export const role = (role) => {
+  return { type: "ROLE", payload: role };
+};
 export const logout = () => {
   return { type: "LOG_OUT" };
 };
