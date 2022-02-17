@@ -25,7 +25,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This Is A Market To Buy Devices There Is A Lot Of Type Of Devices That We Have Like Laptop And Watchs And Other So Get Started And Login Now To Know More Detailes About Our Website
+This is a market to buy devices there is a lot of type of devices that we have like laptop and watches and other so get started and login now to know more detailes about our website
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
