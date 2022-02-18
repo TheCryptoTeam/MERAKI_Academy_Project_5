@@ -307,7 +307,7 @@ const Brand = () => {
                                         onClick={() => {
                                           Swal.fire({
                                             icon: "success",
-                                            title: "Your work has been saved",
+                                            title: "added successfully to wishList",
                                             showConfirmButton: false,
                                             timer: 1500,
                                           });
@@ -321,6 +321,12 @@ const Brand = () => {
                                         className="t1"
                                         id={element.id}
                                         onClick={() => {
+                                          Swal.fire({
+                                            icon: "success",
+                                            title: "added successfully to wishList",
+                                            showConfirmButton: false,
+                                            timer: 1500,
+                                          });
                                           handlecolor(element);
                                         }}
                                       />
