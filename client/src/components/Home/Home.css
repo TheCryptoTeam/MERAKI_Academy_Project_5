@@ -108,8 +108,23 @@ img {
 
 .address {
   text-align: start;
-  margin-left: 11%;
+  margin-left: 10%;
+  padding-top: 120px;
   font-family: "Poppins", sans-serif;
+}
+.joinus{
+  border: none;
+  border-radius: 5%;
+  background-color: #3f96cd;
+  margin-top: 20px;
+  padding: 10px;
+  width: 180px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.joinus:hover{
+  background-color: #2279af;
+  cursor: pointer;
 }
 
 .type-home {
@@ -149,6 +164,12 @@ img {
   background-color: whitesmoke;
   
 }
+.lineAbout{
+  border-bottom: 5px solid #3f96cd;
+  width: 150px;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+}
 .imgAbout {
   width: 350px;
   height: auto;
@@ -160,27 +181,10 @@ img {
 .pImg {
   padding-top: 200px;
   text-align: start;
+  line-height: 25px;
 }
 @media(max-width: 900px){
-  /* .imgAbout {
-    display: grid; 
-     grid-template-columns: auto  ; 
-    /* padding: 2%; */
-    /* display: flex;
-  justify-content: center;
-  align-items: center; */
-    /* margin-left: 38px;
-    margin-bottom: 39px; */
-/* } */ 
-/* .aboutUs {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: whitesmoke;
   
-} */
 .imgAbout {
  display: flex;
  justify-content: center;
