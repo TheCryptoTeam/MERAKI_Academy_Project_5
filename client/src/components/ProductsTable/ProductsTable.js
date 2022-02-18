@@ -333,7 +333,7 @@ const ProductsTable = () => {
         </div>
         <div className="four">
           <div>
-            <p>categories</p>
+            <p>Categories</p>
           </div>
           <div>
             <p>5</p>

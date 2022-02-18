@@ -3,7 +3,7 @@
 
   font-family: sans-serif;
   display: grid;
-
+background-color: white;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 100px 610px;
   grid-template-areas: "side name name name name name name name" "side  create create create create create create create";
