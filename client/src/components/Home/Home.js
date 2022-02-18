@@ -117,6 +117,8 @@ const Home = () => {
           </h1>
           <br />
           <p className="pNewCollection">NEW VERSION 2022</p>
+          <br/>
+          <button className="joinus" onClick={()=>{navigate("/register")}}>Join us</button>
         </div>
       </div>
 
@@ -234,7 +236,7 @@ const Home = () => {
                                       onClick={() => {
                                         Swal.fire({
                                           icon: "success",
-                                          title: "Your work has been saved",
+                                          title: "Added successfully to wishList",
                                           showConfirmButton: false,
                                           timer: 1500,
                                         });
@@ -248,6 +250,12 @@ const Home = () => {
                                       className="t1"
                                       id={element.id}
                                       onClick={() => {
+                                        Swal.fire({
+                                          icon: "success",
+                                          title: " Added successfully to wishList",
+                                          showConfirmButton: false,
+                                          timer: 1500,
+                                        });
                                         handlecolor(element);
                                       }}
                                     />
@@ -267,7 +275,7 @@ const Home = () => {
                                   onClick={() => {
                                     Swal.fire({
                                       icon: "success",
-                                      title: "Your work has been saved",
+                                      title: "Added successfully to cart",
                                       showConfirmButton: false,
                                       timer: 1500,
                                     });
@@ -330,7 +338,7 @@ const Home = () => {
              alt=""/>
             <div className="pImg ">
               <div className="pad">
-                <h1>About us</h1>
+                <h1 className="lineAbout">About us</h1>
                 <br />
 
                 <p>
