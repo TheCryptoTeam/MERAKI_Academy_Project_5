@@ -177,7 +177,7 @@ const Products = () => {
                         </li>
                         <li>
                           <strong>Price: </strong>
-                          {product.price}
+                          {"$"+product.price}
                         </li>
                       </ul>
                     </div>
