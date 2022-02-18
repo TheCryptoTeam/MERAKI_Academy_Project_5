@@ -260,6 +260,7 @@ font-family: 'EB Garamond', serif;
 }
 .addTo:hover{
 color: red;
+cursor: pointer;
 
 
 }

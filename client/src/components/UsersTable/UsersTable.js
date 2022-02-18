@@ -57,7 +57,7 @@ const UsersTable = () => {
       dispatch(deleteUserById(id));
       getAllUsers();
     } catch (error) {
-      throw(error);
+      throw error;
     }
   };
 
@@ -82,24 +82,20 @@ const UsersTable = () => {
     <div className="mainUsers">
       <div className="side">
         <div>
-          
           <Link to="/productsTable" className="pro">
             Products
           </Link>
         </div>
 
         <div>
-         
           <Link to="/usersTable" className="use">
             Users
           </Link>
         </div>
         <div>
-         
           <Link to="/newProduct">New Product</Link>
         </div>
         <div>
-          
           <Link
             className="auth-button"
             onClick={() => {
@@ -156,11 +152,6 @@ const UsersTable = () => {
                               confirmButtonText: "Yes, delete it!",
                             }).then((result) => {
                               if (result.isConfirmed) {
-                                Swal.fire(
-                                  "Deleted!",
-                                  "Your file has been deleted.",
-                                  "success"
-                                );
                                 deleteUser(user.id);
                               }
                             })
@@ -188,7 +179,7 @@ const UsersTable = () => {
             )}
 
             <span className="pageNumber">{page}</span>
-            { state.products.length ? (
+            {state.products.length ? (
               <h1
                 className="h1Pagination"
                 onClick={() => {

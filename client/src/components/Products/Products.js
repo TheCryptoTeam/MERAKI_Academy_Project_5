@@ -112,6 +112,12 @@ const Products = () => {
                         <BsHeart
                           width={30}
                           onClick={() => {
+                            Swal.fire({
+                              icon: "success",
+                              title: " added successfully to wishList",
+                              showConfirmButton: false,
+                              timer: 1500,
+                            });
                             addToWishList(product.id)
                             handlecolor(product);
                           }}
@@ -122,6 +128,12 @@ const Products = () => {
                           size={30}
                           id={product.id}
                           onClick={() => {
+                            Swal.fire({
+                              icon: "success",
+                              title: "added successfully to wishList",
+                              showConfirmButton: false,
+                              timer: 1500,
+                            });
                             addToWishList(product.id)
                             handlecolor(product);
                           }}

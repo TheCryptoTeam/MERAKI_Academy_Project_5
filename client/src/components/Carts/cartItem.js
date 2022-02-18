@@ -63,12 +63,12 @@ const CartItem = ({ product, getMyCart }) => {
           />
         </div>
         <div className="product-price-container">
-          <p>Product Price</p>
-          <h2>{product.price}</h2>
+          <p>Price</p>
+          <h2>{"$"+product.price}</h2>
         </div>
         <div className="total-container">
           <p>Total</p>
-          <h2>{product.quantity * product.price}</h2>
+          <h2>${product.quantity * product.price}</h2>
         </div>
 
         <button

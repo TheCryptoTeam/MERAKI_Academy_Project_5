@@ -46,7 +46,7 @@ const Carts = () => {
   }, []);
 
   return (
-    <>
+    <div className="cartPage" >
       {show &&
         state.carts.map((product, index) => {
           return (
@@ -75,8 +75,8 @@ const Carts = () => {
         </div>
       ) : (
         <div className="totalDiv">
-          <h2>
-            Total : <span className="total">$ {state.total}</span>
+          <h2 className="totalMoney" >
+            Total : <span className="total">{"$"+state.total}</span>
           </h2>
           <button
             className="paymentBtn"
@@ -88,7 +88,7 @@ const Carts = () => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
