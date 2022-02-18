@@ -167,7 +167,7 @@ const Products = () => {
                             addToCart(product.id);
                           }}
                         >
-                          add to cart
+                          Add To Cart
                         </span>
                       </button>
                     </div>

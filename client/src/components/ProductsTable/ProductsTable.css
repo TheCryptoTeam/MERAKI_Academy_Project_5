@@ -153,6 +153,7 @@
 .insidTable {
   text-align: center;
   display: inline-block;
+  text-transform: capitalize;
 }
 .tr {
   border: 1px solid;
