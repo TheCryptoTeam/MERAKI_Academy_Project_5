@@ -18,7 +18,7 @@ const createNewAuthor = async (req, res) => {
     if (err) {
       return res.status(409).json({
         success: false,
-        massage: "The email already exists",
+        massage: "have a problem with the register",
         err: err,
       });
     }

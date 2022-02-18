@@ -21,13 +21,13 @@ const Comment = ({ id }) => {
   }, []);
 
   //===============================================================
-  const { token, isLoggedIn } = state;
+
   const userName = localStorage.getItem("userName");
 
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState(false);
+  
 
   const createNewComment = async () => {
     const body = {
@@ -40,14 +40,14 @@ const Comment = ({ id }) => {
       .post(`/productes/${id}/comments`, body, { headers })
       .then((res) => {
         if (res.data.success) {
-          setStatus(true);
+         
 
           setMessage(res.data.massege);
           getComments();
         }
       })
       .catch((err) => {
-        setStatus(false);
+        
 
         setMessage(err.response.data.massege);
       });
@@ -58,13 +58,13 @@ const Comment = ({ id }) => {
       .get(`/productes/${id}/comments`)
       .then((res) => {
         if (res.data.success) {
-          setStatus(true);
+        
           setComments(res.data.comments);
           setMessage(res.data.massege);
         }
       })
       .catch((err) => {
-        setStatus(false);
+        
 
         setMessage(err.response.data.massege);
       });
@@ -75,7 +75,7 @@ const Comment = ({ id }) => {
       .delete(`/productes/${id}/comments`)
       .then((res) => {
         if (res.data.success) {
-          setStatus(true);
+         
 
           getComments();
 
@@ -83,14 +83,14 @@ const Comment = ({ id }) => {
         }
       })
       .catch((err) => {
-        setStatus(false);
+       
 
         setMessage(err.response.data.massege);
       });
   };
   return (
     <>
-      {isLoggedIn ? (
+      {state.isLoggedIn ? (
         <div className="writeComment-continar">
           <div className="writeComment">
             <input
