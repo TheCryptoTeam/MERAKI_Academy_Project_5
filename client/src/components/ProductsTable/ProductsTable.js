@@ -338,10 +338,10 @@ const ProductsTable = () => {
         </div>
         <div className="four">
           <div>
-            <p>Suppliers</p>
+            <p>categories</p>
           </div>
           <div>
-            <p>55</p>
+            <p>5</p>
           </div>
         </div>
       </div>
@@ -551,7 +551,7 @@ const ProductsTable = () => {
             )}
 
             <span className="pageNumber">{page}</span>
-            {skip < state.products.length ? (
+            { state.products.length ? (
               <h1
                 className="h1Pagination"
                 onClick={() => {
