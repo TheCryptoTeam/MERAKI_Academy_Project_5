@@ -36,7 +36,7 @@ const Navigation = ({ setProductName }) => {
         <>
           {role === "1" ? (
             <>
-              <div className={navbar ? "navigation" : "navigation"}>
+              <div className= "navigation">
                 <div className="logoCrypto">
                   <Link to="/home">
                     <img
@@ -99,17 +99,29 @@ const Navigation = ({ setProductName }) => {
         </>
       ) : (
         <>
-          <div className={navbar ? "navigation" : "navigation"}>
+          <div className="navigation">
             <div>
               <div className="NavNoToken">
                 <div>
-                  <Link to="/">Home</Link>
+                <div className="logoCrypto1">
+                  <Link to="/home">
+                    <img
+                      id="design-logo"
+                      className="logoWithoutLogin"
+                      src="https://res.cloudinary.com/cryptoteam/image/upload/v1644916542/s6s5uvrbwcb3nbisvoiw.svg
+"
+                      alt="home"
+                    />
+                  </Link>
+                </div>
+                <div className="endNav">
                   <Link className="auth-button" to="/login">
                     Login
                   </Link>
                   <Link className="auth-button" to="/register">
                     Register
                   </Link>
+                  </div>
                 </div>
               </div>
             </div>

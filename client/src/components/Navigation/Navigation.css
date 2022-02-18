@@ -12,7 +12,6 @@
   z-index: 2;
   top: 0px;
   box-shadow: 5px 4px 8px #88888878;
-  
 }
 
 .logoCrypto {
@@ -26,9 +25,8 @@
   justify-content: space-evenly;
   display: flex;
   align-items: center;
-  
 }
-#design-logo{
+#design-logo {
   width: 70%;
   /* height: 68%; */
   cursor: pointer;
@@ -44,7 +42,7 @@ a {
 a:hover {
   color: #3f96cd;
 }
-#nav-heart:hover{
+#nav-heart:hover {
   color: red;
 }
 .serach-continar {
@@ -83,52 +81,72 @@ a:hover {
   display: flex;
 }
 .NavNoToken div {
-  width: 30%;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  margin-right: 10px;
 }
-.searchIcon{
+.searchIcon {
   margin: 15px;
 }
 
-#BsCart3{
+#BsCart3 {
   position: relative;
   height: 100%;
 }
-.num-Cart{
+.num-Cart {
   position: absolute;
-    top: 7%;
-    right: 11.3%;
+  top: 7%;
+  right: 11.3%;
 }
 
-.number{
- position: absolute;
- top: 1.5%;
-    right: 10.1%;
- width: 20px;
- height: 20px;
- border-radius: 50%;
- display: flex;
- justify-content: center;
- align-items: center;
- font-size: 15px;
- font-weight: 600;
- color: #fff;
+.number {
+  position: absolute;
+  top: 1.5%;
+  right: 10.1%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
   transition: all 0.3s ease-out;
-} 
-    .background{
-      position: absolute;
-      top: 1.5%;
-    right: 10.1%;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 25px;
-      font-weight: 600;
-      background-color: #fc565a !important;
-      color: #fff;
-      transform: scale(1);
-  }
+}
+.background {
+  position: absolute;
+  top: 1.5%;
+  right: 10.1%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 600;
+  background-color: #fc565a !important;
+  color: #fff;
+  transform: scale(1);
+}
+
+.logoCrypto1 {
+  justify-content: flex-start;
+  display: flex;
+  padding: 15px 0px;
+  align-items: center;
+}
+.logoWithoutLogin {
+  position: absolute;
+  left: -405px;
+  top: 8px;
+  height: 40px;
+  
+}
+.endNav{
+  padding: 8px 0;
+}
