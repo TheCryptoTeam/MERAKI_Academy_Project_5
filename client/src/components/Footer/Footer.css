@@ -30,6 +30,7 @@
   background-color:rgb(164, 177, 218);
   border: none;
   color: black;
+  cursor: pointer;
 }
 .go:hover {
   background-color: rgb(130, 160, 216);
@@ -43,6 +44,10 @@ hr {
   font-size: 25px;
   display: grid;
   grid-template-columns: auto auto auto;
+}
+.icon1:hover{
+  color: rgb(83, 83, 172);
+  cursor: pointer;
 }
 .icon1 {
   padding-top: 10px;
