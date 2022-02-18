@@ -270,25 +270,20 @@ const ProductsTable = () => {
   return (
     <div className="main">
       <div className="side">
-     
         <div>
-         
           <Link to="/productsTable" className="pro1">
             Products
           </Link>
         </div>
         <div>
-          
           <Link to="/usersTable" className="use1">
             Users
           </Link>
         </div>
         <div>
-        
           <Link to="/newProduct">New Product</Link>
         </div>
         <div>
-         
           <Link
             className="auth-button"
             onClick={() => {
@@ -470,7 +465,7 @@ const ProductsTable = () => {
                             onChange={(e) => setPrice(e.target.value)}
                           />
                         ) : (
-                          ele.price
+                          "$" + ele.price
                         )}
                       </td>
 
@@ -519,11 +514,6 @@ const ProductsTable = () => {
                               confirmButtonText: "Yes, delete it!",
                             }).then((result) => {
                               if (result.isConfirmed) {
-                                Swal.fire(
-                                  "Deleted!",
-                                  "Your file has been deleted.",
-                                  "success"
-                                );
                                 deleteProduct(ele.id);
                               }
                             })
@@ -545,20 +535,20 @@ const ProductsTable = () => {
                     dec();
                   }}
                 >
-                  <BsFillArrowLeftCircleFill  />
+                  <BsFillArrowLeftCircleFill />
                 </h1>
               </>
             )}
 
             <span className="pageNumber">{page}</span>
-            { state.products.length ? (
+            {state.products.length ? (
               <h1
                 className="h1Pagination"
                 onClick={() => {
                   inc();
                 }}
               >
-                <BsFillArrowRightCircleFill   />
+                <BsFillArrowRightCircleFill />
               </h1>
             ) : (
               <></>
