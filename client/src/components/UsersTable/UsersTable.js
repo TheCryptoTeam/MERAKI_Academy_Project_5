@@ -188,7 +188,7 @@ const UsersTable = () => {
             )}
 
             <span className="pageNumber">{page}</span>
-            {skip < state.products.length ? (
+            { state.products.length ? (
               <h1
                 className="h1Pagination"
                 onClick={() => {
