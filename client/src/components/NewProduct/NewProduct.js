@@ -32,7 +32,7 @@ const NewProduct = () => {
     };
   });
 
-  const {  isLoggedIn } = state;
+  const { isLoggedIn } = state;
 
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -43,6 +43,11 @@ const NewProduct = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
+  const [laptops, setLaptops] = useState([]);
+  const [tvs, setTVs] = useState([]);
+  const [mobiles, setMobiles] = useState([]);
+  const [watches, setWatches] = useState([]);
+  const [camera, setcamera] = useState([]);
 
   const createNewProduct = async (e) => {
     e.preventDefault();
@@ -61,6 +66,9 @@ const NewProduct = () => {
         if (res.data.success) {
           setStatus(true);
           dispatch(addproduct(product));
+          getProductsNoLimit();
+          categories();
+          
 
           Swal.fire({
             icon: "success",
@@ -75,50 +83,119 @@ const NewProduct = () => {
         setMessage(err.response.data.massege);
       });
   };
+
+  //====================================
+  const getLaptosp = () => {
+    axios
+
+      .get(`/products/type/laptop`)
+      .then((result) => {
+        setLaptops(result.data.products);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+
+  //=======================================
+  const getTVs = () => {
+    axios
+
+      .get(`/products/type/TV`)
+      .then((result) => {
+        setTVs(result.data.products);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+  //==================================================
+  const getMobiles = () => {
+    axios
+
+      .get(`/products/type/mobile`)
+      .then((result) => {
+        setMobiles(result.data.products);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+  //========================================================
+  const getWathces = () => {
+    axios
+
+      .get(`/products/type/watch`)
+      .then((result) => {
+        setWatches(result.data.products);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+  //========================================================
+  const getcamera = () => {
+    axios
+
+      .get(`/products/type/camera`)
+      .then((result) => {
+        setcamera(result.data.products);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+
+  //=============================
+  const categories = () => {
+    getLaptosp();
+    getTVs();
+    getMobiles();
+    getWathces();
+    getcamera();
+  };
   //=========================
   useEffect(() => {
-    if (!isLoggedIn) {
-      history("/home");
-    }
     getProductsNoLimit();
-  });
+    categories()
+  }, []);
 
   //====================================================
   const data = [
     {
       name: "Laptop",
-      uv: 800,
-      pv: 1400,
-      amt: 1400,
-      cnt: 800,
+      uv: 8,
+      pv: laptops.length,
+      amt: laptops.length,
+      cnt: 8,
     },
     {
       name: "Mobile",
-      uv: 700,
-      pv: 1250,
-      amt: 1250,
-      cnt: 700,
+      uv: 7,
+      pv: mobiles.length,
+      amt: mobiles.length,
+      cnt: 7,
     },
     {
       name: "TV",
-      uv: 600,
-      pv: 700,
-      amt: 700,
-      cnt: 600,
+      uv: 6,
+      pv: tvs.length,
+      amt: tvs.length,
+      cnt: 6,
     },
     {
       name: "Wathces",
-      uv: 900,
-      pv: 1200,
-      amt: 1200,
-      cnt: 900,
+      uv: 7,
+      pv: watches.length,
+      amt: watches.length,
+      cnt: 7,
     },
     {
       name: "Camera",
-      uv: 650,
-      pv: 900,
-      amt: 900,
-      cnt: 650,
+      uv: 6,
+      pv: camera.length,
+      amt: camera.length,
+      cnt: 6,
     },
   ];
 
@@ -141,25 +218,21 @@ const NewProduct = () => {
       <div className="mainNewProduct">
         <div className="side">
           <div>
-            
             <Link to="/productsTable" className="pro3">
               Products
             </Link>
           </div>
           <div>
-            
             <Link to="/usersTable" className="pro3">
               Users
             </Link>
           </div>
           <div>
-           
             <Link to="/newProduct" className="newProduct3">
               New Product
             </Link>
           </div>
           <div>
-          
             <Link
               className="auth-button"
               onClick={() => {

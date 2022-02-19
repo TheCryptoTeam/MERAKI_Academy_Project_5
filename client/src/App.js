@@ -88,8 +88,8 @@ const App = () => {
           }
         />
         <Route path="/payment" element={<StripePayment />} />
-        {/* <Route
-          path="*"
+        <Route
+         path='*' exact={true}
           element={
             <>
               <img
@@ -99,7 +99,7 @@ const App = () => {
               />
             </>
           }
-        /> */}
+        />
       </Routes>
       <Footer />
     </div>
