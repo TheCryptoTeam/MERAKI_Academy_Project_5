@@ -73,7 +73,7 @@ const Footer = () => {
               onClick={() => {
                 Swal.fire({
                   icon: "success",
-                  title: "Your work has been saved",
+                  title: "massage has been sent",
                   showConfirmButton: false,
                   timer: 1500,
                 });
