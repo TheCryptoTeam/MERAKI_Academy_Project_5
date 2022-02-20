@@ -15,6 +15,7 @@
 ## 📝 Table of Contents
 
 - [About](#about)
+- [Demo](#demo)
 - [Getting Started](#getting_started)
 - [Built Using](#built_using)
 - [Project Digram](#project_digram)
@@ -26,6 +27,10 @@
 ## 🧐 About <a name = "about"></a>
 
 This is an online market for buying electronic devices.  There are a lot of categories such as, laptops and watches..etc. Get started and signup with us now to view more detailes about our website.
+
+## Demo <a name = "demo"></a>
+
+http://e-commerce-crypto.herokuapp.com/
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project and run it on your local machine for development and testing purposes.
