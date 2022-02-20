@@ -14,3 +14,16 @@
 #loginR:hover {
   color: #ff4136;
 }
+
+.logged-img{
+  width: 35%;
+  height: 35%;
+  object-fit: cover;
+ 
+}
+.logged {
+  margin: 25px;;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #338FFF;
+}
