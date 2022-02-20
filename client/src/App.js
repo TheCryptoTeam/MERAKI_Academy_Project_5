@@ -35,7 +35,7 @@ const App = () => {
         <Route
           path="/newProduct"
           element={
-            role == 2 ? (
+            role === "2" ? (
               <NewProduct />
             ) : (
               <>
@@ -58,7 +58,7 @@ const App = () => {
         <Route
           path="/productsTable"
           element={
-            role == 2 ? (
+            role === "2" ? (
               <ProductsTable />
             ) : (
               <>
@@ -74,7 +74,7 @@ const App = () => {
         <Route
           path="/usersTable"
           element={
-            role == 2 ? (
+            role === "2" ? (
               <UsersTable />
             ) : (
               <>
