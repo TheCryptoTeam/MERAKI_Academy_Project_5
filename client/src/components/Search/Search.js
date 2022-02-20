@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setproducts,
-  addproduct,
-  updateproductById,
-  deleteProductById,
+  setproducts
 } from "../../reducer/products";
 import { useNavigate } from "react-router-dom";
 import { BsHeart, BsCartPlus } from "react-icons/bs";
@@ -16,7 +13,7 @@ const Search = ({ productName }) => {
   const [elementId, setElementId] = useState([]);
 
   const navigate = useNavigate();
-  const [search, setSearch] = useState("");
+  
   const dispatch = useDispatch();
   const [show, setShow] = useState(0);
   const state = useSelector((state) => {
