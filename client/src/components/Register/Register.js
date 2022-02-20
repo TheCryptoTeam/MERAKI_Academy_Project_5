@@ -117,7 +117,14 @@ const Register = () => {
           </div>
         </>
       ) : (
-        <p>Logout First</p>
+        <div className="logoutFirst">
+          <img className="logged-img"
+          src="https://res.cloudinary.com/cryptoteam/image/upload/v1645384489/gxu2izckgpjb6gxtfv7g.svg" 
+          alt="Logout first"
+        />
+          <p className="logged">You are already logged in</p>
+        </div>
+        
       )}
     </>
   );
