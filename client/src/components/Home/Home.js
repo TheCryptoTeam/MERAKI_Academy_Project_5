@@ -118,7 +118,8 @@ const Home = () => {
           <br />
           <p className="pNewCollection">NEW VERSION 2022</p>
           <br/>
-          <button className="joinus" onClick={()=>{navigate("/register")}}>Join us</button>
+          {state.isLoggedIn ? <></>: <button className="joinus" onClick={()=>{navigate("/register")}}>Join us</button>}
+         
         </div>
       </div>
 
