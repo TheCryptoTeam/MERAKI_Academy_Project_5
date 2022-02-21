@@ -52,15 +52,18 @@ const CartItem = ({ product, getMyCart }) => {
 
         <div className="quantity-container">
           <p>Quantity</p>
-
-          <input
-            type="number"
-            defaultValue={product.quantity}
-            min="1"
-            onChange={(e) => {
-              setQuantity(e.target.value);
-            }}
-          />
+          <div className="setQuantity">
+            
+          {product.quantity > 1 ? <button onClick={(e) => {
+              setQuantity(--product.quantity);
+            }}> &mdash;</button>: <span></span>}
+          
+          <h3>{product.quantity}</h3>
+         
+          {product.quantity < 9?<button onClick={(e) => {
+              setQuantity(++product.quantity);
+            }}> &#xff0b;</button>:  <span></span>}
+          </div>
         </div>
         <div className="product-price-container">
           <p>Price</p>
