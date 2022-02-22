@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Navigation.css";
 import { BsSearch } from "react-icons/bs";
 import { BsHeart, BsCart3 } from "react-icons/bs";
-import { useState } from "react";
+
 import { MdLogout } from "react-icons/md";
 
 const Navigation = ({ setProductName }) => {
-  const [navbar, setNabar] = useState(false);
   const dispatch = useDispatch();
   const history = useNavigate();
   const role = localStorage.getItem("myRole");
@@ -21,22 +20,13 @@ const Navigation = ({ setProductName }) => {
   });
 
   //====================================
-  const changeNavbar = () => {
-    if (window.scrollY >= 100) {
-      setNabar(true);
-    } else {
-      setNabar(false);
-    }
-  };
-  window.addEventListener("scroll", changeNavbar);
-  //====================================
   return (
     <>
       {state.isLoggedIn ? (
         <>
           {role === "1" ? (
             <>
-              <div className= "navigation">
+              <div className="navigation">
                 <div className="logoCrypto">
                   <Link to="/home">
                     <img
@@ -103,24 +93,24 @@ const Navigation = ({ setProductName }) => {
             <div>
               <div className="NavNoToken">
                 <div>
-                <div className="logoCrypto1">
-                  <Link to="/home">
-                    <img
-                      id="design-logo"
-                      className="logoWithoutLogin"
-                      src="https://res.cloudinary.com/cryptoteam/image/upload/v1644916542/s6s5uvrbwcb3nbisvoiw.svg
+                  <div className="logoCrypto1">
+                    <Link to="/home">
+                      <img
+                        id="design-logo"
+                        className="logoWithoutLogin"
+                        src="https://res.cloudinary.com/cryptoteam/image/upload/v1644916542/s6s5uvrbwcb3nbisvoiw.svg
 "
-                      alt="home"
-                    />
-                  </Link>
-                </div>
-                <div className="endNav">
-                  <Link className="auth-button" to="/login">
-                    Login
-                  </Link>
-                  <Link className="auth-button" to="/register">
-                    Register
-                  </Link>
+                        alt="home"
+                      />
+                    </Link>
+                  </div>
+                  <div className="endNav">
+                    <Link className="auth-button" to="/login">
+                      Login
+                    </Link>
+                    <Link className="auth-button" to="/register">
+                      Register
+                    </Link>
                   </div>
                 </div>
               </div>
