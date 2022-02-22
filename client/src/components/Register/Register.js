@@ -22,7 +22,6 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const role_id = "1";
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState(false);
 
   // =================================================================
 
@@ -36,12 +35,10 @@ const Register = () => {
         role_id,
       });
       if (result.data.success) {
-        setStatus(true);
         setMessage("The user has been created successfully");
         navigate("/login");
       } else throw Error;
     } catch (error) {
-      setStatus(false);
       if (error.response && error.response.data) {
         return setMessage(error.response.data.massage);
       }
@@ -118,13 +115,13 @@ const Register = () => {
         </>
       ) : (
         <div className="logoutFirst">
-          <img className="logged-img"
-          src="https://res.cloudinary.com/cryptoteam/image/upload/v1645384489/gxu2izckgpjb6gxtfv7g.svg" 
-          alt="Logout first"
-        />
+          <img
+            className="logged-img"
+            src="https://res.cloudinary.com/cryptoteam/image/upload/v1645384489/gxu2izckgpjb6gxtfv7g.svg"
+            alt="Logout first"
+          />
           <p className="logged">You are already logged in</p>
         </div>
-        
       )}
     </>
   );
