@@ -107,7 +107,7 @@ const WishLists = () => {
                         </div>
 
                         <div className="box-down">
-                          <a className="cart h-bg">
+                          <p className="cart h-bg">
                             <span className="price">{element.price}$</span>
 
                             <span className="p-name padName">
@@ -149,7 +149,7 @@ const WishLists = () => {
                               />
                             </span>
                             <span className="add-to-cart">{element.name}</span>
-                          </a>
+                          </p>
                         </div>
                       </div>
                     </div>
