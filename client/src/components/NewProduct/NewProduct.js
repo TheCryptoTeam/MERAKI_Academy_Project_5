@@ -32,7 +32,7 @@ const NewProduct = () => {
     };
   });
 
-  const { isLoggedIn } = state;
+  
 
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -68,7 +68,6 @@ const NewProduct = () => {
           dispatch(addproduct(product));
           getProductsNoLimit();
           categories();
-          
 
           Swal.fire({
             icon: "success",
@@ -157,7 +156,7 @@ const NewProduct = () => {
   //=========================
   useEffect(() => {
     getProductsNoLimit();
-    categories()
+    categories();
   }, []);
 
   //====================================================
