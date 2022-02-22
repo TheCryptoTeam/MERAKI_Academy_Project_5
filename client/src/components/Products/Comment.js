@@ -26,7 +26,7 @@ const Comment = ({ id }) => {
 
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
-  const [message, setMessage] = useState("");
+  
   
 
   const createNewComment = async () => {
@@ -42,14 +42,14 @@ const Comment = ({ id }) => {
         if (res.data.success) {
          
 
-          setMessage(res.data.massege);
+        
           getComments();
         }
       })
       .catch((err) => {
-        
+        throw err;
 
-        setMessage(err.response.data.massege);
+     
       });
   };
 
@@ -60,13 +60,13 @@ const Comment = ({ id }) => {
         if (res.data.success) {
         
           setComments(res.data.comments);
-          setMessage(res.data.massege);
+         
         }
       })
       .catch((err) => {
         
 
-        setMessage(err.response.data.massege);
+       throw err;
       });
   };
 
@@ -79,13 +79,13 @@ const Comment = ({ id }) => {
 
           getComments();
 
-          setMessage(res.data.massege);
+        
         }
       })
       .catch((err) => {
        
 
-        setMessage(err.response.data.massege);
+        throw err;
       });
   };
   return (
@@ -120,7 +120,7 @@ const Comment = ({ id }) => {
                     <p className="block pComment">{comment.comment}</p>
                   </div>
 
-                  {userName == comment.commenter ? (
+                  {userName === comment.commenter ? (
                     <AiOutlineDelete
                       size={35}
                       className="delComment"

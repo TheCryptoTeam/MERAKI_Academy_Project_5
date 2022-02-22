@@ -267,7 +267,7 @@ const Home = () => {
                           </div>
 
                           <div className="box-down">
-                            <a className="cart h-bg">
+                            <p className="cart h-bg">
                               <span className="price">{"$" + element.price}</span>
 
                               <span className="p-name padName">
@@ -288,7 +288,7 @@ const Home = () => {
                                 </span>
                                 <span className="add-to-cart">{element.name}</span>
                               </span>
-                            </a>
+                            </p>
                           </div>
                         </div>
                       </div>

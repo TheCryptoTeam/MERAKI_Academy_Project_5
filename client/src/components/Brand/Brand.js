@@ -307,7 +307,8 @@ const Brand = () => {
                                         onClick={() => {
                                           Swal.fire({
                                             icon: "success",
-                                            title: "added successfully to wishList",
+                                            title:
+                                              "added successfully to wishList",
                                             showConfirmButton: false,
                                             timer: 1500,
                                           });
@@ -323,7 +324,8 @@ const Brand = () => {
                                         onClick={() => {
                                           Swal.fire({
                                             icon: "success",
-                                            title: "added successfully to wishList",
+                                            title:
+                                              "added successfully to wishList",
                                             showConfirmButton: false,
                                             timer: 1500,
                                           });
@@ -341,8 +343,10 @@ const Brand = () => {
                                 <div className="h-bg-inner"></div>
                               </div>
 
-                              <a className="cart h-bg">
-                                <span className="price">{"$" + element.price}</span>
+                              <p className="cart h-bg">
+                                <span className="price">
+                                  {"$" + element.price}
+                                </span>
 
                                 <span className="p-name padName">
                                   <span
@@ -367,7 +371,7 @@ const Brand = () => {
                                     {element.name}
                                   </span>
                                 </span>
-                              </a>
+                              </p>
                             </div>
                           </div>
                         </div>
