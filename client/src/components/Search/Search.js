@@ -79,7 +79,7 @@ const Search = ({ productName }) => {
     <div>
       <div>
         <div>
-          {show == 1 ? (
+          {show === 1 ? (
             state.products.map((element, index) => {
               return (
                 <div>
@@ -141,7 +141,7 @@ const Search = ({ productName }) => {
                             </div>
 
                             <div className="box-down">
-                              <a className="cart h-bg">
+                              <p className="cart h-bg">
                                 <span className="price">{"$" + element.price}</span>
 
                                 <span className="p-name padName">
@@ -167,7 +167,7 @@ const Search = ({ productName }) => {
                                     {element.name}
                                   </span>
                                 </span>
-                              </a>
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -177,7 +177,7 @@ const Search = ({ productName }) => {
                 </div>
               );
             })
-          ) : show == 2 ? (
+          ) : show === 2 ? (
             <>
               <img
                 className="notFound"
