@@ -7,23 +7,16 @@ import GoogleLogin from "react-google-login";
 
 //redax
 import { login } from "../../reducer/login/index";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 //********************** */
 
 const Login = () => {
-  const state = useSelector((state) => {
-    return {
-      isLoggedIn: state.loginReducer.isLoggedIn,
-      token: state.loginReducer.token,
-    };
-  });
-  const [userName1, setUserName1] = useState("");
+ 
+
   const onSuccess = (response) => {
     dispatch(login(response.tokenId));
     localStorage.setItem("userToken", response.tokenId);
-    setUserName1(response.profileObj.name);
 
-    setEmailGoogle(response.profileObj.email);
     localStorage.setItem("userName", response.profileObj.name);
     navigate("/home");
 
@@ -35,11 +28,10 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
-  const [emailGoogle, setEmailGoogle] = useState("");
+
   const [password, setPassword] = useState("");
 
   const [message, setmessage] = useState("");
-  const role_id = "1";
 
   const navigate = useNavigate();
 
