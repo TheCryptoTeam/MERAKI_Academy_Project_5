@@ -1,14 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { deleteCartstById, updateCarttById } from "../../reducer/cart/carts";
 import Swal from "sweetalert2";
 const CartItem = ({ product, getMyCart }) => {
-  const state = useSelector((state) => {
-    return { total: state.cartsReducer.total };
-  });
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(product?.quantity);
@@ -53,25 +50,42 @@ const CartItem = ({ product, getMyCart }) => {
         <div className="quantity-container">
           <p>Quantity</p>
           <div className="setQuantity">
-            
-          {product.quantity > 1 ? <button onClick={(e) => {
-              setQuantity(--product.quantity);
-            }}> &mdash;</button>: <span></span>}
-          
-          <h3>{product.quantity}</h3>
-         
-          {product.quantity < 9?<button onClick={(e) => {
-              setQuantity(++product.quantity);
-            }}> &#xff0b;</button>:  <span></span>}
+            {product.quantity > 1 ? (
+              <button
+                onClick={(e) => {
+                  setQuantity(--product.quantity);
+                }}
+              >
+                {" "}
+                &mdash;
+              </button>
+            ) : (
+              <span></span>
+            )}
+
+            <h3>{product.quantity}</h3>
+
+            {product.quantity < 9 ? (
+              <button
+                onClick={(e) => {
+                  setQuantity(++product.quantity);
+                }}
+              >
+                {" "}
+                &#xff0b;
+              </button>
+            ) : (
+              <span></span>
+            )}
           </div>
         </div>
         <div className="product-price-container">
           <p>Price</p>
-          <h2>{"$"+product.price}</h2>
+          <h2>{"$" + product.price}</h2>
         </div>
         <div className="total-container">
           <p>Total</p>
-          <h2>${product.quantity * product.price}</h2>
+          <h2>{"$" + product.quantity * product.price}</h2>
         </div>
 
         <button
