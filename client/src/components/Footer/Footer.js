@@ -4,7 +4,7 @@ import { ImGooglePlus3 } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import { useDispatch, useSelector } from "react-redux";
+
 import Swal from "sweetalert2";
 
 import { init } from "@emailjs/browser";
@@ -12,15 +12,8 @@ init("user_SBk74LXiwtQFn10I8H4vW");
 
 const Footer = () => {
   const [txtFeedBack, setTxtFeedBack] = useState("");
-  const dispatch = useDispatch();
+
   const form = useRef();
-  const state = useSelector((state) => {
-    return {
-      token: state.loginReducer.token,
-      products: state.productsReducer.products,
-      isLoggedIn: state.loginReducer.isLoggedIn,
-    };
-  });
 
   const sendEmail = (e) => {
     e.preventDefault();
