@@ -19,7 +19,6 @@ const Rating = () => {
   });
 
   const avarageCalc = () => {
-
     let result = 0;
     for (let i = 0; i < ratings.length; i++) {
       const element = ratings[i];
@@ -47,7 +46,6 @@ const Rating = () => {
       }
     }
     if (isVoted) {
-    
       const headers = {
         Authorization: `Bearer ${state.token}`,
       };
@@ -76,7 +74,7 @@ const Rating = () => {
         }
       })
       .catch((err) => {
-        throw(err);
+        throw err;
       });
   };
 
@@ -87,8 +85,6 @@ const Rating = () => {
   useEffect(() => {
     avarageCalc();
   }, [ratings]);
-
- 
 
   return (
     <>
