@@ -95,4 +95,4 @@ Trello : https://trello.com/b/qIUBBpwi/crypto-team
 
 ## ⚠️ Guided By <a name = "guided_by"></a>
 
-This project is guided by ©️ **[Crypto Team](https://github.com/TheCryptoTeam)**
+This project is guided by ©️ **[MERAKI Academy](https://www.meraki-academy.org)**
