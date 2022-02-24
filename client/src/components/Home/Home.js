@@ -205,7 +205,7 @@ const Home = () => {
         {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
         <div className="products">
-          {show &&
+          {show && state.products &&
             state.products.map((element,index) => {
               return (
                 <div key={index}>
