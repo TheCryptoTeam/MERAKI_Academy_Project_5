@@ -48,12 +48,7 @@ These instructions will get you a copy of the project and run it on your local m
 clone the repository to your local machin
 ```
 https://github.com/TheCryptoTeam/MERAKI_Academy_Project_5
-```
-You need to make sure that there is a **package.json** file
-if the apackage.json doesn't exist, run the following commands 
-```
-npm init -y
-npm install
+
 ```
 open root folder and install required packages
 ```
