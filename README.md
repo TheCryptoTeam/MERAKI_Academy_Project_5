@@ -30,7 +30,7 @@ This is an online market for buying electronic devices.  There are a lot of cate
 
 ## Demo <a name = "demo"></a>
 
-http://e-commerce-crypto.herokuapp.com/
+http://e-commerce-crypto.herokuapp.com/ (database closed)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project and run it on your local machine for development and testing purposes.
@@ -47,7 +47,7 @@ These instructions will get you a copy of the project and run it on your local m
 
 clone the repository to your local machin
 ```
-https://github.com/TheCryptoTeam/MERAKI_Academy_Project_5 (database closed)
+https://github.com/TheCryptoTeam/MERAKI_Academy_Project_5 
 
 ```
 open root folder and install required packages
