@@ -47,7 +47,7 @@ These instructions will get you a copy of the project and run it on your local m
 
 clone the repository to your local machin
 ```
-https://github.com/TheCryptoTeam/MERAKI_Academy_Project_5
+https://github.com/TheCryptoTeam/MERAKI_Academy_Project_5 (database closed)
 
 ```
 open root folder and install required packages
