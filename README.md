@@ -23,6 +23,7 @@
 - [Project Management System](#Project_Management_System)
 - [Guided By](#guided_by)
 
+
  
 ## 🧐 About <a name = "about"></a>
 
@@ -30,7 +31,7 @@ This is an online market for buying electronic devices.  There are a lot of cate
 
 ## Demo <a name = "demo"></a>
 
-http://e-commerce-crypto.herokuapp.com/ (database closed)
+http://e-commerce-crypto.herokuapp.com  (database closed)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project and run it on your local machine for development and testing purposes.
