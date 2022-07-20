@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://res.cloudinary.com/cryptoteam/image/upload/v1644916542/s6s5uvrbwcb3nbisvoiw.svg" alt="Project logo"></a>
+  <img width=200px height=200px src="https://res.cloudinary.com/cryptoteam/image/upload/v1644916542/s6s5uvrbwcb3nbisvoiw.svg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Crypto</h3>
@@ -27,11 +27,11 @@
  
 ## 🧐 About <a name = "about"></a>
 
-This is an online market for buying electronic devices.  There are a lot of categories such as, laptops and watches..etc. Get started and signup with us now to view more detailes about our website.
+This is an online market for buying electronic devices. There are a lot of categories such as, laptops and watches..etc. Get started and signup with us now to view more detailes about our website.
 
 ## Demo <a name = "demo"></a>
 
-http://e-commerce-crypto.herokuapp.com  (database closed)
+http://e-commerce-crypto.herokuapp.com    (database closed)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project and run it on your local machine for development and testing purposes.
